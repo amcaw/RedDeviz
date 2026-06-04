@@ -1,7 +1,5 @@
 import adapter from '@sveltejs/adapter-static';
 
-const dev = process.argv.includes('dev');
-
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	compilerOptions: {
@@ -15,9 +13,10 @@ const config = {
 			assets: 'build',
 			fallback: '404.html'
 		}),
-		// Served from https://amcaw.github.io/RedDeviz/ in production.
+		// Base path is injected by the deploy workflow (BASE_PATH=/RedDeviz);
+		// empty in local dev.
 		paths: {
-			base: dev ? '' : '/RedDeviz'
+			base: process.env.BASE_PATH ?? ''
 		}
 	}
 };
