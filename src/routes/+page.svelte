@@ -506,6 +506,7 @@
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: 7; /* above the viz (z-5) so its links are clickable */
     text-align: center;
     font-size: 11px;
     color: #94a3b8;
