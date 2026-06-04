@@ -297,7 +297,8 @@
   .viz {
     position: relative;
     z-index: 5;
-    max-width: 860px;
+    width: 100%;
+    max-width: 980px;
     margin: 0 auto;
   }
   /* bilan: left-aligned, stacked below the title */
@@ -527,6 +528,9 @@
   /* On mobile the top-left ring is dense, so the overlaid legend collides with
      the dots. Drop it (and the zoom controls) into normal flow below the viz. */
   @media (max-width: 720px) {
+    main {
+      padding: 16px 10px 32px; /* tighter gutters → more room for the viz */
+    }
     .legend {
       position: static;
       margin: 16px 0 0;

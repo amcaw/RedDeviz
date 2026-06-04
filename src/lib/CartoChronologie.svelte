@@ -205,7 +205,7 @@
       d: yearArc(y),
       fill: yearFill(yearCounts.get(y) ?? 0),
       // when a series is highlighted, grey out the years it doesn't touch
-      faded: hasHighlight && !highlightYears.has(y),
+      faded: yearFocus && !highlightYears.has(y),
       // reveal in step with the dots; empty years (no dot) fall back to their
       // chronological position mapped onto the dot count so they appear in order
       threshold:
@@ -246,10 +246,14 @@
     return () => cancelAnimationFrame(raf);
   });
 
-  // Years that have a highlighted match (city/series) -> their labels are shown.
+  // A focus is active when a series/city is highlighted OR a single match is
+  // hovered/selected — in all cases the off-years are greyed out.
+  const yearFocus = $derived(hasHighlight || !!activeMatch);
+  // Years to keep lit: those of the highlighted set, plus the active match's year.
   const highlightYears = $derived.by(() => {
     const ys = new Set<number>();
     if (hasHighlight) for (const m of filtered) if (highlightSet.has(m.id)) ys.add(m.year);
+    if (activeMatch) ys.add(activeMatch.year);
     return ys;
   });
 
@@ -524,8 +528,9 @@
     {#each yearBands as b (b.y)}
       <path
         d={b.d}
-        fill={b.faded ? '#eceff3' : b.fill}
+        fill={b.fill}
         class="band"
+        class:faded={b.faded}
         class:hidden={b.threshold >= revealCount}
       />
     {/each}
@@ -538,7 +543,7 @@
       y={t.y2}
       class="year-label"
       class:hl={t.highlighted}
-      class:faded={hasHighlight && !t.highlighted}
+      class:faded={yearFocus && !t.highlighted}
       class:hidden={t.threshold >= revealCount}
       text-anchor="middle"
       transform="rotate({t.rot} {t.x} {t.y2})"
@@ -688,7 +693,7 @@
     opacity: 0;
   }
   .year-label.faded {
-    fill: #cbd5e1; /* greyed out when not part of a highlighted series */
+    opacity: 0.3; /* dimmed (not recoloured) when off-focus, like the dots */
   }
   .year-bands path {
     stroke: #fff;
@@ -697,10 +702,14 @@
   /* year slices fade in with the same intro clock as the dots */
   .band {
     opacity: 1;
-    transition: opacity 0.6s ease-out, fill 0.2s ease-out;
+    transition: opacity 0.3s ease-out;
   }
   .band.hidden {
     opacity: 0;
+  }
+  /* off-focus years keep their colour, just dimmed (like the dots) */
+  .band.faded {
+    opacity: 0.25;
   }
   @media (prefers-reduced-motion: reduce) {
     .band,
