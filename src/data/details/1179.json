@@ -1,0 +1,303 @@
+{
+  "id": "1179",
+  "title": "International friendly",
+  "startTime": "1925-05-24T00:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Stade De La Pontaise",
+    "city": "Lausanne"
+  },
+  "officials": [
+    {
+      "lastName": "Retschury",
+      "firstName": "Heinrich",
+      "function": "referee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 46,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Augustus",
+          "firstName": "Joseph",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 46
+        },
+        {
+          "lastName": "Fierens",
+          "firstName": "André",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 46
+        }
+      ]
+    }
+  ],
+  "homeTeam": {
+    "id": "584",
+    "name": "Switzerland",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/584.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 0,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 0,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": null,
+    "qualifyingGroup": null,
+    "groupCode": null
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1BergerAlfred",
+        "lastName": "Berger",
+        "firstName": "Alfred",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "2450",
+        "lastName": "De Bie",
+        "firstName": "Jan",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2SchneebeliJakob",
+        "lastName": "Schneebeli",
+        "firstName": "Jakob",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2601",
+        "lastName": "Swartenbroeks",
+        "firstName": "Armand",
+        "shirtNumber": "2",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3RamseyerRudolf",
+        "lastName": "Ramseyer",
+        "firstName": "Rudolf",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2476",
+        "lastName": "Demol",
+        "firstName": "François",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "4OberhauserAugust",
+        "lastName": "Oberhauser",
+        "firstName": "August",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2471",
+        "lastName": "Morlet",
+        "firstName": "Edouard",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "5SchmiedlinPaul",
+        "lastName": "Schmiedlin",
+        "firstName": "Paul",
+        "shirtNumber": "5",
+        "badges": "(C)",
+        "events": []
+      },
+      "away": {
+        "id": "2449",
+        "lastName": "Fierens",
+        "firstName": "André",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 46
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "6FasslerPaul",
+        "lastName": "Fassler",
+        "firstName": "Paul",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2464",
+        "lastName": "Braine",
+        "firstName": "Pierre",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "7EhrenbolgerKarl",
+        "lastName": "Ehrenbolger",
+        "firstName": "Karl",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2484",
+        "lastName": "Braine",
+        "firstName": "Raymond",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "8SturzeneggerPaolo",
+        "lastName": "Sturzenegger",
+        "firstName": "Paolo",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2472",
+        "lastName": "Grimmonprez",
+        "firstName": "Laurent",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "9DietrichWalter",
+        "lastName": "Dietrich",
+        "firstName": "Walter",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2478",
+        "lastName": "Adams",
+        "firstName": "Ferdinand",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "10AbegglenXavier",
+        "lastName": "Abegglen",
+        "firstName": "Xavier",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2454",
+        "lastName": "Thys",
+        "firstName": "Ivan",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "11AbegglenMax",
+        "lastName": "Abegglen",
+        "firstName": "Max",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2473",
+        "lastName": "Houet",
+        "firstName": "Victor",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": null,
+      "away": {
+        "id": "2456",
+        "lastName": "Augustus",
+        "firstName": "Joseph",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 46
+          }
+        ]
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Albert Meyer",
+        "firstName": null,
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Maxwell",
+        "firstName": "William J.",
+        "function": "coach"
+      }
+    }
+  ]
+}

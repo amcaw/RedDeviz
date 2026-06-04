@@ -1,0 +1,426 @@
+{
+  "id": "967",
+  "title": "UEFA European Championship",
+  "startTime": "1980-06-22T20:30:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Stadio Olimpico",
+    "city": "Rome"
+  },
+  "officials": [
+    {
+      "lastName": "Rainea",
+      "firstName": "Nicolae",
+      "function": "referee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 88,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Hrubesch",
+          "firstName": "Horst",
+          "teamId": "615",
+          "kind": "goalScored",
+          "minute": 88
+        }
+      ]
+    },
+    {
+      "minute": 75,
+      "home": [
+        {
+          "lastName": "Vandereycken",
+          "firstName": "René",
+          "teamId": "578",
+          "kind": "penaltyScored",
+          "minute": 75
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 55,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Cullmann",
+          "firstName": "Bernhard",
+          "teamId": "615",
+          "kind": "minuteIn",
+          "minute": 55
+        },
+        {
+          "lastName": "Briegel",
+          "firstName": "Hans-Peter",
+          "teamId": "615",
+          "kind": "minuteOut",
+          "minute": 55
+        }
+      ]
+    },
+    {
+      "minute": 10,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Hrubesch",
+          "firstName": "Horst",
+          "teamId": "615",
+          "kind": "goalScored",
+          "minute": 10
+        }
+      ]
+    }
+  ],
+  "homeTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "awayTeam": {
+    "id": "615",
+    "name": "West Germany",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/615.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 1,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 2,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": "Italy - 1980",
+    "qualifyingGroup": "Final",
+    "groupCode": null
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "2074",
+        "lastName": "Pfaff",
+        "firstName": "Jean-Marie",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "1SchumacherHarald",
+        "lastName": "Schumacher",
+        "firstName": "Harald",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2083",
+        "lastName": "Gerets",
+        "firstName": "Eric",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2KaltzManfred",
+        "lastName": "Kaltz",
+        "firstName": "Manfred",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2110",
+        "lastName": "Millecamps",
+        "firstName": "Luc",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": null
+          }
+        ]
+      },
+      "away": {
+        "id": "3FörsterKarl-Heinz",
+        "lastName": "Förster",
+        "firstName": "Karl-Heinz",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": null
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2093",
+        "lastName": "Meeuws",
+        "firstName": "Walter",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "4StielikeUlrich",
+        "lastName": "Stielike",
+        "firstName": "Ulrich",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2084",
+        "lastName": "Renquin",
+        "firstName": "Michel",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "5DietzBernhard",
+        "lastName": "Dietz",
+        "firstName": "Bernhard",
+        "shirtNumber": "5",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2225",
+        "lastName": "Van Moer",
+        "firstName": "Wilfried",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "6SchusterBernd",
+        "lastName": "Schuster",
+        "firstName": "Bernd",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2257",
+        "lastName": "Vandereycken",
+        "firstName": "René",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": null
+          },
+          {
+            "type": "penaltyScored",
+            "minute": 75
+          }
+        ]
+      },
+      "away": {
+        "id": "7BriegelHans-Peter",
+        "lastName": "Briegel",
+        "firstName": "Hans-Peter",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 55
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2078",
+        "lastName": "Cools",
+        "firstName": "Julien",
+        "shirtNumber": "8",
+        "badges": "(C)",
+        "events": []
+      },
+      "away": {
+        "id": "8MüllerHans-Peter",
+        "lastName": "Müller",
+        "firstName": "Hans-Peter",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2100",
+        "lastName": "Mommens",
+        "firstName": "Raymond",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "9RummeniggeKarl-Heinz",
+        "lastName": "Rummenigge",
+        "firstName": "Karl-Heinz",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2256",
+        "lastName": "Van der Elst",
+        "firstName": "Swa",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": null
+          }
+        ]
+      },
+      "away": {
+        "id": "10HrubeschHorst",
+        "lastName": "Hrubesch",
+        "firstName": "Horst",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 10
+          },
+          {
+            "type": "goalScored",
+            "minute": 88
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2094",
+        "lastName": "Ceulemans",
+        "firstName": "Jan",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "11AllofsKlaus",
+        "lastName": "Allofs",
+        "firstName": "Klaus",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "2097",
+        "lastName": "Custers",
+        "firstName": "Theo",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "13CullmannBernhard",
+        "lastName": "Cullmann",
+        "firstName": "Bernhard",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 55
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2248",
+        "lastName": "Martens",
+        "firstName": "Maurice",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "2112",
+        "lastName": "Martens",
+        "firstName": "Ronny",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "2088",
+        "lastName": "Verheyen",
+        "firstName": "René",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "2104",
+        "lastName": "Dardenne",
+        "firstName": "Guy",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Thys",
+        "firstName": "Guy",
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Josef Derwall",
+        "firstName": null,
+        "function": "coach"
+      }
+    }
+  ]
+}

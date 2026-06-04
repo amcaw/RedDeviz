@@ -1,0 +1,540 @@
+{
+  "id": "1705",
+  "title": "International friendly",
+  "startTime": "1927-09-04T00:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Stockholms Stadion",
+    "city": "Stockholm"
+  },
+  "officials": [
+    {
+      "lastName": "Hansen",
+      "firstName": "Sophus",
+      "function": "referee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 82,
+      "home": [
+        {
+          "lastName": "Holmberg",
+          "firstName": "Carl-Erik",
+          "teamId": "600",
+          "kind": "goalScored",
+          "minute": 82
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 81,
+      "home": [
+        {
+          "lastName": "Kroon",
+          "firstName": "Knut",
+          "teamId": "600",
+          "kind": "goalScored",
+          "minute": 81
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 80,
+      "home": [
+        {
+          "lastName": "Kaufeldt",
+          "firstName": "Per",
+          "teamId": "600",
+          "kind": "goalScored",
+          "minute": 80
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 71,
+      "home": [
+        {
+          "lastName": "Persson",
+          "firstName": "John",
+          "teamId": "600",
+          "kind": "goalScored",
+          "minute": 71
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 50,
+      "home": [
+        {
+          "lastName": "Bromesson",
+          "firstName": "Charles",
+          "teamId": "600",
+          "kind": "goalScored",
+          "minute": 50
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 43,
+      "home": [
+        {
+          "lastName": "Holmberg",
+          "firstName": "Carl-Erik",
+          "teamId": "600",
+          "kind": "goalScored",
+          "minute": 43
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 27,
+      "home": [
+        {
+          "lastName": "Kroon",
+          "firstName": "Knut",
+          "teamId": "600",
+          "kind": "goalScored",
+          "minute": 27
+        }
+      ],
+      "away": []
+    }
+  ],
+  "homeTeam": {
+    "id": "600",
+    "name": "Sweden",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/600.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 7,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 0,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": null,
+    "qualifyingGroup": null,
+    "groupCode": null
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1LindbergSiegfried",
+        "lastName": "Lindberg",
+        "firstName": "Siegfried",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "2461",
+        "lastName": "Caudron",
+        "firstName": "Jean",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2AlfredssonAxel",
+        "lastName": "Alfredsson",
+        "firstName": "Axel",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2601",
+        "lastName": "Swartenbroeks",
+        "firstName": "Armand",
+        "shirtNumber": "2",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3KrookDouglas",
+        "lastName": "Krook",
+        "firstName": "Douglas",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2496",
+        "lastName": "Timmermans",
+        "firstName": "Jules",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "4HelgessonHenning",
+        "lastName": "Helgesson",
+        "firstName": "Henning",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2490",
+        "lastName": "Van Averbeke",
+        "firstName": "Henri",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "5PerssonJohn",
+        "lastName": "Persson",
+        "firstName": "John",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 71
+          }
+        ]
+      },
+      "away": {
+        "id": "2457",
+        "lastName": "Van Halme",
+        "firstName": "Florimond",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "6JohanssonTorsten",
+        "lastName": "Johansson",
+        "firstName": "Torsten",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2488",
+        "lastName": "Boesman",
+        "firstName": "Gustave",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "7BromessonCharles",
+        "lastName": "Bromesson",
+        "firstName": "Charles",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 50
+          }
+        ]
+      },
+      "away": {
+        "id": "2499",
+        "lastName": "Keerstock",
+        "firstName": "Clément",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "8RydellSven",
+        "lastName": "Rydell",
+        "firstName": "Sven",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2478",
+        "lastName": "Adams",
+        "firstName": "Ferdinand",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "9KaufeldtPer",
+        "lastName": "Kaufeldt",
+        "firstName": "Per",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 80
+          }
+        ]
+      },
+      "away": {
+        "id": "2494",
+        "lastName": "Devos",
+        "firstName": "Gérard",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "10HolmbergCarl-Erik",
+        "lastName": "Holmberg",
+        "firstName": "Carl-Erik",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 43
+          },
+          {
+            "type": "goalScored",
+            "minute": 82
+          }
+        ]
+      },
+      "away": {
+        "id": "2498",
+        "lastName": "Bierna",
+        "firstName": "Henri",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "11KroonKnut",
+        "lastName": "Kroon",
+        "firstName": "Knut",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 27
+          },
+          {
+            "type": "goalScored",
+            "minute": 81
+          }
+        ]
+      },
+      "away": {
+        "id": "2453",
+        "lastName": "Bastin",
+        "firstName": "Désiré",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "1LindbergSiegfried",
+        "lastName": "Lindberg",
+        "firstName": "Siegfried",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "2AlfredssonAxel",
+        "lastName": "Alfredsson",
+        "firstName": "Axel",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "3KrookDouglas",
+        "lastName": "Krook",
+        "firstName": "Douglas",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "4HelgessonHenning",
+        "lastName": "Helgesson",
+        "firstName": "Henning",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "5PerssonJohn",
+        "lastName": "Persson",
+        "firstName": "John",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 71
+          }
+        ]
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "6JohanssonTorsten",
+        "lastName": "Johansson",
+        "firstName": "Torsten",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "7BromessonCharles",
+        "lastName": "Bromesson",
+        "firstName": "Charles",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 50
+          }
+        ]
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "8RydellSven",
+        "lastName": "Rydell",
+        "firstName": "Sven",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "9KaufeldtPer",
+        "lastName": "Kaufeldt",
+        "firstName": "Per",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 80
+          }
+        ]
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "10HolmbergCarl-Erik",
+        "lastName": "Holmberg",
+        "firstName": "Carl-Erik",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 43
+          },
+          {
+            "type": "goalScored",
+            "minute": 82
+          }
+        ]
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "11KroonKnut",
+        "lastName": "Kroon",
+        "firstName": "Knut",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 27
+          },
+          {
+            "type": "goalScored",
+            "minute": 81
+          }
+        ]
+      },
+      "away": null
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Gustaf Rubensson",
+        "firstName": null,
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Maxwell",
+        "firstName": "William J.",
+        "function": "coach"
+      }
+    }
+  ]
+}

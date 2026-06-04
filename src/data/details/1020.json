@@ -1,0 +1,408 @@
+{
+  "id": "1020",
+  "title": "Qualification",
+  "startTime": "1967-03-19T16:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Josy Barthel Stadion",
+    "city": "Luxemburg"
+  },
+  "officials": [
+    {
+      "lastName": "Göppel",
+      "firstName": "M.",
+      "function": "referee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 73,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Stockman",
+          "firstName": "Jacques",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 73
+        }
+      ]
+    },
+    {
+      "minute": 59,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Stockman",
+          "firstName": "Jacques",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 59
+        }
+      ]
+    },
+    {
+      "minute": 36,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Van Himst",
+          "firstName": "Paul",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 36
+        }
+      ]
+    },
+    {
+      "minute": 30,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Stockman",
+          "firstName": "Jacques",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 30
+        }
+      ]
+    },
+    {
+      "minute": 19,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Van Himst",
+          "firstName": "Paul",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 19
+        }
+      ]
+    }
+  ],
+  "homeTeam": {
+    "id": "580",
+    "name": "Luxembourg",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/580.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 0,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 5,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": "Italy - 1968",
+    "qualifyingGroup": "Group match",
+    "groupCode": "7"
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1StendebachThéo",
+        "lastName": "Stendebach",
+        "firstName": "Théo",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "2185",
+        "lastName": "Nicolay",
+        "firstName": "Jean",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2KufferErwin",
+        "lastName": "Kuffer",
+        "firstName": "Erwin",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2201",
+        "lastName": "Heylens",
+        "firstName": "Georges",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3JeitzFernand",
+        "lastName": "Jeitz",
+        "firstName": "Fernand",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2226",
+        "lastName": "Bohez",
+        "firstName": "Florent",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "4KonterFrançois",
+        "lastName": "Konter",
+        "firstName": "François",
+        "shirtNumber": "4",
+        "badges": "(C)",
+        "events": []
+      },
+      "away": {
+        "id": "2212",
+        "lastName": "Plaskie",
+        "firstName": "Jean",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "5HoffstetterJean-Pierre",
+        "lastName": "Hoffstetter",
+        "firstName": "Jean-Pierre",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2344",
+        "lastName": "Hanon",
+        "firstName": "Pierre",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "6HoffmannNicholas",
+        "lastName": "Hoffmann",
+        "firstName": "Nicholas",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2225",
+        "lastName": "Van Moer",
+        "firstName": "Wilfried",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "7EwenMathias",
+        "lastName": "Ewen",
+        "firstName": "Mathias",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2220",
+        "lastName": "Thio",
+        "firstName": "Johnny",
+        "shirtNumber": "7",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "8PilotLouis",
+        "lastName": "Pilot",
+        "firstName": "Louis",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2339",
+        "lastName": "Jurion",
+        "firstName": "Jef",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "9DublinEdouard",
+        "lastName": "Dublin",
+        "firstName": "Edouard",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2178",
+        "lastName": "Stockman",
+        "firstName": "Jacques",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 30
+          },
+          {
+            "type": "goalScored",
+            "minute": 59
+          },
+          {
+            "type": "goalScored",
+            "minute": 73
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "10LéonardJohnny",
+        "lastName": "Léonard",
+        "firstName": "Johnny",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2199",
+        "lastName": "Van Himst",
+        "firstName": "Paul",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 19
+          },
+          {
+            "type": "goalScored",
+            "minute": 36
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "11KleinHenri",
+        "lastName": "Klein",
+        "firstName": "Henri",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2208",
+        "lastName": "Puis",
+        "firstName": "Wilfried",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "12HoffmannRené",
+        "lastName": "Hoffmann",
+        "firstName": "René",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2176",
+        "lastName": "Boone",
+        "firstName": "Fernand",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2187",
+        "lastName": "Cornelis",
+        "firstName": "Jean",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2227",
+        "lastName": "Ghellynck",
+        "firstName": "Lucien",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2217",
+        "lastName": "Verheyen",
+        "firstName": "Jan",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Robert Heinz",
+        "firstName": null,
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Vanden Stock",
+        "firstName": "Constant",
+        "function": "coach"
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "lastName": "Goethals",
+        "firstName": "Raymond",
+        "function": "coach"
+      }
+    }
+  ]
+}

@@ -1,0 +1,614 @@
+{
+  "id": "2029",
+  "title": "FIFA World Cup",
+  "startTime": "1990-06-12T17:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Marc'Antonio Bentegodi Stadion",
+    "city": "Verona"
+  },
+  "officials": [
+    {
+      "lastName": "Mauro",
+      "firstName": "Vincent",
+      "function": "referee"
+    },
+    {
+      "lastName": "Courtney",
+      "firstName": "Georges",
+      "function": "firstAssistantReferee"
+    },
+    {
+      "lastName": "Snoddy",
+      "firstName": "Alan",
+      "function": "secondAssistantReferee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 64,
+      "home": [
+        {
+          "lastName": "De Wolf",
+          "firstName": "Michel",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 64
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 62,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Lee",
+          "firstName": "Tea-Ho",
+          "teamId": "714",
+          "kind": "minuteIn",
+          "minute": 62
+        },
+        {
+          "lastName": "Noh",
+          "firstName": "Soo-Jin",
+          "teamId": "714",
+          "kind": "minuteOut",
+          "minute": 62
+        }
+      ]
+    },
+    {
+      "minute": 53,
+      "home": [
+        {
+          "lastName": "Degryse",
+          "firstName": "Marc",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 53
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 46,
+      "home": [
+        {
+          "lastName": "Ceulemans",
+          "firstName": "Jan",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 46
+        },
+        {
+          "lastName": "Van Der Linden",
+          "firstName": "Marc",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 46
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 45,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Cho",
+          "firstName": "Min-Kook",
+          "teamId": "714",
+          "kind": "minuteIn",
+          "minute": 45
+        },
+        {
+          "lastName": "Lee",
+          "firstName": "Young-Jin",
+          "teamId": "714",
+          "kind": "minuteOut",
+          "minute": 45
+        }
+      ]
+    },
+    {
+      "minute": 39,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Choi",
+          "firstName": "Soon-Ho",
+          "teamId": "714",
+          "kind": "yellowCard",
+          "minute": 39
+        }
+      ]
+    }
+  ],
+  "homeTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "awayTeam": {
+    "id": "714",
+    "name": "Korea Republic",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/714.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 2,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 0,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": "Italy - 1990",
+    "qualifyingGroup": "Group match",
+    "groupCode": "E"
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "2081",
+        "lastName": "Preud'Homme",
+        "firstName": "Michel",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "21ChoiIn Young",
+        "lastName": "Choi",
+        "firstName": "In Young",
+        "shirtNumber": "21",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2083",
+        "lastName": "Gerets",
+        "firstName": "Eric",
+        "shirtNumber": "2",
+        "badges": "(C)",
+        "events": []
+      },
+      "away": {
+        "id": "2ParkKyung-Hoon",
+        "lastName": "Park",
+        "firstName": "Kyung-Hoon",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2124",
+        "lastName": "Clijsters",
+        "firstName": "Lei",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "3ChoiKang-Hee",
+        "lastName": "Choi",
+        "firstName": "Kang-Hee",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2068",
+        "lastName": "Versavel",
+        "firstName": "Bruno",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "5ChungYong-Hwan",
+        "lastName": "Chung",
+        "firstName": "Yong-Hwan",
+        "shirtNumber": "5",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2154",
+        "lastName": "Emmers",
+        "firstName": "Marc",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "7NohSoo-Jin",
+        "lastName": "Noh",
+        "firstName": "Soo-Jin",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 62
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2144",
+        "lastName": "Demol",
+        "firstName": "Stéphane",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "14ChoiSoon-Ho",
+        "lastName": "Choi",
+        "firstName": "Soon-Ho",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 39
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2134",
+        "lastName": "Van der Elst",
+        "firstName": "Franky",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "16KimJoo-Sung",
+        "lastName": "Kim",
+        "firstName": "Joo-Sung",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2136",
+        "lastName": "Degryse",
+        "firstName": "Marc",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 53
+          }
+        ]
+      },
+      "away": {
+        "id": "17GuSang-Bum",
+        "lastName": "Gu",
+        "firstName": "Sang-Bum",
+        "shirtNumber": "17",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2128",
+        "lastName": "Scifo",
+        "firstName": "Enzo",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "18HwangSeong-Hong",
+        "lastName": "Hwang",
+        "firstName": "Seong-Hong",
+        "shirtNumber": "18",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2113",
+        "lastName": "De Wolf",
+        "firstName": "Michel",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 64
+          }
+        ]
+      },
+      "away": {
+        "id": "20BoHong Myung",
+        "lastName": "Bo",
+        "firstName": "Hong Myung",
+        "shirtNumber": "20",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2126",
+        "lastName": "Van der Linden",
+        "firstName": "Marc",
+        "shirtNumber": "19",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 46
+          }
+        ]
+      },
+      "away": {
+        "id": "22LeeYoung-Jin",
+        "lastName": "Lee",
+        "firstName": "Young-Jin",
+        "shirtNumber": "22",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 45
+          }
+        ]
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "2148",
+        "lastName": "Albert",
+        "firstName": "Philippe",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "1KimPoong-Joo",
+        "lastName": "Kim",
+        "firstName": "Poong-Joo",
+        "shirtNumber": "1",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2094",
+        "lastName": "Ceulemans",
+        "firstName": "Jan",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 46
+          }
+        ]
+      },
+      "away": {
+        "id": "4YoonDeok-Yeo",
+        "lastName": "Yoon",
+        "firstName": "Deok-Yeo",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2140",
+        "lastName": "Bodart",
+        "firstName": "Gilbert",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "6LeeTea-Ho",
+        "lastName": "Lee",
+        "firstName": "Tea-Ho",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 62
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2138",
+        "lastName": "Grün",
+        "firstName": "Georges",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "8ChungHae Won",
+        "lastName": "Chung",
+        "firstName": "Hae Won",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2131",
+        "lastName": "Claesen",
+        "firstName": "Nico",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "9HwangBo Kwan",
+        "lastName": "Hwang",
+        "firstName": "Bo Kwan",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2072",
+        "lastName": "De Sart",
+        "firstName": "Jean-François",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "10LeeSang Yoon",
+        "lastName": "Lee",
+        "firstName": "Sang Yoon",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2150",
+        "lastName": "Plovie",
+        "firstName": "Pascal",
+        "shirtNumber": "17",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "11ByunByung Joo",
+        "lastName": "Byun",
+        "firstName": "Byung Joo",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2161",
+        "lastName": "Staelens",
+        "firstName": "Lorenzo",
+        "shirtNumber": "18",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "12LeeHeung Sil",
+        "lastName": "Lee",
+        "firstName": "Heung Sil",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2137",
+        "lastName": "De Wilde",
+        "firstName": "Filip",
+        "shirtNumber": "20",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "13ChungHae Won",
+        "lastName": "Chung",
+        "firstName": "Hae Won",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "1965",
+        "lastName": "Wilmots",
+        "firstName": "Marc",
+        "shirtNumber": "21",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "15ChoMin-Kook",
+        "lastName": "Cho",
+        "firstName": "Min-Kook",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 45
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2145",
+        "lastName": "Vervoort",
+        "firstName": "Patrick",
+        "shirtNumber": "22",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "19JeongGi-Dong",
+        "lastName": "Jeong",
+        "firstName": "Gi-Dong",
+        "shirtNumber": "19",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Thys",
+        "firstName": "Guy",
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Lee Hoe Taik",
+        "firstName": null,
+        "function": "coach"
+      }
+    }
+  ]
+}

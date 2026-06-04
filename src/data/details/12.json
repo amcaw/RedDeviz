@@ -1,0 +1,544 @@
+{
+  "id": "12",
+  "title": "Qualifying round",
+  "startTime": "1981-04-29T20:30:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Parc Des Princes",
+    "city": "Parijs"
+  },
+  "officials": [
+    {
+      "lastName": "Sanchez",
+      "firstName": "Victoriano",
+      "function": "referee"
+    },
+    {
+      "lastName": "Miguel Perez",
+      "firstName": "J.",
+      "function": "firstAssistantReferee"
+    },
+    {
+      "lastName": "Marguenda",
+      "firstName": "Alvarez",
+      "function": "secondAssistantReferee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 71,
+      "home": [
+        {
+          "lastName": "Atre",
+          "firstName": "Jacques",
+          "teamId": "579",
+          "kind": "minuteIn",
+          "minute": 71
+        },
+        {
+          "lastName": "Soler",
+          "firstName": "Gérard",
+          "teamId": "579",
+          "kind": "minuteOut",
+          "minute": 71
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 63,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Verheyen",
+          "firstName": "René",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 63
+        },
+        {
+          "lastName": "Vercauteren",
+          "firstName": "Frank",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 63
+        }
+      ]
+    },
+    {
+      "minute": 52,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Ceulemans",
+          "firstName": "Jan",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 52
+        }
+      ]
+    },
+    {
+      "minute": 31,
+      "home": [
+        {
+          "lastName": "Soler",
+          "firstName": "Gérard",
+          "teamId": "579",
+          "kind": "goalScored",
+          "minute": 31
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 26,
+      "home": [
+        {
+          "lastName": "Six",
+          "firstName": "Didier",
+          "teamId": "579",
+          "kind": "goalScored",
+          "minute": 26
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 17,
+      "home": [],
+      "away": [
+        {
+          "lastName": "De Wolf",
+          "firstName": "Michel",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 17
+        },
+        {
+          "lastName": "Millecamps",
+          "firstName": "Luc",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 17
+        }
+      ]
+    },
+    {
+      "minute": 14,
+      "home": [
+        {
+          "lastName": "Soler",
+          "firstName": "Gérard",
+          "teamId": "579",
+          "kind": "goalScored",
+          "minute": 14
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 5,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Vandenbergh",
+          "firstName": "Erwin",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 5
+        }
+      ]
+    }
+  ],
+  "homeTeam": {
+    "id": "579",
+    "name": "France",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/579.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 3,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 2,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": "Spain - 1982",
+    "qualifyingGroup": "Group match",
+    "groupCode": "2"
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1DropsyDominique",
+        "lastName": "Dropsy",
+        "firstName": "Dominique",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "2081",
+        "lastName": "Preud'Homme",
+        "firstName": "Michel",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2JanvionGérard",
+        "lastName": "Janvion",
+        "firstName": "Gérard",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2083",
+        "lastName": "Gerets",
+        "firstName": "Eric",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3LopezChristian",
+        "lastName": "Lopez",
+        "firstName": "Christian",
+        "shirtNumber": "3",
+        "badges": "(C)",
+        "events": []
+      },
+      "away": {
+        "id": "2110",
+        "lastName": "Millecamps",
+        "firstName": "Luc",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 17
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "4TrésorMarius",
+        "lastName": "Trésor",
+        "firstName": "Marius",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2093",
+        "lastName": "Meeuws",
+        "firstName": "Walter",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "5BossisMaxime",
+        "lastName": "Bossis",
+        "firstName": "Maxime",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2084",
+        "lastName": "Renquin",
+        "firstName": "Michel",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "6TiganaJean",
+        "lastName": "Tigana",
+        "firstName": "Jean",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2099",
+        "lastName": "Vercauteren",
+        "firstName": "Frank",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 63
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "7GiresseAlain",
+        "lastName": "Giresse",
+        "firstName": "Alain",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2257",
+        "lastName": "Vandereycken",
+        "firstName": "René",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "8GenghiniBernard",
+        "lastName": "Genghini",
+        "firstName": "Bernard",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2225",
+        "lastName": "Van Moer",
+        "firstName": "Wilfried",
+        "shirtNumber": "8",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "9SolerGérard",
+        "lastName": "Soler",
+        "firstName": "Gérard",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 14
+          },
+          {
+            "type": "goalScored",
+            "minute": 31
+          },
+          {
+            "type": "minuteOut",
+            "minute": 71
+          }
+        ]
+      },
+      "away": {
+        "id": "2102",
+        "lastName": "Cluytens",
+        "firstName": "Albert",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "10RocheteauDominique",
+        "lastName": "Rocheteau",
+        "firstName": "Dominique",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2109",
+        "lastName": "Vandenbergh",
+        "firstName": "Erwin",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 5
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "11SixDidier",
+        "lastName": "Six",
+        "firstName": "Didier",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 26
+          }
+        ]
+      },
+      "away": {
+        "id": "2094",
+        "lastName": "Ceulemans",
+        "firstName": "Jan",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 52
+          }
+        ]
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "12CastanedaJean",
+        "lastName": "Castaneda",
+        "firstName": "Jean",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2114",
+        "lastName": "Munaron",
+        "firstName": "Jacky",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "13BattistonPatrick",
+        "lastName": "Battiston",
+        "firstName": "Patrick",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2113",
+        "lastName": "De Wolf",
+        "firstName": "Michel",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": null
+          },
+          {
+            "type": "minuteIn",
+            "minute": 17
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "14SpechtLéonard",
+        "lastName": "Specht",
+        "firstName": "Léonard",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2088",
+        "lastName": "Verheyen",
+        "firstName": "René",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 63
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "15MoizanAlain",
+        "lastName": "Moizan",
+        "firstName": "Alain",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2100",
+        "lastName": "Mommens",
+        "firstName": "Raymond",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "16AtreJacques",
+        "lastName": "Atre",
+        "firstName": "Jacques",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 71
+          }
+        ]
+      },
+      "away": {
+        "id": "2089",
+        "lastName": "Wellens",
+        "firstName": "Willy",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Michel Hidalgo",
+        "firstName": null,
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Thys",
+        "firstName": "Guy",
+        "function": "coach"
+      }
+    }
+  ]
+}

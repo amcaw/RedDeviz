@@ -1,0 +1,770 @@
+{
+  "id": "12620",
+  "title": "International friendly",
+  "startTime": "2022-03-26T18:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Aviva Stadium",
+    "city": "Dublin"
+  },
+  "officials": [],
+  "events": [
+    {
+      "minute": 90,
+      "home": [
+        {
+          "lastName": "Parrott",
+          "firstName": "Troy",
+          "teamId": "606",
+          "kind": "minuteIn",
+          "minute": 90
+        },
+        {
+          "lastName": "Robinson",
+          "firstName": "Callum",
+          "teamId": "606",
+          "kind": "minuteOut",
+          "minute": 90
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 85,
+      "home": [
+        {
+          "lastName": "Browne",
+          "firstName": "Alan",
+          "teamId": "606",
+          "kind": "goalScored",
+          "minute": 85
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 83,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Benteke",
+          "firstName": "Christian",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 83
+        },
+        {
+          "lastName": "Batshuayi",
+          "firstName": "Michy",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 83
+        }
+      ]
+    },
+    {
+      "minute": 80,
+      "home": [
+        {
+          "lastName": "Manning",
+          "firstName": "Ryan",
+          "teamId": "606",
+          "kind": "minuteIn",
+          "minute": 80
+        },
+        {
+          "lastName": "Mcclean",
+          "firstName": "James",
+          "teamId": "606",
+          "kind": "minuteOut",
+          "minute": 80
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 76,
+      "home": [
+        {
+          "lastName": "Browne",
+          "firstName": "Alan",
+          "teamId": "606",
+          "kind": "minuteIn",
+          "minute": 76
+        },
+        {
+          "lastName": "Keane",
+          "firstName": "William",
+          "teamId": "606",
+          "kind": "minuteIn",
+          "minute": 76
+        },
+        {
+          "lastName": "Hendrick",
+          "firstName": "Jeff",
+          "teamId": "606",
+          "kind": "minuteOut",
+          "minute": 76
+        },
+        {
+          "lastName": "Knight",
+          "firstName": "Jason",
+          "teamId": "606",
+          "kind": "minuteOut",
+          "minute": 76
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 75,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Januzaj",
+          "firstName": "Adnan",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 75
+        },
+        {
+          "lastName": "Mangala",
+          "firstName": "Orel",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 75
+        },
+        {
+          "lastName": "De Ketelaere",
+          "firstName": "Charles",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 75
+        },
+        {
+          "lastName": "Theate",
+          "firstName": "Arthur",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 75
+        }
+      ]
+    },
+    {
+      "minute": 58,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Vanaken",
+          "firstName": "Hans",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 58
+        }
+      ]
+    },
+    {
+      "minute": 46,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Foket",
+          "firstName": "Thomas",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 46
+        },
+        {
+          "lastName": "Saelemaekers",
+          "firstName": "Alexis",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 46
+        }
+      ]
+    },
+    {
+      "minute": 35,
+      "home": [
+        {
+          "lastName": "Ogbene",
+          "firstName": "Chiedozie",
+          "teamId": "606",
+          "kind": "goalScored",
+          "minute": 35
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 12,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Batshuayi",
+          "firstName": "Michy",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 12
+        }
+      ]
+    }
+  ],
+  "homeTeam": {
+    "id": "606",
+    "name": "Republic of Ireland",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/606.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 2,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 2,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": null,
+    "qualifyingGroup": null,
+    "groupCode": null
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1KelleherCaoimhin",
+        "lastName": "Kelleher",
+        "firstName": "Caoimhin",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "3936",
+        "lastName": "Mignolet",
+        "firstName": "Simon",
+        "shirtNumber": "12",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2ColemanSeamus",
+        "lastName": "Coleman",
+        "firstName": "Seamus",
+        "shirtNumber": "2",
+        "badges": "(C)",
+        "events": []
+      },
+      "away": {
+        "id": "7193",
+        "lastName": "Denayer",
+        "firstName": "Jason",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "4DuffyShane",
+        "lastName": "Duffy",
+        "firstName": "Shane",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "5275",
+        "lastName": "Boyata",
+        "firstName": "Dedryck",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "5EganJohn",
+        "lastName": "Egan",
+        "firstName": "John",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "8066",
+        "lastName": "Theate",
+        "firstName": "Arthur",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 75
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "6CullenJosh",
+        "lastName": "Cullen",
+        "firstName": "Josh",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "6401",
+        "lastName": "Dendoncker",
+        "firstName": "Leander",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "7RobinsonCallum",
+        "lastName": "Robinson",
+        "firstName": "Callum",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 90
+          }
+        ]
+      },
+      "away": {
+        "id": "6757",
+        "lastName": "Vanaken",
+        "firstName": "Hans",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 58
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "10DohertyMatt",
+        "lastName": "Doherty",
+        "firstName": "Matt",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "6608",
+        "lastName": "Tielemans",
+        "firstName": "Youri",
+        "shirtNumber": "8",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "11MccleanJames",
+        "lastName": "Mcclean",
+        "firstName": "James",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 80
+          }
+        ]
+      },
+      "away": {
+        "id": "5004",
+        "lastName": "Hazard",
+        "firstName": "Thorgan",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "13HendrickJeff",
+        "lastName": "Hendrick",
+        "firstName": "Jeff",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 76
+          }
+        ]
+      },
+      "away": {
+        "id": "8663",
+        "lastName": "De Ketelaere",
+        "firstName": "Charles",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 75
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "17KnightJason",
+        "lastName": "Knight",
+        "firstName": "Jason",
+        "shirtNumber": "17",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 76
+          }
+        ]
+      },
+      "away": {
+        "id": "8761",
+        "lastName": "Saelemaekers",
+        "firstName": "Alexis",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 46
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "20OgbeneChiedozie",
+        "lastName": "Ogbene",
+        "firstName": "Chiedozie",
+        "shirtNumber": "20",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 35
+          }
+        ]
+      },
+      "away": {
+        "id": "6755",
+        "lastName": "Batshuayi",
+        "firstName": "Michy",
+        "shirtNumber": "23",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 12
+          },
+          {
+            "type": "minuteOut",
+            "minute": 83
+          }
+        ]
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "3ManningRyan",
+        "lastName": "Manning",
+        "firstName": "Ryan",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 80
+          }
+        ]
+      },
+      "away": {
+        "id": "4959",
+        "lastName": "Kaminski",
+        "firstName": "Thomas",
+        "shirtNumber": "1",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "8HourihaneConor",
+        "lastName": "Hourihane",
+        "firstName": "Conor",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "5969",
+        "lastName": "Trossard",
+        "firstName": "Leandro",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "9KeaneWilliam",
+        "lastName": "Keane",
+        "firstName": "William",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 76
+          }
+        ]
+      },
+      "away": {
+        "id": "5659",
+        "lastName": "Sels",
+        "firstName": "Matz",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "12CollinsNathan",
+        "lastName": "Collins",
+        "firstName": "Nathan",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "8671",
+        "lastName": "Verschaeren",
+        "firstName": "Yari",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "14BrowneAlan",
+        "lastName": "Browne",
+        "firstName": "Alan",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 76
+          },
+          {
+            "type": "goalScored",
+            "minute": 85
+          }
+        ]
+      },
+      "away": {
+        "id": "6348",
+        "lastName": "Origi",
+        "firstName": "Divock",
+        "shirtNumber": "17",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "15ParrottTroy",
+        "lastName": "Parrott",
+        "firstName": "Troy",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 90
+          }
+        ]
+      },
+      "away": {
+        "id": "7134",
+        "lastName": "Januzaj",
+        "firstName": "Adnan",
+        "shirtNumber": "18",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 75
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "16TalbotJames",
+        "lastName": "Talbot",
+        "firstName": "James",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "8416",
+        "lastName": "Sambi Lokonga",
+        "firstName": "Albert",
+        "shirtNumber": "19",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "18O'SheaDara",
+        "lastName": "O'Shea",
+        "firstName": "Dara",
+        "shirtNumber": "18",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "5066",
+        "lastName": "Benteke",
+        "firstName": "Christian",
+        "shirtNumber": "20",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 83
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "19HoganScott",
+        "lastName": "Hogan",
+        "firstName": "Scott",
+        "shirtNumber": "19",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "6535",
+        "lastName": "Foket",
+        "firstName": "Thomas",
+        "shirtNumber": "21",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 46
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "21SykesMark",
+        "lastName": "Sykes",
+        "firstName": "Mark",
+        "shirtNumber": "21",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "6804",
+        "lastName": "Mangala",
+        "firstName": "Orel",
+        "shirtNumber": "22",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 75
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "22MolumbyJayson",
+        "lastName": "Molumby",
+        "firstName": "Jayson",
+        "shirtNumber": "22",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "7263",
+        "lastName": "Bornauw",
+        "firstName": "Sebastiaan",
+        "shirtNumber": "24",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "23O'LearyMax",
+        "lastName": "O'Leary",
+        "firstName": "Max",
+        "shirtNumber": "23",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "6819",
+        "lastName": "Van Der Heyden",
+        "firstName": "Siebe",
+        "shirtNumber": "25",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Stephen Kenny",
+        "firstName": null,
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Martinez",
+        "firstName": "Roberto",
+        "function": "coach"
+      }
+    }
+  ]
+}

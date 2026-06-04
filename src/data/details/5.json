@@ -1,0 +1,562 @@
+{
+  "id": "5",
+  "title": "Preliminary round",
+  "startTime": "1993-03-31T20:30:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Arms Park",
+    "city": "Cardiff"
+  },
+  "officials": [
+    {
+      "lastName": "Schmidhuber",
+      "firstName": "Aron",
+      "function": "referee"
+    },
+    {
+      "lastName": "Muller",
+      "firstName": "Matthias",
+      "function": "firstAssistantReferee"
+    },
+    {
+      "lastName": "Wolf",
+      "firstName": "Hans",
+      "function": "secondAssistantReferee"
+    },
+    {
+      "lastName": "Heynemann",
+      "firstName": "Bernd",
+      "function": "fourthOfficial"
+    }
+  ],
+  "events": [
+    {
+      "minute": 88,
+      "home": [
+        {
+          "lastName": "Bowen",
+          "firstName": "Mark",
+          "teamId": "605",
+          "kind": "minuteIn",
+          "minute": 88
+        },
+        {
+          "lastName": "Giggs",
+          "firstName": "Ryan",
+          "teamId": "605",
+          "kind": "minuteOut",
+          "minute": 88
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 86,
+      "home": [
+        {
+          "lastName": "Phillips",
+          "firstName": "David",
+          "teamId": "605",
+          "kind": "minuteIn",
+          "minute": 86
+        },
+        {
+          "lastName": "Speed",
+          "firstName": "Gary Andrew",
+          "teamId": "605",
+          "kind": "minuteOut",
+          "minute": 86
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 66,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Severeyns",
+          "firstName": "Cisse",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 66
+        },
+        {
+          "lastName": "Czerniatynski",
+          "firstName": "Alexandre",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 66
+        }
+      ]
+    },
+    {
+      "minute": 46,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Oliveira Barroso",
+          "firstName": "Luis",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 46
+        },
+        {
+          "lastName": "Medved",
+          "firstName": "Dirk",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 46
+        }
+      ]
+    },
+    {
+      "minute": 39,
+      "home": [
+        {
+          "lastName": "Rush",
+          "firstName": "Ian James",
+          "teamId": "605",
+          "kind": "goalScored",
+          "minute": 39
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 20,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Grün",
+          "firstName": "Georges",
+          "teamId": "578",
+          "kind": "yellowCard",
+          "minute": 20
+        }
+      ]
+    },
+    {
+      "minute": 18,
+      "home": [
+        {
+          "lastName": "Giggs",
+          "firstName": "Ryan",
+          "teamId": "605",
+          "kind": "goalScored",
+          "minute": 18
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 10,
+      "home": [
+        {
+          "lastName": "Young",
+          "firstName": "Eric Francis",
+          "teamId": "605",
+          "kind": "yellowCard",
+          "minute": 10
+        }
+      ],
+      "away": []
+    }
+  ],
+  "homeTeam": {
+    "id": "605",
+    "name": "Wales",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/605.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 2,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 0,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": "Usa - 1994",
+    "qualifyingGroup": "Group match",
+    "groupCode": "4"
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1SouthallNeville",
+        "lastName": "Southall",
+        "firstName": "Neville",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "2081",
+        "lastName": "Preud'Homme",
+        "firstName": "Michel",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2HorneBarry",
+        "lastName": "Horne",
+        "firstName": "Barry",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "1968",
+        "lastName": "Medved",
+        "firstName": "Dirk",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 46
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "3BodinPaul John",
+        "lastName": "Bodin",
+        "firstName": "Paul John",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2138",
+        "lastName": "Grün",
+        "firstName": "Georges",
+        "shirtNumber": "3",
+        "badges": "(C)",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 20
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "4AizlewoodMark",
+        "lastName": "Aizlewood",
+        "firstName": "Mark",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2148",
+        "lastName": "Albert",
+        "firstName": "Philippe",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "5YoungEric Francis",
+        "lastName": "Young",
+        "firstName": "Eric Francis",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 10
+          }
+        ]
+      },
+      "away": {
+        "id": "1964",
+        "lastName": "Smidts",
+        "firstName": "Rudi",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "6RatcliffeKevin",
+        "lastName": "Ratcliffe",
+        "firstName": "Kevin",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2161",
+        "lastName": "Staelens",
+        "firstName": "Lorenzo",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "7SaundersDean Nicholas",
+        "lastName": "Saunders",
+        "firstName": "Dean Nicholas",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2134",
+        "lastName": "Van der Elst",
+        "firstName": "Franky",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "8SpeedGary Andrew",
+        "lastName": "Speed",
+        "firstName": "Gary Andrew",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 86
+          }
+        ]
+      },
+      "away": {
+        "id": "2162",
+        "lastName": "Boffin",
+        "firstName": "Danny",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "9RushIan James",
+        "lastName": "Rush",
+        "firstName": "Ian James",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 39
+          }
+        ]
+      },
+      "away": {
+        "id": "2136",
+        "lastName": "Degryse",
+        "firstName": "Marc",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "10HughesMark",
+        "lastName": "Hughes",
+        "firstName": "Mark",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2128",
+        "lastName": "Scifo",
+        "firstName": "Enzo",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "11GiggsRyan",
+        "lastName": "Giggs",
+        "firstName": "Ryan",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 18
+          },
+          {
+            "type": "minuteOut",
+            "minute": 88
+          }
+        ]
+      },
+      "away": {
+        "id": "2116",
+        "lastName": "Czerniatynski",
+        "firstName": "Alexandre",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 66
+          }
+        ]
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "12RobertsAnthony Mark",
+        "lastName": "Roberts",
+        "firstName": "Anthony Mark",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2140",
+        "lastName": "Bodart",
+        "firstName": "Gilbert",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "13PhillipsDavid",
+        "lastName": "Phillips",
+        "firstName": "David",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 86
+          }
+        ]
+      },
+      "away": {
+        "id": "1974",
+        "lastName": "Genaux",
+        "firstName": "Régis",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "14BowenMark",
+        "lastName": "Bowen",
+        "firstName": "Mark",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 88
+          }
+        ]
+      },
+      "away": {
+        "id": "2160",
+        "lastName": "Borkelmans",
+        "firstName": "Vital",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "15MelvilleAndrew Roger",
+        "lastName": "Melville",
+        "firstName": "Andrew Roger",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "1975",
+        "lastName": "Oliveira Barroso",
+        "firstName": "Luis",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 46
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "16PembridgeMark",
+        "lastName": "Pembridge",
+        "firstName": "Mark",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2156",
+        "lastName": "Severeyns",
+        "firstName": "Cisse",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 66
+          }
+        ]
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": null,
+      "away": {
+        "lastName": "Van Himst",
+        "firstName": "Paul",
+        "function": "coach"
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "lastName": "Alaja",
+        "firstName": "Pertti",
+        "function": "coach"
+      }
+    }
+  ]
+}

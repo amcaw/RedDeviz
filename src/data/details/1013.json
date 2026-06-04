@@ -1,0 +1,402 @@
+{
+  "id": "1013",
+  "title": "International friendly",
+  "startTime": "1965-06-02T00:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Maracana Stadion",
+    "city": "Rio De Janeiro"
+  },
+  "officials": [
+    {
+      "lastName": "Yamasaki",
+      "firstName": "Arturo",
+      "function": "referee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 80,
+      "home": [
+        {
+          "lastName": "Amorim",
+          "firstName": "Rinaldo",
+          "teamId": "639",
+          "kind": "goalScored",
+          "minute": 80
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 75,
+      "home": [
+        {
+          "lastName": "Almeida Da Fonseca",
+          "firstName": "Flavio",
+          "teamId": "639",
+          "kind": "goalScored",
+          "minute": 75
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 70,
+      "home": [
+        {
+          "lastName": "Pele",
+          "firstName": null,
+          "teamId": "639",
+          "kind": "goalScored",
+          "minute": 70
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 64,
+      "home": [
+        {
+          "lastName": "Pele",
+          "firstName": null,
+          "teamId": "639",
+          "kind": "goalScored",
+          "minute": 64
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 49,
+      "home": [
+        {
+          "lastName": "Pele",
+          "firstName": null,
+          "teamId": "639",
+          "kind": "goalScored",
+          "minute": 49
+        }
+      ],
+      "away": []
+    }
+  ],
+  "homeTeam": {
+    "id": "639",
+    "name": "Brazil",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/639.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 5,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 0,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": null,
+    "qualifyingGroup": null,
+    "groupCode": null
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1Valdirnull",
+        "lastName": "Valdir",
+        "firstName": null,
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "2185",
+        "lastName": "Nicolay",
+        "firstName": "Jean",
+        "shirtNumber": "1",
+        "badges": "(C) (GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2Dos SantosDjalma",
+        "lastName": "Dos Santos",
+        "firstName": "Djalma",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2201",
+        "lastName": "Heylens",
+        "firstName": "Georges",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3BelliniLuiz Hideraldo",
+        "lastName": "Bellini",
+        "firstName": "Luiz Hideraldo",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2216",
+        "lastName": "Sulon",
+        "firstName": "Albert",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "4Pecanha De CarvalhoOrlando",
+        "lastName": "Pecanha De Carvalho",
+        "firstName": "Orlando",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2212",
+        "lastName": "Plaskie",
+        "firstName": "Jean",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "5Da Costa De MenezesRildo",
+        "lastName": "Da Costa De Menezes",
+        "firstName": "Rildo",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2205",
+        "lastName": "Baré",
+        "firstName": "Yves",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "6Dudunull",
+        "lastName": "Dudu",
+        "firstName": null,
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2344",
+        "lastName": "Hanon",
+        "firstName": "Pierre",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "7Da GuiaAdemir",
+        "lastName": "Da Guia",
+        "firstName": "Ademir",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2195",
+        "lastName": "Sulon",
+        "firstName": "Gérard",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "8Garrinchanull",
+        "lastName": "Garrincha",
+        "firstName": null,
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2203",
+        "lastName": "Semmeling",
+        "firstName": "Léon",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "9Almeida Da FonsecaFlavio",
+        "lastName": "Almeida Da Fonseca",
+        "firstName": "Flavio",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 75
+          }
+        ]
+      },
+      "away": {
+        "id": "2178",
+        "lastName": "Stockman",
+        "firstName": "Jacques",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "10Pelenull",
+        "lastName": "Pele",
+        "firstName": null,
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 49
+          },
+          {
+            "type": "goalScored",
+            "minute": 64
+          },
+          {
+            "type": "goalScored",
+            "minute": 70
+          }
+        ]
+      },
+      "away": {
+        "id": "2204",
+        "lastName": "Claessen",
+        "firstName": "Roger",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "11AmorimRinaldo",
+        "lastName": "Amorim",
+        "firstName": "Rinaldo",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 80
+          }
+        ]
+      },
+      "away": {
+        "id": "2183",
+        "lastName": "Vandenboer",
+        "firstName": "Fritz",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": null,
+      "away": {
+        "id": "2336",
+        "lastName": "Delhasse",
+        "firstName": "Guy",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2194",
+        "lastName": "Willems",
+        "firstName": "Robert",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2202",
+        "lastName": "Weyn",
+        "firstName": "Robert",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2217",
+        "lastName": "Verheyen",
+        "firstName": "Jan",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Vicente Feola",
+        "firstName": null,
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Vanden Stock",
+        "firstName": "Constant",
+        "function": "coach"
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "lastName": "Ceuleers",
+        "firstName": "Arthur",
+        "function": "coach"
+      }
+    }
+  ]
+}

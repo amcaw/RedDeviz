@@ -1,0 +1,553 @@
+{
+  "id": "1678",
+  "title": "International friendly",
+  "startTime": "1992-02-26T19:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Olympic El Mensah",
+    "city": "Tunis"
+  },
+  "officials": [
+    {
+      "lastName": "Abdelani",
+      "firstName": "Naciri",
+      "function": "referee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 75,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Genaux",
+          "firstName": "Régis",
+          "teamId": "578",
+          "kind": "ownGoalScored",
+          "minute": 75
+        }
+      ]
+    },
+    {
+      "minute": 68,
+      "home": [
+        {
+          "lastName": "Faouzi",
+          "firstName": "Rouissi",
+          "teamId": "666",
+          "kind": "minuteIn",
+          "minute": 68
+        },
+        {
+          "lastName": "Ali",
+          "firstName": "Ben Neji",
+          "teamId": "666",
+          "kind": "minuteOut",
+          "minute": 68
+        }
+      ],
+      "away": [
+        {
+          "lastName": "Walem",
+          "firstName": "Johan",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 68
+        }
+      ]
+    },
+    {
+      "minute": 65,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Versavel",
+          "firstName": "Bruno",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 65
+        }
+      ]
+    },
+    {
+      "minute": 58,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Oliveira Barroso",
+          "firstName": "Luis",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 58
+        }
+      ]
+    },
+    {
+      "minute": 46,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Nilis",
+          "firstName": "Luc",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 46
+        },
+        {
+          "lastName": "Wilmots",
+          "firstName": "Marc",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 46
+        },
+        {
+          "lastName": "Plovie",
+          "firstName": "Pascal",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 46
+        },
+        {
+          "lastName": "Severeyns",
+          "firstName": "Cisse",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 46
+        }
+      ]
+    },
+    {
+      "minute": 31,
+      "home": [
+        {
+          "lastName": "Lotfi",
+          "firstName": "Rouissi",
+          "teamId": "666",
+          "kind": "goalScored",
+          "minute": 31
+        }
+      ],
+      "away": []
+    }
+  ],
+  "homeTeam": {
+    "id": "666",
+    "name": "Tunisia",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/666.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 2,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 1,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": null,
+    "qualifyingGroup": null,
+    "groupCode": null
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1ChokriEl Quaer",
+        "lastName": "Chokri",
+        "firstName": "El Quaer",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "2081",
+        "lastName": "Preud'Homme",
+        "firstName": "Michel",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3MouradEl Gharbi",
+        "lastName": "Mourad",
+        "firstName": "El Gharbi",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "1968",
+        "lastName": "Medved",
+        "firstName": "Dirk",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "4TaoufikHichri",
+        "lastName": "Taoufik",
+        "firstName": "Hichri",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "1974",
+        "lastName": "Genaux",
+        "firstName": "Régis",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "5MouradEl Okbi",
+        "lastName": "Mourad",
+        "firstName": "El Okbi",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2148",
+        "lastName": "Albert",
+        "firstName": "Philippe",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "9ZiadTelemcan",
+        "lastName": "Ziad",
+        "firstName": "Telemcan",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2150",
+        "lastName": "Plovie",
+        "firstName": "Pascal",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 46
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "10LotfiRouissi",
+        "lastName": "Lotfi",
+        "firstName": "Rouissi",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 31
+          }
+        ]
+      },
+      "away": {
+        "id": "2160",
+        "lastName": "Borkelmans",
+        "firstName": "Vital",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "13SirajeddineChihi",
+        "lastName": "Sirajeddine",
+        "firstName": "Chihi",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2134",
+        "lastName": "Van der Elst",
+        "firstName": "Franky",
+        "shirtNumber": "7",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "14MohamedAli Mahjoubi",
+        "lastName": "Mohamed",
+        "firstName": "Ali Mahjoubi",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2068",
+        "lastName": "Versavel",
+        "firstName": "Bruno",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 65
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "15KhaledBen Yahia",
+        "lastName": "Khaled",
+        "firstName": "Ben Yahia",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2136",
+        "lastName": "Degryse",
+        "firstName": "Marc",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "18SamirSellimi",
+        "lastName": "Samir",
+        "firstName": "Sellimi",
+        "shirtNumber": "18",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "1975",
+        "lastName": "Oliveira Barroso",
+        "firstName": "Luis",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 58
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "19AliBen Neji",
+        "lastName": "Ali",
+        "firstName": "Ben Neji",
+        "shirtNumber": "19",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 68
+          }
+        ]
+      },
+      "away": {
+        "id": "2156",
+        "lastName": "Severeyns",
+        "firstName": "Cisse",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": null
+          },
+          {
+            "type": "minuteOut",
+            "minute": 46
+          }
+        ]
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "2Ahmednull",
+        "lastName": "Ahmed",
+        "firstName": null,
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2140",
+        "lastName": "Bodart",
+        "firstName": "Gilbert",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "6MehrezRekik",
+        "lastName": "Mehrez",
+        "firstName": "Rekik",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2161",
+        "lastName": "Staelens",
+        "firstName": "Lorenzo",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "7FaouziRouissi",
+        "lastName": "Faouzi",
+        "firstName": "Rouissi",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 68
+          }
+        ]
+      },
+      "away": {
+        "id": "2067",
+        "lastName": "Nilis",
+        "firstName": "Luc",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 46
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "8Chokrinull",
+        "lastName": "Chokri",
+        "firstName": null,
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "1973",
+        "lastName": "Walem",
+        "firstName": "Johan",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 68
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "11AmorB.",
+        "lastName": "Amor",
+        "firstName": "B.",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "1965",
+        "lastName": "Wilmots",
+        "firstName": "Marc",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 46
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "16MondherElmia",
+        "lastName": "Mondher",
+        "firstName": "Elmia",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "17SamiNasri",
+        "lastName": "Sami",
+        "firstName": "Nasri",
+        "shirtNumber": "17",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "20Alinull",
+        "lastName": "Ali",
+        "firstName": null,
+        "shirtNumber": "20",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Mrad Ben Mahjoub",
+        "firstName": null,
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Van Himst",
+        "firstName": "Paul",
+        "function": "coach"
+      }
+    }
+  ]
+}

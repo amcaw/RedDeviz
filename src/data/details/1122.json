@@ -1,0 +1,434 @@
+{
+  "id": "1122",
+  "title": "International friendly",
+  "startTime": "1938-01-30T00:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Parc Des Princes",
+    "city": "Parijs"
+  },
+  "officials": [
+    {
+      "lastName": "Jewell",
+      "firstName": "Arthur",
+      "function": "referee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 78,
+      "home": [
+        {
+          "lastName": "Kowalczyk",
+          "firstName": "Ignace",
+          "teamId": "579",
+          "kind": "goalScored",
+          "minute": 78
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 76,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Vanden Eynde",
+          "firstName": "Stanley",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 76
+        }
+      ]
+    },
+    {
+      "minute": 51,
+      "home": [
+        {
+          "lastName": "Veinante",
+          "firstName": "Emile",
+          "teamId": "579",
+          "kind": "goalScored",
+          "minute": 51
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 47,
+      "home": [
+        {
+          "lastName": "Heisserer",
+          "firstName": "Oscar",
+          "teamId": "579",
+          "kind": "goalScored",
+          "minute": 47
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 41,
+      "home": [
+        {
+          "lastName": "Veinante",
+          "firstName": "Emile",
+          "teamId": "579",
+          "kind": "goalScored",
+          "minute": 41
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 28,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Voorhoof",
+          "firstName": "Bernard",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 28
+        }
+      ]
+    },
+    {
+      "minute": 22,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Braine",
+          "firstName": "Raymond",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 22
+        }
+      ]
+    },
+    {
+      "minute": 8,
+      "home": [
+        {
+          "lastName": "Courtois",
+          "firstName": "Roger",
+          "teamId": "579",
+          "kind": "goalScored",
+          "minute": 8
+        }
+      ],
+      "away": []
+    }
+  ],
+  "homeTeam": {
+    "id": "579",
+    "name": "France",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/579.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 5,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 3,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": null,
+    "qualifyingGroup": null,
+    "groupCode": null
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1LlenseRené",
+        "lastName": "Llense",
+        "firstName": "René",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "2438",
+        "lastName": "Badjou",
+        "firstName": "Arnold",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2CazenaveHector",
+        "lastName": "Cazenave",
+        "firstName": "Hector",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2389",
+        "lastName": "Paverick",
+        "firstName": "Robert",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3MattlerEtienne",
+        "lastName": "Mattler",
+        "firstName": "Etienne",
+        "shirtNumber": "3",
+        "badges": "(C)",
+        "events": []
+      },
+      "away": {
+        "id": "2380",
+        "lastName": "Smellinckx",
+        "firstName": "Philibert",
+        "shirtNumber": "3",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "4BourbotteFrançois",
+        "lastName": "Bourbotte",
+        "firstName": "François",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2390",
+        "lastName": "Dalem",
+        "firstName": "Pierre",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "5JordanAuguste",
+        "lastName": "Jordan",
+        "firstName": "Auguste",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2386",
+        "lastName": "Gommers",
+        "firstName": "Frans",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "6MarchalMarcel",
+        "lastName": "Marchal",
+        "firstName": "Marcel",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2398",
+        "lastName": "De Winter",
+        "firstName": "Alfons",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "7CourtoisRoger",
+        "lastName": "Courtois",
+        "firstName": "Roger",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 8
+          }
+        ]
+      },
+      "away": {
+        "id": "2408",
+        "lastName": "Vanden Wouwer",
+        "firstName": "Charles",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "8KowalczykIgnace",
+        "lastName": "Kowalczyk",
+        "firstName": "Ignace",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 78
+          }
+        ]
+      },
+      "away": {
+        "id": "2509",
+        "lastName": "Voorhoof",
+        "firstName": "Bernard",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 28
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "9NicolasJean",
+        "lastName": "Nicolas",
+        "firstName": "Jean",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2520",
+        "lastName": "Capelle",
+        "firstName": "Jean",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "10HeissererOscar",
+        "lastName": "Heisserer",
+        "firstName": "Oscar",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 47
+          }
+        ]
+      },
+      "away": {
+        "id": "2484",
+        "lastName": "Braine",
+        "firstName": "Raymond",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 22
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "11VeinanteEmile",
+        "lastName": "Veinante",
+        "firstName": "Emile",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 41
+          },
+          {
+            "type": "goalScored",
+            "minute": 51
+          }
+        ]
+      },
+      "away": {
+        "id": "2359",
+        "lastName": "Vanden Eynde",
+        "firstName": "Stanley",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 76
+          }
+        ]
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "13Gonzalesnull",
+        "lastName": "Gonzales",
+        "firstName": null,
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "14JasseronLucien",
+        "lastName": "Jasseron",
+        "firstName": "Lucien",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "15Cotteniernull",
+        "lastName": "Cottenier",
+        "firstName": null,
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": null,
+      "away": {
+        "lastName": "Butler",
+        "firstName": "John Davis",
+        "function": "coach"
+      }
+    }
+  ]
+}

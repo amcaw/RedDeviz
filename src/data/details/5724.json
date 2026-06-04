@@ -1,0 +1,687 @@
+{
+  "id": "5724",
+  "title": "FIFA WC Qualifiers",
+  "startTime": "2008-09-06T20:45:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Sclessin Stadion",
+    "city": "Liège"
+  },
+  "officials": [
+    {
+      "lastName": "Dean",
+      "firstName": "Michael Leslie",
+      "function": "referee"
+    },
+    {
+      "lastName": "Kirkup",
+      "firstName": "PETER",
+      "function": "firstAssistantReferee"
+    },
+    {
+      "lastName": "Richardson",
+      "firstName": "DAVID",
+      "function": "secondAssistantReferee"
+    },
+    {
+      "lastName": "Styles",
+      "firstName": "Robert",
+      "function": "fourthOfficial"
+    }
+  ],
+  "events": [
+    {
+      "minute": 92,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Oper",
+          "firstName": "Andres",
+          "teamId": "611",
+          "kind": "goalScored",
+          "minute": 92
+        }
+      ]
+    },
+    {
+      "minute": 90,
+      "home": [
+        {
+          "lastName": "Huysegems",
+          "firstName": "Stein",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 90
+        },
+        {
+          "lastName": "Sonck",
+          "firstName": "Wesley",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 90
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 89,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Puri",
+          "firstName": "Sander",
+          "teamId": "611",
+          "kind": "yellowCard",
+          "minute": 89
+        }
+      ]
+    },
+    {
+      "minute": 81,
+      "home": [
+        {
+          "lastName": "Sonck",
+          "firstName": "Wesley",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 81
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 77,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Puri",
+          "firstName": "Sander",
+          "teamId": "611",
+          "kind": "minuteIn",
+          "minute": 77
+        },
+        {
+          "lastName": "Kink",
+          "firstName": "Tarmo",
+          "teamId": "611",
+          "kind": "minuteOut",
+          "minute": 77
+        }
+      ]
+    },
+    {
+      "minute": 76,
+      "home": [
+        {
+          "lastName": "De Sutter",
+          "firstName": "Tom",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 76
+        },
+        {
+          "lastName": "Mirallas",
+          "firstName": "Kevin",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 76
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 75,
+      "home": [
+        {
+          "lastName": "Defour",
+          "firstName": "Steven",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 75
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 70,
+      "home": [
+        {
+          "lastName": "Van Damme",
+          "firstName": "Jelle",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 70
+        },
+        {
+          "lastName": "Vermaelen",
+          "firstName": "Thomas",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 70
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 60,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Vunk",
+          "firstName": "Martin",
+          "teamId": "611",
+          "kind": "minuteIn",
+          "minute": 60
+        },
+        {
+          "lastName": "Zenjov",
+          "firstName": "Sergei",
+          "teamId": "611",
+          "kind": "minuteOut",
+          "minute": 60
+        }
+      ]
+    },
+    {
+      "minute": 57,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Zenjov",
+          "firstName": "Sergei",
+          "teamId": "611",
+          "kind": "goalScored",
+          "minute": 57
+        }
+      ]
+    },
+    {
+      "minute": 44,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Stepanov",
+          "firstName": "Andrei",
+          "teamId": "611",
+          "kind": "minuteIn",
+          "minute": 44
+        },
+        {
+          "lastName": "Piiroja",
+          "firstName": "Raio",
+          "teamId": "611",
+          "kind": "minuteOut",
+          "minute": 44
+        }
+      ]
+    },
+    {
+      "minute": 39,
+      "home": [
+        {
+          "lastName": "Sonck",
+          "firstName": "Wesley",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 39
+        }
+      ],
+      "away": []
+    }
+  ],
+  "homeTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "awayTeam": {
+    "id": "611",
+    "name": "Estonia",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/611.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 3,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 2,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": "South Africa - 2010",
+    "qualifyingGroup": null,
+    "groupCode": "5"
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "4615",
+        "lastName": "Stijnen",
+        "firstName": "Stijn",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "12LondakPavel",
+        "lastName": "Londak",
+        "firstName": "Pavel",
+        "shirtNumber": "12",
+        "badges": "(C) (GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2617",
+        "lastName": "Simons",
+        "firstName": "Timmy",
+        "shirtNumber": "3",
+        "badges": "(C)",
+        "events": []
+      },
+      "away": {
+        "id": "4PiirojaRaio",
+        "lastName": "Piiroja",
+        "firstName": "Raio",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 44
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "3125",
+        "lastName": "Kompany",
+        "firstName": "Vincent",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "5KruglovDmitri",
+        "lastName": "Kruglov",
+        "firstName": "Dmitri",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "130",
+        "lastName": "Van Buyten",
+        "firstName": "Daniel",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "6DmitrijevAleksandr",
+        "lastName": "Dmitrijev",
+        "firstName": "Aleksandr",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3428",
+        "lastName": "Defour",
+        "firstName": "Steven",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 75
+          }
+        ]
+      },
+      "away": {
+        "id": "7BarengrubAlo",
+        "lastName": "Barengrub",
+        "firstName": "Alo",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "4351",
+        "lastName": "Mirallas",
+        "firstName": "Kevin",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 76
+          }
+        ]
+      },
+      "away": {
+        "id": "8OperAndres",
+        "lastName": "Oper",
+        "firstName": "Andres",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 92
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "313",
+        "lastName": "Sonck",
+        "firstName": "Wesley",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 39
+          },
+          {
+            "type": "goalScored",
+            "minute": 81
+          },
+          {
+            "type": "minuteOut",
+            "minute": 90
+          }
+        ]
+      },
+      "away": {
+        "id": "9KinkTarmo",
+        "lastName": "Kink",
+        "firstName": "Tarmo",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 77
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "3285",
+        "lastName": "Vermaelen",
+        "firstName": "Thomas",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 70
+          }
+        ]
+      },
+      "away": {
+        "id": "10LindpereJoel",
+        "lastName": "Lindpere",
+        "firstName": "Joel",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3265",
+        "lastName": "Vertonghen",
+        "firstName": "Jan",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "15KlavanRagnar",
+        "lastName": "Klavan",
+        "firstName": "Ragnar",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3746",
+        "lastName": "Fellaini",
+        "firstName": "Marouane",
+        "shirtNumber": "17",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "16ZenjovSergei",
+        "lastName": "Zenjov",
+        "firstName": "Sergei",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 57
+          },
+          {
+            "type": "minuteOut",
+            "minute": 60
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "3992",
+        "lastName": "Witsel",
+        "firstName": "Axel",
+        "shirtNumber": "18",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "17JaagerEnar",
+        "lastName": "Jaager",
+        "firstName": "Enar",
+        "shirtNumber": "17",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "250",
+        "lastName": "Daems",
+        "firstName": "Filip",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "1KotenkoArtur",
+        "lastName": "Kotenko",
+        "firstName": "Artur",
+        "shirtNumber": "1",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3211",
+        "lastName": "Mudingayi",
+        "firstName": "Gaby",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2SisovTihhon",
+        "lastName": "Sisov",
+        "firstName": "Tihhon",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3021",
+        "lastName": "Van Damme",
+        "firstName": "Jelle",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 70
+          }
+        ]
+      },
+      "away": {
+        "id": "3StepanovAndrei",
+        "lastName": "Stepanov",
+        "firstName": "Andrei",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 44
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "1400",
+        "lastName": "Huysegems",
+        "firstName": "Stein",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 90
+          }
+        ]
+      },
+      "away": {
+        "id": "11PuriSander",
+        "lastName": "Puri",
+        "firstName": "Sander",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 77
+          },
+          {
+            "type": "yellowCard",
+            "minute": 89
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "320",
+        "lastName": "Renard",
+        "firstName": "Olivier",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "13VunkMartin",
+        "lastName": "Vunk",
+        "firstName": "Martin",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 60
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "5335",
+        "lastName": "De Sutter",
+        "firstName": "Tom",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 76
+          }
+        ]
+      },
+      "away": {
+        "id": "14VassiljevKonstantin",
+        "lastName": "Vassiljev",
+        "firstName": "Konstantin",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "322",
+        "lastName": "Swerts",
+        "firstName": "Gill",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "18SaagKaimar",
+        "lastName": "Saag",
+        "firstName": "Kaimar",
+        "shirtNumber": "18",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Vandereycken",
+        "firstName": "Rene",
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Tarmo Rüütli",
+        "firstName": null,
+        "function": "coach"
+      }
+    }
+  ]
+}

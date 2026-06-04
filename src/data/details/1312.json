@@ -1,0 +1,716 @@
+{
+  "id": "1312",
+  "title": "Friendly tournament",
+  "startTime": "1999-06-03T19:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "National",
+    "city": "Tokyo"
+  },
+  "officials": [
+    {
+      "lastName": "Kim",
+      "firstName": "Tae-Young",
+      "function": "referee"
+    },
+    {
+      "lastName": "Kim Hee",
+      "firstName": "Wook",
+      "function": "firstAssistantReferee"
+    },
+    {
+      "lastName": "Sri",
+      "firstName": "Sawvaluk",
+      "function": "secondAssistantReferee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 90,
+      "home": [
+        {
+          "lastName": "Staelens",
+          "firstName": "Lorenzo",
+          "teamId": "578",
+          "kind": "yellowCard",
+          "minute": 90
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 88,
+      "home": [
+        {
+          "lastName": "Janssens",
+          "firstName": "Chris",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 88
+        },
+        {
+          "lastName": "Delbroek",
+          "firstName": "Wilfried",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 88
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 87,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Oku",
+          "firstName": "Daisuke",
+          "teamId": "709",
+          "kind": "minuteIn",
+          "minute": 87
+        },
+        {
+          "lastName": "Lopes",
+          "firstName": "Wagner",
+          "teamId": "709",
+          "kind": "minuteOut",
+          "minute": 87
+        }
+      ]
+    },
+    {
+      "minute": 64,
+      "home": [
+        {
+          "lastName": "Cavens",
+          "firstName": "Jurgen",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 64
+        },
+        {
+          "lastName": "Mpenza",
+          "firstName": "Mbo",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 64
+        },
+        {
+          "lastName": "Martens",
+          "firstName": "Sandy",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 64
+        },
+        {
+          "lastName": "Verheyen",
+          "firstName": "Gert",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 64
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 59,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Yanagisawa",
+          "firstName": "Atsushi",
+          "teamId": "709",
+          "kind": "minuteIn",
+          "minute": 59
+        },
+        {
+          "lastName": "Fujita",
+          "firstName": null,
+          "teamId": "709",
+          "kind": "minuteOut",
+          "minute": 59
+        }
+      ]
+    },
+    {
+      "minute": 49,
+      "home": [
+        {
+          "lastName": "De Brul",
+          "firstName": "Tjörven",
+          "teamId": "578",
+          "kind": "yellowCard",
+          "minute": 49
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 48,
+      "home": [
+        {
+          "lastName": "Delbroek",
+          "firstName": "Wilfried",
+          "teamId": "578",
+          "kind": "yellowCard",
+          "minute": 48
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 45,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Hattori",
+          "firstName": null,
+          "teamId": "709",
+          "kind": "minuteIn",
+          "minute": 45
+        },
+        {
+          "lastName": "Tasaka",
+          "firstName": "Kazuaki",
+          "teamId": "709",
+          "kind": "minuteOut",
+          "minute": 45
+        }
+      ]
+    },
+    {
+      "minute": 27,
+      "home": [
+        {
+          "lastName": "De Boeck",
+          "firstName": "Glen",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 27
+        },
+        {
+          "lastName": "Vidovic",
+          "firstName": "Gordan",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 27
+        }
+      ],
+      "away": []
+    }
+  ],
+  "homeTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "awayTeam": {
+    "id": "709",
+    "name": "Japan",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/709.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 0,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 0,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": null,
+    "qualifyingGroup": "Group match",
+    "groupCode": null
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1661",
+        "lastName": "De Vlieger",
+        "firstName": "Geert",
+        "shirtNumber": "12",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "1KawaguchiYoshikatsu",
+        "lastName": "Kawaguchi",
+        "firstName": "Yoshikatsu",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "187",
+        "lastName": "Vidovic",
+        "firstName": "Gordan",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 27
+          }
+        ]
+      },
+      "away": {
+        "id": "2SaitoToshihide",
+        "lastName": "Saito",
+        "firstName": "Toshihide",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2161",
+        "lastName": "Staelens",
+        "firstName": "Lorenzo",
+        "shirtNumber": "4",
+        "badges": "(C)",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 90
+          }
+        ]
+      },
+      "away": {
+        "id": "3SomaNaoki",
+        "lastName": "Soma",
+        "firstName": "Naoki",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "176",
+        "lastName": "Goor",
+        "firstName": "Bart",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "5Akitanull",
+        "lastName": "Akita",
+        "firstName": null,
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "260",
+        "lastName": "Vanderhaeghe",
+        "firstName": "Yves",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "7ItoTeruyoshi",
+        "lastName": "Ito",
+        "firstName": "Teruyoshi",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "244",
+        "lastName": "Delbroek",
+        "firstName": "Wilfried",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 48
+          },
+          {
+            "type": "minuteOut",
+            "minute": 88
+          }
+        ]
+      },
+      "away": {
+        "id": "8NakataHidetoshi",
+        "lastName": "Nakata",
+        "firstName": "Hidetoshi",
+        "shirtNumber": "8",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "255",
+        "lastName": "Tanghe",
+        "firstName": "Stefaan",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "10NanamiHiroshi",
+        "lastName": "Nanami",
+        "firstName": "Hiroshi",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "369",
+        "lastName": "Hendrikx",
+        "firstName": "Mark",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "11LopesWagner",
+        "lastName": "Lopes",
+        "firstName": "Wagner",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 87
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "348",
+        "lastName": "Martens",
+        "firstName": "Sandy",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 64
+          }
+        ]
+      },
+      "away": {
+        "id": "13Fujitanull",
+        "lastName": "Fujita",
+        "firstName": null,
+        "shirtNumber": "13",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 59
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "1734",
+        "lastName": "Verheyen",
+        "firstName": "Gert",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 64
+          }
+        ]
+      },
+      "away": {
+        "id": "15TasakaKazuaki",
+        "lastName": "Tasaka",
+        "firstName": "Kazuaki",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 45
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "1389",
+        "lastName": "De Brul",
+        "firstName": "Tjörven",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 49
+          }
+        ]
+      },
+      "away": {
+        "id": "22MoriokaRyuzo",
+        "lastName": "Morioka",
+        "firstName": "Ryuzo",
+        "shirtNumber": "22",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "1971",
+        "lastName": "Crasson",
+        "firstName": "Bertrand",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "4IharaMasami",
+        "lastName": "Ihara",
+        "firstName": "Masami",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2070",
+        "lastName": "Vande Walle",
+        "firstName": "Philippe",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "6Hattorinull",
+        "lastName": "Hattori",
+        "firstName": null,
+        "shirtNumber": "6",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 45
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "220",
+        "lastName": "Janssens",
+        "firstName": "Chris",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 88
+          }
+        ]
+      },
+      "away": {
+        "id": "12YamadaNobuhisa",
+        "lastName": "Yamada",
+        "firstName": "Nobuhisa",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "1575",
+        "lastName": "De Boeck",
+        "firstName": "Glen",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 27
+          }
+        ]
+      },
+      "away": {
+        "id": "14KitazawaTsuyosi",
+        "lastName": "Kitazawa",
+        "firstName": "Tsuyosi",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "249",
+        "lastName": "Brogno",
+        "firstName": "Toni",
+        "shirtNumber": "17",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "16OkuDaisuke",
+        "lastName": "Oku",
+        "firstName": "Daisuke",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 87
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "1033",
+        "lastName": "Van Houdt",
+        "firstName": "Peter",
+        "shirtNumber": "18",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "17NishizawaAkinori",
+        "lastName": "Nishizawa",
+        "firstName": "Akinori",
+        "shirtNumber": "17",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "1463",
+        "lastName": "Mpenza",
+        "firstName": "Mbo",
+        "shirtNumber": "19",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 64
+          }
+        ]
+      },
+      "away": {
+        "id": "18ShimodaTakashi",
+        "lastName": "Shimoda",
+        "firstName": "Takashi",
+        "shirtNumber": "18",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "1311",
+        "lastName": "Hoefkens",
+        "firstName": "Carl",
+        "shirtNumber": "20",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "19MiuraAtsuhiro",
+        "lastName": "Miura",
+        "firstName": "Atsuhiro",
+        "shirtNumber": "19",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "388",
+        "lastName": "Cavens",
+        "firstName": "Jurgen",
+        "shirtNumber": "21",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 64
+          }
+        ]
+      },
+      "away": {
+        "id": "20NarazakiSeigo",
+        "lastName": "Narazaki",
+        "firstName": "Seigo",
+        "shirtNumber": "20",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "379",
+        "lastName": "Thijs",
+        "firstName": "Bernd",
+        "shirtNumber": "22",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "21YanagisawaAtsushi",
+        "lastName": "Yanagisawa",
+        "firstName": "Atsushi",
+        "shirtNumber": "21",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 59
+          }
+        ]
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "23KuboTatsuhiko",
+        "lastName": "Kubo",
+        "firstName": "Tatsuhiko",
+        "shirtNumber": "23",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Leekens",
+        "firstName": "Georges",
+        "function": "coach"
+      },
+      "away": null
+    }
+  ]
+}

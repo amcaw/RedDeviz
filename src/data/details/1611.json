@@ -1,0 +1,381 @@
+{
+  "id": "1611",
+  "title": "International friendly",
+  "startTime": "1962-05-23T00:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Xe Anniversaire Stadion",
+    "city": "Warschau"
+  },
+  "officials": [
+    {
+      "lastName": "Horvath",
+      "firstName": "M.",
+      "function": "referee"
+    },
+    {
+      "lastName": "Dutheil",
+      "firstName": "Alain",
+      "function": "secondAssistantReferee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 75,
+      "home": [
+        {
+          "lastName": "Bryckczy",
+          "firstName": "Lucjan",
+          "teamId": "597",
+          "kind": "goalScored",
+          "minute": 75
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 42,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Ritzen",
+          "firstName": "Léon",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 42
+        },
+        {
+          "lastName": "Stockman",
+          "firstName": "Jacques",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 42
+        }
+      ]
+    },
+    {
+      "minute": 10,
+      "home": [
+        {
+          "lastName": "Lentner",
+          "firstName": "Roman",
+          "teamId": "597",
+          "kind": "goalScored",
+          "minute": 10
+        }
+      ],
+      "away": []
+    }
+  ],
+  "homeTeam": {
+    "id": "597",
+    "name": "Poland",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/597.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 2,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 0,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": null,
+    "qualifyingGroup": null,
+    "groupCode": null
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1SzymkowiakEdward",
+        "lastName": "Szymkowiak",
+        "firstName": "Edward",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "2185",
+        "lastName": "Nicolay",
+        "firstName": "Jean",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2SzcezepanskiHenryk",
+        "lastName": "Szcezepanski",
+        "firstName": "Henryk",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2205",
+        "lastName": "Baré",
+        "firstName": "Yves",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3OslizloStanislaw",
+        "lastName": "Oslizlo",
+        "firstName": "Stanislaw",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2184",
+        "lastName": "Raskin",
+        "firstName": "Guillaume",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "4WozniakJerzy",
+        "lastName": "Wozniak",
+        "firstName": "Jerzy",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2344",
+        "lastName": "Hanon",
+        "firstName": "Pierre",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "5NierobaAntoni",
+        "lastName": "Nieroba",
+        "firstName": "Antoni",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2200",
+        "lastName": "Lejeune",
+        "firstName": "Emile",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "6GrzegorczykRyszard",
+        "lastName": "Grzegorczyk",
+        "firstName": "Ryszard",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2264",
+        "lastName": "Lippens",
+        "firstName": "Martin",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "7FaberEugeniusz",
+        "lastName": "Faber",
+        "firstName": "Eugeniusz",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2339",
+        "lastName": "Jurion",
+        "firstName": "Jef",
+        "shirtNumber": "7",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "8BryckczyLucjan",
+        "lastName": "Bryckczy",
+        "firstName": "Lucjan",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 75
+          }
+        ]
+      },
+      "away": {
+        "id": "2199",
+        "lastName": "Van Himst",
+        "firstName": "Paul",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "9GajdaNorbert",
+        "lastName": "Gajda",
+        "firstName": "Norbert",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2178",
+        "lastName": "Stockman",
+        "firstName": "Jacques",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 42
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "10PolErnest",
+        "lastName": "Pol",
+        "firstName": "Ernest",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2348",
+        "lastName": "Van Den Berg",
+        "firstName": "Paul",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "11LentnerRoman",
+        "lastName": "Lentner",
+        "firstName": "Roman",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 10
+          }
+        ]
+      },
+      "away": {
+        "id": "2208",
+        "lastName": "Puis",
+        "firstName": "Wilfried",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": null,
+      "away": {
+        "id": "2336",
+        "lastName": "Delhasse",
+        "firstName": "Guy",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2179",
+        "lastName": "Storme",
+        "firstName": "Roland",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2190",
+        "lastName": "Ritzen",
+        "firstName": "Léon",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 42
+          }
+        ]
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2172",
+        "lastName": "Paeschen",
+        "firstName": "Marcel",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": null,
+      "away": {
+        "lastName": "Vanden Stock",
+        "firstName": "Constant",
+        "function": "coach"
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "lastName": "Ceuleers",
+        "firstName": "Arthur",
+        "function": "coach"
+      }
+    }
+  ]
+}

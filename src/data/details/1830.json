@@ -1,0 +1,456 @@
+{
+  "id": "1830",
+  "title": "International friendly",
+  "startTime": "1905-05-13T23:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Schuttersveld",
+    "city": "Rotterdam"
+  },
+  "officials": [
+    {
+      "lastName": "Vermeulen",
+      "firstName": "H.",
+      "function": "referee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 84,
+      "home": [
+        {
+          "lastName": "De Neve",
+          "firstName": "Alexander",
+          "teamId": "586",
+          "kind": "goalScored",
+          "minute": 84
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 80,
+      "home": [
+        {
+          "lastName": "Lutjens",
+          "firstName": "Guus",
+          "teamId": "586",
+          "kind": "goalScored",
+          "minute": 80
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 76,
+      "home": [
+        {
+          "lastName": "De Neve",
+          "firstName": "Alexander",
+          "teamId": "586",
+          "kind": "ownGoalScored",
+          "minute": 76
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 74,
+      "home": [
+        {
+          "lastName": "Hesselink",
+          "firstName": "Willem",
+          "teamId": "586",
+          "kind": "goalScored",
+          "minute": 74
+        }
+      ],
+      "away": []
+    }
+  ],
+  "homeTeam": {
+    "id": "586",
+    "name": "Netherlands",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/586.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 4,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 0,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": null,
+    "qualifyingGroup": null,
+    "groupCode": null
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1BeeuwkesReinier",
+        "lastName": "Beeuwkes",
+        "firstName": "Reinier",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "2536",
+        "lastName": "Thornton",
+        "firstName": "Eric",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2StomPeet",
+        "lastName": "Stom",
+        "firstName": "Peet",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2527",
+        "lastName": "Poelmans",
+        "firstName": "Edgard",
+        "shirtNumber": "2",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3StomBen",
+        "lastName": "Stom",
+        "firstName": "Ben",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2530",
+        "lastName": "Van Hoorden",
+        "firstName": "Camille",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "4GleenewinkelKam'Dijk",
+        "lastName": "Gleenewinkel",
+        "firstName": "Kam'Dijk",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2528",
+        "lastName": "Van Den Eynde",
+        "firstName": "Guillaume",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "5DeKorver",
+        "lastName": "De",
+        "firstName": "Korver",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2545",
+        "lastName": "Dedecker",
+        "firstName": "Henri",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "6KeeslerDolf",
+        "lastName": "Keesler",
+        "firstName": "Dolf",
+        "shirtNumber": "6",
+        "badges": "(C)",
+        "events": []
+      },
+      "away": {
+        "id": "2547",
+        "lastName": "Romdenne",
+        "firstName": "Joseph",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "7BoomsmaRein",
+        "lastName": "Boomsma",
+        "firstName": "Rein",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2531",
+        "lastName": "Tobias",
+        "firstName": "Maurice",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "8HesselinkWillem",
+        "lastName": "Hesselink",
+        "firstName": "Willem",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 74
+          }
+        ]
+      },
+      "away": {
+        "id": "2546",
+        "lastName": "Theunen",
+        "firstName": "Laurent",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "9De NeveAlexander",
+        "lastName": "De Neve",
+        "firstName": "Alexander",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "ownGoalScored",
+            "minute": 76
+          },
+          {
+            "type": "goalScored",
+            "minute": 84
+          }
+        ]
+      },
+      "away": {
+        "id": "2542",
+        "lastName": "Vanderstappen",
+        "firstName": "Gustave",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "10LutjensGuus",
+        "lastName": "Lutjens",
+        "firstName": "Guus",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 80
+          }
+        ]
+      },
+      "away": {
+        "id": "2534",
+        "lastName": "Destrebecq",
+        "firstName": "Pierre-Joseph",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "11De VosWilly",
+        "lastName": "De Vos",
+        "firstName": "Willy",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2535",
+        "lastName": "Vanderstappen",
+        "firstName": "Charles",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "1BeeuwkesReinier",
+        "lastName": "Beeuwkes",
+        "firstName": "Reinier",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "2StomPeet",
+        "lastName": "Stom",
+        "firstName": "Peet",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "3StomBen",
+        "lastName": "Stom",
+        "firstName": "Ben",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "4GleenewinkelKam'Dijk",
+        "lastName": "Gleenewinkel",
+        "firstName": "Kam'Dijk",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "5DeKorver",
+        "lastName": "De",
+        "firstName": "Korver",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "6KeeslerDolf",
+        "lastName": "Keesler",
+        "firstName": "Dolf",
+        "shirtNumber": "6",
+        "badges": "(C)",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "7BoomsmaRein",
+        "lastName": "Boomsma",
+        "firstName": "Rein",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "8HesselinkWillem",
+        "lastName": "Hesselink",
+        "firstName": "Willem",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 74
+          }
+        ]
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "9De NeveAlexander",
+        "lastName": "De Neve",
+        "firstName": "Alexander",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 84
+          }
+        ]
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "10LutjensGuus",
+        "lastName": "Lutjens",
+        "firstName": "Guus",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 80
+          }
+        ]
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "11De VosWilly",
+        "lastName": "De Vos",
+        "firstName": "Willy",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    }
+  ],
+  "staffLineup": []
+}

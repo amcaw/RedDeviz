@@ -1,0 +1,370 @@
+{
+  "id": "1305",
+  "title": "International friendly",
+  "startTime": "1912-11-08T23:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Durham City Fc",
+    "city": "Swindon"
+  },
+  "officials": [
+    {
+      "lastName": "Nunnerley",
+      "firstName": "William",
+      "function": "referee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 40,
+      "home": [
+        {
+          "lastName": "Woodward",
+          "firstName": "John",
+          "teamId": "603",
+          "kind": "goalScored",
+          "minute": 40
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 30,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Musch",
+          "firstName": "Joseph",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 30
+        },
+        {
+          "lastName": "Goetinck",
+          "firstName": "Hector",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 30
+        }
+      ]
+    },
+    {
+      "minute": 25,
+      "home": [
+        {
+          "lastName": "Wright",
+          "firstName": "Edward",
+          "teamId": "603",
+          "kind": "goalScored",
+          "minute": 25
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 15,
+      "home": [
+        {
+          "lastName": "Healey",
+          "firstName": "Richard",
+          "teamId": "603",
+          "kind": "goalScored",
+          "minute": 15
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 10,
+      "home": [
+        {
+          "lastName": "Woodward",
+          "firstName": "John",
+          "teamId": "603",
+          "kind": "goalScored",
+          "minute": 10
+        }
+      ],
+      "away": []
+    }
+  ],
+  "homeTeam": {
+    "id": "603",
+    "name": "England",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/603.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 4,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 0,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": null,
+    "qualifyingGroup": null,
+    "groupCode": null
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1HowlingEdward",
+        "lastName": "Howling",
+        "firstName": "Edward",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "2595",
+        "lastName": "Mayné",
+        "firstName": "Jules",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2BurnThomas",
+        "lastName": "Burn",
+        "firstName": "Thomas",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2566",
+        "lastName": "Hubin",
+        "firstName": "Gaston",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3KnightArthur",
+        "lastName": "Knight",
+        "firstName": "Arthur",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2557",
+        "lastName": "Robyn",
+        "firstName": "Joseph",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "4HuntKenneth",
+        "lastName": "Hunt",
+        "firstName": "Kenneth",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2538",
+        "lastName": "Raemaekers",
+        "firstName": "Hector 'Tasson'",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "5LittlewortHorace",
+        "lastName": "Littlewort",
+        "firstName": "Horace",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2584",
+        "lastName": "Bossaert",
+        "firstName": "Oscar",
+        "shirtNumber": "5",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "6DinesJames",
+        "lastName": "Dines",
+        "firstName": "James",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2590",
+        "lastName": "Thys",
+        "firstName": "Joseph",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "7BerryArthur",
+        "lastName": "Berry",
+        "firstName": "Arthur",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2552",
+        "lastName": "Goetinck",
+        "firstName": "Hector",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 30
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "8WoodwardJohn",
+        "lastName": "Woodward",
+        "firstName": "John",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 10
+          },
+          {
+            "type": "goalScored",
+            "minute": 40
+          }
+        ]
+      },
+      "away": {
+        "id": "2588",
+        "lastName": "Nisot",
+        "firstName": "Fernand",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "9HealeyRichard",
+        "lastName": "Healey",
+        "firstName": "Richard",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 15
+          }
+        ]
+      },
+      "away": {
+        "id": "2594",
+        "lastName": "Brébart",
+        "firstName": "Sylvain",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "10HoareGordon",
+        "lastName": "Hoare",
+        "firstName": "Gordon",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2593",
+        "lastName": "Van Cant",
+        "firstName": "Jean",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "11WrightEdward",
+        "lastName": "Wright",
+        "firstName": "Edward",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 25
+          }
+        ]
+      },
+      "away": {
+        "id": "2596",
+        "lastName": "Demeyer",
+        "firstName": "Clément",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": null,
+      "away": {
+        "id": "2589",
+        "lastName": "Musch",
+        "firstName": "Joseph",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 30
+          }
+        ]
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": null,
+      "away": {
+        "lastName": "Maxwell",
+        "firstName": "William J.",
+        "function": "coach"
+      }
+    }
+  ]
+}

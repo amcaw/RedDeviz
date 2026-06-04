@@ -1,0 +1,500 @@
+{
+  "id": "2152",
+  "title": "Qualifying round",
+  "startTime": "1973-10-31T20:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Emile Versé Stadion",
+    "city": "Brussel"
+  },
+  "officials": [
+    {
+      "lastName": "Jursa",
+      "firstName": "Michal",
+      "function": "referee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 75,
+      "home": [
+        {
+          "lastName": "Lambert",
+          "firstName": "Raoul",
+          "teamId": "578",
+          "kind": "penaltyScored",
+          "minute": 75
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 72,
+      "home": [
+        {
+          "lastName": "Van Der Elst",
+          "firstName": "Swa",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 72
+        },
+        {
+          "lastName": "Van Binst",
+          "firstName": "Gilbert",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 72
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 70,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Karlsen",
+          "firstName": "Stein",
+          "teamId": "601",
+          "kind": "minuteIn",
+          "minute": 70
+        },
+        {
+          "lastName": "Kvia",
+          "firstName": "Svein",
+          "teamId": "601",
+          "kind": "minuteOut",
+          "minute": 70
+        }
+      ]
+    },
+    {
+      "minute": 60,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Johansen",
+          "firstName": "Tor Egil",
+          "teamId": "601",
+          "kind": "minuteIn",
+          "minute": 60
+        },
+        {
+          "lastName": "Christiansen",
+          "firstName": "Jan",
+          "teamId": "601",
+          "kind": "minuteOut",
+          "minute": 60
+        }
+      ]
+    },
+    {
+      "minute": 46,
+      "home": [
+        {
+          "lastName": "Lambert",
+          "firstName": "Raoul",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 46
+        },
+        {
+          "lastName": "Van Herp",
+          "firstName": "Yvo",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 46
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 32,
+      "home": [
+        {
+          "lastName": "Dolmans",
+          "firstName": "Léon",
+          "teamId": "578",
+          "kind": "penaltyScored",
+          "minute": 32
+        }
+      ],
+      "away": []
+    }
+  ],
+  "homeTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "awayTeam": {
+    "id": "601",
+    "name": "Norway",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/601.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 2,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 0,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": "West Germany - 1974",
+    "qualifyingGroup": "Group match",
+    "groupCode": "3"
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "2163",
+        "lastName": "Sanders",
+        "firstName": "Luc",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "1KarlsenGeir",
+        "lastName": "Karlsen",
+        "firstName": "Geir",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2249",
+        "lastName": "Bastijns",
+        "firstName": "Alfons",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2KarlsenHelge",
+        "lastName": "Karlsen",
+        "firstName": "Helge",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2164",
+        "lastName": "Van Binst",
+        "firstName": "Gilbert",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 72
+          }
+        ]
+      },
+      "away": {
+        "id": "3BirkelundJan",
+        "lastName": "Birkelund",
+        "firstName": "Jan",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2232",
+        "lastName": "Dewalque",
+        "firstName": "Nico",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "4GröndalenSven",
+        "lastName": "Gröndalen",
+        "firstName": "Sven",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2253",
+        "lastName": "Dolmans",
+        "firstName": "Léon",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": [
+          {
+            "type": "penaltyScored",
+            "minute": 32
+          }
+        ]
+      },
+      "away": {
+        "id": "5HovdanJan Anders",
+        "lastName": "Hovdan",
+        "firstName": "Jan Anders",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2234",
+        "lastName": "Dockx",
+        "firstName": "Jean",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "6ChristiansenJan",
+        "lastName": "Christiansen",
+        "firstName": "Jan",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 60
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2217",
+        "lastName": "Verheyen",
+        "firstName": "Jan",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "7PettersenPer",
+        "lastName": "Pettersen",
+        "firstName": "Per",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2168",
+        "lastName": "Van Herp",
+        "firstName": "Yvo",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 46
+          }
+        ]
+      },
+      "away": {
+        "id": "8KviaSvein",
+        "lastName": "Kvia",
+        "firstName": "Svein",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 70
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "777",
+        "lastName": "Janssens",
+        "firstName": "François",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "9SundeHarald",
+        "lastName": "Sunde",
+        "firstName": "Harald",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2199",
+        "lastName": "Van Himst",
+        "firstName": "Paul",
+        "shirtNumber": "10",
+        "badges": "(C)",
+        "events": []
+      },
+      "away": {
+        "id": "10HestadHarry",
+        "lastName": "Hestad",
+        "firstName": "Harry",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2245",
+        "lastName": "Janssens",
+        "firstName": "Jean",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "11LundTom",
+        "lastName": "Lund",
+        "firstName": "Tom",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "2255",
+        "lastName": "Roosbeek",
+        "firstName": "Robert",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "12SolbergEgil",
+        "lastName": "Solberg",
+        "firstName": "Egil",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2166",
+        "lastName": "Heyligen",
+        "firstName": "Jozef",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "13JohansenTor Egil",
+        "lastName": "Johansen",
+        "firstName": "Tor Egil",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 60
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2256",
+        "lastName": "Van der Elst",
+        "firstName": "Swa",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 72
+          }
+        ]
+      },
+      "away": {
+        "id": "14KarlsenStein",
+        "lastName": "Karlsen",
+        "firstName": "Stein",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 70
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2222",
+        "lastName": "Lambert",
+        "firstName": "Raoul",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 46
+          },
+          {
+            "type": "penaltyScored",
+            "minute": 75
+          }
+        ]
+      },
+      "away": {
+        "id": "15AntonsenTore",
+        "lastName": "Antonsen",
+        "firstName": "Tore",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2252",
+        "lastName": "Denul",
+        "firstName": "André",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Goethals",
+        "firstName": "Raymond",
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "George Curtis",
+        "firstName": null,
+        "function": "coach"
+      }
+    }
+  ]
+}

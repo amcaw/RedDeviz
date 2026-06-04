@@ -1,0 +1,853 @@
+{
+  "id": "74",
+  "title": "FIFA World Cup",
+  "startTime": "1998-06-25T16:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Parc Des Princes",
+    "city": "Parijs"
+  },
+  "officials": [
+    {
+      "lastName": "Rezende De Freitas",
+      "firstName": "Marcio",
+      "function": "referee"
+    },
+    {
+      "lastName": "Pinto Filho",
+      "firstName": "Arnaldo",
+      "function": "firstAssistantReferee"
+    },
+    {
+      "lastName": "Arango Cardona",
+      "firstName": "J.L.",
+      "function": "secondAssistantReferee"
+    },
+    {
+      "lastName": "Milton Nielsen",
+      "firstName": "Kim",
+      "function": "fourthOfficial"
+    }
+  ],
+  "events": [
+    {
+      "minute": 83,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Kim Byung",
+          "firstName": "Ji",
+          "teamId": "714",
+          "kind": "yellowCard",
+          "minute": 83
+        },
+        {
+          "lastName": "Lee",
+          "firstName": "Min Sung",
+          "teamId": "714",
+          "kind": "yellowCard",
+          "minute": 83
+        }
+      ]
+    },
+    {
+      "minute": 74,
+      "home": [
+        {
+          "lastName": "Mpenza",
+          "firstName": "Emile",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 74
+        },
+        {
+          "lastName": "Clement",
+          "firstName": "Philippe",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 74
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 72,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Yoo",
+          "firstName": "Sang Chul",
+          "teamId": "714",
+          "kind": "goalScored",
+          "minute": 72
+        }
+      ]
+    },
+    {
+      "minute": 67,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Lee",
+          "firstName": "Lim Saeng",
+          "teamId": "714",
+          "kind": "yellowCard",
+          "minute": 67
+        }
+      ]
+    },
+    {
+      "minute": 66,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Jang",
+          "firstName": "Hyung Seok",
+          "teamId": "714",
+          "kind": "minuteIn",
+          "minute": 66
+        },
+        {
+          "lastName": "Lee",
+          "firstName": "Sang Hun",
+          "teamId": "714",
+          "kind": "minuteOut",
+          "minute": 66
+        }
+      ]
+    },
+    {
+      "minute": 65,
+      "home": [
+        {
+          "lastName": "Van Der Elst",
+          "firstName": "Franky",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 65
+        },
+        {
+          "lastName": "Scifo",
+          "firstName": "Enzo",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 65
+        },
+        {
+          "lastName": "Borkelmans",
+          "firstName": "Vital",
+          "teamId": "578",
+          "kind": "yellowCard",
+          "minute": 65
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 48,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Kim",
+          "firstName": "Tae Young",
+          "teamId": "714",
+          "kind": "yellowCard",
+          "minute": 48
+        }
+      ]
+    },
+    {
+      "minute": 45,
+      "home": [
+        {
+          "lastName": "Mpenza",
+          "firstName": "Mbo",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 45
+        },
+        {
+          "lastName": "Oliveira Barroso",
+          "firstName": "Luis",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 45
+        }
+      ],
+      "away": [
+        {
+          "lastName": "Ko",
+          "firstName": "Jong Soo",
+          "teamId": "714",
+          "kind": "minuteIn",
+          "minute": 45
+        },
+        {
+          "lastName": "Lee",
+          "firstName": "Lim Saeng",
+          "teamId": "714",
+          "kind": "minuteIn",
+          "minute": 45
+        },
+        {
+          "lastName": "Choi",
+          "firstName": "Sung Yong",
+          "teamId": "714",
+          "kind": "minuteOut",
+          "minute": 45
+        },
+        {
+          "lastName": "Kim",
+          "firstName": "Do Keun",
+          "teamId": "714",
+          "kind": "minuteOut",
+          "minute": 45
+        }
+      ]
+    },
+    {
+      "minute": 7,
+      "home": [
+        {
+          "lastName": "Nilis",
+          "firstName": "Luc",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 7
+        }
+      ],
+      "away": []
+    }
+  ],
+  "homeTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "awayTeam": {
+    "id": "714",
+    "name": "Korea Republic",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/714.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 1,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 1,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": "France - 1998",
+    "qualifyingGroup": "Group match",
+    "groupCode": "E"
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "2070",
+        "lastName": "Vande Walle",
+        "firstName": "Philippe",
+        "shirtNumber": "12",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "1Kim ByungJi",
+        "lastName": "Kim Byung",
+        "firstName": "Ji",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 83
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2161",
+        "lastName": "Staelens",
+        "firstName": "Lorenzo",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2ChoiSung Yong",
+        "lastName": "Choi",
+        "firstName": "Sung Yong",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 45
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "187",
+        "lastName": "Vidovic",
+        "firstName": "Gordan",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "5LeeMin Sung",
+        "lastName": "Lee",
+        "firstName": "Min Sung",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 83
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2160",
+        "lastName": "Borkelmans",
+        "firstName": "Vital",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 65
+          }
+        ]
+      },
+      "away": {
+        "id": "6YooSang Chul",
+        "lastName": "Yoo",
+        "firstName": "Sang Chul",
+        "shirtNumber": "6",
+        "badges": "(C)",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 72
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "1965",
+        "lastName": "Wilmots",
+        "firstName": "Marc",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "7KimDo Keun",
+        "lastName": "Kim",
+        "firstName": "Do Keun",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 45
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "1975",
+        "lastName": "Oliveira Barroso",
+        "firstName": "Luis",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 45
+          }
+        ]
+      },
+      "away": {
+        "id": "10ChoiYong Soo",
+        "lastName": "Choi",
+        "firstName": "Yong Soo",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2067",
+        "lastName": "Nilis",
+        "firstName": "Luc",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 7
+          }
+        ]
+      },
+      "away": {
+        "id": "11SeoJung Won",
+        "lastName": "Seo",
+        "firstName": "Jung Won",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "564",
+        "lastName": "Van Kerckhoven",
+        "firstName": "Nico",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "12LeeSang Hun",
+        "lastName": "Lee",
+        "firstName": "Sang Hun",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 66
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2128",
+        "lastName": "Scifo",
+        "firstName": "Enzo",
+        "shirtNumber": "14",
+        "badges": "(C)",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 65
+          }
+        ]
+      },
+      "away": {
+        "id": "13KimTae Young",
+        "lastName": "Kim",
+        "firstName": "Tae Young",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 48
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "232",
+        "lastName": "Clement",
+        "firstName": "Philippe",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 74
+          }
+        ]
+      },
+      "away": {
+        "id": "17HaSeok Ju",
+        "lastName": "Ha",
+        "firstName": "Seok Ju",
+        "shirtNumber": "17",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "1589",
+        "lastName": "Deflandre",
+        "firstName": "Eric",
+        "shirtNumber": "22",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "20HongMyung Bo",
+        "lastName": "Hong",
+        "firstName": "Myung Bo",
+        "shirtNumber": "20",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "2137",
+        "lastName": "De Wilde",
+        "firstName": "Filip",
+        "shirtNumber": "1",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "3LeeLim Saeng",
+        "lastName": "Lee",
+        "firstName": "Lim Saeng",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 45
+          },
+          {
+            "type": "yellowCard",
+            "minute": 67
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "1971",
+        "lastName": "Crasson",
+        "firstName": "Bertrand",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "4ChoiYoung Il",
+        "lastName": "Choi",
+        "firstName": "Young Il",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2134",
+        "lastName": "Van der Elst",
+        "firstName": "Franky",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 65
+          }
+        ]
+      },
+      "away": {
+        "id": "8NohJung Yoon",
+        "lastName": "Noh",
+        "firstName": "Jung Yoon",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "1463",
+        "lastName": "Mpenza",
+        "firstName": "Mbo",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 45
+          }
+        ]
+      },
+      "away": {
+        "id": "9KimDo Hoon",
+        "lastName": "Kim",
+        "firstName": "Do Hoon",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "1675",
+        "lastName": "Verlinden",
+        "firstName": "Dany",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "14KoJong Soo",
+        "lastName": "Ko",
+        "firstName": "Jong Soo",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 45
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "1575",
+        "lastName": "De Boeck",
+        "firstName": "Glen",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "15LeeSang Yoon",
+        "lastName": "Lee",
+        "firstName": "Sang Yoon",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "200",
+        "lastName": "Verstraeten",
+        "firstName": "Mike",
+        "shirtNumber": "17",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "16JangHyung Seok",
+        "lastName": "Jang",
+        "firstName": "Hyung Seok",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 66
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "1734",
+        "lastName": "Verheyen",
+        "firstName": "Gert",
+        "shirtNumber": "18",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "18HwangSun Hong",
+        "lastName": "Hwang",
+        "firstName": "Sun Hong",
+        "shirtNumber": "18",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "1304",
+        "lastName": "Van Meir",
+        "firstName": "Eric",
+        "shirtNumber": "19",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "19JangDae Il",
+        "lastName": "Jang",
+        "firstName": "Dae Il",
+        "shirtNumber": "19",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "404",
+        "lastName": "Mpenza",
+        "firstName": "Emile",
+        "shirtNumber": "20",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 74
+          }
+        ]
+      },
+      "away": {
+        "id": "21LeeDong Gook",
+        "lastName": "Lee",
+        "firstName": "Dong Gook",
+        "shirtNumber": "21",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2162",
+        "lastName": "Boffin",
+        "firstName": "Danny",
+        "shirtNumber": "21",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "22SeoDong Myung",
+        "lastName": "Seo",
+        "firstName": "Dong Myung",
+        "shirtNumber": "22",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Leekens",
+        "firstName": "Georges",
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Pyung Seok Kim",
+        "firstName": null,
+        "function": "coach"
+      }
+    },
+    {
+      "home": {
+        "lastName": "Goossens",
+        "firstName": "Marc",
+        "function": "coach"
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "lastName": "Vanhemelryck",
+        "firstName": "Jean-Marie",
+        "function": "coach"
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "lastName": "Snelders",
+        "firstName": "Eddy",
+        "function": "coach"
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "lastName": "Munaron",
+        "firstName": "Jacky",
+        "function": "coach"
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "lastName": "Heyndrickx",
+        "firstName": "Harry",
+        "function": "coach"
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "lastName": "Huys",
+        "firstName": "Piet",
+        "function": "coach"
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "lastName": "De Bree",
+        "firstName": "Roger",
+        "function": "coach"
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "lastName": "Deville",
+        "firstName": "Luc",
+        "function": "coach"
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "lastName": "Donovan",
+        "firstName": "Donald",
+        "function": "coach"
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "lastName": "Erauw",
+        "firstName": "Piet",
+        "function": "coach"
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "lastName": "Garitte",
+        "firstName": "Damien",
+        "function": "coach"
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "lastName": "Heirman",
+        "firstName": "Freddy",
+        "function": "coach"
+      },
+      "away": null
+    }
+  ]
+}

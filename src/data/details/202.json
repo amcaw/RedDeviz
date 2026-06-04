@@ -1,0 +1,400 @@
+{
+  "id": "202",
+  "title": "Qualifying round",
+  "startTime": "1984-12-22T00:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Qemal Stafa Stadion",
+    "city": "Tirana"
+  },
+  "officials": [
+    {
+      "lastName": "Arminio Sanchez",
+      "firstName": "Victoriano",
+      "function": "referee"
+    },
+    {
+      "lastName": "Pas Perez",
+      "firstName": "José",
+      "function": "firstAssistantReferee"
+    },
+    {
+      "lastName": "Perez Sanchez",
+      "firstName": "José",
+      "function": "secondAssistantReferee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 86,
+      "home": [
+        {
+          "lastName": "Minga",
+          "firstName": "Arben",
+          "teamId": "590",
+          "kind": "goalScored",
+          "minute": 86
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 68,
+      "home": [
+        {
+          "lastName": "Josa",
+          "firstName": "Mirel",
+          "teamId": "590",
+          "kind": "goalScored",
+          "minute": 68
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 60,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Voordeckers",
+          "firstName": "Eddy",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 60
+        },
+        {
+          "lastName": "Czerniatynski",
+          "firstName": "Alexandre",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 60
+        }
+      ]
+    }
+  ],
+  "homeTeam": {
+    "id": "590",
+    "name": "Albania",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/590.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 2,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 0,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": "Mexico - 1986",
+    "qualifyingGroup": "Group match",
+    "groupCode": "1"
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1MustaPerlat",
+        "lastName": "Musta",
+        "firstName": "Perlat",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "2074",
+        "lastName": "Pfaff",
+        "firstName": "Jean-Marie",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2ZmijaniHysen",
+        "lastName": "Zmijani",
+        "firstName": "Hysen",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2138",
+        "lastName": "Grün",
+        "firstName": "Georges",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3HodjaSkendër",
+        "lastName": "Hodja",
+        "firstName": "Skendër",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2139",
+        "lastName": "Jaspers",
+        "firstName": "Eddy",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "4TargajMuhedin",
+        "lastName": "Targaj",
+        "firstName": "Muhedin",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2134",
+        "lastName": "Van der Elst",
+        "firstName": "Franky",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "5OcelliAdnan",
+        "lastName": "Ocelli",
+        "firstName": "Adnan",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2084",
+        "lastName": "Renquin",
+        "firstName": "Michel",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "6RagamiFerit",
+        "lastName": "Ragami",
+        "firstName": "Ferit",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2099",
+        "lastName": "Vercauteren",
+        "firstName": "Frank",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "7DemollariSulejman",
+        "lastName": "Demollari",
+        "firstName": "Sulejman",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2119",
+        "lastName": "De Groote",
+        "firstName": "Michel",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "8JosaMirel",
+        "lastName": "Josa",
+        "firstName": "Mirel",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 68
+          }
+        ]
+      },
+      "away": {
+        "id": "2128",
+        "lastName": "Scifo",
+        "firstName": "Enzo",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "9MucaShkelqim",
+        "lastName": "Muca",
+        "firstName": "Shkelqim",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2131",
+        "lastName": "Claesen",
+        "firstName": "Nico",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "10MingaArben",
+        "lastName": "Minga",
+        "firstName": "Arben",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 86
+          }
+        ]
+      },
+      "away": {
+        "id": "2116",
+        "lastName": "Czerniatynski",
+        "firstName": "Alexandre",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 60
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "11KolaAgustin",
+        "lastName": "Kola",
+        "firstName": "Agustin",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2094",
+        "lastName": "Ceulemans",
+        "firstName": "Jan",
+        "shirtNumber": "11",
+        "badges": "(C)",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "13VilaArben",
+        "lastName": "Vila",
+        "firstName": "Arben",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2114",
+        "lastName": "Munaron",
+        "firstName": "Jacky",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2113",
+        "lastName": "De Wolf",
+        "firstName": "Michel",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2124",
+        "lastName": "Clijsters",
+        "firstName": "Lei",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2100",
+        "lastName": "Mommens",
+        "firstName": "Raymond",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2106",
+        "lastName": "Voordeckers",
+        "firstName": "Eddy",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 60
+          }
+        ]
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Shyqyrs Rreli",
+        "firstName": null,
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Thys",
+        "firstName": "Guy",
+        "function": "coach"
+      }
+    }
+  ]
+}

@@ -1,0 +1,544 @@
+{
+  "id": "970",
+  "title": "Qualifying round",
+  "startTime": "1981-02-18T20:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Heizelstadion",
+    "city": "Brussel"
+  },
+  "officials": [
+    {
+      "lastName": "Ravander",
+      "firstName": "Arto",
+      "function": "referee"
+    },
+    {
+      "lastName": "Mattsson",
+      "firstName": "A.",
+      "function": "firstAssistantReferee"
+    },
+    {
+      "lastName": "Orakangas",
+      "firstName": "Osmo",
+      "function": "secondAssistantReferee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 88,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Tsingis",
+          "firstName": "Marios",
+          "teamId": "609",
+          "kind": "minuteIn",
+          "minute": 88
+        },
+        {
+          "lastName": "Miamiliotis",
+          "firstName": "Andros",
+          "teamId": "609",
+          "kind": "minuteOut",
+          "minute": 88
+        }
+      ]
+    },
+    {
+      "minute": 87,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Lagos",
+          "firstName": "Chryssantos",
+          "teamId": "609",
+          "kind": "minuteIn",
+          "minute": 87
+        },
+        {
+          "lastName": "Theophanous",
+          "firstName": "Phanis",
+          "teamId": "609",
+          "kind": "minuteOut",
+          "minute": 87
+        }
+      ]
+    },
+    {
+      "minute": 72,
+      "home": [
+        {
+          "lastName": "Vercauteren",
+          "firstName": "Frank",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 72
+        },
+        {
+          "lastName": "Voordeckers",
+          "firstName": "Eddy",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 72
+        },
+        {
+          "lastName": "Cluytens",
+          "firstName": "Albert",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 72
+        },
+        {
+          "lastName": "Plessers",
+          "firstName": "Gerard",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 72
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 67,
+      "home": [
+        {
+          "lastName": "Ceulemans",
+          "firstName": "Jan",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 67
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 60,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Vrahimis",
+          "firstName": "Fivos",
+          "teamId": "609",
+          "kind": "goalScored",
+          "minute": 60
+        }
+      ]
+    },
+    {
+      "minute": 42,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Lysandrou",
+          "firstName": "Stefanos",
+          "teamId": "609",
+          "kind": "goalScored",
+          "minute": 42
+        }
+      ]
+    },
+    {
+      "minute": 17,
+      "home": [
+        {
+          "lastName": "Vandenbergh",
+          "firstName": "Erwin",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 17
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 12,
+      "home": [
+        {
+          "lastName": "Plessers",
+          "firstName": "Gerard",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 12
+        }
+      ],
+      "away": []
+    }
+  ],
+  "homeTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "awayTeam": {
+    "id": "609",
+    "name": "Cyprus",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/609.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 3,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 2,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": "Spain - 1982",
+    "qualifyingGroup": "Group match",
+    "groupCode": "2"
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "2074",
+        "lastName": "Pfaff",
+        "firstName": "Jean-Marie",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "1ConstantinouAndreas",
+        "lastName": "Constantinou",
+        "firstName": "Andreas",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2083",
+        "lastName": "Gerets",
+        "firstName": "Eric",
+        "shirtNumber": "2",
+        "badges": "(C)",
+        "events": []
+      },
+      "away": {
+        "id": "2LoukaLoukis",
+        "lastName": "Louka",
+        "firstName": "Loukis",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2084",
+        "lastName": "Renquin",
+        "firstName": "Michel",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "3ToumazouStephanos",
+        "lastName": "Toumazou",
+        "firstName": "Stephanos",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2102",
+        "lastName": "Cluytens",
+        "firstName": "Albert",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 72
+          }
+        ]
+      },
+      "away": {
+        "id": "4ErotokritouKlitos",
+        "lastName": "Erotokritou",
+        "firstName": "Klitos",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2111",
+        "lastName": "Plessers",
+        "firstName": "Gerard",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 12
+          },
+          {
+            "type": "minuteOut",
+            "minute": 72
+          }
+        ]
+      },
+      "away": {
+        "id": "5LysandrouStefanos",
+        "lastName": "Lysandrou",
+        "firstName": "Stefanos",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 42
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2100",
+        "lastName": "Mommens",
+        "firstName": "Raymond",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "6DimitriouPhilippos",
+        "lastName": "Dimitriou",
+        "firstName": "Philippos",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2257",
+        "lastName": "Vandereycken",
+        "firstName": "René",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "7MiamiliotisAndros",
+        "lastName": "Miamiliotis",
+        "firstName": "Andros",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 88
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2089",
+        "lastName": "Wellens",
+        "firstName": "Willy",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "8PantzariasChristos",
+        "lastName": "Pantzarias",
+        "firstName": "Christos",
+        "shirtNumber": "8",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2109",
+        "lastName": "Vandenbergh",
+        "firstName": "Erwin",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 17
+          }
+        ]
+      },
+      "away": {
+        "id": "9VrahimisFivos",
+        "lastName": "Vrahimis",
+        "firstName": "Fivos",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 60
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2079",
+        "lastName": "Coeck",
+        "firstName": "Ludo",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "10YiangoudakisYannis",
+        "lastName": "Yiangoudakis",
+        "firstName": "Yannis",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2094",
+        "lastName": "Ceulemans",
+        "firstName": "Jan",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 67
+          }
+        ]
+      },
+      "away": {
+        "id": "11TheophanousPhanis",
+        "lastName": "Theophanous",
+        "firstName": "Phanis",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 87
+          }
+        ]
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "2081",
+        "lastName": "Preud'Homme",
+        "firstName": "Michel",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "13LagosChryssantos",
+        "lastName": "Lagos",
+        "firstName": "Chryssantos",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 87
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2113",
+        "lastName": "De Wolf",
+        "firstName": "Michel",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "14TsingisMarios",
+        "lastName": "Tsingis",
+        "firstName": "Marios",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 88
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2090",
+        "lastName": "Millecamps",
+        "firstName": "Marc",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "2099",
+        "lastName": "Vercauteren",
+        "firstName": "Frank",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 72
+          }
+        ]
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "2106",
+        "lastName": "Voordeckers",
+        "firstName": "Eddy",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 72
+          }
+        ]
+      },
+      "away": null
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Thys",
+        "firstName": "Guy",
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Costas Taliannos",
+        "firstName": null,
+        "function": "coach"
+      }
+    }
+  ]
+}

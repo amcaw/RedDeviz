@@ -1,0 +1,689 @@
+{
+  "id": "1435",
+  "title": "Friendly tournament",
+  "startTime": "1999-02-05T21:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "New Gsz Stadium",
+    "city": "Larnaca"
+  },
+  "officials": [
+    {
+      "lastName": "Kyprianides",
+      "firstName": "Yiannakis",
+      "function": "referee"
+    },
+    {
+      "lastName": "Petrou",
+      "firstName": "Frixos",
+      "function": "firstAssistantReferee"
+    },
+    {
+      "lastName": "Xanthou",
+      "firstName": "Andreas",
+      "function": "secondAssistantReferee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 90,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Giannakopoulos",
+          "firstName": "Stylianos",
+          "teamId": "591",
+          "kind": "goalScored",
+          "minute": 90
+        }
+      ]
+    },
+    {
+      "minute": 85,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Nikolaidis",
+          "firstName": "Themistoklis",
+          "teamId": "591",
+          "kind": "yellowCard",
+          "minute": 85
+        }
+      ]
+    },
+    {
+      "minute": 82,
+      "home": [
+        {
+          "lastName": "Mpenza",
+          "firstName": "Emile",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 82
+        },
+        {
+          "lastName": "De Bilde",
+          "firstName": "Gilles",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 82
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 79,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Lymperopoulos",
+          "firstName": "Nikolaos",
+          "teamId": "591",
+          "kind": "minuteIn",
+          "minute": 79
+        },
+        {
+          "lastName": "Kostantinidis",
+          "firstName": "Pantelis",
+          "teamId": "591",
+          "kind": "minuteOut",
+          "minute": 79
+        }
+      ]
+    },
+    {
+      "minute": 67,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Georgatos",
+          "firstName": "Grigorios",
+          "teamId": "591",
+          "kind": "minuteIn",
+          "minute": 67
+        },
+        {
+          "lastName": "Mavrogenidis",
+          "firstName": "Dimitrios",
+          "teamId": "591",
+          "kind": "minuteIn",
+          "minute": 67
+        },
+        {
+          "lastName": "Nikolaidis",
+          "firstName": "Themistoklis",
+          "teamId": "591",
+          "kind": "minuteIn",
+          "minute": 67
+        },
+        {
+          "lastName": "Kostantinidis",
+          "firstName": "Kostas",
+          "teamId": "591",
+          "kind": "minuteOut",
+          "minute": 67
+        },
+        {
+          "lastName": "Liolidis",
+          "firstName": "Apostolos",
+          "teamId": "591",
+          "kind": "minuteOut",
+          "minute": 67
+        },
+        {
+          "lastName": "Zikos",
+          "firstName": "Vasileios Andreas",
+          "teamId": "591",
+          "kind": "minuteOut",
+          "minute": 67
+        }
+      ]
+    },
+    {
+      "minute": 65,
+      "home": [
+        {
+          "lastName": "Janssens",
+          "firstName": "Chris",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 65
+        },
+        {
+          "lastName": "Mpenza",
+          "firstName": "Mbo",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 65
+        },
+        {
+          "lastName": "Oyen",
+          "firstName": "Davy",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 65
+        },
+        {
+          "lastName": "Pierre",
+          "firstName": "Frédéric",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 65
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 58,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Zikos",
+          "firstName": "Vasileios Andreas",
+          "teamId": "591",
+          "kind": "yellowCard",
+          "minute": 58
+        }
+      ]
+    },
+    {
+      "minute": 55,
+      "home": [
+        {
+          "lastName": "De Boeck",
+          "firstName": "Glen",
+          "teamId": "578",
+          "kind": "yellowCard",
+          "minute": 55
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 19,
+      "home": [
+        {
+          "lastName": "Deflandre",
+          "firstName": "Eric",
+          "teamId": "578",
+          "kind": "yellowCard",
+          "minute": 19
+        }
+      ],
+      "away": []
+    }
+  ],
+  "homeTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "awayTeam": {
+    "id": "591",
+    "name": "Greece",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/591.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 0,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 1,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": null,
+    "qualifyingGroup": "Final",
+    "groupCode": null
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1661",
+        "lastName": "De Vlieger",
+        "firstName": "Geert",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "1EleftheropoulosDimitrios",
+        "lastName": "Eleftheropoulos",
+        "firstName": "Dimitrios",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "256",
+        "lastName": "Kimoni",
+        "firstName": "Daniel",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2KostantinidisKostas",
+        "lastName": "Kostantinidis",
+        "firstName": "Kostas",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 67
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "1575",
+        "lastName": "De Boeck",
+        "firstName": "Glen",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 55
+          }
+        ]
+      },
+      "away": {
+        "id": "3KatsiambisAnastasios",
+        "lastName": "Katsiambis",
+        "firstName": "Anastasios",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "1304",
+        "lastName": "Van Meir",
+        "firstName": "Eric",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "4AntzasParaskevas",
+        "lastName": "Antzas",
+        "firstName": "Paraskevas",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "312",
+        "lastName": "Oyen",
+        "firstName": "Davy",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 65
+          }
+        ]
+      },
+      "away": {
+        "id": "5KalitzakisIoannis",
+        "lastName": "Kalitzakis",
+        "firstName": "Ioannis",
+        "shirtNumber": "5",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "244",
+        "lastName": "Delbroek",
+        "firstName": "Wilfried",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "6PoursanidisIllias",
+        "lastName": "Poursanidis",
+        "firstName": "Illias",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2161",
+        "lastName": "Staelens",
+        "firstName": "Lorenzo",
+        "shirtNumber": "7",
+        "badges": "(C)",
+        "events": []
+      },
+      "away": {
+        "id": "7GiannakopoulosStylianos",
+        "lastName": "Giannakopoulos",
+        "firstName": "Stylianos",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 90
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "1589",
+        "lastName": "Deflandre",
+        "firstName": "Eric",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 19
+          }
+        ]
+      },
+      "away": {
+        "id": "8ZikosVasileios Andreas",
+        "lastName": "Zikos",
+        "firstName": "Vasileios Andreas",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 58
+          },
+          {
+            "type": "minuteOut",
+            "minute": 67
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "176",
+        "lastName": "Goor",
+        "firstName": "Bart",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "9LiolidisApostolos",
+        "lastName": "Liolidis",
+        "firstName": "Apostolos",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 67
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "490",
+        "lastName": "De Bilde",
+        "firstName": "Gilles",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 82
+          }
+        ]
+      },
+      "away": {
+        "id": "10KostantinidisSotiris",
+        "lastName": "Kostantinidis",
+        "firstName": "Sotiris",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "1158",
+        "lastName": "Pierre",
+        "firstName": "Frédéric",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 65
+          }
+        ]
+      },
+      "away": {
+        "id": "11KostantinidisPantelis",
+        "lastName": "Kostantinidis",
+        "firstName": "Pantelis",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 79
+          }
+        ]
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "254",
+        "lastName": "Lemmens",
+        "firstName": "Erwin",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "12Anatolakisnull",
+        "lastName": "Anatolakis",
+        "firstName": null,
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "249",
+        "lastName": "Brogno",
+        "firstName": "Toni",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "13Fissasnull",
+        "lastName": "Fissas",
+        "firstName": null,
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "220",
+        "lastName": "Janssens",
+        "firstName": "Chris",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 65
+          }
+        ]
+      },
+      "away": {
+        "id": "14GeorgatosGrigorios",
+        "lastName": "Georgatos",
+        "firstName": "Grigorios",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 67
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "1463",
+        "lastName": "Mpenza",
+        "firstName": "Mbo",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 65
+          }
+        ]
+      },
+      "away": {
+        "id": "15Atmatzidisnull",
+        "lastName": "Atmatzidis",
+        "firstName": null,
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "404",
+        "lastName": "Mpenza",
+        "firstName": "Emile",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 82
+          }
+        ]
+      },
+      "away": {
+        "id": "16MavrogenidisDimitrios",
+        "lastName": "Mavrogenidis",
+        "firstName": "Dimitrios",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 67
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "1663",
+        "lastName": "Brocken",
+        "firstName": "David",
+        "shirtNumber": "17",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "17NikolaidisThemistoklis",
+        "lastName": "Nikolaidis",
+        "firstName": "Themistoklis",
+        "shirtNumber": "17",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 67
+          },
+          {
+            "type": "yellowCard",
+            "minute": 85
+          }
+        ]
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "18MarkosD.",
+        "lastName": "Markos",
+        "firstName": "D.",
+        "shirtNumber": "18",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "19Goymasnull",
+        "lastName": "Goymas",
+        "firstName": null,
+        "shirtNumber": "19",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "20LymperopoulosNikolaos",
+        "lastName": "Lymperopoulos",
+        "firstName": "Nikolaos",
+        "shirtNumber": "20",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 79
+          }
+        ]
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Leekens",
+        "firstName": "Georges",
+        "function": "coach"
+      },
+      "away": null
+    }
+  ]
+}

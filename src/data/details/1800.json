@@ -1,0 +1,475 @@
+{
+  "id": "1800",
+  "title": "UEFA European Championship",
+  "startTime": "1980-06-18T20:30:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Stadio Olimpico",
+    "city": "Rome"
+  },
+  "officials": [
+    {
+      "lastName": "Garrido",
+      "firstName": "Antonio",
+      "function": "referee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 77,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Vandenbergh",
+          "firstName": "Erwin",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 77
+        },
+        {
+          "lastName": "Mommens",
+          "firstName": "Raymond",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 77
+        }
+      ]
+    },
+    {
+      "minute": 48,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Verheyen",
+          "firstName": "René",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 48
+        },
+        {
+          "lastName": "Van Moer",
+          "firstName": "Wilfried",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 48
+        }
+      ]
+    },
+    {
+      "minute": 46,
+      "home": [
+        {
+          "lastName": "Altobelli",
+          "firstName": "Alessandro",
+          "teamId": "583",
+          "kind": "minuteIn",
+          "minute": 46
+        },
+        {
+          "lastName": "Oriali",
+          "firstName": "Gabriele",
+          "teamId": "583",
+          "kind": "minuteOut",
+          "minute": 46
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 35,
+      "home": [
+        {
+          "lastName": "Baresi",
+          "firstName": "Guiseppe",
+          "teamId": "583",
+          "kind": "minuteIn",
+          "minute": 35
+        },
+        {
+          "lastName": "Antognoni",
+          "firstName": "Giancarlo",
+          "teamId": "583",
+          "kind": "minuteOut",
+          "minute": 35
+        }
+      ],
+      "away": []
+    }
+  ],
+  "homeTeam": {
+    "id": "583",
+    "name": "Italy",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/583.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 0,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 0,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": "Italy - 1980",
+    "qualifyingGroup": "Group match",
+    "groupCode": "2"
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1ZoffDino",
+        "lastName": "Zoff",
+        "firstName": "Dino",
+        "shirtNumber": "1",
+        "badges": "(C) (GK)",
+        "events": []
+      },
+      "away": {
+        "id": "2074",
+        "lastName": "Pfaff",
+        "firstName": "Jean-Marie",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2GentileClaudio",
+        "lastName": "Gentile",
+        "firstName": "Claudio",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2083",
+        "lastName": "Gerets",
+        "firstName": "Eric",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3OrialiGabriele",
+        "lastName": "Oriali",
+        "firstName": "Gabriele",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": null
+          },
+          {
+            "type": "minuteOut",
+            "minute": 46
+          }
+        ]
+      },
+      "away": {
+        "id": "2110",
+        "lastName": "Millecamps",
+        "firstName": "Luc",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "4BenettiRomeo",
+        "lastName": "Benetti",
+        "firstName": "Romeo",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2093",
+        "lastName": "Meeuws",
+        "firstName": "Walter",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": null
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "5CollocatiFulvio",
+        "lastName": "Collocati",
+        "firstName": "Fulvio",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2084",
+        "lastName": "Renquin",
+        "firstName": "Michel",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "6ScireaGaetano",
+        "lastName": "Scirea",
+        "firstName": "Gaetano",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2225",
+        "lastName": "Van Moer",
+        "firstName": "Wilfried",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 48
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "7CausioFranco",
+        "lastName": "Causio",
+        "firstName": "Franco",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": null
+          }
+        ]
+      },
+      "away": {
+        "id": "2257",
+        "lastName": "Vandereycken",
+        "firstName": "René",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": null
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "8TardelliMarco",
+        "lastName": "Tardelli",
+        "firstName": "Marco",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2078",
+        "lastName": "Cools",
+        "firstName": "Julien",
+        "shirtNumber": "8",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "9GrazianiFrancesco",
+        "lastName": "Graziani",
+        "firstName": "Francesco",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2100",
+        "lastName": "Mommens",
+        "firstName": "Raymond",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 77
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "10AntognoniGiancarlo",
+        "lastName": "Antognoni",
+        "firstName": "Giancarlo",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 35
+          }
+        ]
+      },
+      "away": {
+        "id": "2256",
+        "lastName": "Van der Elst",
+        "firstName": "Swa",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": null
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "11BettegaRoberto",
+        "lastName": "Bettega",
+        "firstName": "Roberto",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2094",
+        "lastName": "Ceulemans",
+        "firstName": "Jan",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "13BaresiGuiseppe",
+        "lastName": "Baresi",
+        "firstName": "Guiseppe",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 35
+          }
+        ]
+      },
+      "away": {
+        "id": "2088",
+        "lastName": "Verheyen",
+        "firstName": "René",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 48
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "14AltobelliAlessandro",
+        "lastName": "Altobelli",
+        "firstName": "Alessandro",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 46
+          }
+        ]
+      },
+      "away": {
+        "id": "2109",
+        "lastName": "Vandenbergh",
+        "firstName": "Erwin",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 77
+          }
+        ]
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2097",
+        "lastName": "Custers",
+        "firstName": "Theo",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2248",
+        "lastName": "Martens",
+        "firstName": "Maurice",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2112",
+        "lastName": "Martens",
+        "firstName": "Ronny",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Vincenzo Bearzot",
+        "firstName": null,
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Thys",
+        "firstName": "Guy",
+        "function": "coach"
+      }
+    }
+  ]
+}

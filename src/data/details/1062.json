@@ -1,0 +1,395 @@
+{
+  "id": "1062",
+  "title": "International friendly",
+  "startTime": "1952-11-26T00:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Wembley Stadium",
+    "city": "Londen"
+  },
+  "officials": [
+    {
+      "lastName": "Horn",
+      "firstName": "Leopold Sylvain",
+      "function": "referee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 86,
+      "home": [
+        {
+          "lastName": "Lofthouse",
+          "firstName": "Nat",
+          "teamId": "603",
+          "kind": "goalScored",
+          "minute": 86
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 60,
+      "home": [
+        {
+          "lastName": "Froggatt",
+          "firstName": "Redfern",
+          "teamId": "603",
+          "kind": "goalScored",
+          "minute": 60
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 48,
+      "home": [
+        {
+          "lastName": "Elliot",
+          "firstName": "William",
+          "teamId": "603",
+          "kind": "goalScored",
+          "minute": 48
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 42,
+      "home": [
+        {
+          "lastName": "Bentley",
+          "firstName": "Roy",
+          "teamId": "603",
+          "kind": "goalScored",
+          "minute": 42
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 4,
+      "home": [
+        {
+          "lastName": "Elliot",
+          "firstName": "William",
+          "teamId": "603",
+          "kind": "goalScored",
+          "minute": 4
+        }
+      ],
+      "away": []
+    }
+  ],
+  "homeTeam": {
+    "id": "603",
+    "name": "England",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/603.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 5,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 0,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": null,
+    "qualifyingGroup": null,
+    "groupCode": null
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1MerrickGil",
+        "lastName": "Merrick",
+        "firstName": "Gil",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "2273",
+        "lastName": "Boogaerts",
+        "firstName": "Ferdinand",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2RamseyAlf",
+        "lastName": "Ramsey",
+        "firstName": "Alf",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2303",
+        "lastName": "Diricx",
+        "firstName": "Henri",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3FroggattJack",
+        "lastName": "Froggatt",
+        "firstName": "Jack",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2300",
+        "lastName": "Van Brandt",
+        "firstName": "Alfons",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "4SmithLionel",
+        "lastName": "Smith",
+        "firstName": "Lionel",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2289",
+        "lastName": "Mees",
+        "firstName": "Vic",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "5WrightBilly",
+        "lastName": "Wright",
+        "firstName": "Billy",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2284",
+        "lastName": "Carré",
+        "firstName": "Louis",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "6DickinsonJim",
+        "lastName": "Dickinson",
+        "firstName": "Jim",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2310",
+        "lastName": "Maertens",
+        "firstName": "Robert",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "7FinneyTom",
+        "lastName": "Finney",
+        "firstName": "Tom",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2355",
+        "lastName": "Lemberechts",
+        "firstName": "Torreke",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "8BentleyRoy",
+        "lastName": "Bentley",
+        "firstName": "Roy",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 42
+          }
+        ]
+      },
+      "away": {
+        "id": "2291",
+        "lastName": "Van Der Auwera",
+        "firstName": "Jan",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "9LofthouseNat",
+        "lastName": "Lofthouse",
+        "firstName": "Nat",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 86
+          }
+        ]
+      },
+      "away": {
+        "id": "2434",
+        "lastName": "Mermans",
+        "firstName": "Jef",
+        "shirtNumber": "9",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "10FroggattRedfern",
+        "lastName": "Froggatt",
+        "firstName": "Redfern",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 60
+          }
+        ]
+      },
+      "away": {
+        "id": "2293",
+        "lastName": "Coppens",
+        "firstName": "Henri 'Rik'",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "11ElliotWilliam",
+        "lastName": "Elliot",
+        "firstName": "William",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 4
+          },
+          {
+            "type": "goalScored",
+            "minute": 48
+          }
+        ]
+      },
+      "away": {
+        "id": "2315",
+        "lastName": "Straetmans",
+        "firstName": "Jean",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": null,
+      "away": {
+        "id": "2304",
+        "lastName": "Seghers",
+        "firstName": "Armand",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2294",
+        "lastName": "Saeren",
+        "firstName": "Willy",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2276",
+        "lastName": "Anoul",
+        "firstName": "Pol",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2311",
+        "lastName": "Bensch",
+        "firstName": "Michel",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Walter Winterbottom",
+        "firstName": null,
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Gormlie",
+        "firstName": "Bill",
+        "function": "coach"
+      }
+    }
+  ]
+}

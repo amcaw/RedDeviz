@@ -1,0 +1,690 @@
+{
+  "id": "4760",
+  "title": "Qualification",
+  "startTime": "2005-10-12T21:30:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Vilnius",
+    "city": "Vilnius"
+  },
+  "officials": [
+    {
+      "lastName": "Riley",
+      "firstName": "Michael",
+      "function": "referee"
+    },
+    {
+      "lastName": "Lewis",
+      "firstName": "John",
+      "function": "firstAssistantReferee"
+    },
+    {
+      "lastName": "Sharp",
+      "firstName": "Phillip",
+      "function": "secondAssistantReferee"
+    },
+    {
+      "lastName": "Messias",
+      "firstName": "Matthew",
+      "function": "fourthOfficial"
+    }
+  ],
+  "events": [
+    {
+      "minute": 90,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Radzinevicius",
+          "firstName": "Tomas",
+          "teamId": "613",
+          "kind": "minuteIn",
+          "minute": 90
+        },
+        {
+          "lastName": "Stankevicius",
+          "firstName": "Marius",
+          "teamId": "613",
+          "kind": "minuteOut",
+          "minute": 90
+        }
+      ]
+    },
+    {
+      "minute": 88,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Danilevicius",
+          "firstName": "Tomas",
+          "teamId": "613",
+          "kind": "yellowCard",
+          "minute": 88
+        }
+      ]
+    },
+    {
+      "minute": 83,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Semberas",
+          "firstName": "Deividas",
+          "teamId": "613",
+          "kind": "redCard",
+          "minute": 83
+        }
+      ]
+    },
+    {
+      "minute": 82,
+      "home": [
+        {
+          "lastName": "Deschacht",
+          "firstName": "Olivier",
+          "teamId": "578",
+          "kind": "ownGoalScored",
+          "minute": 82
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 81,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Mikoliunas",
+          "firstName": "Saulius",
+          "teamId": "613",
+          "kind": "minuteIn",
+          "minute": 81
+        },
+        {
+          "lastName": "Morinas",
+          "firstName": "Igoris",
+          "teamId": "613",
+          "kind": "minuteOut",
+          "minute": 81
+        }
+      ]
+    },
+    {
+      "minute": 74,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Stankevicius",
+          "firstName": "Marius",
+          "teamId": "613",
+          "kind": "yellowCard",
+          "minute": 74
+        }
+      ]
+    },
+    {
+      "minute": 68,
+      "home": [
+        {
+          "lastName": "Maertens",
+          "firstName": "Birger",
+          "teamId": "578",
+          "kind": "yellowCard",
+          "minute": 68
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 50,
+      "home": [
+        {
+          "lastName": "Deschacht",
+          "firstName": "Olivier",
+          "teamId": "578",
+          "kind": "yellowCard",
+          "minute": 50
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 45,
+      "home": [
+        {
+          "lastName": "Maertens",
+          "firstName": "Birger",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 45
+        },
+        {
+          "lastName": "Vanden Borre",
+          "firstName": "Anthony",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 45
+        },
+        {
+          "lastName": "Geraerts",
+          "firstName": "Karel",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 45
+        },
+        {
+          "lastName": "Hoefkens",
+          "firstName": "Carl",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 45
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 28,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Semberas",
+          "firstName": "Deividas",
+          "teamId": "613",
+          "kind": "yellowCard",
+          "minute": 28
+        }
+      ]
+    },
+    {
+      "minute": 20,
+      "home": [
+        {
+          "lastName": "Geraerts",
+          "firstName": "Karel",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 20
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 15,
+      "home": [
+        {
+          "lastName": "Walasiak",
+          "firstName": "Jonathan",
+          "teamId": "578",
+          "kind": "yellowCard",
+          "minute": 15
+        }
+      ],
+      "away": []
+    }
+  ],
+  "homeTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "awayTeam": {
+    "id": "613",
+    "name": "Lithuania",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/613.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 1,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 1,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": "Germany - 2006",
+    "qualifyingGroup": "Group match",
+    "groupCode": "7"
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "66",
+        "lastName": "Proto",
+        "firstName": "Silvio",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "1KarchemarskasZhidrunas",
+        "lastName": "Karchemarskas",
+        "firstName": "Zhidrunas",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "1589",
+        "lastName": "Deflandre",
+        "firstName": "Eric",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2SemberasDeividas",
+        "lastName": "Semberas",
+        "firstName": "Deividas",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 28
+          },
+          {
+            "type": "redCard",
+            "minute": 83
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2617",
+        "lastName": "Simons",
+        "firstName": "Timmy",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "3DziaukstasRolandas",
+        "lastName": "Dziaukstas",
+        "firstName": "Rolandas",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3202",
+        "lastName": "Deschacht",
+        "firstName": "Olivier",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 50
+          },
+          {
+            "type": "ownGoalScored",
+            "minute": 82
+          }
+        ]
+      },
+      "away": {
+        "id": "4StankeviciusMarius",
+        "lastName": "Stankevicius",
+        "firstName": "Marius",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 74
+          },
+          {
+            "type": "minuteOut",
+            "minute": 90
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "260",
+        "lastName": "Vanderhaeghe",
+        "firstName": "Yves",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "5SkerlaAndrius",
+        "lastName": "Skerla",
+        "firstName": "Andrius",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "182",
+        "lastName": "Geraerts",
+        "firstName": "Karel",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 20
+          },
+          {
+            "type": "minuteOut",
+            "minute": 45
+          }
+        ]
+      },
+      "away": {
+        "id": "6PreiksaitisAidas",
+        "lastName": "Preiksaitis",
+        "firstName": "Aidas",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "176",
+        "lastName": "Goor",
+        "firstName": "Bart",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "7SavenasMantas",
+        "lastName": "Savenas",
+        "firstName": "Mantas",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "404",
+        "lastName": "Mpenza",
+        "firstName": "Emile",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "8PaulauskasGediminas",
+        "lastName": "Paulauskas",
+        "firstName": "Gediminas",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "1463",
+        "lastName": "Mpenza",
+        "firstName": "Mbo",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "9DanileviciusTomas",
+        "lastName": "Danilevicius",
+        "firstName": "Tomas",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 88
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "1311",
+        "lastName": "Hoefkens",
+        "firstName": "Carl",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 45
+          }
+        ]
+      },
+      "away": {
+        "id": "10MorinasIgoris",
+        "lastName": "Morinas",
+        "firstName": "Igoris",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 81
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "172",
+        "lastName": "Walasiak",
+        "firstName": "Jonathan",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 15
+          }
+        ]
+      },
+      "away": {
+        "id": "11ZutautasDarius",
+        "lastName": "Zutautas",
+        "firstName": "Darius",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "86",
+        "lastName": "Verbauwhede",
+        "firstName": "Glenn",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "12MalinauskasMindaugas",
+        "lastName": "Malinauskas",
+        "firstName": "Mindaugas",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "1586",
+        "lastName": "Léonard",
+        "firstName": "Philippe",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "13MikoliunasSaulius",
+        "lastName": "Mikoliunas",
+        "firstName": "Saulius",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 81
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "3471",
+        "lastName": "Pieroni",
+        "firstName": "Luigi",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "14KlimaviciusArunas",
+        "lastName": "Klimavicius",
+        "firstName": "Arunas",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "235",
+        "lastName": "Maertens",
+        "firstName": "Birger",
+        "shirtNumber": "17",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 45
+          },
+          {
+            "type": "yellowCard",
+            "minute": 68
+          }
+        ]
+      },
+      "away": {
+        "id": "15BareviciusGiedrius",
+        "lastName": "Barevicius",
+        "firstName": "Giedrius",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "8",
+        "lastName": "Vandenbergh",
+        "firstName": "Kevin",
+        "shirtNumber": "18",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "16ZvirgzdauskasTomas",
+        "lastName": "Zvirgzdauskas",
+        "firstName": "Tomas",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "38",
+        "lastName": "Lombaerts",
+        "firstName": "Nicolas",
+        "shirtNumber": "19",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "17RadzineviciusTomas",
+        "lastName": "Radzinevicius",
+        "firstName": "Tomas",
+        "shirtNumber": "17",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 90
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "3268",
+        "lastName": "Vanden Borre",
+        "firstName": "Anthony",
+        "shirtNumber": "20",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 45
+          }
+        ]
+      },
+      "away": {
+        "id": "18LaurisasAivaras",
+        "lastName": "Laurisas",
+        "firstName": "Aivaras",
+        "shirtNumber": "18",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Snelders",
+        "firstName": "Eddy",
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Liubinskas Algimantas",
+        "firstName": null,
+        "function": "coach"
+      }
+    },
+    {
+      "home": {
+        "lastName": "Munaron",
+        "firstName": "Jacky",
+        "function": "coach"
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "lastName": "Anthuenis",
+        "firstName": "Aimé",
+        "function": "coach"
+      },
+      "away": null
+    }
+  ]
+}

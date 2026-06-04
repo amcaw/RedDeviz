@@ -1,0 +1,525 @@
+{
+  "id": "1004",
+  "title": "Qualifying round",
+  "startTime": "1971-11-21T16:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "A Luz",
+    "city": "Lissabon"
+  },
+  "officials": [
+    {
+      "lastName": "Burns",
+      "firstName": "Kenneth Howard",
+      "function": "referee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 90,
+      "home": [
+        {
+          "lastName": "Peres Silva",
+          "firstName": "Fernando",
+          "teamId": "582",
+          "kind": "penaltyScored",
+          "minute": 90
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 81,
+      "home": [
+        {
+          "lastName": "Coelho",
+          "firstName": "Humberto",
+          "teamId": "582",
+          "kind": "yellowCard",
+          "minute": 81
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 72,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Puis",
+          "firstName": "Wilfried",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 72
+        },
+        {
+          "lastName": "Martens",
+          "firstName": "Maurice",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 72
+        }
+      ]
+    },
+    {
+      "minute": 61,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Lambert",
+          "firstName": "Raoul",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 61
+        }
+      ]
+    },
+    {
+      "minute": 58,
+      "home": [
+        {
+          "lastName": "Melo Teixeira",
+          "firstName": "Artur Jorge",
+          "teamId": "582",
+          "kind": "minuteIn",
+          "minute": 58
+        },
+        {
+          "lastName": "Gomes Tamagnini",
+          "firstName": "Nené Manuel B",
+          "teamId": "582",
+          "kind": "minuteOut",
+          "minute": 58
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 45,
+      "home": [
+        {
+          "lastName": "Coelho Machado",
+          "firstName": "Octávio Joaquim",
+          "teamId": "582",
+          "kind": "minuteIn",
+          "minute": 45
+        },
+        {
+          "lastName": "Malta Da Silva",
+          "firstName": "Amandio",
+          "teamId": "582",
+          "kind": "minuteOut",
+          "minute": 45
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 38,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Dewalque",
+          "firstName": "Nico",
+          "teamId": "578",
+          "kind": "yellowCard",
+          "minute": 38
+        }
+      ]
+    },
+    {
+      "minute": 9,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Dolmans",
+          "firstName": "Léon",
+          "teamId": "578",
+          "kind": "yellowCard",
+          "minute": 9
+        }
+      ]
+    }
+  ],
+  "homeTeam": {
+    "id": "582",
+    "name": "Portugal",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/582.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 1,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 1,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": "Belgium - 1972",
+    "qualifyingGroup": "Group match",
+    "groupCode": "5"
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1Damas OliveiraVitor",
+        "lastName": "Damas Oliveira",
+        "firstName": "Vitor",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "2244",
+        "lastName": "Piot",
+        "firstName": "Christian",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2Malta Da SilvaAmandio",
+        "lastName": "Malta Da Silva",
+        "firstName": "Amandio",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 45
+          }
+        ]
+      },
+      "away": {
+        "id": "2201",
+        "lastName": "Heylens",
+        "firstName": "Georges",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3CoelhoHumberto",
+        "lastName": "Coelho",
+        "firstName": "Humberto",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 81
+          }
+        ]
+      },
+      "away": {
+        "id": "2253",
+        "lastName": "Dolmans",
+        "firstName": "Léon",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 9
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "4De Garcia Pinto RodriguesRui",
+        "lastName": "De Garcia Pinto Rodrigues",
+        "firstName": "Rui",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2232",
+        "lastName": "Dewalque",
+        "firstName": "Nico",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 38
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "5MendesJosé Jesús",
+        "lastName": "Mendes",
+        "firstName": "José Jesús",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2231",
+        "lastName": "Stassart",
+        "firstName": "André",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "6Graça Da SilvaJaime",
+        "lastName": "Graça Da Silva",
+        "firstName": "Jaime",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2247",
+        "lastName": "Vandendaele",
+        "firstName": "Erwin",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "7Peres SilvaFernando",
+        "lastName": "Peres Silva",
+        "firstName": "Fernando",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "penaltyScored",
+            "minute": 90
+          }
+        ]
+      },
+      "away": {
+        "id": "2203",
+        "lastName": "Semmeling",
+        "firstName": "Léon",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "8Gomes TamagniniNené Manuel B",
+        "lastName": "Gomes Tamagnini",
+        "firstName": "Nené Manuel B",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 58
+          }
+        ]
+      },
+      "away": {
+        "id": "2234",
+        "lastName": "Dockx",
+        "firstName": "Jean",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "9Costa Sénica TorresJosé Augusto",
+        "lastName": "Costa Sénica Torres",
+        "firstName": "José Augusto",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2222",
+        "lastName": "Lambert",
+        "firstName": "Raoul",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 61
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "10Da Silva FerreiraEusébio",
+        "lastName": "Da Silva Ferreira",
+        "firstName": "Eusébio",
+        "shirtNumber": "10",
+        "badges": "(C)",
+        "events": []
+      },
+      "away": {
+        "id": "2199",
+        "lastName": "Van Himst",
+        "firstName": "Paul",
+        "shirtNumber": "10",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "11Simões CostaAntonio",
+        "lastName": "Simões Costa",
+        "firstName": "Antonio",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2248",
+        "lastName": "Martens",
+        "firstName": "Maurice",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 72
+          }
+        ]
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "13Marques HenriqueJosé",
+        "lastName": "Marques Henrique",
+        "firstName": "José",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2243",
+        "lastName": "Duquesne",
+        "firstName": "Jacques",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "14CalixtoAdolfo Luz",
+        "lastName": "Calixto",
+        "firstName": "Adolfo Luz",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2208",
+        "lastName": "Puis",
+        "firstName": "Wilfried",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 72
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "15Coelho MachadoOctávio Joaquim",
+        "lastName": "Coelho Machado",
+        "firstName": "Octávio Joaquim",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 45
+          }
+        ]
+      },
+      "away": {
+        "id": "2239",
+        "lastName": "Polleunis",
+        "firstName": "Lon",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "16Melo TeixeiraArtur Jorge",
+        "lastName": "Melo Teixeira",
+        "firstName": "Artur Jorge",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 58
+          }
+        ]
+      },
+      "away": {
+        "id": "2251",
+        "lastName": "Teugels",
+        "firstName": "Jacques",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "17BaptistaVitor",
+        "lastName": "Baptista",
+        "firstName": "Vitor",
+        "shirtNumber": "17",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "José Gomes De Silva",
+        "firstName": null,
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Goethals",
+        "firstName": "Raymond",
+        "function": "coach"
+      }
+    }
+  ]
+}

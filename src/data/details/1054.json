@@ -1,0 +1,374 @@
+{
+  "id": "1054",
+  "title": "International friendly",
+  "startTime": "1957-12-08T00:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "19 Mayis Stadion",
+    "city": "Ankara"
+  },
+  "officials": [
+    {
+      "lastName": "Pieri",
+      "firstName": "M. R.",
+      "function": "referee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 46,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Jurion",
+          "firstName": "Jef",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 46
+        }
+      ]
+    },
+    {
+      "minute": 42,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Wégria",
+          "firstName": "Victor",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 42
+        }
+      ]
+    },
+    {
+      "minute": 25,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Orlans",
+          "firstName": "Richard",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 25
+        }
+      ]
+    },
+    {
+      "minute": 13,
+      "home": [
+        {
+          "lastName": "Bartu",
+          "firstName": "Can",
+          "teamId": "592",
+          "kind": "goalScored",
+          "minute": 13
+        }
+      ],
+      "away": []
+    }
+  ],
+  "homeTeam": {
+    "id": "592",
+    "name": "Turkey",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/592.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 1,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 1,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": null,
+    "qualifyingGroup": null,
+    "groupCode": null
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1SerenTurgay",
+        "lastName": "Seren",
+        "firstName": "Turgay",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "2170",
+        "lastName": "Collette",
+        "firstName": "Theo",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2BeratligilAli",
+        "lastName": "Beratligil",
+        "firstName": "Ali",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2303",
+        "lastName": "Diricx",
+        "firstName": "Henri",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3ErdemNaci",
+        "lastName": "Erdem",
+        "firstName": "Naci",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2300",
+        "lastName": "Van Brandt",
+        "firstName": "Alfons",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "4DirimliliBasri",
+        "lastName": "Dirimlili",
+        "firstName": "Basri",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2289",
+        "lastName": "Mees",
+        "firstName": "Vic",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "5ErtanMustafa",
+        "lastName": "Ertan",
+        "firstName": "Mustafa",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2284",
+        "lastName": "Carré",
+        "firstName": "Louis",
+        "shirtNumber": "5",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "6BermanAhmet",
+        "lastName": "Berman",
+        "firstName": "Ahmet",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2316",
+        "lastName": "Mathonet",
+        "firstName": "Jean",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "7KiremetciHilmi",
+        "lastName": "Kiremetci",
+        "firstName": "Hilmi",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2332",
+        "lastName": "Piters",
+        "firstName": "André",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "8BartuCan",
+        "lastName": "Bartu",
+        "firstName": "Can",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 13
+          }
+        ]
+      },
+      "away": {
+        "id": "2264",
+        "lastName": "Lippens",
+        "firstName": "Martin",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "9OktayMetin",
+        "lastName": "Oktay",
+        "firstName": "Metin",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2171",
+        "lastName": "Wégria",
+        "firstName": "Victor",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 42
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "10AytacKadri",
+        "lastName": "Aytac",
+        "firstName": "Kadri",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2339",
+        "lastName": "Jurion",
+        "firstName": "Jef",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 46
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "11KucukandoniadisLefter",
+        "lastName": "Kucukandoniadis",
+        "firstName": "Lefter",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2172",
+        "lastName": "Paeschen",
+        "firstName": "Marcel",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": null,
+      "away": {
+        "id": "2173",
+        "lastName": "Baeten",
+        "firstName": "Maurice",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2174",
+        "lastName": "Lambert",
+        "firstName": "Louis",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2344",
+        "lastName": "Hanon",
+        "firstName": "Pierre",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2334",
+        "lastName": "Orlans",
+        "firstName": "Richard",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 25
+          }
+        ]
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": null,
+      "away": {
+        "lastName": "Toldi",
+        "firstName": "Geza",
+        "function": "coach"
+      }
+    }
+  ]
+}

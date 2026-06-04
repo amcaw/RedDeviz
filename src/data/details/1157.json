@@ -1,0 +1,467 @@
+{
+  "id": "1157",
+  "title": "International friendly",
+  "startTime": "1929-04-20T00:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Dalymount Park",
+    "city": "Dublin"
+  },
+  "officials": [
+    {
+      "lastName": "Stanley",
+      "firstName": "rous",
+      "function": "referee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 89,
+      "home": [
+        {
+          "lastName": "Flood",
+          "firstName": "John",
+          "teamId": "750",
+          "kind": "goalScored",
+          "minute": 89
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 80,
+      "home": [
+        {
+          "lastName": "Flood",
+          "firstName": "John",
+          "teamId": "750",
+          "kind": "goalScored",
+          "minute": 80
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 73,
+      "home": [
+        {
+          "lastName": "Byrne",
+          "firstName": "David",
+          "teamId": "750",
+          "kind": "goalScored",
+          "minute": 73
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 32,
+      "home": [
+        {
+          "lastName": "Flood",
+          "firstName": "John",
+          "teamId": "750",
+          "kind": "goalScored",
+          "minute": 32
+        }
+      ],
+      "away": []
+    }
+  ],
+  "homeTeam": {
+    "id": "750",
+    "name": "E.L. Ireland",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/750.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 4,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 0,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": null,
+    "qualifyingGroup": null,
+    "groupCode": null
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1FarquharsonThomas",
+        "lastName": "Farquharson",
+        "firstName": "Thomas",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "2513",
+        "lastName": "Somers",
+        "firstName": "Louis",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2MaguireJames",
+        "lastName": "Maguire",
+        "firstName": "James",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2514",
+        "lastName": "Nouwens",
+        "firstName": "Theodoor",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3BurkeJohn",
+        "lastName": "Burke",
+        "firstName": "John",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2506",
+        "lastName": "Hoydonckx",
+        "firstName": "Nicolaas",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "4GlenWilliam",
+        "lastName": "Glen",
+        "firstName": "William",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2490",
+        "lastName": "Van Averbeke",
+        "firstName": "Henri",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "5O'BrienMichael",
+        "lastName": "O'Brien",
+        "firstName": "Michael",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2457",
+        "lastName": "Van Halme",
+        "firstName": "Florimond",
+        "shirtNumber": "5",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "6Barry Patrick",
+        "lastName": "Barry",
+        "firstName": " Patrick",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2488",
+        "lastName": "Boesman",
+        "firstName": "Gustave",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "7BerminghamJames",
+        "lastName": "Bermingham",
+        "firstName": "James",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2464",
+        "lastName": "Braine",
+        "firstName": "Pierre",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "8FloodJohn",
+        "lastName": "Flood",
+        "firstName": "John",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 32
+          },
+          {
+            "type": "goalScored",
+            "minute": 80
+          },
+          {
+            "type": "goalScored",
+            "minute": 89
+          }
+        ]
+      },
+      "away": {
+        "id": "2493",
+        "lastName": "Vanderbauwhede",
+        "firstName": "Michel",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "9ByrneDavid",
+        "lastName": "Byrne",
+        "firstName": "David",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 73
+          }
+        ]
+      },
+      "away": {
+        "id": "2484",
+        "lastName": "Braine",
+        "firstName": "Raymond",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "10DouwdallCharles",
+        "lastName": "Douwdall",
+        "firstName": "Charles",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2507",
+        "lastName": "Moeschal",
+        "firstName": "Jacques",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "11EganRory",
+        "lastName": "Egan",
+        "firstName": "Rory",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2491",
+        "lastName": "Diddens",
+        "firstName": "Jan",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "1FarquharsonThomas",
+        "lastName": "Farquharson",
+        "firstName": "Thomas",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "2MaguireJames",
+        "lastName": "Maguire",
+        "firstName": "James",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "3BurkeJohn",
+        "lastName": "Burke",
+        "firstName": "John",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "4GlenWilliam",
+        "lastName": "Glen",
+        "firstName": "William",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "5O'BrienMichael",
+        "lastName": "O'Brien",
+        "firstName": "Michael",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "6Barry Patrick",
+        "lastName": "Barry",
+        "firstName": " Patrick",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "7BerminghamJames",
+        "lastName": "Bermingham",
+        "firstName": "James",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "8FloodJohn",
+        "lastName": "Flood",
+        "firstName": "John",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 32
+          },
+          {
+            "type": "goalScored",
+            "minute": 80
+          },
+          {
+            "type": "goalScored",
+            "minute": 89
+          }
+        ]
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "9ByrneDavid",
+        "lastName": "Byrne",
+        "firstName": "David",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 73
+          }
+        ]
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "10DouwdallCharles",
+        "lastName": "Douwdall",
+        "firstName": "Charles",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "11EganRory",
+        "lastName": "Egan",
+        "firstName": "Rory",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": null,
+      "away": {
+        "lastName": "Lowenfeldt",
+        "firstName": "Victor",
+        "function": "coach"
+      }
+    }
+  ]
+}

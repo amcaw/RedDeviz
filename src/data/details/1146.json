@@ -1,0 +1,391 @@
+{
+  "id": "1146",
+  "title": "International friendly",
+  "startTime": "1934-01-21T00:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Stade Du Centenaire",
+    "city": "Brussel"
+  },
+  "officials": [
+    {
+      "lastName": "Lewington",
+      "firstName": "Walter",
+      "function": "referee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 54,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Nicolas",
+          "firstName": "Jean",
+          "teamId": "579",
+          "kind": "goalScored",
+          "minute": 54
+        }
+      ]
+    },
+    {
+      "minute": 37,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Veinante",
+          "firstName": "Emile",
+          "teamId": "579",
+          "kind": "goalScored",
+          "minute": 37
+        }
+      ]
+    },
+    {
+      "minute": 11,
+      "home": [
+        {
+          "lastName": "Vanden Eynde",
+          "firstName": "Stanley",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 11
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 8,
+      "home": [
+        {
+          "lastName": "Voorhoof",
+          "firstName": "Bernard",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 8
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 3,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Nicolas",
+          "firstName": "Jean",
+          "teamId": "579",
+          "kind": "goalScored",
+          "minute": 3
+        }
+      ]
+    }
+  ],
+  "homeTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "awayTeam": {
+    "id": "579",
+    "name": "France",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/579.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 2,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 3,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": null,
+    "qualifyingGroup": null,
+    "groupCode": null
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "2438",
+        "lastName": "Badjou",
+        "firstName": "Arnold",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "1DéfosséRobert",
+        "lastName": "Défossé",
+        "firstName": "Robert",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2380",
+        "lastName": "Smellinckx",
+        "firstName": "Philibert",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2VandoorenJules",
+        "lastName": "Vandooren",
+        "firstName": "Jules",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2366",
+        "lastName": "Heremans",
+        "firstName": "Albert",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "3MattlerEtienne",
+        "lastName": "Mattler",
+        "firstName": "Etienne",
+        "shirtNumber": "3",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2383",
+        "lastName": "Peeraer",
+        "firstName": "Frans",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "4FinotLouis",
+        "lastName": "Finot",
+        "firstName": "Louis",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2511",
+        "lastName": "Hellemans",
+        "firstName": "August",
+        "shirtNumber": "5",
+        "badges": "(C)",
+        "events": []
+      },
+      "away": {
+        "id": "5BanideMaurice",
+        "lastName": "Banide",
+        "firstName": "Maurice",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2367",
+        "lastName": "Claessens",
+        "firstName": "Jean",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "6ScharwathEmile",
+        "lastName": "Scharwath",
+        "firstName": "Emile",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2378",
+        "lastName": "Saeys",
+        "firstName": "André",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "7LiberatiErnest",
+        "lastName": "Liberati",
+        "firstName": "Ernest",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2369",
+        "lastName": "Brichaut",
+        "firstName": "Jean",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "8AlcazarJoseph",
+        "lastName": "Alcazar",
+        "firstName": "Joseph",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2520",
+        "lastName": "Capelle",
+        "firstName": "Jean",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "9NicolasJean",
+        "lastName": "Nicolas",
+        "firstName": "Jean",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 3
+          },
+          {
+            "type": "goalScored",
+            "minute": 54
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2509",
+        "lastName": "Voorhoof",
+        "firstName": "Bernard",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 8
+          }
+        ]
+      },
+      "away": {
+        "id": "10VeinanteEmile",
+        "lastName": "Veinante",
+        "firstName": "Emile",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 37
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2359",
+        "lastName": "Vanden Eynde",
+        "firstName": "Stanley",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 11
+          }
+        ]
+      },
+      "away": {
+        "id": "11PolgeAlbert",
+        "lastName": "Polge",
+        "firstName": "Albert",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": null,
+      "away": {
+        "id": "12LlenseRené",
+        "lastName": "Llense",
+        "firstName": "René",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "13Chardarnull",
+        "lastName": "Chardar",
+        "firstName": null,
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "14Antoinettenull",
+        "lastName": "Antoinette",
+        "firstName": null,
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "15Deschizeaulxnull",
+        "lastName": "Deschizeaulx",
+        "firstName": null,
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Goetinck",
+        "firstName": "Hector",
+        "function": "coach"
+      },
+      "away": null
+    }
+  ]
+}

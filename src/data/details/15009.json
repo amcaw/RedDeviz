@@ -1,0 +1,42 @@
+{
+  "id": "15009",
+  "title": "International friendly",
+  "startTime": "2026-06-06T15:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Koning Boudewijnstadion",
+    "city": "Brussel"
+  },
+  "officials": [],
+  "events": null,
+  "homeTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "awayTeam": {
+    "id": "666",
+    "name": "Tunisia",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/666.png"
+  },
+  "outcome": {
+    "homeTeamGoals": null,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": null,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": false,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": null,
+    "qualifyingGroup": null,
+    "groupCode": null
+  },
+  "lineup": [],
+  "substitutes": [],
+  "staffLineup": []
+}

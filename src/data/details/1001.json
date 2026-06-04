@@ -1,0 +1,444 @@
+{
+  "id": "1001",
+  "title": "Qualifying round",
+  "startTime": "1971-02-03T20:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Stade Maurice Dufrasne",
+    "city": "Liège"
+  },
+  "officials": [
+    {
+      "lastName": "Sbardella",
+      "firstName": "ANTONIO",
+      "function": "referee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 85,
+      "home": [
+        {
+          "lastName": "Van Himst",
+          "firstName": "Paul",
+          "teamId": "578",
+          "kind": "penaltyScored",
+          "minute": 85
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 70,
+      "home": [
+        {
+          "lastName": "Depireux",
+          "firstName": "Henri",
+          "teamId": "578",
+          "kind": "yellowCard",
+          "minute": 70
+        }
+      ],
+      "away": [
+        {
+          "lastName": "Hay",
+          "firstName": "David",
+          "teamId": "604",
+          "kind": "yellowCard",
+          "minute": 70
+        }
+      ]
+    },
+    {
+      "minute": 57,
+      "home": [
+        {
+          "lastName": "Van Himst",
+          "firstName": "Paul",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 57
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 34,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Gemmel",
+          "firstName": "Thomas",
+          "teamId": "604",
+          "kind": "ownGoalScored",
+          "minute": 34
+        }
+      ]
+    },
+    {
+      "minute": 5,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Mc Kinnon",
+          "firstName": "Ronald",
+          "teamId": "604",
+          "kind": "ownGoalScored",
+          "minute": 5
+        }
+      ]
+    }
+  ],
+  "homeTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "awayTeam": {
+    "id": "604",
+    "name": "Scotland",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/604.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 3,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 0,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": "Belgium - 1972",
+    "qualifyingGroup": "Group match",
+    "groupCode": "5"
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "2244",
+        "lastName": "Piot",
+        "firstName": "Christian",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "1CruickshankJames",
+        "lastName": "Cruickshank",
+        "firstName": "James",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2201",
+        "lastName": "Heylens",
+        "firstName": "Georges",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2HayDavid",
+        "lastName": "Hay",
+        "firstName": "David",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 70
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2237",
+        "lastName": "Thissen",
+        "firstName": "Jean",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "3GemmelThomas",
+        "lastName": "Gemmel",
+        "firstName": "Thomas",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2232",
+        "lastName": "Dewalque",
+        "firstName": "Nico",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "4StantonPatrick",
+        "lastName": "Stanton",
+        "firstName": "Patrick",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2212",
+        "lastName": "Plaskie",
+        "firstName": "Jean",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "5Mc KinnonRonald",
+        "lastName": "Mc Kinnon",
+        "firstName": "Ronald",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2247",
+        "lastName": "Vandendaele",
+        "firstName": "Erwin",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "6MoncurRobert",
+        "lastName": "Moncur",
+        "firstName": "Robert",
+        "shirtNumber": "6",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2203",
+        "lastName": "Semmeling",
+        "firstName": "Léon",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "7CookeCharlie",
+        "lastName": "Cooke",
+        "firstName": "Charlie",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2225",
+        "lastName": "Van Moer",
+        "firstName": "Wilfried",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "8GreigJohn",
+        "lastName": "Greig",
+        "firstName": "John",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2241",
+        "lastName": "Depireux",
+        "firstName": "Henri",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 70
+          }
+        ]
+      },
+      "away": {
+        "id": "9SteinColin",
+        "lastName": "Stein",
+        "firstName": "Colin",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2199",
+        "lastName": "Van Himst",
+        "firstName": "Paul",
+        "shirtNumber": "10",
+        "badges": "(C)",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 57
+          },
+          {
+            "type": "penaltyScored",
+            "minute": 85
+          }
+        ]
+      },
+      "away": {
+        "id": "10O'HareJohn",
+        "lastName": "O'Hare",
+        "firstName": "John",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2252",
+        "lastName": "Denul",
+        "firstName": "André",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "11GemmillArchibald",
+        "lastName": "Gemmill",
+        "firstName": "Archibald",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "2243",
+        "lastName": "Duquesne",
+        "firstName": "Jacques",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "12ClarkRobert",
+        "lastName": "Clark",
+        "firstName": "Robert",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2253",
+        "lastName": "Dolmans",
+        "firstName": "Léon",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "14JardineWilliam",
+        "lastName": "Jardine",
+        "firstName": "William",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2242",
+        "lastName": "Marmenout",
+        "firstName": "Gilbert",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "15McleanThomas",
+        "lastName": "Mclean",
+        "firstName": "Thomas",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2251",
+        "lastName": "Teugels",
+        "firstName": "Jacques",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "16GreenAnthony",
+        "lastName": "Green",
+        "firstName": "Anthony",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2220",
+        "lastName": "Thio",
+        "firstName": "Johnny",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "17ForrestJames",
+        "lastName": "Forrest",
+        "firstName": "James",
+        "shirtNumber": "17",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Goethals",
+        "firstName": "Raymond",
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "ROBERT BROWN",
+        "firstName": null,
+        "function": "coach"
+      }
+    }
+  ]
+}

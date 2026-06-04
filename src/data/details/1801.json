@@ -1,0 +1,495 @@
+{
+  "id": "1801",
+  "title": "Qualifying round",
+  "startTime": "1974-09-08T16:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Laugardalsvöllur",
+    "city": "Reykjavik"
+  },
+  "officials": [
+    {
+      "lastName": "Reynolds",
+      "firstName": "Thomas",
+      "function": "referee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 87,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Teugels",
+          "firstName": "Jacques",
+          "teamId": "578",
+          "kind": "penaltyScored",
+          "minute": 87
+        }
+      ]
+    },
+    {
+      "minute": 80,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Teugels",
+          "firstName": "Jacques",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 80
+        },
+        {
+          "lastName": "Janssens",
+          "firstName": "Jean",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 80
+        }
+      ]
+    },
+    {
+      "minute": 77,
+      "home": [
+        {
+          "lastName": "Hallgrimsson",
+          "firstName": "Matthias",
+          "teamId": "608",
+          "kind": "minuteIn",
+          "minute": 77
+        },
+        {
+          "lastName": "Elíasson",
+          "firstName": "Àsgeir",
+          "teamId": "608",
+          "kind": "minuteOut",
+          "minute": 77
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 45,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Cools",
+          "firstName": "Julien",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 45
+        },
+        {
+          "lastName": "Coeck",
+          "firstName": "Ludo",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 45
+        }
+      ]
+    },
+    {
+      "minute": 39,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Van Moer",
+          "firstName": "Wilfried",
+          "teamId": "578",
+          "kind": "penaltyScored",
+          "minute": 39
+        }
+      ]
+    },
+    {
+      "minute": 0,
+      "home": [
+        {
+          "lastName": "Thordarson",
+          "firstName": "Teitur",
+          "teamId": "608",
+          "kind": "yellowCard",
+          "minute": 0
+        }
+      ],
+      "away": []
+    }
+  ],
+  "homeTeam": {
+    "id": "608",
+    "name": "Iceland",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/608.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 0,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 2,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": "Yugoslavia - 1976",
+    "qualifyingGroup": "Group match",
+    "groupCode": "7"
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1OlafssonThorsteinn",
+        "lastName": "Olafsson",
+        "firstName": "Thorsteinn",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "2244",
+        "lastName": "Piot",
+        "firstName": "Christian",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2TorfasonGisli",
+        "lastName": "Torfason",
+        "firstName": "Gisli",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2164",
+        "lastName": "Van Binst",
+        "firstName": "Gilbert",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3PéturssonJon",
+        "lastName": "Pétursson",
+        "firstName": "Jon",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2079",
+        "lastName": "Coeck",
+        "firstName": "Ludo",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 45
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "4HermanssonKarl",
+        "lastName": "Hermansson",
+        "firstName": "Karl",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2076",
+        "lastName": "Broos",
+        "firstName": "Hugo",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "5GeirssonMarteinn",
+        "lastName": "Geirsson",
+        "firstName": "Marteinn",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2247",
+        "lastName": "Vandendaele",
+        "firstName": "Erwin",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "6EdvaldssonJohannes",
+        "lastName": "Edvaldsson",
+        "firstName": "Johannes",
+        "shirtNumber": "6",
+        "badges": "(C)",
+        "events": []
+      },
+      "away": {
+        "id": "2217",
+        "lastName": "Verheyen",
+        "firstName": "Jan",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "7LeifssonGudgeir",
+        "lastName": "Leifsson",
+        "firstName": "Gudgeir",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2256",
+        "lastName": "Van der Elst",
+        "firstName": "Swa",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "8MagnussonGrétar",
+        "lastName": "Magnusson",
+        "firstName": "Grétar",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2225",
+        "lastName": "Van Moer",
+        "firstName": "Wilfried",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "penaltyScored",
+            "minute": 39
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "9ThordarsonTeitur",
+        "lastName": "Thordarson",
+        "firstName": "Teitur",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 0
+          }
+        ]
+      },
+      "away": {
+        "id": "2245",
+        "lastName": "Janssens",
+        "firstName": "Jean",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 80
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "10SigurvinssonÁsgeir",
+        "lastName": "Sigurvinsson",
+        "firstName": "Ásgeir",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2199",
+        "lastName": "Van Himst",
+        "firstName": "Paul",
+        "shirtNumber": "10",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "11ElíassonÀsgeir",
+        "lastName": "Elíasson",
+        "firstName": "Àsgeir",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 77
+          }
+        ]
+      },
+      "away": {
+        "id": "2077",
+        "lastName": "Henrotay",
+        "firstName": "Roger",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "12GudmundssonMagnus",
+        "lastName": "Gudmundsson",
+        "firstName": "Magnus",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2074",
+        "lastName": "Pfaff",
+        "firstName": "Jean-Marie",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "13ThorsteinssonEirikur",
+        "lastName": "Thorsteinsson",
+        "firstName": "Eirikur",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2078",
+        "lastName": "Cools",
+        "firstName": "Julien",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 45
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "14HallgrimssonMatthias",
+        "lastName": "Hallgrimsson",
+        "firstName": "Matthias",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 77
+          }
+        ]
+      },
+      "away": {
+        "id": "2234",
+        "lastName": "Dockx",
+        "firstName": "Jean",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "15HédinssonAtli Thor",
+        "lastName": "Hédinsson",
+        "firstName": "Atli Thor",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2168",
+        "lastName": "Van Herp",
+        "firstName": "Yvo",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "16LarussonBjorn",
+        "lastName": "Larusson",
+        "firstName": "Bjorn",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2251",
+        "lastName": "Teugels",
+        "firstName": "Jacques",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 80
+          },
+          {
+            "type": "penaltyScored",
+            "minute": 87
+          }
+        ]
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Anthony Knapp",
+        "firstName": null,
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Goethals",
+        "firstName": "Raymond",
+        "function": "coach"
+      }
+    }
+  ]
+}

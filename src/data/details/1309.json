@@ -1,0 +1,406 @@
+{
+  "id": "1309",
+  "title": "International friendly",
+  "startTime": "1913-04-30T23:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Stadio Piazza D'Armi",
+    "city": "Turijn"
+  },
+  "officials": [
+    {
+      "lastName": "Goodley",
+      "firstName": "HENRY",
+      "function": "referee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 57,
+      "home": [
+        {
+          "lastName": "Ara",
+          "firstName": "Guido",
+          "teamId": "583",
+          "kind": "goalScored",
+          "minute": 57
+        }
+      ],
+      "away": []
+    }
+  ],
+  "homeTeam": {
+    "id": "583",
+    "name": "Italy",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/583.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 1,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 0,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": null,
+    "qualifyingGroup": null,
+    "groupCode": null
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1InnocentiGiovanni",
+        "lastName": "Innocenti",
+        "firstName": "Giovanni",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "2600",
+        "lastName": "Baes",
+        "firstName": "Omer",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2ValleModesto",
+        "lastName": "Valle",
+        "firstName": "Modesto",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2601",
+        "lastName": "Swartenbroeks",
+        "firstName": "Armand",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3De VecchiRenzo",
+        "lastName": "De Vecchi",
+        "firstName": "Renzo",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2566",
+        "lastName": "Hubin",
+        "firstName": "Gaston",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "4FresiaAtillio",
+        "lastName": "Fresia",
+        "firstName": "Atillio",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2574",
+        "lastName": "Braeckman",
+        "firstName": "Prosper",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "5AraGuido",
+        "lastName": "Ara",
+        "firstName": "Guido",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 57
+          }
+        ]
+      },
+      "away": {
+        "id": "2584",
+        "lastName": "Bossaert",
+        "firstName": "Oscar",
+        "shirtNumber": "5",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "6LeonePietro",
+        "lastName": "Leone",
+        "firstName": "Pietro",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2564",
+        "lastName": "Suetens",
+        "firstName": "Jules",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "7MilanoGiuseppe",
+        "lastName": "Milano",
+        "firstName": "Giuseppe",
+        "shirtNumber": "7",
+        "badges": "(C)",
+        "events": []
+      },
+      "away": {
+        "id": "2598",
+        "lastName": "Bessems",
+        "firstName": "Louis",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "8MilanoFelice",
+        "lastName": "Milano",
+        "firstName": "Felice",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "1890",
+        "lastName": "De Veen",
+        "firstName": "Robert",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "9BerardoFelice",
+        "lastName": "Berardo",
+        "firstName": "Felice",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2594",
+        "lastName": "Brébart",
+        "firstName": "Sylvain",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "10RampiniCarlo",
+        "lastName": "Rampini",
+        "firstName": "Carlo",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2559",
+        "lastName": "Saeys",
+        "firstName": "Louis",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "11CornaCarlo",
+        "lastName": "Corna",
+        "firstName": "Carlo",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2599",
+        "lastName": "Becquevort",
+        "firstName": "Adolphe",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "1InnocentiGiovanni",
+        "lastName": "Innocenti",
+        "firstName": "Giovanni",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "2ValleModesto",
+        "lastName": "Valle",
+        "firstName": "Modesto",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "3De VecchiRenzo",
+        "lastName": "De Vecchi",
+        "firstName": "Renzo",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "4FresiaAtillio",
+        "lastName": "Fresia",
+        "firstName": "Atillio",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "5AraGuido",
+        "lastName": "Ara",
+        "firstName": "Guido",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 57
+          }
+        ]
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "6LeonePietro",
+        "lastName": "Leone",
+        "firstName": "Pietro",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "7MilanoGiuseppe",
+        "lastName": "Milano",
+        "firstName": "Giuseppe",
+        "shirtNumber": "7",
+        "badges": "(C)",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "8MilanoFelice",
+        "lastName": "Milano",
+        "firstName": "Felice",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "9BerardoFelice",
+        "lastName": "Berardo",
+        "firstName": "Felice",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "10RampiniCarlo",
+        "lastName": "Rampini",
+        "firstName": "Carlo",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "11CornaCarlo",
+        "lastName": "Corna",
+        "firstName": "Carlo",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Umberto Meazza",
+        "firstName": null,
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Maxwell",
+        "firstName": "William J.",
+        "function": "coach"
+      }
+    }
+  ]
+}

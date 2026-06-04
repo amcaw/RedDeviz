@@ -1,0 +1,684 @@
+{
+  "id": "1879",
+  "title": "FIFA World Cup",
+  "startTime": "1994-06-29T12:30:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Robert F. Kennedy",
+    "city": "Washington"
+  },
+  "officials": [
+    {
+      "lastName": "Krug Heinz",
+      "firstName": "Helmutt",
+      "function": "referee"
+    },
+    {
+      "lastName": "Brazzale",
+      "firstName": "Eugène",
+      "function": "firstAssistantReferee"
+    },
+    {
+      "lastName": "Taibi",
+      "firstName": "Renato",
+      "function": "secondAssistantReferee"
+    },
+    {
+      "lastName": "Lamolina",
+      "firstName": "Francisco",
+      "function": "fourthOfficial"
+    }
+  ],
+  "events": [
+    {
+      "minute": 80,
+      "home": [
+        {
+          "lastName": "Smidts",
+          "firstName": "Rudi",
+          "teamId": "578",
+          "kind": "yellowCard",
+          "minute": 80
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 77,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Falatah",
+          "firstName": "Hamza",
+          "teamId": "722",
+          "kind": "yellowCard",
+          "minute": 77
+        }
+      ]
+    },
+    {
+      "minute": 62,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Al Dosari",
+          "firstName": "Abdullah",
+          "teamId": "722",
+          "kind": "minuteIn",
+          "minute": 62
+        },
+        {
+          "lastName": "Al Owayran",
+          "firstName": "Said",
+          "teamId": "722",
+          "kind": "minuteOut",
+          "minute": 62
+        }
+      ]
+    },
+    {
+      "minute": 61,
+      "home": [
+        {
+          "lastName": "Scifo",
+          "firstName": "Enzo",
+          "teamId": "578",
+          "kind": "yellowCard",
+          "minute": 61
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 54,
+      "home": [
+        {
+          "lastName": "Weber",
+          "firstName": "Josip",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 54
+        },
+        {
+          "lastName": "Wilmots",
+          "firstName": "Marc",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 54
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 45,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Al Muwallid",
+          "firstName": "Khaled",
+          "teamId": "722",
+          "kind": "minuteIn",
+          "minute": 45
+        },
+        {
+          "lastName": "Abdullah",
+          "firstName": "Majed",
+          "teamId": "722",
+          "kind": "minuteOut",
+          "minute": 45
+        }
+      ]
+    },
+    {
+      "minute": 24,
+      "home": [
+        {
+          "lastName": "Nilis",
+          "firstName": "Luc",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 24
+        },
+        {
+          "lastName": "Degryse",
+          "firstName": "Marc",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 24
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 5,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Al Owayran",
+          "firstName": "Said",
+          "teamId": "722",
+          "kind": "goalScored",
+          "minute": 5
+        }
+      ]
+    },
+    {
+      "minute": 3,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Madani",
+          "firstName": "Ahmed",
+          "teamId": "722",
+          "kind": "yellowCard",
+          "minute": 3
+        }
+      ]
+    }
+  ],
+  "homeTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "awayTeam": {
+    "id": "722",
+    "name": "Saudi Arabia",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/722.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 0,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 1,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": "Usa - 1994",
+    "qualifyingGroup": "First round",
+    "groupCode": "F"
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "2081",
+        "lastName": "Preud'Homme",
+        "firstName": "Michel",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "1Al DeayeaMohammed",
+        "lastName": "Al Deayea",
+        "firstName": "Mohammed",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "1968",
+        "lastName": "Medved",
+        "firstName": "Dirk",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "3Al KhlaiwiMohammed",
+        "lastName": "Al Khlaiwi",
+        "firstName": "Mohammed",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2148",
+        "lastName": "Albert",
+        "firstName": "Philippe",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "4Al ZebermawiAbdullah",
+        "lastName": "Al Zebermawi",
+        "firstName": "Abdullah",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "1964",
+        "lastName": "Smidts",
+        "firstName": "Rudi",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 80
+          }
+        ]
+      },
+      "away": {
+        "id": "5MadaniAhmed",
+        "lastName": "Madani",
+        "firstName": "Ahmed",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 3
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2161",
+        "lastName": "Staelens",
+        "firstName": "Lorenzo",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "8Al BishiFahad",
+        "lastName": "Al Bishi",
+        "firstName": "Fahad",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2134",
+        "lastName": "Van der Elst",
+        "firstName": "Franky",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "9AbdullahMajed",
+        "lastName": "Abdullah",
+        "firstName": "Majed",
+        "shirtNumber": "9",
+        "badges": "(C)",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 45
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2136",
+        "lastName": "Degryse",
+        "firstName": "Marc",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 24
+          }
+        ]
+      },
+      "away": {
+        "id": "10Al OwayranSaid",
+        "lastName": "Al Owayran",
+        "firstName": "Said",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 5
+          },
+          {
+            "type": "minuteOut",
+            "minute": 62
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2128",
+        "lastName": "Scifo",
+        "firstName": "Enzo",
+        "shirtNumber": "10",
+        "badges": "(C)",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 61
+          }
+        ]
+      },
+      "away": {
+        "id": "13AbdeljawadMohamed",
+        "lastName": "Abdeljawad",
+        "firstName": "Mohamed",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2113",
+        "lastName": "De Wolf",
+        "firstName": "Michel",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "16JebrinTalal",
+        "lastName": "Jebrin",
+        "firstName": "Talal",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2162",
+        "lastName": "Boffin",
+        "firstName": "Danny",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "19SalehHamza",
+        "lastName": "Saleh",
+        "firstName": "Hamza",
+        "shirtNumber": "19",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "1965",
+        "lastName": "Wilmots",
+        "firstName": "Marc",
+        "shirtNumber": "18",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 54
+          }
+        ]
+      },
+      "away": {
+        "id": "20FalatahHamza",
+        "lastName": "Falatah",
+        "firstName": "Hamza",
+        "shirtNumber": "20",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 77
+          }
+        ]
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "2160",
+        "lastName": "Borkelmans",
+        "firstName": "Vital",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2Al DosariAbdullah",
+        "lastName": "Al Dosari",
+        "firstName": "Abdullah",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 62
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2067",
+        "lastName": "Nilis",
+        "firstName": "Luc",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 24
+          }
+        ]
+      },
+      "away": {
+        "id": "6AminFuad",
+        "lastName": "Amin",
+        "firstName": "Fuad",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2116",
+        "lastName": "Czerniatynski",
+        "firstName": "Alexandre",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "7Al GhesheyanFahad",
+        "lastName": "Al Ghesheyan",
+        "firstName": "Fahad",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2137",
+        "lastName": "De Wilde",
+        "firstName": "Filip",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "11Al MehalelFahad",
+        "lastName": "Al Mehalel",
+        "firstName": "Fahad",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2138",
+        "lastName": "Grün",
+        "firstName": "Georges",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "12Al JaberSami",
+        "lastName": "Al Jaber",
+        "firstName": "Sami",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2154",
+        "lastName": "Emmers",
+        "firstName": "Marc",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "14Al MuwallidKhaled",
+        "lastName": "Al Muwallid",
+        "firstName": "Khaled",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 45
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "374",
+        "lastName": "Weber",
+        "firstName": "Josip",
+        "shirtNumber": "17",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 54
+          }
+        ]
+      },
+      "away": {
+        "id": "15Al DawoodSaleh",
+        "lastName": "Al Dawood",
+        "firstName": "Saleh",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "1304",
+        "lastName": "Van Meir",
+        "firstName": "Eric",
+        "shirtNumber": "19",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "17Al TaifiYasser",
+        "lastName": "Al Taifi",
+        "firstName": "Yasser",
+        "shirtNumber": "17",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "1675",
+        "lastName": "Verlinden",
+        "firstName": "Dany",
+        "shirtNumber": "20",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "18Al AnziAwwad",
+        "lastName": "Al Anzi",
+        "firstName": "Awwad",
+        "shirtNumber": "18",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "1972",
+        "lastName": "Van Der Heyden",
+        "firstName": "Stéphane",
+        "shirtNumber": "21",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "21Al SadeqHussein",
+        "lastName": "Al Sadeq",
+        "firstName": "Hussein",
+        "shirtNumber": "21",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "1658",
+        "lastName": "Renier",
+        "firstName": "Pascal",
+        "shirtNumber": "22",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "22Al HelwaIbrahim",
+        "lastName": "Al Helwa",
+        "firstName": "Ibrahim",
+        "shirtNumber": "22",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Van Himst",
+        "firstName": "Paul",
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Jorge Solari",
+        "firstName": null,
+        "function": "coach"
+      }
+    }
+  ]
+}

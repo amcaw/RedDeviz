@@ -1,0 +1,562 @@
+{
+  "id": "52",
+  "title": "Preliminary round",
+  "startTime": "1991-09-11T20:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Josy Barthel Stadion",
+    "city": "Luxemburg"
+  },
+  "officials": [
+    {
+      "lastName": "Harrel",
+      "firstName": "Remi",
+      "function": "referee"
+    },
+    {
+      "lastName": "Bouillet",
+      "firstName": "Claude",
+      "function": "firstAssistantReferee"
+    },
+    {
+      "lastName": "Kesseler",
+      "firstName": "Erny",
+      "function": "secondAssistantReferee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 80,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Dauwen",
+          "firstName": "Frank",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 80
+        },
+        {
+          "lastName": "Demol",
+          "firstName": "Stéphane",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 80
+        }
+      ]
+    },
+    {
+      "minute": 77,
+      "home": [
+        {
+          "lastName": "Krings",
+          "firstName": "Armin",
+          "teamId": "580",
+          "kind": "minuteIn",
+          "minute": 77
+        },
+        {
+          "lastName": "Morocutti",
+          "firstName": "Patrick",
+          "teamId": "580",
+          "kind": "minuteOut",
+          "minute": 77
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 75,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Medved",
+          "firstName": "Dirk",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 75
+        },
+        {
+          "lastName": "Grün",
+          "firstName": "Georges",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 75
+        }
+      ]
+    },
+    {
+      "minute": 67,
+      "home": [
+        {
+          "lastName": "Thome",
+          "firstName": "Marc",
+          "teamId": "580",
+          "kind": "minuteIn",
+          "minute": 67
+        },
+        {
+          "lastName": "Langers",
+          "firstName": "Robert",
+          "teamId": "580",
+          "kind": "minuteOut",
+          "minute": 67
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 49,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Degryse",
+          "firstName": "Marc",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 49
+        }
+      ]
+    },
+    {
+      "minute": 34,
+      "home": [
+        {
+          "lastName": "Birsens",
+          "firstName": "Marc",
+          "teamId": "580",
+          "kind": "yellowCard",
+          "minute": 34
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 26,
+      "home": [
+        {
+          "lastName": "Jeitz",
+          "firstName": "Gérard",
+          "teamId": "580",
+          "kind": "yellowCard",
+          "minute": 26
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 25,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Scifo",
+          "firstName": "Enzo",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 25
+        }
+      ]
+    }
+  ],
+  "homeTeam": {
+    "id": "580",
+    "name": "Luxembourg",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/580.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 0,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 2,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": "Sweden - 1992",
+    "qualifyingGroup": null,
+    "groupCode": "5"
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1Van RijswijckJohn",
+        "lastName": "Van Rijswijck",
+        "firstName": "John",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "2081",
+        "lastName": "Preud'Homme",
+        "firstName": "Michel",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2JeitzGérard",
+        "lastName": "Jeitz",
+        "firstName": "Gérard",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 26
+          }
+        ]
+      },
+      "away": {
+        "id": "2138",
+        "lastName": "Grün",
+        "firstName": "Georges",
+        "shirtNumber": "2",
+        "badges": "(C)",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 75
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "3BossiMarcel",
+        "lastName": "Bossi",
+        "firstName": "Marcel",
+        "shirtNumber": "3",
+        "badges": "(C)",
+        "events": []
+      },
+      "away": {
+        "id": "2134",
+        "lastName": "Van der Elst",
+        "firstName": "Franky",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "4BirsensMarc",
+        "lastName": "Birsens",
+        "firstName": "Marc",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 34
+          }
+        ]
+      },
+      "away": {
+        "id": "2161",
+        "lastName": "Staelens",
+        "firstName": "Lorenzo",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "5PetryPierre",
+        "lastName": "Petry",
+        "firstName": "Pierre",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2160",
+        "lastName": "Borkelmans",
+        "firstName": "Vital",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "6GiresJean-Paul",
+        "lastName": "Gires",
+        "firstName": "Jean-Paul",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2145",
+        "lastName": "Vervoort",
+        "firstName": "Patrick",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "7HellersGuy",
+        "lastName": "Hellers",
+        "firstName": "Guy",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2144",
+        "lastName": "Demol",
+        "firstName": "Stéphane",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 80
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "8WolfThomas",
+        "lastName": "Wolf",
+        "firstName": "Thomas",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2067",
+        "lastName": "Nilis",
+        "firstName": "Luc",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "9MorocuttiPatrick",
+        "lastName": "Morocutti",
+        "firstName": "Patrick",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 77
+          }
+        ]
+      },
+      "away": {
+        "id": "2136",
+        "lastName": "Degryse",
+        "firstName": "Marc",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 49
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "10LangersRobert",
+        "lastName": "Langers",
+        "firstName": "Robert",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 67
+          }
+        ]
+      },
+      "away": {
+        "id": "2128",
+        "lastName": "Scifo",
+        "firstName": "Enzo",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 25
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "11GroffJoël",
+        "lastName": "Groff",
+        "firstName": "Joël",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2154",
+        "lastName": "Emmers",
+        "firstName": "Marc",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "12KochPaul",
+        "lastName": "Koch",
+        "firstName": "Paul",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2137",
+        "lastName": "De Wilde",
+        "firstName": "Filip",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "13ThomeMarc",
+        "lastName": "Thome",
+        "firstName": "Marc",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 67
+          }
+        ]
+      },
+      "away": {
+        "id": "1968",
+        "lastName": "Medved",
+        "firstName": "Dirk",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 75
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "14ThillSerge",
+        "lastName": "Thill",
+        "firstName": "Serge",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "1967",
+        "lastName": "Dauwen",
+        "firstName": "Frank",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 80
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "15ScutoDenis",
+        "lastName": "Scuto",
+        "firstName": "Denis",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2162",
+        "lastName": "Boffin",
+        "firstName": "Danny",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "16KringsArmin",
+        "lastName": "Krings",
+        "firstName": "Armin",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 77
+          }
+        ]
+      },
+      "away": {
+        "id": "1972",
+        "lastName": "Van Der Heyden",
+        "firstName": "Stéphane",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Paul Philipp",
+        "firstName": null,
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Van Himst",
+        "firstName": "Paul",
+        "function": "coach"
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "lastName": "Tomanek",
+        "firstName": "Jaromir",
+        "function": "coach"
+      }
+    }
+  ]
+}

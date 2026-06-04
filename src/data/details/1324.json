@@ -1,0 +1,388 @@
+{
+  "id": "1324",
+  "title": "International friendly",
+  "startTime": "1953-03-19T00:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Las Corts",
+    "city": "Barcelona"
+  },
+  "officials": [
+    {
+      "lastName": "Reis",
+      "firstName": "Santos",
+      "function": "referee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 84,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Lemberechts",
+          "firstName": "Torreke",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 84
+        }
+      ]
+    },
+    {
+      "minute": 83,
+      "home": [
+        {
+          "lastName": "Marcet",
+          "firstName": "Francisco Javier",
+          "teamId": "581",
+          "kind": "goalScored",
+          "minute": 83
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 67,
+      "home": [
+        {
+          "lastName": "Marcet",
+          "firstName": "Francisco Javier",
+          "teamId": "581",
+          "kind": "goalScored",
+          "minute": 67
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 42,
+      "home": [
+        {
+          "lastName": "Venancio",
+          "firstName": "Perez Garcia",
+          "teamId": "581",
+          "kind": "goalScored",
+          "minute": 42
+        }
+      ],
+      "away": []
+    }
+  ],
+  "homeTeam": {
+    "id": "581",
+    "name": "Spain",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/581.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 3,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 1,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": null,
+    "qualifyingGroup": null,
+    "groupCode": null
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1RamalletsAntonio",
+        "lastName": "Ramallets",
+        "firstName": "Antonio",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "2304",
+        "lastName": "Seghers",
+        "firstName": "Armand",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2NavarroJoaquin",
+        "lastName": "Navarro",
+        "firstName": "Joaquin",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2303",
+        "lastName": "Diricx",
+        "firstName": "Henri",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3BioscaGustavo",
+        "lastName": "Biosca",
+        "firstName": "Gustavo",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2300",
+        "lastName": "Van Brandt",
+        "firstName": "Alfons",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "4GarayJésus",
+        "lastName": "Garay",
+        "firstName": "Jésus",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2291",
+        "lastName": "Van Der Auwera",
+        "firstName": "Jan",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "5PuchadesAntonio",
+        "lastName": "Puchades",
+        "firstName": "Antonio",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2284",
+        "lastName": "Carré",
+        "firstName": "Louis",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "6BoschAndres",
+        "lastName": "Bosch",
+        "firstName": "Andres",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2289",
+        "lastName": "Mees",
+        "firstName": "Vic",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "7BasoraEstanislao",
+        "lastName": "Basora",
+        "firstName": "Estanislao",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2355",
+        "lastName": "Lemberechts",
+        "firstName": "Torreke",
+        "shirtNumber": "7",
+        "badges": "(C)",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 84
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "8VenancioPerez Garcia",
+        "lastName": "Venancio",
+        "firstName": "Perez Garcia",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 42
+          }
+        ]
+      },
+      "away": {
+        "id": "2276",
+        "lastName": "Anoul",
+        "firstName": "Pol",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "9PanizoJosé Luis",
+        "lastName": "Panizo",
+        "firstName": "José Luis",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2293",
+        "lastName": "Coppens",
+        "firstName": "Henri 'Rik'",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "10MarcetFrancisco Javier",
+        "lastName": "Marcet",
+        "firstName": "Francisco Javier",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 67
+          },
+          {
+            "type": "goalScored",
+            "minute": 83
+          }
+        ]
+      },
+      "away": {
+        "id": "2315",
+        "lastName": "Straetmans",
+        "firstName": "Jean",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "11GainzaAgustin",
+        "lastName": "Gainza",
+        "firstName": "Agustin",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2317",
+        "lastName": "Janssens",
+        "firstName": "Augustin",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": null,
+      "away": {
+        "id": "2432",
+        "lastName": "Daenen",
+        "firstName": "François",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2294",
+        "lastName": "Saeren",
+        "firstName": "Willy",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2308",
+        "lastName": "Van Kerkhoven",
+        "firstName": "Bob",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2434",
+        "lastName": "Mermans",
+        "firstName": "Jef",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2302",
+        "lastName": "Givard",
+        "firstName": "Joseph",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Pedro Escartin",
+        "firstName": null,
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Gormlie",
+        "firstName": "Bill",
+        "function": "coach"
+      }
+    }
+  ]
+}

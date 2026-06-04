@@ -1,0 +1,460 @@
+{
+  "id": "2142",
+  "title": "International friendly",
+  "startTime": "1925-05-21T00:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Mtk Stadion",
+    "city": "Budapest"
+  },
+  "officials": [
+    {
+      "lastName": "Hirrle",
+      "firstName": "Jacques",
+      "function": "referee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 86,
+      "home": [
+        {
+          "lastName": "Jeny",
+          "firstName": "Rudolf",
+          "teamId": "595",
+          "kind": "goalScored",
+          "minute": 86
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 80,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Thys",
+          "firstName": "Ivan",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 80
+        }
+      ]
+    },
+    {
+      "minute": 64,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Adams",
+          "firstName": "Ferdinand",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 64
+        }
+      ]
+    },
+    {
+      "minute": 9,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Houet",
+          "firstName": "Victor",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 9
+        }
+      ]
+    }
+  ],
+  "homeTeam": {
+    "id": "595",
+    "name": "Hungary",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/595.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 1,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 3,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": null,
+    "qualifyingGroup": null,
+    "groupCode": null
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1FischerLajos",
+        "lastName": "Fischer",
+        "firstName": "Lajos",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "2450",
+        "lastName": "De Bie",
+        "firstName": "Jan",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2Fogl IiKaroly",
+        "lastName": "Fogl Ii",
+        "firstName": "Karoly",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2601",
+        "lastName": "Swartenbroeks",
+        "firstName": "Armand",
+        "shirtNumber": "2",
+        "badges": "(C)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3Fogl IiiJozsef",
+        "lastName": "Fogl Iii",
+        "firstName": "Jozsef",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2476",
+        "lastName": "Demol",
+        "firstName": "François",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "4WeberLajos",
+        "lastName": "Weber",
+        "firstName": "Lajos",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2456",
+        "lastName": "Augustus",
+        "firstName": "Joseph",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "5SandorJozsef",
+        "lastName": "Sandor",
+        "firstName": "Jozsef",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2449",
+        "lastName": "Fierens",
+        "firstName": "André",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "6NadlerHenrik",
+        "lastName": "Nadler",
+        "firstName": "Henrik",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2464",
+        "lastName": "Braine",
+        "firstName": "Pierre",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "7RazsoIzidor",
+        "lastName": "Razso",
+        "firstName": "Izidor",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2484",
+        "lastName": "Braine",
+        "firstName": "Raymond",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "8Takacs IiJozsef",
+        "lastName": "Takacs Ii",
+        "firstName": "Jozsef",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2472",
+        "lastName": "Grimmonprez",
+        "firstName": "Laurent",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "9OrthGyörgu",
+        "lastName": "Orth",
+        "firstName": "Györgu",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2478",
+        "lastName": "Adams",
+        "firstName": "Ferdinand",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 64
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "10JeszmasJozsef",
+        "lastName": "Jeszmas",
+        "firstName": "Jozsef",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2454",
+        "lastName": "Thys",
+        "firstName": "Ivan",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 80
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "11JenyRudolf",
+        "lastName": "Jeny",
+        "firstName": "Rudolf",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 86
+          }
+        ]
+      },
+      "away": {
+        "id": "2473",
+        "lastName": "Houet",
+        "firstName": "Victor",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 9
+          }
+        ]
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "1FischerLajos",
+        "lastName": "Fischer",
+        "firstName": "Lajos",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "2Fogl IiKaroly",
+        "lastName": "Fogl Ii",
+        "firstName": "Karoly",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "3Fogl IiiJozsef",
+        "lastName": "Fogl Iii",
+        "firstName": "Jozsef",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "4WeberLajos",
+        "lastName": "Weber",
+        "firstName": "Lajos",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "5SandorJozsef",
+        "lastName": "Sandor",
+        "firstName": "Jozsef",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "6NadlerHenrik",
+        "lastName": "Nadler",
+        "firstName": "Henrik",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "7RazsoIzidor",
+        "lastName": "Razso",
+        "firstName": "Izidor",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "8Takacs IiJozsef",
+        "lastName": "Takacs Ii",
+        "firstName": "Jozsef",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "9OrthGyörgu",
+        "lastName": "Orth",
+        "firstName": "Györgu",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "10JeszmasJozsef",
+        "lastName": "Jeszmas",
+        "firstName": "Jozsef",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "id": "11JenyRudolf",
+        "lastName": "Jeny",
+        "firstName": "Rudolf",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 86
+          }
+        ]
+      },
+      "away": null
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Dr. Lajos Mariassy",
+        "firstName": null,
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Maxwell",
+        "firstName": "William J.",
+        "function": "coach"
+      }
+    }
+  ]
+}

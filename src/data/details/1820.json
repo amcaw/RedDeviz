@@ -1,0 +1,596 @@
+{
+  "id": "1820",
+  "title": "International friendly",
+  "startTime": "1927-05-11T00:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Molenbeek Saint-Jean Stadion",
+    "city": "Brussel"
+  },
+  "officials": [
+    {
+      "lastName": "Mutters",
+      "firstName": "Johannes",
+      "function": "referee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 80,
+      "home": [
+        {
+          "lastName": "Van Halme",
+          "firstName": "Florimond",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 80
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 70,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Dean",
+          "firstName": "Dixie",
+          "teamId": "603",
+          "kind": "goalScored",
+          "minute": 70
+        }
+      ]
+    },
+    {
+      "minute": 63,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Page",
+          "firstName": "Louis",
+          "teamId": "603",
+          "kind": "goalScored",
+          "minute": 63
+        }
+      ]
+    },
+    {
+      "minute": 53,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Rigby",
+          "firstName": "Arthur",
+          "teamId": "603",
+          "kind": "goalScored",
+          "minute": 53
+        }
+      ]
+    },
+    {
+      "minute": 47,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Dean",
+          "firstName": "Dixie",
+          "teamId": "603",
+          "kind": "goalScored",
+          "minute": 47
+        }
+      ]
+    },
+    {
+      "minute": 36,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Dean",
+          "firstName": "Dixie",
+          "teamId": "603",
+          "kind": "goalScored",
+          "minute": 36
+        }
+      ]
+    },
+    {
+      "minute": 34,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Brown",
+          "firstName": "George",
+          "teamId": "603",
+          "kind": "goalScored",
+          "minute": 34
+        }
+      ]
+    },
+    {
+      "minute": 29,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Rigby",
+          "firstName": "Arthur",
+          "teamId": "603",
+          "kind": "goalScored",
+          "minute": 29
+        }
+      ]
+    },
+    {
+      "minute": 17,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Hulme",
+          "firstName": "Joseph",
+          "teamId": "603",
+          "kind": "goalScored",
+          "minute": 17
+        }
+      ]
+    },
+    {
+      "minute": 11,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Brown",
+          "firstName": "George",
+          "teamId": "603",
+          "kind": "goalScored",
+          "minute": 11
+        }
+      ]
+    }
+  ],
+  "homeTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "awayTeam": {
+    "id": "603",
+    "name": "England",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/603.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 1,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 9,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": null,
+    "qualifyingGroup": null,
+    "groupCode": null
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "2461",
+        "lastName": "Caudron",
+        "firstName": "Jean",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "1BrownJohn",
+        "lastName": "Brown",
+        "firstName": "John",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2601",
+        "lastName": "Swartenbroeks",
+        "firstName": "Armand",
+        "shirtNumber": "2",
+        "badges": "(C)",
+        "events": []
+      },
+      "away": {
+        "id": "2GoodallFrederick",
+        "lastName": "Goodall",
+        "firstName": "Frederick",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2476",
+        "lastName": "Demol",
+        "firstName": "François",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "3JonesHerbert",
+        "lastName": "Jones",
+        "firstName": "Herbert",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2464",
+        "lastName": "Braine",
+        "firstName": "Pierre",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "4EdwardsWillis",
+        "lastName": "Edwards",
+        "firstName": "Willis",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2457",
+        "lastName": "Van Halme",
+        "firstName": "Florimond",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 80
+          }
+        ]
+      },
+      "away": {
+        "id": "5HillJohn",
+        "lastName": "Hill",
+        "firstName": "John",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2490",
+        "lastName": "Van Averbeke",
+        "firstName": "Henri",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "6BishopSidney",
+        "lastName": "Bishop",
+        "firstName": "Sidney",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2478",
+        "lastName": "Adams",
+        "firstName": "Ferdinand",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "7HulmeJoseph",
+        "lastName": "Hulme",
+        "firstName": "Joseph",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 17
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2484",
+        "lastName": "Braine",
+        "firstName": "Raymond",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "8BrownGeorge",
+        "lastName": "Brown",
+        "firstName": "George",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 11
+          },
+          {
+            "type": "goalScored",
+            "minute": 34
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2474",
+        "lastName": "Despae",
+        "firstName": "Georges",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "9DeanDixie",
+        "lastName": "Dean",
+        "firstName": "Dixie",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 36
+          },
+          {
+            "type": "goalScored",
+            "minute": 47
+          },
+          {
+            "type": "goalScored",
+            "minute": 70
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2498",
+        "lastName": "Bierna",
+        "firstName": "Henri",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "10RigbyArthur",
+        "lastName": "Rigby",
+        "firstName": "Arthur",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 29
+          },
+          {
+            "type": "goalScored",
+            "minute": 53
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2493",
+        "lastName": "Vanderbauwhede",
+        "firstName": "Michel",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "11PageLouis",
+        "lastName": "Page",
+        "firstName": "Louis",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 63
+          }
+        ]
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": null,
+      "away": {
+        "id": "1BrownJohn",
+        "lastName": "Brown",
+        "firstName": "John",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2GoodallFrederick",
+        "lastName": "Goodall",
+        "firstName": "Frederick",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "3JonesHerbert",
+        "lastName": "Jones",
+        "firstName": "Herbert",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "4EdwardsWillis",
+        "lastName": "Edwards",
+        "firstName": "Willis",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "5HillJohn",
+        "lastName": "Hill",
+        "firstName": "John",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "6BishopSidney",
+        "lastName": "Bishop",
+        "firstName": "Sidney",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "7HulmeJoseph",
+        "lastName": "Hulme",
+        "firstName": "Joseph",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 17
+          }
+        ]
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "8BrownGeorge",
+        "lastName": "Brown",
+        "firstName": "George",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 11
+          },
+          {
+            "type": "goalScored",
+            "minute": 34
+          }
+        ]
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "9DeanDixie",
+        "lastName": "Dean",
+        "firstName": "Dixie",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 36
+          },
+          {
+            "type": "goalScored",
+            "minute": 47
+          },
+          {
+            "type": "goalScored",
+            "minute": 70
+          }
+        ]
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "10RigbyArthur",
+        "lastName": "Rigby",
+        "firstName": "Arthur",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 29
+          },
+          {
+            "type": "goalScored",
+            "minute": 53
+          }
+        ]
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "11PageLouis",
+        "lastName": "Page",
+        "firstName": "Louis",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 63
+          }
+        ]
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Maxwell",
+        "firstName": "William J.",
+        "function": "coach"
+      },
+      "away": null
+    }
+  ]
+}

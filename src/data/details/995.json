@@ -1,0 +1,423 @@
+{
+  "id": "995",
+  "title": "Qualifying round",
+  "startTime": "1968-12-11T00:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Estadio Bernabeu",
+    "city": "Madrid"
+  },
+  "officials": [
+    {
+      "lastName": "Heliodor Garcia",
+      "firstName": "Salvador",
+      "function": "referee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 75,
+      "home": [
+        {
+          "lastName": "Garrate",
+          "firstName": "José Eulogio",
+          "teamId": "581",
+          "kind": "goalScored",
+          "minute": 75
+        }
+      ],
+      "away": [
+        {
+          "lastName": "Hanon",
+          "firstName": "Pierre",
+          "teamId": "578",
+          "kind": "redCard",
+          "minute": 75
+        }
+      ]
+    },
+    {
+      "minute": 46,
+      "home": [
+        {
+          "lastName": "Gallego",
+          "firstName": "Francisco Fernandez",
+          "teamId": "581",
+          "kind": "minuteIn",
+          "minute": 46
+        },
+        {
+          "lastName": "Pina",
+          "firstName": "Marcial",
+          "teamId": "581",
+          "kind": "minuteIn",
+          "minute": 46
+        },
+        {
+          "lastName": "Devora",
+          "firstName": "German",
+          "teamId": "581",
+          "kind": "minuteOut",
+          "minute": 46
+        },
+        {
+          "lastName": "Tonono",
+          "firstName": "Antonio Alfonso",
+          "teamId": "581",
+          "kind": "minuteOut",
+          "minute": 46
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 3,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Devrindt",
+          "firstName": "Johan",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 3
+        }
+      ]
+    }
+  ],
+  "homeTeam": {
+    "id": "581",
+    "name": "Spain",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/581.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 1,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 1,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": "Mexico - 1970",
+    "qualifyingGroup": "Group match",
+    "groupCode": "6"
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "1SadurniSalvador",
+        "lastName": "Sadurni",
+        "firstName": "Salvador",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "2215",
+        "lastName": "Trappeniers",
+        "firstName": "Jean",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2TorresAntonio",
+        "lastName": "Torres",
+        "firstName": "Antonio",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2235",
+        "lastName": "Jeck",
+        "firstName": "Léon",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3TononoAntonio Alfonso",
+        "lastName": "Tonono",
+        "firstName": "Antonio Alfonso",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 46
+          }
+        ]
+      },
+      "away": {
+        "id": "2344",
+        "lastName": "Hanon",
+        "firstName": "Pierre",
+        "shirtNumber": "3",
+        "badges": "(C)",
+        "events": [
+          {
+            "type": "redCard",
+            "minute": 75
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "4ZabalzaPedro Maria",
+        "lastName": "Zabalza",
+        "firstName": "Pedro Maria",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2232",
+        "lastName": "Dewalque",
+        "firstName": "Nico",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "5SilvestreEladio",
+        "lastName": "Silvestre",
+        "firstName": "Eladio",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2237",
+        "lastName": "Thissen",
+        "firstName": "Jean",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "6PirriJosé Martinez",
+        "lastName": "Pirri",
+        "firstName": "José Martinez",
+        "shirtNumber": "6",
+        "badges": "(C)",
+        "events": []
+      },
+      "away": {
+        "id": "2225",
+        "lastName": "Van Moer",
+        "firstName": "Wilfried",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "7DevoraGerman",
+        "lastName": "Devora",
+        "firstName": "German",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 46
+          }
+        ]
+      },
+      "away": {
+        "id": "2234",
+        "lastName": "Dockx",
+        "firstName": "Jean",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "8GrossoRamon Moreno",
+        "lastName": "Grosso",
+        "firstName": "Ramon Moreno",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2203",
+        "lastName": "Semmeling",
+        "firstName": "Léon",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "9ClaramuntJosé",
+        "lastName": "Claramunt",
+        "firstName": "José",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2214",
+        "lastName": "Devrindt",
+        "firstName": "Johan",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 3
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "10AmaroAmancio",
+        "lastName": "Amaro",
+        "firstName": "Amancio",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2239",
+        "lastName": "Polleunis",
+        "firstName": "Lon",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "11GarrateJosé Eulogio",
+        "lastName": "Garrate",
+        "firstName": "José Eulogio",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 75
+          }
+        ]
+      },
+      "away": {
+        "id": "2217",
+        "lastName": "Verheyen",
+        "firstName": "Jan",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "13PinaMarcial",
+        "lastName": "Pina",
+        "firstName": "Marcial",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 46
+          }
+        ]
+      },
+      "away": {
+        "id": "2176",
+        "lastName": "Boone",
+        "firstName": "Fernand",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "14GallegoFrancisco Fernandez",
+        "lastName": "Gallego",
+        "firstName": "Francisco Fernandez",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 46
+          }
+        ]
+      },
+      "away": {
+        "id": "2187",
+        "lastName": "Cornelis",
+        "firstName": "Jean",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2242",
+        "lastName": "Marmenout",
+        "firstName": "Gilbert",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": null,
+      "away": {
+        "id": "2220",
+        "lastName": "Thio",
+        "firstName": "Johnny",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Eduardo Toba",
+        "firstName": null,
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Goethals",
+        "firstName": "Raymond",
+        "function": "coach"
+      }
+    }
+  ]
+}

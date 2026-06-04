@@ -1,0 +1,818 @@
+{
+  "id": "4758",
+  "title": "Qualification",
+  "startTime": "2005-09-07T20:30:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Fc Germinal Beerschot Ant",
+    "city": "Antwerpen"
+  },
+  "officials": [
+    {
+      "lastName": "Stokes",
+      "firstName": "Ian",
+      "function": "referee"
+    },
+    {
+      "lastName": "Moloney",
+      "firstName": "Martin",
+      "function": "firstAssistantReferee"
+    },
+    {
+      "lastName": "Delaney",
+      "firstName": "Ciaran",
+      "function": "secondAssistantReferee"
+    },
+    {
+      "lastName": "Mckeon",
+      "firstName": "David",
+      "function": "fourthOfficial"
+    }
+  ],
+  "events": [
+    {
+      "minute": 83,
+      "home": [
+        {
+          "lastName": "Van Buyten",
+          "firstName": "Daniel",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 83
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 77,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Nanni",
+          "firstName": "Luca",
+          "teamId": "612",
+          "kind": "minuteIn",
+          "minute": 77
+        },
+        {
+          "lastName": "Crescentini",
+          "firstName": "Frederico",
+          "teamId": "612",
+          "kind": "minuteOut",
+          "minute": 77
+        }
+      ]
+    },
+    {
+      "minute": 71,
+      "home": [
+        {
+          "lastName": "Mpenza",
+          "firstName": "Mbo",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 71
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 70,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Ciacci",
+          "firstName": ",Icola",
+          "teamId": "612",
+          "kind": "minuteIn",
+          "minute": 70
+        },
+        {
+          "lastName": "Moretti",
+          "firstName": "Michele",
+          "teamId": "612",
+          "kind": "minuteOut",
+          "minute": 70
+        }
+      ]
+    },
+    {
+      "minute": 69,
+      "home": [
+        {
+          "lastName": "Bisconti",
+          "firstName": "Roberto",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 69
+        },
+        {
+          "lastName": "Hoefkens",
+          "firstName": "Carl",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 69
+        },
+        {
+          "lastName": "Vanden Borre",
+          "firstName": "Anthony",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 69
+        },
+        {
+          "lastName": "Vanderhaeghe",
+          "firstName": "Yves",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 69
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 67,
+      "home": [
+        {
+          "lastName": "Daerden",
+          "firstName": "Koen",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 67
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 61,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Selva",
+          "firstName": "Roberto",
+          "teamId": "612",
+          "kind": "minuteIn",
+          "minute": 61
+        },
+        {
+          "lastName": "Maiani",
+          "firstName": "Giacomo",
+          "teamId": "612",
+          "kind": "minuteOut",
+          "minute": 61
+        }
+      ]
+    },
+    {
+      "minute": 53,
+      "home": [
+        {
+          "lastName": "Vandenbergh",
+          "firstName": "Kevin",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 53
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 52,
+      "home": [
+        {
+          "lastName": "Mpenza",
+          "firstName": "Mbo",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 52
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 44,
+      "home": [
+        {
+          "lastName": "Buffel",
+          "firstName": "Thomas",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 44
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 39,
+      "home": [
+        {
+          "lastName": "Daerden",
+          "firstName": "Koen",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 39
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 34,
+      "home": [
+        {
+          "lastName": "Simons",
+          "firstName": "Timmy",
+          "teamId": "578",
+          "kind": "penaltyScored",
+          "minute": 34
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 33,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Valentini",
+          "firstName": "Carlo",
+          "teamId": "612",
+          "kind": "redCard",
+          "minute": 33
+        }
+      ]
+    },
+    {
+      "minute": 31,
+      "home": [
+        {
+          "lastName": "Goor",
+          "firstName": "Bart",
+          "teamId": "578",
+          "kind": "yellowCard",
+          "minute": 31
+        }
+      ],
+      "away": [
+        {
+          "lastName": "Selva",
+          "firstName": "Andy",
+          "teamId": "612",
+          "kind": "yellowCard",
+          "minute": 31
+        }
+      ]
+    },
+    {
+      "minute": 24,
+      "home": [
+        {
+          "lastName": "Vanderhaeghe",
+          "firstName": "Yves",
+          "teamId": "578",
+          "kind": "yellowCard",
+          "minute": 24
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 18,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Bacciocchi",
+          "firstName": "Simone",
+          "teamId": "612",
+          "kind": "yellowCard",
+          "minute": 18
+        }
+      ]
+    },
+    {
+      "minute": 12,
+      "home": [
+        {
+          "lastName": "Daerden",
+          "firstName": "Koen",
+          "teamId": "578",
+          "kind": "minuteIn",
+          "minute": 12
+        },
+        {
+          "lastName": "Kompany",
+          "firstName": "Vincent",
+          "teamId": "578",
+          "kind": "minuteOut",
+          "minute": 12
+        }
+      ],
+      "away": []
+    }
+  ],
+  "homeTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "awayTeam": {
+    "id": "612",
+    "name": "San Marino",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/612.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 8,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 0,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": "Germany - 2006",
+    "qualifyingGroup": "Group match",
+    "groupCode": "7"
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "66",
+        "lastName": "Proto",
+        "firstName": "Silvio",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "1CeccoliMichele",
+        "lastName": "Ceccoli",
+        "firstName": "Michele",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2617",
+        "lastName": "Simons",
+        "firstName": "Timmy",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": [
+          {
+            "type": "penaltyScored",
+            "minute": 34
+          }
+        ]
+      },
+      "away": {
+        "id": "2ValentiniCarlo",
+        "lastName": "Valentini",
+        "firstName": "Carlo",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": [
+          {
+            "type": "redCard",
+            "minute": 33
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "130",
+        "lastName": "Van Buyten",
+        "firstName": "Daniel",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 83
+          }
+        ]
+      },
+      "away": {
+        "id": "3AndreiniMatteo",
+        "lastName": "Andreini",
+        "firstName": "Matteo",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3202",
+        "lastName": "Deschacht",
+        "firstName": "Olivier",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "4CrescentiniFrederico",
+        "lastName": "Crescentini",
+        "firstName": "Frederico",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 77
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "260",
+        "lastName": "Vanderhaeghe",
+        "firstName": "Yves",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 24
+          },
+          {
+            "type": "minuteOut",
+            "minute": 69
+          }
+        ]
+      },
+      "away": {
+        "id": "5Della ValleAlessandro",
+        "lastName": "Della Valle",
+        "firstName": "Alessandro",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "176",
+        "lastName": "Goor",
+        "firstName": "Bart",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 31
+          }
+        ]
+      },
+      "away": {
+        "id": "6BacciocchiSimone",
+        "lastName": "Bacciocchi",
+        "firstName": "Simone",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 18
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "1065",
+        "lastName": "Buffel",
+        "firstName": "Thomas",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 44
+          }
+        ]
+      },
+      "away": {
+        "id": "7MaianiGiacomo",
+        "lastName": "Maiani",
+        "firstName": "Giacomo",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 61
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "1463",
+        "lastName": "Mpenza",
+        "firstName": "Mbo",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 52
+          },
+          {
+            "type": "goalScored",
+            "minute": 71
+          }
+        ]
+      },
+      "away": {
+        "id": "8DomeniconiMarco",
+        "lastName": "Domeniconi",
+        "firstName": "Marco",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "8",
+        "lastName": "Vandenbergh",
+        "firstName": "Kevin",
+        "shirtNumber": "18",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 53
+          }
+        ]
+      },
+      "away": {
+        "id": "9GasperoniAlex",
+        "lastName": "Gasperoni",
+        "firstName": "Alex",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3268",
+        "lastName": "Vanden Borre",
+        "firstName": "Anthony",
+        "shirtNumber": "20",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 69
+          }
+        ]
+      },
+      "away": {
+        "id": "10SelvaAndy",
+        "lastName": "Selva",
+        "firstName": "Andy",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 31
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "3125",
+        "lastName": "Kompany",
+        "firstName": "Vincent",
+        "shirtNumber": "27",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 12
+          }
+        ]
+      },
+      "away": {
+        "id": "11MorettiMichele",
+        "lastName": "Moretti",
+        "firstName": "Michele",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 70
+          }
+        ]
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "11",
+        "lastName": "Daerden",
+        "firstName": "Koen",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 12
+          },
+          {
+            "type": "goalScored",
+            "minute": 39
+          },
+          {
+            "type": "goalScored",
+            "minute": 67
+          }
+        ]
+      },
+      "away": {
+        "id": "12ValentiniFedrico",
+        "lastName": "Valentini",
+        "firstName": "Fedrico",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "110",
+        "lastName": "Moons",
+        "firstName": "Jan",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "13Ciacci,Icola",
+        "lastName": "Ciacci",
+        "firstName": ",Icola",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 70
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "1311",
+        "lastName": "Hoefkens",
+        "firstName": "Carl",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 69
+          }
+        ]
+      },
+      "away": {
+        "id": "14CibelloEnrico",
+        "lastName": "Cibello",
+        "firstName": "Enrico",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "182",
+        "lastName": "Geraerts",
+        "firstName": "Karel",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "15MasiMattia",
+        "lastName": "Masi",
+        "firstName": "Mattia",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "3471",
+        "lastName": "Pieroni",
+        "firstName": "Luigi",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "16NanniFederico",
+        "lastName": "Nanni",
+        "firstName": "Federico",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "1585",
+        "lastName": "Bisconti",
+        "firstName": "Roberto",
+        "shirtNumber": "17",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 69
+          }
+        ]
+      },
+      "away": {
+        "id": "17NanniLuca",
+        "lastName": "Nanni",
+        "firstName": "Luca",
+        "shirtNumber": "17",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 77
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "3021",
+        "lastName": "Van Damme",
+        "firstName": "Jelle",
+        "shirtNumber": "19",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "18SelvaRoberto",
+        "lastName": "Selva",
+        "firstName": "Roberto",
+        "shirtNumber": "18",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 61
+          }
+        ]
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Snelders",
+        "firstName": "Eddy",
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Mazza Gianpaolo",
+        "firstName": null,
+        "function": "coach"
+      }
+    },
+    {
+      "home": {
+        "lastName": "Munaron",
+        "firstName": "Jacky",
+        "function": "coach"
+      },
+      "away": null
+    },
+    {
+      "home": {
+        "lastName": "Anthuenis",
+        "firstName": "Aimé",
+        "function": "coach"
+      },
+      "away": null
+    }
+  ]
+}

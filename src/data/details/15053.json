@@ -1,0 +1,42 @@
+{
+  "id": "15053",
+  "title": "UEFA Nations League",
+  "startTime": "2026-11-12T18:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": null,
+    "city": null
+  },
+  "officials": [],
+  "events": null,
+  "homeTeam": {
+    "id": "592",
+    "name": "Turkey",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/592.png"
+  },
+  "awayTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "outcome": {
+    "homeTeamGoals": null,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": null,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": false,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": null,
+    "qualifyingGroup": "Group match",
+    "groupCode": "A1"
+  },
+  "lineup": [],
+  "substitutes": [],
+  "staffLineup": []
+}

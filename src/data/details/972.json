@@ -1,0 +1,467 @@
+{
+  "id": "972",
+  "title": "UEFA European Championship",
+  "startTime": "1972-06-17T20:00:00",
+  "channel": "belgianfootball",
+  "category": "Belgian Red Devils",
+  "location": {
+    "name": "Stade Maurice Dufrasne",
+    "city": "Liège"
+  },
+  "officials": [
+    {
+      "lastName": "Boström",
+      "firstName": "Johan Einar",
+      "function": "referee"
+    }
+  ],
+  "events": [
+    {
+      "minute": 53,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Kü",
+          "firstName": "Lajos",
+          "teamId": "595",
+          "kind": "penaltyScored",
+          "minute": 53
+        }
+      ]
+    },
+    {
+      "minute": 45,
+      "home": [],
+      "away": [
+        {
+          "lastName": "Szücs",
+          "firstName": "Lajos",
+          "teamId": "595",
+          "kind": "minuteIn",
+          "minute": 45
+        },
+        {
+          "lastName": "Zambo",
+          "firstName": "Sándor",
+          "teamId": "595",
+          "kind": "minuteOut",
+          "minute": 45
+        }
+      ]
+    },
+    {
+      "minute": 28,
+      "home": [
+        {
+          "lastName": "Van Himst",
+          "firstName": "Paul",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 28
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 24,
+      "home": [
+        {
+          "lastName": "Lambert",
+          "firstName": "Raoul",
+          "teamId": "578",
+          "kind": "goalScored",
+          "minute": 24
+        }
+      ],
+      "away": []
+    },
+    {
+      "minute": 0,
+      "home": [
+        {
+          "lastName": "Dolmans",
+          "firstName": "Léon",
+          "teamId": "578",
+          "kind": "yellowCard",
+          "minute": 0
+        }
+      ],
+      "away": [
+        {
+          "lastName": "Juhasz",
+          "firstName": "Péter",
+          "teamId": "595",
+          "kind": "yellowCard",
+          "minute": 0
+        }
+      ]
+    }
+  ],
+  "homeTeam": {
+    "id": "578",
+    "name": "Belgium",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/578.png"
+  },
+  "awayTeam": {
+    "id": "595",
+    "name": "Hungary",
+    "logo": "https://s3.eu-central-1.amazonaws.com/belgianfootball/s3fs-public/rbfa/img/logos/countries/595.png"
+  },
+  "outcome": {
+    "homeTeamGoals": 2,
+    "homeTeamPenaltiesScored": null,
+    "awayTeamGoals": 1,
+    "awayTeamPenaltiesScored": null,
+    "subscript": null,
+    "isFinished": true,
+    "hasPenalties": false,
+    "hasSubscript": false
+  },
+  "tournament": {
+    "ageCategory": "Belgian Red Devils",
+    "nameTournament": "Belgium - 1972",
+    "qualifyingGroup": "Third place play-off",
+    "groupCode": null
+  },
+  "lineup": [
+    {
+      "home": {
+        "id": "2244",
+        "lastName": "Piot",
+        "firstName": "Christian",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      },
+      "away": {
+        "id": "1GécziIstván",
+        "lastName": "Géczi",
+        "firstName": "István",
+        "shirtNumber": "1",
+        "badges": "(GK)",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2201",
+        "lastName": "Heylens",
+        "firstName": "Georges",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "2FabianTibor",
+        "lastName": "Fabian",
+        "firstName": "Tibor",
+        "shirtNumber": "2",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2253",
+        "lastName": "Dolmans",
+        "firstName": "Léon",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 0
+          }
+        ]
+      },
+      "away": {
+        "id": "3PancsicsDr Miklos",
+        "lastName": "Pancsics",
+        "firstName": "Dr Miklos",
+        "shirtNumber": "3",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2237",
+        "lastName": "Thissen",
+        "firstName": "Jean",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "4JuhaszPéter",
+        "lastName": "Juhasz",
+        "firstName": "Péter",
+        "shirtNumber": "4",
+        "badges": "",
+        "events": [
+          {
+            "type": "yellowCard",
+            "minute": 0
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2247",
+        "lastName": "Vandendaele",
+        "firstName": "Erwin",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "5BalintLászló",
+        "lastName": "Balint",
+        "firstName": "László",
+        "shirtNumber": "5",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2234",
+        "lastName": "Dockx",
+        "firstName": "Jean",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "6KüLajos",
+        "lastName": "Kü",
+        "firstName": "Lajos",
+        "shirtNumber": "6",
+        "badges": "",
+        "events": [
+          {
+            "type": "penaltyScored",
+            "minute": 53
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2203",
+        "lastName": "Semmeling",
+        "firstName": "Léon",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "7KozmaMihály",
+        "lastName": "Kozma",
+        "firstName": "Mihály",
+        "shirtNumber": "7",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2239",
+        "lastName": "Polleunis",
+        "firstName": "Lon",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "8AlbertFlorian",
+        "lastName": "Albert",
+        "firstName": "Florian",
+        "shirtNumber": "8",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2222",
+        "lastName": "Lambert",
+        "firstName": "Raoul",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 24
+          }
+        ]
+      },
+      "away": {
+        "id": "9DunaiAntal",
+        "lastName": "Dunai",
+        "firstName": "Antal",
+        "shirtNumber": "9",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2199",
+        "lastName": "Van Himst",
+        "firstName": "Paul",
+        "shirtNumber": "10",
+        "badges": "(C)",
+        "events": [
+          {
+            "type": "goalScored",
+            "minute": 28
+          }
+        ]
+      },
+      "away": {
+        "id": "10JuhaszDr Istvan",
+        "lastName": "Juhasz",
+        "firstName": "Dr Istvan",
+        "shirtNumber": "10",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2217",
+        "lastName": "Verheyen",
+        "firstName": "Jan",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "11ZamboSándor",
+        "lastName": "Zambo",
+        "firstName": "Sándor",
+        "shirtNumber": "11",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteOut",
+            "minute": 45
+          }
+        ]
+      }
+    }
+  ],
+  "substitutes": [
+    {
+      "home": {
+        "id": "2163",
+        "lastName": "Sanders",
+        "firstName": "Luc",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "12RappImre",
+        "lastName": "Rapp",
+        "firstName": "Imre",
+        "shirtNumber": "12",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2164",
+        "lastName": "Van Binst",
+        "firstName": "Gilbert",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "13KovácsJózsef",
+        "lastName": "Kovács",
+        "firstName": "József",
+        "shirtNumber": "13",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "2248",
+        "lastName": "Martens",
+        "firstName": "Maurice",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "14SzücsLajos",
+        "lastName": "Szücs",
+        "firstName": "Lajos",
+        "shirtNumber": "14",
+        "badges": "",
+        "events": [
+          {
+            "type": "minuteIn",
+            "minute": 45
+          }
+        ]
+      }
+    },
+    {
+      "home": {
+        "id": "2251",
+        "lastName": "Teugels",
+        "firstName": "Jacques",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "15KocsisLajos",
+        "lastName": "Kocsis",
+        "firstName": "Lajos",
+        "shirtNumber": "15",
+        "badges": "",
+        "events": []
+      }
+    },
+    {
+      "home": {
+        "id": "777",
+        "lastName": "Janssens",
+        "firstName": "François",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": []
+      },
+      "away": {
+        "id": "16SzökeIstván",
+        "lastName": "Szöke",
+        "firstName": "István",
+        "shirtNumber": "16",
+        "badges": "",
+        "events": []
+      }
+    }
+  ],
+  "staffLineup": [
+    {
+      "home": {
+        "lastName": "Goethals",
+        "firstName": "Raymond",
+        "function": "coach"
+      },
+      "away": {
+        "lastName": "Rudolf Illovszky",
+        "firstName": null,
+        "function": "coach"
+      }
+    }
+  ]
+}
