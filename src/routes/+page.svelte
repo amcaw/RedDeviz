@@ -190,6 +190,7 @@
       <CartoChronologie
         {filtered}
         {recordHighlight}
+        filterActive={!!activeFilter || !!activeResult}
         bind:selected
         bind:hovered
         bind:cityInfo

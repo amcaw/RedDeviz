@@ -6,9 +6,7 @@
     fr,
     cityFr,
     competitionFr,
-    type Match,
-    type MatchDetailData,
-    type MatchEventPlayer
+    type Match
   } from './data';
 
   let { match, onclose }: { match: Match; onclose: () => void } = $props();
@@ -21,47 +19,22 @@
     })
   );
 
-  // Fetch the rich per-match detail whenever the selected match changes.
-  let detail = $state<MatchDetailData | null>(null);
-  let loading = $state(false);
-  $effect(() => {
-    const id = match.id;
-    if (!match.hasDetail) {
-      detail = null;
-      return;
-    }
-    loading = true;
-    loadDetail(id).then((d) => {
-      // guard against a stale response after a fast re-selection
-      if (match.id === id) {
-        detail = d;
-        loading = false;
-      }
-    });
-  });
+  // Compact per-match detail (logos, scorers, referee, venue) from the bundle.
+  const detail = $derived(loadDetail(match.id));
 
-  const isGoal = (k: string) => /goal|penalty/i.test(k);
-  function goals(side: 'home' | 'away'): MatchEventPlayer[] {
-    if (!detail?.events) return [];
-    return detail.events
-      .flatMap((ev) => ev[side] ?? [])
-      .filter((p) => isGoal(p.kind))
-      .sort((a, b) => a.minute - b.minute);
-  }
   function goalSuffix(kind: string): string {
     if (/penalty/i.test(kind)) return ' (pen.)';
     if (/own/i.test(kind)) return ' (csc)';
     return '';
   }
 
-  const homeGoals = $derived(goals('home'));
-  const awayGoals = $derived(goals('away'));
-  const referee = $derived(detail?.officials?.find((o) => o.function === 'referee'));
+  const homeGoals = $derived(detail?.goals.filter((g) => g.side === 'home') ?? []);
+  const awayGoals = $derived(detail?.goals.filter((g) => g.side === 'away') ?? []);
+  const referee = $derived(detail?.referee ?? '');
 
-  // Lieu (toujours en français) : ville du CSV, sinon ville du fichier détail,
-  // sinon le pays hôte. Plus de mention « (approx.) ».
+  // Lieu (toujours en français) : ville du CSV, sinon ville du détail, sinon pays.
   const placeLabel = $derived(
-    match.city ? cityFr(match.city) : detail?.location?.city ? cityFr(detail.location.city) : fr(match.hostCountry)
+    match.city ? cityFr(match.city) : detail?.city ? cityFr(detail.city) : fr(match.hostCountry)
   );
 </script>
 
@@ -76,9 +49,9 @@
   <!-- meta info, up top: ville · stade · arbitre (labels in full) -->
   <div class="meta">
     <span><span class="meta-label">Ville</span> {placeLabel}</span>
-    {#if match.stadium || detail?.location?.name}
+    {#if match.stadium || detail?.stadium}
       <span class="sep">·</span>
-      <span><span class="meta-label">Stade</span> {match.stadium || detail?.location?.name}</span>
+      <span><span class="meta-label">Stade</span> {match.stadium || detail?.stadium}</span>
     {/if}
     {#if match.coach}
       <span class="sep">·</span>
@@ -86,15 +59,15 @@
     {/if}
     {#if referee}
       <span class="sep">·</span>
-      <span><span class="meta-label">Arbitre</span> {referee.firstName} {referee.lastName}</span>
+      <span><span class="meta-label">Arbitre</span> {referee}</span>
     {/if}
   </div>
 
   <!-- scoreline: logo + name flanking a big "h - a" score -->
   <div class="scoreline">
     <div class="team" class:bel={match.home === 'Belgium'}>
-      {#if detail?.homeTeam?.logo}
-        <img src={detail.homeTeam.logo} alt="" class="logo" />
+      {#if detail?.homeLogo}
+        <img src={detail.homeLogo} alt="" class="logo" />
       {/if}
       <span class="name">{fr(match.home)}</span>
     </div>
@@ -115,8 +88,8 @@
     </div>
 
     <div class="team" class:bel={match.away === 'Belgium'}>
-      {#if detail?.awayTeam?.logo}
-        <img src={detail.awayTeam.logo} alt="" class="logo" />
+      {#if detail?.awayLogo}
+        <img src={detail.awayLogo} alt="" class="logo" />
       {/if}
       <span class="name">{fr(match.away)}</span>
     </div>
@@ -139,9 +112,6 @@
     </div>
   {/if}
 
-  {#if loading}
-    <p class="loading">Chargement des détails…</p>
-  {/if}
 </div>
 
 <style>
@@ -299,10 +269,5 @@
   .scorers .ball {
     font-size: 15px;
     line-height: 1.4;
-  }
-  .loading {
-    font-size: 12px;
-    color: #94a3b8;
-    margin: 12px 0 0;
   }
 </style>

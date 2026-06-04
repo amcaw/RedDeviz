@@ -18,6 +18,7 @@
   let {
     filtered,
     recordHighlight = [],
+    filterActive = false,
     selected = $bindable(null),
     hovered = $bindable(null),
     cityInfo = $bindable(null),
@@ -25,6 +26,7 @@
   }: {
     filtered: Match[];
     recordHighlight?: string[];
+    filterActive?: boolean;
     selected: Match | null;
     hovered: Match | null;
     cityInfo: {
@@ -257,10 +259,16 @@
     return ys;
   });
 
-  // Decade years (+ endpoints, + any selected years), each tilted to follow its
-  // slice (tangential to the ring) so it stays aligned within its wedge.
+  // Which years get a written label: decades + endpoints + any focused year, and
+  // — when a filter is active — every year that still has a (filtered) match,
+  // so the chronology reads precisely on the reduced set.
+  function isLabelled(y: number): boolean {
+    if (y % 10 === 0 || y === Y0 || y === YN || highlightYears.has(y)) return true;
+    if (filterActive && (yearCounts.get(y) ?? 0) > 0) return true;
+    return false;
+  }
   const yearTicks = $derived(
-    YEARS.filter((y) => y % 10 === 0 || y === Y0 || y === YN || highlightYears.has(y)).map((y) => {
+    YEARS.filter(isLabelled).map((y) => {
       const ang = yearAngle(y);
       const a = toRad(ang);
       const lower = ang > 90 && ang < 270; // bottom half → flip 180° to stay upright

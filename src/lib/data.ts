@@ -1,4 +1,4 @@
-import raw from './data/matches.json';
+import raw from '../data/matches.json';
 
 export type Result = 'W' | 'D' | 'L';
 
@@ -23,51 +23,30 @@ export interface Match {
   hasDetail: boolean;
 }
 
-// Shape of the per-match files in /static/details/<id>.json (subset we render).
-export interface MatchEventPlayer {
-  lastName: string;
-  firstName: string;
-  kind: string; // goalScored | ownGoalScored | penaltyScored | yellowCard | redCard | ...
+// Compact per-match detail shown in the popup (from src/data/details.json).
+export interface MatchGoal {
+  side: 'home' | 'away';
   minute: number;
+  kind: string; // goalScored | penaltyScored | ownGoalScored
+  firstName: string;
+  lastName: string;
 }
 export interface MatchDetailData {
-  id: string;
-  location?: { name?: string; city?: string };
-  officials?: { lastName: string; firstName: string; function: string }[];
-  events?: { minute: number; home: MatchEventPlayer[]; away: MatchEventPlayer[] }[];
-  homeTeam?: { id: string; name: string; logo?: string };
-  awayTeam?: { id: string; name: string; logo?: string };
-  outcome?: { homeTeamGoals: number; awayTeamGoals: number; hasPenalties?: boolean };
-  lineup?: { home?: LineupPlayer; away?: LineupPlayer }[];
-  substitutes?: { home?: LineupPlayer; away?: LineupPlayer }[];
-}
-export interface LineupPlayer {
-  lastName: string;
-  firstName: string;
-  shirtNumber?: string;
-  badges?: string;
+  homeLogo: string;
+  awayLogo: string;
+  goals: MatchGoal[];
+  referee: string;
+  city: string;
+  stadium: string;
 }
 
-// Per-match detail files live in src/data/details/<id>.json and are bundled as
-// lazy chunks via Vite's glob import (loaded on demand when a match is opened).
-const detailModules = import.meta.glob<{ default: MatchDetailData }>('../data/details/*.json');
+// All match details live in one bundled file (logos, scorers, referee, venue),
+// keyed by match id. ~0.5 MB total, loaded once.
+import detailsById from '../data/details.json';
+const DETAILS = detailsById as Record<string, MatchDetailData>;
 
-const detailCache = new Map<string, MatchDetailData | null>();
-export async function loadDetail(id: string): Promise<MatchDetailData | null> {
-  if (detailCache.has(id)) return detailCache.get(id)!;
-  const loader = detailModules[`../data/details/${id}.json`];
-  if (!loader) {
-    detailCache.set(id, null);
-    return null;
-  }
-  try {
-    const mod = await loader();
-    detailCache.set(id, mod.default);
-    return mod.default;
-  } catch {
-    detailCache.set(id, null);
-    return null;
-  }
+export function loadDetail(id: string): MatchDetailData | null {
+  return DETAILS[id] ?? null;
 }
 
 export interface RecordMatch {
