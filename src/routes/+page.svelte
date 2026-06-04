@@ -95,6 +95,7 @@
   function resetAll() {
     selected = null;
     cityInfo = null;
+    mapControls?.reset(); // also zoom the map back out
   }
 </script>
 
