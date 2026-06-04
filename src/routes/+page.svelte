@@ -58,6 +58,7 @@
     )
   );
 
+
   // Dynamic counts for the filter buttons. Each group's counts respect the OTHER
   // group's active filter but ignore its own (so the numbers show what picking
   // each option would yield).
@@ -76,21 +77,6 @@
       D: base.filter((m) => m.result === 'D').length,
       L: base.filter((m) => m.result === 'L').length,
       total: base.length
-    };
-  });
-
-  const stats = $derived.by(() => {
-    const w = filtered.filter((m) => m.result === 'W').length;
-    const d = filtered.filter((m) => m.result === 'D').length;
-    const l = filtered.filter((m) => m.result === 'L').length;
-    const years = filtered.map((m) => m.year);
-    return {
-      total: filtered.length,
-      w,
-      d,
-      l,
-      first: years.length ? Math.min(...years) : meta.firstYear,
-      last: years.length ? Math.max(...years) : meta.lastYear
     };
   });
 
@@ -131,92 +117,77 @@
 
 <main>
   <header>
-    <h1>Les matchs des Diables Rouges de {meta.firstYear} à {meta.lastYear}</h1>
-
-    <!-- bilan: left-aligned, stacked below the title -->
-    <div class="bilan">
-      <h2>Bilan {activeFilter ?? 'global'}</h2>
-      <p class="big">{stats.total} matchs joués entre {stats.first} et {stats.last}</p>
-      <p class="counts">
-        {stats.w} victoires&nbsp;/&nbsp;{stats.d} nuls&nbsp;/&nbsp;{stats.l} défaites
-      </p>
-      <p class="hint">
-        Survolez ou cliquez sur un match pour obtenir plus d'informations et explorer les données.
-      </p>
-    </div>
+    <h1>
+      Les {meta.total} matchs des Diables Rouges de {meta.firstYear} à {meta.lastYear}
+    </h1>
+    <p class="hint">
+      Survolez ou cliquez sur un match pour obtenir plus d'informations et explorer les données.
+    </p>
   </header>
 
-  <!-- controls: three filter categories -->
-  <div class="controls">
-    <div class="filter-group">
-      <h4>Filtrer par compétition</h4>
-      <FilterBar
-        bind:active={activeFilter}
-        counts={competitionCounts.counts}
-        total={competitionCounts.total}
-      />
-    </div>
+  <div class="layout">
+    <!-- filters column (left on desktop, below the viz on mobile) -->
+    <div class="controls">
+      <div class="filter-group">
+        <h4>Filtrer par compétition</h4>
+        <FilterBar
+          bind:active={activeFilter}
+          counts={competitionCounts.counts}
+          total={competitionCounts.total}
+        />
+      </div>
 
-    <div class="filter-group">
-      <h4>Filtrer par résultat</h4>
-      <div class="result-filter">
-        <button class="chip" class:on={activeResult === null} onclick={() => (activeResult = null)}>
-          Tous les résultats <span class="count">({resultCounts.total})</span>
-        </button>
-        {#each [['W', 'Victoire'], ['D', 'Nul'], ['L', 'Défaite']] as [code, label]}
-          <button
-            class="chip"
-            class:on={activeResult === code}
-            style:--c={RESULT_COLORS[code as 'W' | 'D' | 'L']}
-            onclick={() => (activeResult = activeResult === code ? null : (code as 'W' | 'D' | 'L'))}
-          >
-            <span class="swatch" style:background={RESULT_COLORS[code as 'W' | 'D' | 'L']}></span>
-            {label}
-            <span class="count">({resultCounts[code as 'W' | 'D' | 'L']})</span>
+      <div class="filter-group">
+        <h4>Filtrer par résultat</h4>
+        <div class="result-filter">
+          <button class="chip" class:on={activeResult === null} onclick={() => (activeResult = null)}>
+            Tous les résultats <span class="count">({resultCounts.total})</span>
           </button>
-        {/each}
+          {#each [['W', 'Victoire'], ['D', 'Nul'], ['L', 'Défaite']] as [code, label]}
+            <button
+              class="chip"
+              class:on={activeResult === code}
+              style:--c={RESULT_COLORS[code as 'W' | 'D' | 'L']}
+              onclick={() => (activeResult = activeResult === code ? null : (code as 'W' | 'D' | 'L'))}
+            >
+              <span class="swatch" style:background={RESULT_COLORS[code as 'W' | 'D' | 'L']}></span>
+              {label}
+              <span class="count">({resultCounts[code as 'W' | 'D' | 'L']})</span>
+            </button>
+          {/each}
+        </div>
       </div>
-    </div>
 
-    <div class="filter-group">
-      <h4>Mettre en évidence une série</h4>
-      <RecordsButtons bind:highlight={recordHighlight} bind:activeKey={recordKey} />
-    </div>
-  </div>
+      <div class="filter-group">
+        <h4>Mettre en évidence une série</h4>
+        <RecordsButtons bind:highlight={recordHighlight} bind:activeKey={recordKey} />
+      </div>
 
-  <section class="stage">
-    <!-- the viz -->
-    <div class="viz">
-      <CartoChronologie
-        {filtered}
-        {recordHighlight}
-        filterActive={!!activeFilter || !!activeResult}
-        bind:selected
-        bind:hovered
-        bind:cityInfo
-        bind:controls={mapControls}
-      />
-    </div>
-
-    <!-- legend bottom-left -->
-    <div class="legend">
-      <div class="results-row">
-        {#each results as r}
-          <div class="legend-row">
-            <span class="dot" style:background={RESULT_COLORS[r]}></span>
-            {RESULT_LABELS[r]}
+      <!-- legend + map zoom controls -->
+      <div class="filter-group legend-group">
+        <h4>Légende</h4>
+        <div class="legend">
+          <div class="results-row">
+            {#each results as r}
+              <div class="legend-row">
+                <span class="dot" style:background={RESULT_COLORS[r]}></span>
+                {RESULT_LABELS[r]}
+              </div>
+            {/each}
           </div>
-        {/each}
+          <div class="legend-row map-legend">
+            <span class="swatch host"></span> Pays d'accueil des matchs
+          </div>
+          <div class="legend-row year-scale-row">
+            <span class="year-scale"></span>
+            <span class="scale-labels">− de matchs/an <span class="arrow">→</span> + de matchs/an</span>
+          </div>
+        </div>
       </div>
-      <div class="legend-row map-legend">
-        <span class="swatch host"></span> Pays d'accueil des matchs
-      </div>
-      <div class="legend-row year-scale-row">
-        <span class="year-scale"></span>
-        <span class="scale-labels">− de matchs/an <span class="arrow">→</span> + de matchs/an</span>
-      </div>
+    </div>
 
-      <!-- zoom controls, under the legend -->
+    <section class="stage">
+      <!-- map zoom controls, overlaid top-left of the wheel, stacked -->
       <div class="zoom-buttons">
         <button aria-label="Zoom avant" onclick={() => mapControls?.zoomIn()}>+</button>
         <button aria-label="Zoom arrière" onclick={() => mapControls?.zoomOut()}>−</button>
@@ -224,7 +195,18 @@
           >⟲</button
         >
       </div>
-    </div>
+      <!-- the viz -->
+      <div class="viz">
+        <CartoChronologie
+          {filtered}
+          {recordHighlight}
+          filterActive={!!activeFilter || !!activeResult}
+          bind:selected
+          bind:hovered
+          bind:cityInfo
+          bind:controls={mapControls}
+        />
+      </div>
 
     <!-- detail panel: appears when a match is selected -->
     {#if selected}
@@ -253,24 +235,30 @@
         />
       </div>
     {/if}
-  </section>
 
-  <footer>
-    <p class="source">
-      Source des données :
-      <a
-        href="https://www.rbfa.be/en/national-teams/belgian-red-devils/all-belgian-red-devils-matches"
-        target="_blank"
-        rel="noreferrer">RBFA</a
-      >
-      — visualisation inspirée de
-      <a
-        href="https://www.chroniquesbleues.fr/cartographie-chronologique-des-matchs-des-Bleus"
-        target="_blank"
-        rel="noreferrer">Chroniques Bleues</a
-      >.
-    </p>
-  </footer>
+      <!-- source credit pinned to the bottom of the wheel's square (the empty
+           corner area), so it doesn't add height to the page -->
+      <p class="source">
+        Source des données :
+        <a
+          href="https://www.rbfa.be/en/national-teams/belgian-red-devils/all-belgian-red-devils-matches"
+          target="_blank"
+          rel="noreferrer">RBFA</a
+        >
+        — visualisation inspirée de
+        <a
+          href="https://www.chroniquesbleues.fr/cartographie-chronologique-des-matchs-des-Bleus"
+          target="_blank"
+          rel="noreferrer">Chroniques Bleues</a
+        >, via
+        <a
+          href="https://www.linkedin.com/posts/danielbreton_bleus-football-fff-ugcPost-7467863100411674624--hIG/"
+          target="_blank"
+          rel="noreferrer">Daniel Breton (Visual Data Flow)</a
+        >.
+      </p>
+    </section>
+  </div>
 </main>
 
 <style>
@@ -282,7 +270,7 @@
     color: #1f2933;
   }
   main {
-    max-width: 1100px;
+    max-width: 1320px;
     margin: 0 auto;
     padding: 24px 20px 40px;
     overflow-x: clip; /* never let the viz/legend cause horizontal scroll */
@@ -292,59 +280,57 @@
     font-weight: 700;
     margin: 0 0 8px;
   }
+  /* desktop: filters column on the left, viz on the right, all within the
+     viewport height. --chrome ≈ header + paddings. */
+  .layout {
+    --chrome: 120px;
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+  }
+  .layout .controls {
+    flex: 0 0 300px;
+    margin: 0;
+  }
   .stage {
     position: relative;
+    flex: 1 1 auto;
+    min-width: 0;
   }
   .viz {
     position: relative;
     z-index: 5;
     width: 100%;
-    max-width: 980px;
+    /* the viz is square; cap its width by the height left under the header so
+       everything fits the viewport on desktop. */
+    max-width: min(100%, calc(100vh - var(--chrome)));
     margin: 0 auto;
   }
-  /* bilan: left-aligned, stacked below the title */
-  .bilan {
-    margin: 6px 0 0;
-    text-align: left;
-  }
-  .bilan h2 {
-    font-size: 16px;
-    margin: 0 0 6px;
-    text-transform: capitalize;
-  }
-  .bilan .big {
-    font-size: 14px;
-    font-weight: 600;
-    margin: 0 0 4px;
-  }
-  .bilan .counts {
-    font-size: 14px;
-    font-weight: 600;
-    margin: 0 0 8px;
-    color: #475569;
-  }
-  .bilan .hint {
+  header .hint {
     font-size: 12px;
     color: #94a3b8;
     line-height: 1.45;
-    margin: 0;
+    margin: 6px 0 0;
   }
+  /* legend now lives in the filters column (no overlay on the viz) */
   .legend {
-    position: absolute;
-    top: 0;
-    left: 0;
     font-size: 13px;
-    z-index: 2;
     display: flex;
     flex-direction: column;
-    gap: 8px; /* even spacing between every legend row */
+    gap: 8px;
   }
-  /* zoom controls: three equal square buttons, under the legend */
+  .legend-group {
+    margin-top: 4px;
+  }
+  /* zoom controls: stacked, overlaid in the top-left of the wheel */
   .zoom-buttons {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    z-index: 6;
     display: flex;
     flex-direction: column;
     gap: 6px;
-    margin-top: 8px;
   }
   .zoom-buttons button {
     width: 30px;
@@ -421,15 +407,14 @@
     cursor: default;
     touch-action: manipulation;
   }
-  /* the detail popup is always a bottom sheet spanning the stage width
-     (same max-width + side padding as main) — never a floating card */
+  /* the detail popup is a bottom sheet spanning the STAGE width (the viz column),
+     anchored to the bottom of the stage — never a floating card */
   .panel {
-    position: fixed;
-    left: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
     bottom: 0;
-    transform: translateX(-50%);
     width: 100%;
-    max-width: 1100px;
     box-sizing: border-box;
     z-index: 41;
   }
@@ -440,13 +425,13 @@
     max-height: 70vh;
     box-shadow: 0 -6px 24px rgba(15, 23, 42, 0.12);
   }
-  /* controls above the viz: three labelled filter categories, full stage width */
+  /* filter groups, placed below the viz */
   .controls {
     display: flex;
     flex-direction: column;
     align-items: stretch;
     gap: 16px;
-    margin: 18px 0 8px;
+    margin: 20px 0 8px;
     width: 100%;
   }
   .filter-group h4 {
@@ -463,7 +448,9 @@
     justify-content: flex-start;
   }
   .result-filter .chip {
-    flex: 0 0 auto;
+    flex: 0 1 auto;
+    max-width: 100%;
+    min-height: 34px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -472,10 +459,12 @@
     background: #fff;
     color: #334155;
     border-radius: 8px;
-    padding: 7px 14px;
+    padding: 4px 14px;
     font-size: 13px;
+    line-height: 1.2;
     cursor: pointer;
     transition: all 0.12s;
+    white-space: nowrap;
   }
   .result-filter .chip:hover {
     border-color: #94a3b8;
@@ -502,21 +491,29 @@
   .result-filter .count {
     color: #94a3b8;
     font-variant-numeric: tabular-nums;
+    display: inline-block;
+    min-width: 2.9em;
+    text-align: left;
   }
   .result-filter .chip.on .count {
     color: inherit;
     opacity: 0.7;
   }
-  footer {
-    margin-top: 28px;
-  }
+  /* source credit pinned to the bottom of the stage (over the wheel's empty
+     bottom corner) so it costs no extra page height */
   .source {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
     text-align: center;
     font-size: 11px;
     color: #94a3b8;
-    margin-top: 16px;
+    margin: 0;
+    pointer-events: none; /* let clicks fall through to the wheel… */
   }
   .source a {
+    pointer-events: auto; /* …except on the links */
     color: #64748b;
     text-decoration: underline;
     text-underline-offset: 2px;
@@ -528,26 +525,32 @@
      touch on narrow screens so they don't crowd the disc. */
   /* On mobile the top-left ring is dense, so the overlaid legend collides with
      the dots. Drop it (and the zoom controls) into normal flow below the viz. */
+  /* below this width the two columns don't both fit comfortably → stack:
+     viz first, filters (incl. legend) below, no viewport-height cap */
+  @media (max-width: 1200px) {
+    .layout {
+      flex-direction: column;
+      align-items: center; /* centre the stacked viz + filters */
+      /* keep the wheel at a sensible size and match the filters to its width */
+      --stack-w: min(100%, 78vh, 760px);
+    }
+    .stage {
+      order: 1;
+      width: var(--stack-w);
+    }
+    .viz {
+      max-width: 100%;
+    }
+    .layout .controls {
+      flex: none;
+      width: var(--stack-w);
+      order: 2;
+      margin-top: 24px;
+    }
+  }
   @media (max-width: 720px) {
     main {
-      padding: 16px 10px 32px; /* tighter gutters → more room for the viz */
-    }
-    .legend {
-      position: static;
-      margin: 16px 0 0;
-      font-size: 12px;
-      /* stays a left-aligned column (never centred); only the zoom buttons
-         move beside the rows */
-      align-items: flex-start;
-      gap: 8px;
-    }
-    .zoom-buttons {
-      flex-direction: row;
-    }
-    .zoom-buttons button {
-      width: 30px;
-      height: 30px;
-      font-size: 16px;
+      padding: 16px 10px 32px; /* tighter gutters */
     }
   }
 </style>

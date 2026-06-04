@@ -34,17 +34,22 @@
     font-family: var(--font, system-ui, sans-serif);
   }
   .chip {
-    flex: 0 0 auto;
+    flex: 0 1 auto;
+    max-width: 100%;
+    min-height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     border: 1px solid #cbd5e1;
     background: #fff;
     color: #334155;
     border-radius: 8px;
-    padding: 7px 14px;
+    padding: 4px 14px;
     font-size: 13px;
+    line-height: 1.2;
     cursor: pointer;
     transition: all 0.12s;
-    white-space: nowrap;
   }
   .chip:hover {
     border-color: #94a3b8;
@@ -57,6 +62,11 @@
   .count {
     color: #94a3b8;
     font-variant-numeric: tabular-nums;
+    /* reserve room for up to 3 digits so the chip width never shifts */
+    display: inline-block;
+    min-width: 2.9em;
+    text-align: left;
+    margin-left: 5px; /* inline-flex drops the literal space before it */
   }
   .chip.on .count {
     color: #cbd5e1;

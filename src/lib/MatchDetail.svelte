@@ -67,7 +67,12 @@
   <div class="scoreline">
     <div class="team" class:bel={match.home === 'Belgium'}>
       {#if detail?.homeLogo}
-        <img src={detail.homeLogo} alt="" class="logo" />
+        <img
+          src={detail.homeLogo}
+          alt=""
+          class="logo"
+          onerror={(e) => (e.currentTarget.style.display = 'none')}
+        />
       {/if}
       <span class="name">{fr(match.home)}</span>
     </div>
@@ -89,7 +94,12 @@
 
     <div class="team" class:bel={match.away === 'Belgium'}>
       {#if detail?.awayLogo}
-        <img src={detail.awayLogo} alt="" class="logo" />
+        <img
+          src={detail.awayLogo}
+          alt=""
+          class="logo"
+          onerror={(e) => (e.currentTarget.style.display = 'none')}
+        />
       {/if}
       <span class="name">{fr(match.away)}</span>
     </div>

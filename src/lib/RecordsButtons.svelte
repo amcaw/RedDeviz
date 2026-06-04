@@ -64,16 +64,16 @@
       detail: `${dfmt(r.heaviestDefeat.match?.date)} contre ${fr(r.heaviestDefeat.match?.opponent ?? '')}`,
       ids: r.heaviestDefeat.ids
     },
-    streak('mostConsecutiveWins', 'Plus de victoires consécutives', r.mostConsecutiveWins),
-    streak('mostConsecutiveNoDefeat', 'Plus de matchs sans défaite', r.mostConsecutiveNoDefeat),
-    streak('mostConsecutiveDraws', 'Plus de nuls consécutifs', r.mostConsecutiveDraws),
-    streak('mostConsecutiveNoDraw', 'Plus de matchs sans nul', r.mostConsecutiveNoDraw),
-    streak('mostConsecutiveNoWin', 'Plus de matchs sans victoire', r.mostConsecutiveNoWin),
-    streak('mostConsecutiveDefeats', 'Plus de défaites consécutives', r.mostConsecutiveDefeats),
-    streak('mostConsecutiveScoring', 'Plus de matchs en marquant', r.mostConsecutiveScoring),
-    streak('mostConsecutiveNoScoring', 'Plus de matchs sans marquer', r.mostConsecutiveNoScoring),
-    streak('mostConsecutiveConceding', 'Plus de matchs en encaissant', r.mostConsecutiveConceding),
-    streak('mostConsecutiveCleanSheets', 'Plus de matchs sans encaisser', r.mostConsecutiveCleanSheets)
+    streak('mostConsecutiveWins', '+ longue série de victoires', r.mostConsecutiveWins),
+    streak('mostConsecutiveNoDefeat', '+ longue série sans défaite', r.mostConsecutiveNoDefeat),
+    streak('mostConsecutiveDraws', '+ longue série de nuls', r.mostConsecutiveDraws),
+    streak('mostConsecutiveNoDraw', '+ longue série sans nul', r.mostConsecutiveNoDraw),
+    streak('mostConsecutiveNoWin', '+ longue série sans victoire', r.mostConsecutiveNoWin),
+    streak('mostConsecutiveDefeats', '+ longue série de défaites', r.mostConsecutiveDefeats),
+    streak('mostConsecutiveScoring', '+ longue série en marquant', r.mostConsecutiveScoring),
+    streak('mostConsecutiveNoScoring', '+ longue série sans marquer', r.mostConsecutiveNoScoring),
+    streak('mostConsecutiveConceding', '+ longue série en encaissant', r.mostConsecutiveConceding),
+    streak('mostConsecutiveCleanSheets', '+ longue série sans encaisser', r.mostConsecutiveCleanSheets)
   ];
 </script>
 
@@ -101,7 +101,9 @@
     font-family: var(--font, system-ui, sans-serif);
   }
   .chip {
-    flex: 0 0 auto;
+    flex: 0 1 auto;
+    max-width: 100%;
+    min-height: 34px;
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -110,11 +112,18 @@
     background: #fff;
     color: #334155;
     border-radius: 8px;
-    padding: 7px 12px;
+    padding: 4px 12px;
     font-size: 12px;
+    line-height: 1.2;
     cursor: pointer;
     transition: all 0.12s;
-    white-space: nowrap;
+    text-align: left;
+  }
+  .chip .value {
+    flex: 0 0 auto;
+    /* reserve room (up to 2 digits / a score) so chips don't shift width */
+    min-width: 1.6em;
+    text-align: center;
   }
   .chip:hover {
     border-color: #94a3b8;

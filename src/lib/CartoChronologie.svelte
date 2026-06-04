@@ -88,7 +88,9 @@
   }
 
   // ---- geometry ----------------------------------------------------------
-  const SIZE = 820;
+  // viewBox hugs the wheel's outer radius (~398) so the disc fills the square
+  // without overflowing the header above it.
+  const SIZE = 806;
   const CX = SIZE / 2;
   const CY = SIZE / 2;
   const MAP_R = 200;          // central map radius
@@ -593,13 +595,15 @@
   <!-- interaction legend, top-right of the viz (adapts to the device) -->
   <g class="shortcuts" transform="translate({SIZE - 8} 6)">
     {#if isTouch}
-      <text x="0" y="0" text-anchor="end" dominant-baseline="hanging">{ZOOM_HINT}</text>
+      <text x="0" y="0" text-anchor="end" dominant-baseline="hanging">
+        Pincez à deux doigts pour zoomer sur la carte
+      </text>
     {:else}
       <text x="0" y="0" text-anchor="end" dominant-baseline="hanging">
-        <tspan class="key">←</tspan> match précédent · <tspan class="key">→</tspan> match suivant
+        <tspan class="key">Esc</tspan> pour réinitialiser
       </text>
       <text x="0" y="16" text-anchor="end" dominant-baseline="hanging">
-        <tspan class="key">Échap</tspan> réinitialiser · {ZOOM_HINT}
+        <tspan class="key">{isMac ? '⌘' : 'Ctrl'}</tspan> + molette pour zoomer sur la carte
       </text>
     {/if}
   </g>
