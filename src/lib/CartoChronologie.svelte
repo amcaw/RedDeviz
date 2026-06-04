@@ -84,7 +84,8 @@
       cityMatches: g.ms,
       countryMatches: filtered.filter((m) => canonicalCountry(m.hostCountry) === country)
     };
-    zoomTo(g.coords, 8);
+    // Don't yank the camera if the user already framed the map themselves.
+    if (!userZoomed) zoomTo(g.coords, 8);
   }
 
   // ---- geometry ----------------------------------------------------------
@@ -348,6 +349,7 @@
 
   let svgEl: SVGSVGElement;
   let zoomBehavior: any;
+  let userZoomed = false; // true once the user pans/zooms the map by hand
 
   // Hint shown when the user scrolls over the map without the zoom modifier.
   let hintVisible = $state(false);
@@ -397,6 +399,10 @@
         const t = event.transform;
         mapTransform = `translate(${t.x} ${t.y}) scale(${t.k})`;
         zoomK = t.k;
+        // event.sourceEvent is set for user gestures (wheel/drag), null for our
+        // programmatic .transform() calls. Remember when the user took control
+        // so a subsequent dot/city click won't yank the camera away.
+        if (event.sourceEvent) userZoomed = true;
       });
 
   onMount(async () => {
@@ -419,12 +425,14 @@
     select(svgEl).transition().duration(900).call(zoomBehavior.transform, t);
   }
   function resetZoom() {
+    userZoomed = false; // back to auto-framing on the next click
     if (!zoomBehavior || !svgEl) return;
     select(svgEl).transition().duration(700).call(zoomBehavior.transform, zoomIdentity);
   }
   // Zoom in/out by a factor around the disc centre (for the + / − buttons).
   function zoomBy(factor: number) {
     if (!zoomBehavior || !svgEl) return;
+    userZoomed = true; // the user is framing the map manually
     select(svgEl)
       .transition()
       .duration(300)
@@ -443,7 +451,7 @@
   $effect(() => {
     if (selected && selected.id !== lastZoomedId) {
       lastZoomedId = selected.id;
-      zoomTo(selected.coords, 8);
+      if (!userZoomed) zoomTo(selected.coords, 8); // keep the user's framing if they set one
     } else if (!selected) {
       lastZoomedId = null;
     }
@@ -586,7 +594,7 @@
         selected = d.m;
         cityInfo = null;
         cityKey = null;
-        zoomTo(d.m.coords, 8);
+        // zoom handled by the $effect on `selected` (respects userZoomed)
       }}
       onkeydown={(e) => e.key === 'Enter' && (selected = d.m)}
     />
