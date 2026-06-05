@@ -4,7 +4,22 @@
   import FilterBar from '$lib/FilterBar.svelte';
   import RecordsButtons from '$lib/RecordsButtons.svelte';
   import CityDetail from '$lib/CityDetail.svelte';
-  import { matches, meta, RESULT_COLORS, RESULT_LABELS, type Match } from '$lib/data';
+  import {
+    getTeam,
+    TEAM_LIST,
+    RESULT_COLORS,
+    RESULT_LABELS,
+    type Match,
+    type TeamKey
+  } from '$lib/data';
+
+  // Which Belgian team is shown (toggle at the top). Switching reloads the whole viz.
+  let team = $state<TeamKey>('devils');
+  const teamData = $derived(getTeam(team));
+  const matches = $derived(teamData.matches);
+  const meta = $derived(teamData.meta);
+  const categories = $derived(teamData.categories);
+  const teamName = $derived(TEAM_LIST.find((t) => t.key === team)!.name);
 
   let activeFilter = $state<string | null>(null); // compétition
   let activeResult = $state<'W' | 'D' | 'L' | null>(null); // résultat
@@ -97,10 +112,24 @@
     cityInfo = null;
     mapControls?.reset(); // also zoom the map back out
   }
+
+  // Switching team clears every selection/filter so the new dataset starts fresh
+  // (the viz itself is remounted via {#key team}, replaying the reveal animation).
+  function switchTeam(t: TeamKey) {
+    if (t === team) return;
+    team = t;
+    activeFilter = null;
+    activeResult = null;
+    recordHighlight = [];
+    recordKey = null;
+    selected = null;
+    hovered = null;
+    cityInfo = null;
+  }
 </script>
 
 <svelte:head>
-  <title>Cartochronologie des Diables Rouges</title>
+  <title>Cartochronologie des Diables Rouges & Red Flames</title>
 </svelte:head>
 
 <svelte:window
@@ -118,8 +147,20 @@
 
 <main>
   <header>
+    <div class="team-toggle" role="group" aria-label="Choisir l'équipe">
+      {#each TEAM_LIST as t (t.key)}
+        <button
+          class="team-btn"
+          class:on={team === t.key}
+          aria-pressed={team === t.key}
+          onclick={() => switchTeam(t.key)}
+        >
+          {t.short}
+        </button>
+      {/each}
+    </div>
     <h1>
-      Les {meta.total} matchs des Diables Rouges de {meta.firstYear} à {meta.lastYear}
+      Les {meta.total} matchs des {teamName} de {meta.firstYear} à {meta.lastYear}
     </h1>
     <p class="hint">
       Survolez ou cliquez sur un match pour obtenir plus d'informations et explorer les données.
@@ -133,6 +174,7 @@
         <h4>Filtrer par compétition</h4>
         <FilterBar
           bind:active={activeFilter}
+          {categories}
           counts={competitionCounts.counts}
           total={competitionCounts.total}
         />
@@ -161,7 +203,7 @@
 
       <div class="filter-group">
         <h4>Mettre en évidence une série</h4>
-        <RecordsButtons bind:highlight={recordHighlight} bind:activeKey={recordKey} />
+        <RecordsButtons {meta} bind:highlight={recordHighlight} bind:activeKey={recordKey} />
       </div>
 
       <!-- legend + map zoom controls -->
@@ -196,17 +238,20 @@
           >⟲</button
         >
       </div>
-      <!-- the viz -->
+      <!-- the viz — remounted on team switch so the reveal animation replays -->
       <div class="viz">
-        <CartoChronologie
-          {filtered}
-          {recordHighlight}
-          filterActive={!!activeFilter || !!activeResult}
-          bind:selected
-          bind:hovered
-          bind:cityInfo
-          bind:controls={mapControls}
-        />
+        {#key team}
+          <CartoChronologie
+            allMatches={matches}
+            {filtered}
+            {recordHighlight}
+            filterActive={!!activeFilter || !!activeResult}
+            bind:selected
+            bind:hovered
+            bind:cityInfo
+            bind:controls={mapControls}
+          />
+        {/key}
       </div>
 
     <!-- detail panel: appears when a match is selected -->
@@ -218,7 +263,7 @@
         onclick={() => (selected = null)}
       ></div>
       <div class="panel" role="dialog" aria-modal="true">
-        <MatchDetail match={selected} onclose={() => (selected = null)} />
+        <MatchDetail match={selected} {team} onclose={() => (selected = null)} />
       </div>
     {/if}
 
@@ -280,6 +325,37 @@
     font-size: 22px;
     font-weight: 700;
     margin: 0 0 8px;
+  }
+  /* team toggle: two pill buttons (Diables Rouges / Red Flames) above the title */
+  .team-toggle {
+    display: inline-flex;
+    gap: 0;
+    margin: 0 0 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 999px;
+    padding: 3px;
+    background: #f1f5f9;
+  }
+  .team-btn {
+    border: none;
+    background: none;
+    padding: 6px 18px;
+    border-radius: 999px;
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .team-btn:hover {
+    color: #1f2933;
+  }
+  .team-btn.on {
+    background: #e63329;
+    color: #fff;
+    box-shadow: 0 1px 3px rgba(230, 51, 41, 0.3);
   }
   /* desktop: filters column on the left, viz on the right, all within the
      viewport height. --chrome ≈ header + paddings. */

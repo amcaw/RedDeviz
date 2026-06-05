@@ -1,19 +1,24 @@
 <script lang="ts">
-  import { CATEGORIES } from './data';
-  // `counts` maps each category to its dynamic total (given the other active
-  // filters); `total` is the count for "Tous les matchs".
+  // `categories` is the active team's filter buckets; `counts` maps each to its
+  // dynamic total (given the other active filters); `total` is "Tous les matchs".
   let {
     active = $bindable(null),
+    categories = [],
     counts = {},
     total = 0
-  }: { active: string | null; counts?: Record<string, number>; total?: number } = $props();
+  }: {
+    active: string | null;
+    categories?: string[];
+    counts?: Record<string, number>;
+    total?: number;
+  } = $props();
 </script>
 
 <div class="filters">
   <button class="chip" class:on={active === null} onclick={() => (active = null)}>
     Tous les matchs <span class="count">({total})</span>
   </button>
-  {#each CATEGORIES as cat (cat)}
+  {#each categories as cat (cat)}
     <button
       class="chip"
       class:on={active === cat}

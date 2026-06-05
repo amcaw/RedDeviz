@@ -1,6 +1,21 @@
-import raw from '../data/matches.json';
+import rawDevils from '../data/matches.json';
+import rawFlames from '../data/matches.flames.json';
 
 export type Result = 'W' | 'D' | 'L';
+
+// The two Belgian national teams the viz can show. `devils` is the default.
+export type TeamKey = 'devils' | 'flames';
+export interface TeamInfo {
+  key: TeamKey;
+  /** Full name shown in the title. */
+  name: string;
+  /** Short label for the toggle button. */
+  short: string;
+}
+export const TEAM_LIST: TeamInfo[] = [
+  { key: 'devils', name: 'Diables Rouges', short: 'Diables Rouges' },
+  { key: 'flames', name: 'Red Flames', short: 'Red Flames' }
+];
 
 export interface Match {
   id: string;
@@ -40,13 +55,17 @@ export interface MatchDetailData {
   stadium: string;
 }
 
-// All match details live in one bundled file (logos, scorers, referee, venue),
-// keyed by match id. ~0.5 MB total, loaded once.
-import detailsById from '../data/details.json';
-const DETAILS = detailsById as Record<string, MatchDetailData>;
+// Each team's match details live in one bundled file (logos, scorers, referee,
+// venue), keyed by match id. Loaded once per team.
+import detailsDevils from '../data/details.json';
+import detailsFlames from '../data/details.flames.json';
+const DETAILS: Record<TeamKey, Record<string, MatchDetailData>> = {
+  devils: detailsDevils as unknown as Record<string, MatchDetailData>,
+  flames: detailsFlames as unknown as Record<string, MatchDetailData>
+};
 
-export function loadDetail(id: string): MatchDetailData | null {
-  return DETAILS[id] ?? null;
+export function loadDetail(team: TeamKey, id: string): MatchDetailData | null {
+  return DETAILS[team][id] ?? null;
 }
 
 export interface RecordMatch {
@@ -86,9 +105,6 @@ export interface Meta {
   records: Records;
 }
 
-export const matches: Match[] = (raw as any).matches;
-export const meta: Meta = (raw as any).meta;
-
 // Preferred display order for the filter bar (mirrors the original viz).
 const CATEGORY_ORDER = [
   'Amical',
@@ -101,9 +117,23 @@ const CATEGORY_ORDER = [
   'Coupe intercontinentale'
 ];
 
-// Only show categories that actually occur in the data (e.g. Belgium never
-// played the Confédérations or Intercontinental cups, so those are dropped).
-export const CATEGORIES = CATEGORY_ORDER.filter((c) => matches.some((m) => m.category === c));
+export interface TeamData {
+  matches: Match[];
+  meta: Meta;
+  /** Categories that actually occur in this team's data, in display order. */
+  categories: string[];
+}
+
+const RAW: Record<TeamKey, any> = { devils: rawDevils, flames: rawFlames };
+
+/** Everything the viz needs for one team: matches, meta, and its filter categories. */
+export function getTeam(team: TeamKey): TeamData {
+  const matches: Match[] = RAW[team].matches;
+  const meta: Meta = RAW[team].meta;
+  // Only show categories that actually occur for this team.
+  const categories = CATEGORY_ORDER.filter((c) => matches.some((m) => m.category === c));
+  return { matches, meta, categories };
+}
 
 // Belgian flag palette — Win=red, Draw=yellow, Loss=black.
 export const RESULT_COLORS: Record<Result, string> = {

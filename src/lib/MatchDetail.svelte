@@ -6,10 +6,11 @@
     fr,
     cityFr,
     competitionFr,
-    type Match
+    type Match,
+    type TeamKey
   } from './data';
 
-  let { match, onclose }: { match: Match; onclose: () => void } = $props();
+  let { match, team, onclose }: { match: Match; team: TeamKey; onclose: () => void } = $props();
 
   const dateFmt = $derived(
     new Date(match.date).toLocaleDateString('fr-FR', {
@@ -20,7 +21,7 @@
   );
 
   // Compact per-match detail (logos, scorers, referee, venue) from the bundle.
-  const detail = $derived(loadDetail(match.id));
+  const detail = $derived(loadDetail(team, match.id));
 
   function goalSuffix(kind: string): string {
     if (/penalty/i.test(kind)) return ' (pen.)';
@@ -32,10 +33,21 @@
   const awayGoals = $derived(detail?.goals.filter((g) => g.side === 'away') ?? []);
   const referee = $derived(detail?.referee ?? '');
 
-  // Lieu (toujours en français) : ville du CSV, sinon ville du détail, sinon pays.
+  // Lieu (toujours en français) : ville du CSV, sinon ville du détail. Pour un match
+  // approximatif (positionné sur la capitale faute de ville fiable), la ville est
+  // « inconnu » — on ne montre pas un nom de ville auquel on ne peut pas se fier.
   const placeLabel = $derived(
-    match.city ? cityFr(match.city) : detail?.city ? cityFr(detail.city) : fr(match.hostCountry)
+    match.approx
+      ? 'inconnu'
+      : match.city
+        ? cityFr(match.city)
+        : detail?.city
+          ? cityFr(detail.city)
+          : fr(match.hostCountry)
   );
+
+  // Official RBFA match page (the numeric id IS the public URL slug).
+  const rbfaUrl = $derived(`https://www.rbfa.be/en/international-game/${match.id}`);
 </script>
 
 <div class="detail">
@@ -62,6 +74,13 @@
       <span><span class="meta-label">Arbitre</span> {referee}</span>
     {/if}
   </div>
+
+  {#if match.approx}
+    <p class="approx-note">
+      ⚠︎ Lieu approximatif : faute de ville précise dans les données officielles, ce match est
+      positionné sur la capitale du pays d'accueil ({fr(match.hostCountry)}).
+    </p>
+  {/if}
 
   <!-- scoreline: logo + name flanking a big "h - a" score -->
   <div class="scoreline">
@@ -122,6 +141,12 @@
     </div>
   {/if}
 
+  <!-- link to the official match page -->
+  <p class="rbfa-link">
+    <a href={rbfaUrl} target="_blank" rel="noreferrer">
+      Voir la fiche du match sur le site de la Royal Belgian Football Association (RBFA)
+    </a>
+  </p>
 </div>
 
 <style>
@@ -279,5 +304,32 @@
   .scorers .ball {
     font-size: 15px;
     line-height: 1.4;
+  }
+
+  /* approximate-location warning */
+  .approx-note {
+    margin: 10px 0 0;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #b45309;
+    background: #fffbeb;
+    border: 1px solid #fde68a;
+    border-radius: 8px;
+    padding: 7px 11px;
+  }
+
+  /* footer: link to the official RBFA match page */
+  .rbfa-link {
+    margin: 20px 0 0;
+    text-align: center;
+    font-size: 12.5px;
+  }
+  .rbfa-link a {
+    color: #64748b;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .rbfa-link a:hover {
+    color: #e63329;
   }
 </style>

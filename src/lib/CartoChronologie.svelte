@@ -7,7 +7,6 @@
   import { base } from '$app/paths';
   import { onMount } from 'svelte';
   import {
-    matches as ALL,
     RESULT_COLORS,
     atlasName,
     fr,
@@ -16,6 +15,7 @@
   } from './data';
 
   let {
+    allMatches,
     filtered,
     recordHighlight = [],
     filterActive = false,
@@ -24,6 +24,7 @@
     cityInfo = $bindable(null),
     controls = $bindable(null)
   }: {
+    allMatches: Match[];
     filtered: Match[];
     recordHighlight?: string[];
     filterActive?: boolean;
@@ -101,20 +102,20 @@
   const DOT_STEP = DOT_R * 2 + 1.6;
   const YEAR_LABEL_R = MAP_R + YEAR_BAND_W / 2; // centred within the year ring
 
-  const YEARS = (() => {
-    const ys = ALL.map((m) => m.year);
+  const YEARS = $derived.by(() => {
+    const ys = allMatches.map((m) => m.year);
     const min = Math.min(...ys);
     const max = Math.max(...ys);
     return Array.from({ length: max - min + 1 }, (_, i) => min + i);
-  })();
-  const Y0 = YEARS[0];
-  const YN = YEARS[YEARS.length - 1];
+  });
+  const Y0 = $derived(YEARS[0]);
+  const YN = $derived(YEARS[YEARS.length - 1]);
 
   // Leave a small gap at the top so the ring reads as a clock starting near 12 o'clock.
   const GAP_DEG = 6;
   const START = -90 + GAP_DEG / 2;        // degrees
   const SWEEP = 360 - GAP_DEG;
-  const PER_YEAR = SWEEP / YEARS.length;   // angular width of one year slice
+  const PER_YEAR = $derived(SWEEP / YEARS.length); // angular width of one year slice
 
   function yearAngle(year: number): number {
     // centre angle (deg) of a year's slice

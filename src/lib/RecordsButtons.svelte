@@ -1,13 +1,15 @@
 <script lang="ts">
-  import { meta, fr } from './data';
+  import { fr, type Meta } from './data';
 
   // Bound to the page: ids of the series currently highlighted, + the active key.
+  // `meta` is the active team's meta (so the records track the team toggle).
   let {
+    meta,
     highlight = $bindable([]),
     activeKey = $bindable(null)
-  }: { highlight: string[]; activeKey: string | null } = $props();
+  }: { meta: Meta; highlight: string[]; activeKey: string | null } = $props();
 
-  const r = meta.records;
+  const r = $derived(meta.records);
 
   function choose(key: string, ids: string[]) {
     if (activeKey === key) {
@@ -49,7 +51,7 @@
     };
   }
 
-  const buttons: Btn[] = [
+  const buttons: Btn[] = $derived.by(() => [
     {
       key: 'biggestWin',
       value: belScore(r.biggestWin.match),
@@ -74,7 +76,7 @@
     streak('mostConsecutiveNoScoring', '+ longue série sans marquer', r.mostConsecutiveNoScoring),
     streak('mostConsecutiveConceding', '+ longue série en encaissant', r.mostConsecutiveConceding),
     streak('mostConsecutiveCleanSheets', '+ longue série sans encaisser', r.mostConsecutiveCleanSheets)
-  ];
+  ]);
 </script>
 
 <div class="records">
