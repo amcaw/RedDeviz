@@ -12,6 +12,10 @@
     type Match,
     type TeamKey
   } from '$lib/data';
+  import { initPym, sendHeight } from '$lib/pym.js';
+
+  // pym.js: auto-resize the embedding iframe to fit the widget's content.
+  initPym();
 
   // Which Belgian team is shown (toggle at the top). Switching reloads the whole viz.
   let team = $state<TeamKey>('devils');
@@ -72,6 +76,19 @@
         (!activeResult || m.result === activeResult)
     )
   );
+
+  // Re-report the height to the embedding iframe whenever something that can change
+  // the document height toggles (team, popups, filters, highlighted series).
+  $effect(() => {
+    // touch the reactive deps so the effect re-runs on any of them
+    void team;
+    void selected;
+    void cityInfo;
+    void activeFilter;
+    void activeResult;
+    void recordKey;
+    sendHeight();
+  });
 
 
   // Dynamic counts for the filter buttons. Each group's counts respect the OTHER
