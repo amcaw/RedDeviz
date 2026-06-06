@@ -136,10 +136,21 @@ export function getTeam(team: TeamKey): TeamData {
 }
 
 // Belgian flag palette — Win=red, Draw=yellow, Loss=black.
+// Static values (SSR fallback / reference). At runtime, prefer RESULT_VARS so the
+// colours follow the active light/dark theme (loss is lightened in dark mode).
 export const RESULT_COLORS: Record<Result, string> = {
   W: '#e63329', // victoire – rouge
   D: '#f4c20d', // nul      – jaune
   L: '#1a1a1a'  // défaite  – noir
+};
+
+// Theme-aware result colours as CSS custom properties. SVG `fill` and CSS
+// `background`/`color` both accept var(), so using these makes every result
+// colour follow the theme with no JS.
+export const RESULT_VARS: Record<Result, string> = {
+  W: 'var(--result-win)',
+  D: 'var(--result-draw)',
+  L: 'var(--result-loss)'
 };
 
 export const RESULT_LABELS: Record<Result, string> = {

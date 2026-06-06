@@ -110,12 +110,13 @@
     align-items: center;
     gap: 8px;
     justify-content: center;
-    border: 1px solid #cbd5e1;
-    background: #fff;
-    color: #334155;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-secondary);
     border-radius: 8px;
     padding: 4px 12px;
     font-size: 12px;
+    font-weight: 600; /* constant weight active/inactive → no reflow on toggle */
     line-height: 1.2;
     cursor: pointer;
     transition: all 0.12s;
@@ -128,19 +129,19 @@
     text-align: center;
   }
   .chip:hover {
-    border-color: #94a3b8;
+    border-color: var(--border-strong);
   }
   .chip.on {
-    background: #e63329;
-    border-color: #e63329;
-    color: #fff;
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-contrast);
   }
   .value {
     font-weight: 700;
     font-variant-numeric: tabular-nums;
-    color: #e63329;
+    color: var(--accent);
   }
   .chip.on .value {
-    color: #fff;
+    color: var(--accent-contrast);
   }
 </style>

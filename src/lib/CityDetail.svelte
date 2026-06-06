@@ -63,10 +63,11 @@
 <style>
   .detail {
     position: relative;
-    background: #fff;
-    border: 1px solid #e2e8f0;
+    background: var(--surface);
+    border: 1px solid var(--border);
     padding: 20px 28px 22px;
     font-family: var(--font, system-ui, sans-serif);
+    color: var(--text);
   }
   .close {
     position: absolute;
@@ -76,11 +77,11 @@
     background: none;
     font-size: 26px;
     line-height: 1;
-    color: #94a3b8;
+    color: var(--text-muted);
     cursor: pointer;
   }
   .close:hover {
-    color: #1f2933;
+    color: var(--text);
   }
   .blocks {
     display: flex;
@@ -93,26 +94,26 @@
   .place {
     font-size: 16px;
     margin: 0 0 8px;
-    color: #1f2933;
+    color: var(--text);
   }
   .city .place {
-    color: #e63329;
+    color: var(--accent);
   }
   .stat-row {
     display: flex;
     gap: 22px;
     font-size: 14px;
-    color: #475569;
+    color: var(--text-secondary);
   }
   .stat-row strong {
     font-size: 20px;
-    color: #1f2933;
+    color: var(--text);
     font-variant-numeric: tabular-nums;
     margin-right: 3px;
   }
   .range {
     font-size: 12px;
-    color: #94a3b8;
+    color: var(--text-muted);
     margin: 8px 0 0;
   }
 </style>

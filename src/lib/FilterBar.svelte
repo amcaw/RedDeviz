@@ -46,26 +46,27 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    border: 1px solid #cbd5e1;
-    background: #fff;
-    color: #334155;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-secondary);
     border-radius: 8px;
     padding: 4px 14px;
     font-size: 13px;
+    font-weight: 600; /* constant weight active/inactive → no reflow on toggle */
     line-height: 1.2;
     cursor: pointer;
     transition: all 0.12s;
   }
   .chip:hover {
-    border-color: #94a3b8;
+    border-color: var(--border-strong);
   }
   .chip.on {
-    background: #1f2933;
-    border-color: #1f2933;
-    color: #fff;
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-contrast);
   }
   .count {
-    color: #94a3b8;
+    color: var(--text-muted);
     font-variant-numeric: tabular-nums;
     /* reserve room for up to 3 digits so the chip width never shifts */
     display: inline-block;
@@ -74,6 +75,7 @@
     margin-left: 5px; /* inline-flex drops the literal space before it */
   }
   .chip.on .count {
-    color: #cbd5e1;
+    color: var(--accent-contrast);
+    opacity: 0.8;
   }
 </style>

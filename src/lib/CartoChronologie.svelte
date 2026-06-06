@@ -7,7 +7,7 @@
   import { base } from '$app/paths';
   import { onMount } from 'svelte';
   import {
-    RESULT_COLORS,
+    RESULT_VARS,
     atlasName,
     fr,
     canonicalCountry,
@@ -164,15 +164,49 @@
   });
   const maxYearCount = $derived(Math.max(1, ...yearCounts.values()));
 
-  // light → deep red ramp; grey for empty years
+  // Resolve a CSS custom property to an [r,g,b] triple (via the browser's own
+  // colour parser), so the year-ring ramp follows the active light/dark theme.
+  function cssRgb(varName: string, fallback: [number, number, number]): [number, number, number] {
+    if (typeof window === 'undefined') return fallback;
+    const raw = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+    if (!raw) return fallback;
+    const probe = document.createElement('canvas').getContext('2d');
+    if (!probe) return fallback;
+    probe.fillStyle = '#000';
+    probe.fillStyle = raw; // browser normalises any valid colour
+    const m = probe.fillStyle.match(/^#([0-9a-f]{6})$/i);
+    if (m) {
+      const n = parseInt(m[1], 16);
+      return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+    }
+    const rgb = probe.fillStyle.match(/(\d+)[,\s]+(\d+)[,\s]+(\d+)/);
+    return rgb ? [+rgb[1], +rgb[2], +rgb[3]] : fallback;
+  }
+
+  // Theme colours for the year-density ring, resolved once on mount (and on team
+  // remount). empty → low → high follows the current light/dark theme.
+  let yearRamp = $state({
+    empty: 'rgb(236 239 243)',
+    low: [247, 212, 209] as [number, number, number],
+    high: [192, 36, 27] as [number, number, number]
+  });
+  function refreshYearRamp() {
+    const e = cssRgb('--year-empty', [236, 239, 243]);
+    yearRamp = {
+      empty: `rgb(${e[0]} ${e[1]} ${e[2]})`,
+      low: cssRgb('--year-low', [247, 212, 209]),
+      high: cssRgb('--year-high', [192, 36, 27])
+    };
+  }
+
+  // light → deep ramp; empty colour for years with no match
   function yearFill(count: number): string {
-    if (!count) return '#eceff3';
+    if (!count) return yearRamp.empty;
     const t = Math.sqrt(count / maxYearCount); // sqrt so low counts still read
-    // interpolate #f7d4d1 (light) → #c0241b (deep)
     const lerp = (a: number, b: number) => Math.round(a + (b - a) * t);
-    const r = lerp(0xf7, 0xc0);
-    const g = lerp(0xd4, 0x24);
-    const b = lerp(0xd1, 0x1b);
+    const r = lerp(yearRamp.low[0], yearRamp.high[0]);
+    const g = lerp(yearRamp.low[1], yearRamp.high[1]);
+    const b = lerp(yearRamp.low[2], yearRamp.high[2]);
     return `rgb(${r} ${g} ${b})`;
   }
 
@@ -407,6 +441,13 @@
       });
 
   onMount(async () => {
+    // resolve the theme-aware year-ring colours, and keep them in sync if the OS
+    // light/dark preference changes while the page is open.
+    refreshYearRamp();
+    const mq = window.matchMedia('(prefers-color-scheme: light)');
+    const onTheme = () => refreshYearRamp();
+    mq.addEventListener?.('change', onTheme);
+
     const res = await fetch(`${base}/countries-50m.json`);
     const topo = await res.json();
     const feat: any = topojson.feature(topo, topo.objects.countries);
@@ -415,6 +456,8 @@
 
     zoomBehavior = zoomBehaviorFactory();
     select(svgEl).call(zoomBehavior);
+
+    return () => mq.removeEventListener?.('change', onTheme);
   });
 
   // Smoothly zoom the map so a coordinate is centred at the given scale.
@@ -470,12 +513,12 @@
     <clipPath id="disc"><circle cx={CX} cy={CY} r={MAP_R} /></clipPath>
     <!-- spherical shading: bright top-left, shadow bottom-right -> 3D ball look -->
     <radialGradient id="sphere" cx="50%" cy="50%" r="60%">
-      <stop offset="0%" stop-color="#f5f8fb" />
-      <stop offset="100%" stop-color="#eef3f8" />
+      <stop offset="0%" stop-color="var(--globe-hi)" />
+      <stop offset="100%" stop-color="var(--globe-lo)" />
     </radialGradient>
     <radialGradient id="rim" cx="50%" cy="50%" r="50%">
       <stop offset="88%" stop-color="rgba(0,0,0,0)" />
-      <stop offset="100%" stop-color="rgba(0,0,0,0.08)" />
+      <stop offset="100%" stop-color="var(--globe-rim)" />
     </radialGradient>
   </defs>
 
@@ -576,7 +619,7 @@
       cx={d.x}
       cy={d.y}
       r={DOT_R}
-      fill={RESULT_COLORS[d.m.result]}
+      fill={RESULT_VARS[d.m.result]}
       class="dot"
       class:hidden={i >= revealCount}
       class:fresh={!introDone && i >= revealCount - 10 && i < revealCount}
@@ -637,12 +680,12 @@
   /* keyboard-shortcut legend, top-right */
   .shortcuts text {
     font-size: 11px;
-    fill: #94a3b8;
+    fill: var(--text-muted);
     font-family: var(--font, system-ui, sans-serif);
     user-select: none;
   }
   .shortcuts .key {
-    fill: #475569;
+    fill: var(--text-secondary);
     font-weight: 700;
   }
   /* zoom hint flashed on plain scroll */
@@ -650,34 +693,35 @@
     pointer-events: none;
   }
   .zoom-hint rect {
-    fill: rgba(31, 41, 51, 0.88);
+    fill: var(--text);
+    opacity: 0.88;
   }
   .zoom-hint text {
-    fill: #fff;
+    fill: var(--bg);
     font-size: 13px;
     font-weight: 600;
     font-family: var(--font, system-ui, sans-serif);
   }
   /* map + markers zoom together; the transform is driven by d3-zoom */
   .country {
-    fill: #dbe3ec;
-    stroke: #fff;
+    fill: var(--map-land);
+    stroke: var(--surface);
     stroke-width: 0.35;
     vector-effect: non-scaling-stroke;
   }
   .country.host {
-    fill: #7e9bb8; /* muted steel blue — elegant, cool counterpoint to the warm dots */
+    fill: var(--map-host); /* muted steel blue — elegant counterpoint to the warm dots */
   }
   .ball-outline {
     fill: none;
-    stroke: #cbd5e1;
+    stroke: var(--border);
     stroke-width: 1;
   }
   /* one dot per city, sized by number of matches played there */
   .city-marker {
-    fill: #334155;
+    fill: var(--city-marker);
     fill-opacity: 0.62;
-    stroke: #fff;
+    stroke: var(--city-marker-stroke);
     cursor: pointer;
     transition: fill 0.15s, fill-opacity 0.15s;
   }
@@ -685,7 +729,7 @@
     fill-opacity: 0.95;
   }
   .city-marker.active {
-    fill: #e63329;
+    fill: var(--accent);
     fill-opacity: 1;
   }
   .city-marker.faded {
@@ -694,17 +738,17 @@
   .year-label {
     font-size: 9px;
     font-weight: 600;
-    fill: #475569;
+    fill: var(--text-secondary);
     font-family: var(--font, system-ui, sans-serif);
     user-select: none;
     paint-order: stroke;
-    stroke: rgba(255, 255, 255, 0.7);
+    stroke: var(--globe-lo);
     stroke-width: 2px;
   }
   .year-label.hl {
-    fill: #1f2933;
+    fill: var(--text);
     font-weight: 800;
-    stroke: rgba(255, 255, 255, 0.9);
+    stroke: var(--globe-lo);
   }
   .year-label {
     opacity: 1;
@@ -717,7 +761,7 @@
     opacity: 0.3; /* dimmed (not recoloured) when off-focus, like the dots */
   }
   .year-bands path {
-    stroke: #fff;
+    stroke: var(--bg);
     stroke-width: 0.4;
   }
   /* year slices fade in with the same intro clock as the dots */
@@ -741,7 +785,7 @@
   }
   .dot {
     cursor: pointer;
-    stroke: #fff;
+    stroke: var(--bg);
     stroke-width: 0.6;
     opacity: 1;
     /* revealed state: settled in place with a soft scale-in. */
@@ -784,7 +828,7 @@
   }
   .dot:hover,
   .dot.active {
-    stroke: #fff;
+    stroke: var(--text);
     stroke-width: 1.6;
     filter: drop-shadow(0 0 2px rgba(0, 0, 0, 0.55));
   }
@@ -797,7 +841,7 @@
   }
   .dot.series {
     opacity: 1;
-    stroke: #1f2933;
+    stroke: var(--text);
     stroke-width: 1.4;
     filter: drop-shadow(0 0 2.5px rgba(0, 0, 0, 0.5));
   }

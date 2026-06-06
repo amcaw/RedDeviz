@@ -1,0 +1,133 @@
+/* ============================================================================
+   RedDeviz design tokens
+   Based on the shared Design System (DESIGN_SYSTEM.md), adapted to the Belgian
+   football identity: the primary accent is the Red Devils / Red Flames red, and
+   the match-result colors (red/yellow/black = the Belgian flag) are theme-constant.
+
+   Dark is the default; light is applied via prefers-color-scheme. Every surface,
+   text, border and accent is a CSS custom property so components never hard-code
+   a colour. SVG colours in the viz read these same variables via getComputedStyle.
+   ============================================================================ */
+
+:root {
+  /* surfaces */
+  --bg: #001324;            /* page background */
+  --surface: #0a2a40;       /* card / popup background */
+  --surface-2: rgba(255, 255, 255, 0.05); /* subtle filled surface (chips, hover) */
+  --surface-hover: rgba(255, 255, 255, 0.09);
+
+  /* text */
+  --text: #f0f0f1;          /* primary text */
+  --text-secondary: rgba(240, 240, 241, 0.72);
+  --text-muted: rgba(240, 240, 241, 0.5);
+
+  /* borders */
+  --border: rgba(255, 255, 255, 0.14);
+  --border-strong: rgba(255, 255, 255, 0.24);
+  --divider: rgba(255, 255, 255, 0.08);
+
+  /* accent — Belgian red */
+  --accent: #e63329;
+  --accent-contrast: #ffffff; /* text/icon on a solid accent fill */
+  --accent-soft: rgba(230, 51, 41, 0.16); /* tinted accent background */
+  --accent-shadow: rgba(230, 51, 41, 0.35);
+
+  /* match result colours — the Belgian flag. Red/yellow are identical in both
+     themes; "loss" reads as black but is lightened in dark mode so it stays
+     visible against the near-black background (pure black would disappear). */
+  --result-win: #e63329;    /* victoire — rouge */
+  --result-draw: #f4c20d;   /* nul      — jaune */
+  --result-loss: #5b6573;   /* défaite  — "noir", visible on the dark bg */
+
+  /* viz: map + globe (theme-aware, read from JS) */
+  --map-land: #16364d;      /* non-host country fill */
+  --map-host: #7e9bb8;      /* host country fill (kept across themes) */
+  --globe-hi: #0c2c44;      /* sphere gradient highlight */
+  --globe-lo: #071f30;      /* sphere gradient shadow */
+  --globe-rim: rgba(0, 0, 0, 0.35);
+  --city-marker: #cbd5e1;   /* city dot fill */
+  --city-marker-stroke: #0a2a40;
+
+  /* viz: year-density ring scale (no-match → light → deep) */
+  --year-empty: rgba(255, 255, 255, 0.06);
+  --year-low: #5e1c19;
+  --year-high: #e63329;
+
+  /* warning (approximate location) */
+  --warn-bg: rgba(245, 158, 11, 0.12);
+  --warn-border: rgba(245, 158, 11, 0.4);
+  --warn-text: #fbbf24;
+
+  /* overlay / backdrop */
+  --backdrop: rgba(0, 8, 16, 0.55);
+
+  /* typography */
+  --font: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f7f8fb;
+    --surface: #ffffff;
+    --surface-2: rgba(0, 0, 0, 0.03);
+    --surface-hover: rgba(0, 0, 0, 0.05);
+
+    --text: #2e3238;
+    --text-secondary: rgba(46, 50, 56, 0.72);
+    --text-muted: rgba(46, 50, 56, 0.5);
+
+    --border: rgba(0, 0, 0, 0.12);
+    --border-strong: rgba(0, 0, 0, 0.2);
+    --divider: rgba(0, 0, 0, 0.07);
+
+    --accent: #e63329;
+    --accent-contrast: #ffffff;
+    --accent-soft: rgba(230, 51, 41, 0.1);
+    --accent-shadow: rgba(230, 51, 41, 0.25);
+
+    /* red/yellow unchanged; loss returns to true black on the light background */
+    --result-loss: #1a1a1a;
+
+    --map-land: #dbe3ec;
+    --map-host: #7e9bb8;
+    --globe-hi: #f5f8fb;
+    --globe-lo: #eef3f8;
+    --globe-rim: rgba(0, 0, 0, 0.08);
+    --city-marker: #334155;
+    --city-marker-stroke: #ffffff;
+
+    --year-empty: #eceff3;
+    --year-low: #f7d4d1;
+    --year-high: #c0241b;
+
+    --warn-bg: #fffbeb;
+    --warn-border: #fde68a;
+    --warn-text: #b45309;
+
+    --backdrop: rgba(15, 23, 42, 0.12);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: var(--font);
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+/* Form controls and SVG text don't inherit font-family by default — force them
+   to Montserrat so the typeface is truly used everywhere. */
+button,
+input,
+select,
+textarea,
+svg text {
+  font-family: var(--font);
+}

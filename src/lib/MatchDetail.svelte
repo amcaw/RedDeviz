@@ -1,6 +1,6 @@
 <script lang="ts">
   import {
-    RESULT_COLORS,
+    RESULT_VARS,
     RESULT_LABELS,
     loadDetail,
     fr,
@@ -100,7 +100,7 @@
       <span
         class="result-pill"
         class:dark-text={match.result === 'D'}
-        style:background={RESULT_COLORS[match.result]}
+        style:background={RESULT_VARS[match.result]}
       >
         {RESULT_LABELS[match.result]}
       </span>
@@ -152,10 +152,11 @@
 <style>
   .detail {
     position: relative;
-    background: #fff;
-    border: 1px solid #e2e8f0;
+    background: var(--surface);
+    border: 1px solid var(--border);
     padding: 22px 32px 26px;
     font-family: var(--font, system-ui, sans-serif);
+    color: var(--text);
     overflow-y: auto;
   }
   .close {
@@ -166,11 +167,11 @@
     background: none;
     font-size: 26px;
     line-height: 1;
-    color: #cbd5e1;
+    color: var(--text-muted);
     cursor: pointer;
   }
   .close:hover {
-    color: #1f2933;
+    color: var(--text);
   }
 
   /* header line: competition · date  …  status */
@@ -180,7 +181,7 @@
     justify-content: space-between;
     gap: 16px;
     font-size: 15px;
-    color: #64748b;
+    color: var(--text-secondary);
     padding-right: 36px; /* keep clear of the close button */
   }
   .head-left {
@@ -195,15 +196,15 @@
     gap: 6px;
     margin-top: 4px;
     font-size: 12.5px;
-    color: #94a3b8;
+    color: var(--text-muted);
     padding-right: 36px; /* keep clear of the close button */
   }
   .meta .sep {
-    color: #cbd5e1;
+    color: var(--border-strong);
   }
   .meta .meta-label {
     font-weight: 700;
-    color: #64748b;
+    color: var(--text-secondary);
   }
 
   /* scoreline */
@@ -220,7 +221,7 @@
     align-items: center;
     gap: 12px;
     font-size: 22px;
-    color: #1f2933;
+    color: var(--text);
   }
   .team .name {
     font-weight: 500;
@@ -251,7 +252,7 @@
     white-space: nowrap;
   }
   .result-pill.dark-text {
-    color: #1f2933; /* readable on the yellow "Nul" pill */
+    color: #1a1a1a; /* readable on the yellow "Nul" pill, both themes */
   }
   .score {
     display: flex;
@@ -262,12 +263,12 @@
     font-size: 48px;
     font-weight: 700;
     font-variant-numeric: tabular-nums;
-    color: #1f2933;
+    color: var(--text);
     line-height: 1;
   }
   .score .dash {
     font-size: 36px;
-    color: #cbd5e1;
+    color: var(--text-muted);
     line-height: 1;
   }
 
@@ -278,10 +279,10 @@
     gap: 4px 16px;
     align-items: start;
     font-size: 14px;
-    color: #64748b;
+    color: var(--text-secondary);
     margin-top: 22px;
     padding-top: 18px;
-    border-top: 1px solid #eef2f6;
+    border-top: 1px solid var(--divider);
   }
   .scorers ul {
     list-style: none;
@@ -298,7 +299,7 @@
     margin-bottom: 3px;
   }
   .scorers .min {
-    color: #b3bcc7;
+    color: var(--text-muted);
     font-variant-numeric: tabular-nums;
   }
   .scorers .ball {
@@ -311,9 +312,9 @@
     margin: 10px 0 0;
     font-size: 12px;
     line-height: 1.4;
-    color: #b45309;
-    background: #fffbeb;
-    border: 1px solid #fde68a;
+    color: var(--warn-text);
+    background: var(--warn-bg);
+    border: 1px solid var(--warn-border);
     border-radius: 8px;
     padding: 7px 11px;
   }
@@ -325,11 +326,11 @@
     font-size: 12.5px;
   }
   .rbfa-link a {
-    color: #64748b;
+    color: var(--text-secondary);
     text-decoration: underline;
     text-underline-offset: 2px;
   }
   .rbfa-link a:hover {
-    color: #e63329;
+    color: var(--accent);
   }
 </style>

@@ -7,7 +7,7 @@
   import {
     getTeam,
     TEAM_LIST,
-    RESULT_COLORS,
+    RESULT_VARS,
     RESULT_LABELS,
     type Match,
     type TeamKey
@@ -190,10 +190,10 @@
             <button
               class="chip"
               class:on={activeResult === code}
-              style:--c={RESULT_COLORS[code as 'W' | 'D' | 'L']}
+              style:--c={RESULT_VARS[code as 'W' | 'D' | 'L']}
               onclick={() => (activeResult = activeResult === code ? null : (code as 'W' | 'D' | 'L'))}
             >
-              <span class="swatch" style:background={RESULT_COLORS[code as 'W' | 'D' | 'L']}></span>
+              <span class="swatch" style:background={RESULT_VARS[code as 'W' | 'D' | 'L']}></span>
               {label}
               <span class="count">({resultCounts[code as 'W' | 'D' | 'L']})</span>
             </button>
@@ -213,7 +213,7 @@
           <div class="results-row">
             {#each results as r}
               <div class="legend-row">
-                <span class="dot" style:background={RESULT_COLORS[r]}></span>
+                <span class="dot" style:background={RESULT_VARS[r]}></span>
                 {RESULT_LABELS[r]}
               </div>
             {/each}
@@ -308,18 +308,15 @@
 </main>
 
 <style>
-  :global(body) {
-    margin: 0;
-    background: #fbfcfe;
-    --font: 'Inter', system-ui, -apple-system, sans-serif;
-    font-family: var(--font);
-    color: #1f2933;
-  }
   main {
     max-width: 1320px;
     margin: 0 auto;
     padding: 24px 20px 40px;
     overflow-x: clip; /* never let the viz/legend cause horizontal scroll */
+  }
+  /* standalone (not embedded in an iframe): fill the viewport */
+  :global(body.standalone) main {
+    min-height: 100dvh;
   }
   header h1 {
     font-size: 22px;
@@ -331,10 +328,10 @@
     display: inline-flex;
     gap: 0;
     margin: 0 0 14px;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--border);
     border-radius: 999px;
     padding: 3px;
-    background: #f1f5f9;
+    background: var(--surface-2);
   }
   .team-btn {
     border: none;
@@ -344,18 +341,18 @@
     font-family: var(--font);
     font-size: 13px;
     font-weight: 600;
-    color: #64748b;
+    color: var(--text-secondary);
     cursor: pointer;
     transition: all 0.15s;
     white-space: nowrap;
   }
   .team-btn:hover {
-    color: #1f2933;
+    color: var(--text);
   }
   .team-btn.on {
-    background: #e63329;
-    color: #fff;
-    box-shadow: 0 1px 3px rgba(230, 51, 41, 0.3);
+    background: var(--accent);
+    color: var(--accent-contrast);
+    box-shadow: 0 1px 3px var(--accent-shadow);
   }
   /* desktop: filters column on the left, viz on the right, all within the
      viewport height. --chrome ≈ header + paddings. */
@@ -385,7 +382,7 @@
   }
   header .hint {
     font-size: 12px;
-    color: #94a3b8;
+    color: var(--text-muted);
     line-height: 1.45;
     margin: 6px 0 0;
   }
@@ -415,9 +412,9 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #cbd5e1;
-    background: #fff;
-    color: #334155;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-secondary);
     border-radius: 7px;
     font-size: 17px;
     line-height: 1;
@@ -425,14 +422,14 @@
     transition: all 0.12s;
   }
   .zoom-buttons button:hover {
-    border-color: #94a3b8;
-    background: #f8fafc;
+    border-color: var(--border-strong);
+    background: var(--surface-hover);
   }
   .legend-row {
     display: flex;
     align-items: center;
     gap: 8px;
-    color: #334155;
+    color: var(--text-secondary);
   }
   /* Victoire / Nul / Défaite always on one horizontal row, never stacked */
   .results-row {
@@ -453,9 +450,9 @@
     display: inline-block;
   }
   .legend .swatch.host {
-    background: #7e9bb8;
+    background: var(--map-host);
   }
-  /* year-ring colour scale: grey (no match) → light red → deep red */
+  /* year-ring colour scale: empty (no match) → light → deep */
   .year-scale-row {
     align-items: center;
     flex-wrap: wrap;
@@ -465,14 +462,19 @@
     height: 11px;
     border-radius: 3px;
     display: inline-block;
-    background: linear-gradient(to right, #eceff3 0%, #f7d4d1 18%, #c0241b 100%);
+    background: linear-gradient(
+      to right,
+      var(--year-empty) 0%,
+      var(--year-low) 18%,
+      var(--year-high) 100%
+    );
   }
   .scale-labels {
     font-size: 11px;
-    color: #94a3b8;
+    color: var(--text-muted);
   }
   .scale-labels .arrow {
-    color: #cbd5e1;
+    color: var(--text-muted);
   }
   /* backdrop sits above everything (incl. the viz) so any click/tap outside the
      panel closes it — on desktop and on touch alike */
@@ -480,7 +482,7 @@
     position: fixed;
     inset: 0;
     z-index: 40;
-    background: rgba(15, 23, 42, 0.12);
+    background: var(--backdrop);
     cursor: default;
     touch-action: manipulation;
   }
@@ -500,7 +502,7 @@
     box-sizing: border-box;
     border-radius: 14px 14px 0 0;
     max-height: 70vh;
-    box-shadow: 0 -6px 24px rgba(15, 23, 42, 0.12);
+    box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.28);
   }
   /* filter groups, placed below the viz */
   .controls {
@@ -515,7 +517,7 @@
     font-size: 11px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #94a3b8;
+    color: var(--text-muted);
     font-weight: 700;
     margin: 0 0 8px;
   }
@@ -532,32 +534,32 @@
     align-items: center;
     justify-content: center;
     gap: 8px;
-    border: 1px solid #cbd5e1;
-    background: #fff;
-    color: #334155;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text-secondary);
     border-radius: 8px;
     padding: 4px 14px;
     font-size: 13px;
+    font-weight: 600; /* constant weight active/inactive → no reflow on toggle */
     line-height: 1.2;
     cursor: pointer;
     transition: all 0.12s;
     white-space: nowrap;
   }
   .result-filter .chip:hover {
-    border-color: #94a3b8;
+    border-color: var(--border-strong);
   }
-  /* « Tous les résultats » (sans pastille) : actif neutre, comme le groupe compétition */
+  /* « Tous les résultats » (sans pastille) : actif neutre */
   .result-filter .chip.on {
-    background: #1f2933;
-    border-color: #1f2933;
-    color: #fff;
-    font-weight: 600;
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-contrast);
   }
   /* résultats colorés : actif teinté de leur couleur */
   .result-filter .chip.on:has(.swatch) {
     border-color: var(--c);
-    background: color-mix(in srgb, var(--c) 12%, #fff);
-    color: #1f2933;
+    background: color-mix(in srgb, var(--c) 16%, var(--surface));
+    color: var(--text);
   }
   .result-filter .swatch {
     width: 11px;
@@ -566,7 +568,7 @@
     display: inline-block;
   }
   .result-filter .count {
-    color: #94a3b8;
+    color: var(--text-muted);
     font-variant-numeric: tabular-nums;
     display: inline-block;
     min-width: 2.9em;
@@ -586,18 +588,18 @@
     z-index: 7; /* above the viz (z-5) so its links are clickable */
     text-align: center;
     font-size: 11px;
-    color: #94a3b8;
+    color: var(--text-muted);
     margin: 0;
     pointer-events: none; /* let clicks fall through to the wheel… */
   }
   .source a {
     pointer-events: auto; /* …except on the links */
-    color: #64748b;
+    color: var(--text-secondary);
     text-decoration: underline;
     text-underline-offset: 2px;
   }
   .source a:hover {
-    color: #1f2933;
+    color: var(--accent);
   }
   /* Legend + zoom controls stay overlaid on the viz at all sizes, but shrink a
      touch on narrow screens so they don't crowd the disc. */
