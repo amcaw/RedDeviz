@@ -222,9 +222,13 @@
     gap: 12px;
     font-size: 22px;
     color: var(--text);
+    min-width: 0; /* let the grid column shrink instead of overflowing */
   }
   .team .name {
     font-weight: 500;
+    text-align: center;
+    overflow-wrap: anywhere; /* long names wrap rather than clip */
+    hyphens: auto;
   }
   .team.bel .name {
     font-weight: 700;
@@ -332,5 +336,45 @@
   }
   .rbfa-link a:hover {
     color: var(--accent);
+  }
+
+  /* tighter, smaller scale on narrow screens so the scoreline + names fit */
+  @media (max-width: 560px) {
+    .detail {
+      padding: 18px 16px 20px;
+    }
+    .head {
+      font-size: 13.5px;
+      gap: 8px;
+    }
+    .scoreline {
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .team {
+      gap: 8px;
+      font-size: 16px;
+    }
+    .logo {
+      width: 44px;
+      height: 44px;
+    }
+    .score {
+      gap: 12px;
+    }
+    .score .n {
+      font-size: 34px;
+    }
+    .score .dash {
+      font-size: 26px;
+    }
+    .result-pill {
+      font-size: 10px;
+      padding: 3px 10px;
+    }
+    .scorers {
+      font-size: 13px;
+      gap: 4px 10px;
+    }
   }
 </style>

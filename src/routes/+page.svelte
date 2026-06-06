@@ -328,12 +328,15 @@
   main {
     max-width: 1320px;
     margin: 0 auto;
-    padding: 24px 20px 40px;
+    /* Embedded (pym): no outer padding/margin — the host page provides spacing and
+       pym sizes the iframe to the content, so any gutter here is wasted height. */
+    padding: 0;
     overflow-x: clip; /* never let the viz/legend cause horizontal scroll */
   }
-  /* standalone (not embedded in an iframe): fill the viewport */
+  /* standalone (not embedded in an iframe): add comfortable gutters + fill height */
   :global(body.standalone) main {
     min-height: 100dvh;
+    padding: 24px 20px 40px;
   }
   header h1 {
     font-size: 22px;
@@ -645,9 +648,10 @@
       margin-top: 24px;
     }
   }
+  /* tighter gutters on small standalone screens (embedded stays flush) */
   @media (max-width: 720px) {
-    main {
-      padding: 16px 10px 32px; /* tighter gutters */
+    :global(body.standalone) main {
+      padding: 16px 10px 32px;
     }
   }
 </style>
