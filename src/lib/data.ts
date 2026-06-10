@@ -36,6 +36,9 @@ export interface Match {
   coords: [number, number] | null;
   approx: boolean;
   hasDetail: boolean;
+  /** RTBF Auvio links (Red Devils only; present only when available). */
+  article?: string;
+  video?: string;
 }
 
 // Compact per-match detail shown in the popup (from src/data/details.json).

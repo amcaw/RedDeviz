@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { base } from '$app/paths';
   import {
     RESULT_VARS,
     RESULT_LABELS,
@@ -138,6 +139,22 @@
           <li><span class="min">{g.minute}'{goalSuffix(g.kind)}</span> {g.firstName} {g.lastName}</li>
         {/each}
       </ul>
+    </div>
+  {/if}
+
+  <!-- RTBF Auvio media (when available) -->
+  {#if match.article || match.video}
+    <div class="media">
+      {#if match.video}
+        <a class="media-link video" href={match.video} target="_blank" rel="noreferrer">
+          Revoir sur <img class="brand" src="{base}/logos/auvio.svg" alt="Auvio" />
+        </a>
+      {/if}
+      {#if match.article}
+        <a class="media-link article" href={match.article} target="_blank" rel="noreferrer">
+          Lire l'article sur <img class="brand actus" src="{base}/logos/rtbf-actus.svg" alt="RTBF Actus" />
+        </a>
+      {/if}
     </div>
   {/if}
 
@@ -323,9 +340,46 @@
     padding: 7px 11px;
   }
 
+  /* RTBF media links: branded pills on a dark backing so both brand logos read
+     (Auvio is yellow, RTBF Actus is black → inverted to white). Same in light/dark. */
+  .media {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 22px 0 0;
+  }
+  .media-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #fff;
+    background: #15191f;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: all 0.13s;
+  }
+  .media-link:hover {
+    background: #20262f;
+    border-color: rgba(255, 255, 255, 0.22);
+  }
+  .media-link .brand {
+    height: 15px;
+    width: auto;
+    display: block;
+  }
+  /* RTBF Actus logo ships black; flip it to white on the dark pill */
+  .media-link .brand.actus {
+    filter: brightness(0) invert(1);
+  }
+
   /* footer: link to the official RBFA match page */
   .rbfa-link {
-    margin: 20px 0 0;
+    margin: 16px 0 0;
     text-align: center;
     font-size: 12.5px;
   }

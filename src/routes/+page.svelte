@@ -13,6 +13,7 @@
     type TeamKey
   } from '$lib/data';
   import { initPym, sendHeight } from '$lib/pym.js';
+  import { base } from '$app/paths';
 
   // pym.js: auto-resize the embedding iframe to fit the widget's content.
   initPym();
@@ -24,6 +25,10 @@
   const meta = $derived(teamData.meta);
   const categories = $derived(teamData.categories);
   const teamName = $derived(TEAM_LIST.find((t) => t.key === team)!.name);
+
+  // How many matches link to an Auvio video / RTBF Actus article (Red Devils only).
+  const videoCount = $derived(matches.filter((m) => m.video).length);
+  const articleCount = $derived(matches.filter((m) => m.article).length);
 
   let activeFilter = $state<string | null>(null); // compétition
   let activeResult = $state<'W' | 'D' | 'L' | null>(null); // résultat
@@ -182,6 +187,22 @@
     <p class="hint">
       Survolez ou cliquez sur un match pour obtenir plus d'informations et explorer les données.
     </p>
+    {#if videoCount || articleCount}
+      <p class="hint media-hint">
+        Cliquez sur les points pour retrouver
+        {#if videoCount}
+          {videoCount} résumés de matchs en vidéo sur
+          <span class="brand-chip"><img src="{base}/logos/auvio.svg" alt="Auvio" /></span>
+        {/if}
+        {#if videoCount && articleCount}et{/if}
+        {#if articleCount}
+          {articleCount} articles sur
+          <span class="brand-chip"
+            ><img class="actus" src="{base}/logos/rtbf-actus.svg" alt="RTBF Actus" /></span
+          >
+        {/if}
+      </p>
+    {/if}
   </header>
 
   <div class="layout">
@@ -338,6 +359,9 @@
     min-height: 100dvh;
     padding: 24px 20px 40px;
   }
+  header {
+    margin-bottom: 22px; /* breathing room before the filters / viz */
+  }
   header h1 {
     font-size: 22px;
     font-weight: 700;
@@ -405,6 +429,32 @@
     color: var(--text-muted);
     line-height: 1.45;
     margin: 6px 0 0;
+  }
+  /* media availability hint, with inline brand logos on small dark chips so both
+     the yellow Auvio mark and the (inverted) RTBF Actus mark read in either theme.
+     Kept as flowing text (not flex) so the sentence wraps naturally and never
+     overflows its box or the column. */
+  .media-hint {
+    margin-top: 4px;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+  .brand-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px 6px;
+    border-radius: 5px;
+    background: #15191f;
+    vertical-align: middle;
+    margin: 0 1px;
+  }
+  .brand-chip img {
+    height: 13px;
+    width: auto;
+    display: block;
+  }
+  .brand-chip img.actus {
+    filter: brightness(0) invert(1); /* RTBF Actus ships black → white on the dark chip */
   }
   /* legend now lives in the filters column (no overlay on the viz) */
   .legend {

@@ -40,30 +40,44 @@
     controls: { zoomIn: () => void; zoomOut: () => void; reset: () => void } | null;
   } = $props();
 
-  // Clicking a city dot highlights every match played there. This is tracked
-  // locally by the city's location key; a memorable-series highlight (from the
-  // dropdown) takes precedence when active.
+  // Clicking a city dot highlights every match played there; clicking a country
+  // highlights every match played in that country. Tracked locally by the city's
+  // location key / the country's atlas name; a memorable-series highlight (from
+  // the buttons) takes precedence when active.
   let cityKey = $state<string | null>(null);
+  let countryKey = $state<string | null>(null); // atlas country name
 
-  // Active highlight = the memorable series if one is set, else the clicked city.
+  // Active highlight = the memorable series if one is set, else the clicked
+  // city, else the clicked country.
   const highlightSet = $derived.by(() => {
     if (recordHighlight.length) return new Set(recordHighlight);
     if (cityKey) {
       const g = cityMarkers.find((m) => m.key === cityKey);
       if (g) return new Set(g.ms.map((m) => m.id));
     }
+    if (countryKey) {
+      return new Set(
+        filtered.filter((m) => atlasName(m.hostCountry) === countryKey).map((m) => m.id)
+      );
+    }
     return new Set<string>();
   });
   const hasHighlight = $derived(highlightSet.size > 0);
 
-  // A memorable series from the dropdown clears any city highlight.
+  // A memorable series from the buttons clears any city/country highlight.
   $effect(() => {
-    if (recordHighlight.length) cityKey = null;
+    if (recordHighlight.length) {
+      cityKey = null;
+      countryKey = null;
+    }
   });
 
-  // If the city panel is closed from outside (its × button), drop the highlight.
+  // If the stats panel is closed from outside (its × button), drop the highlight.
   $effect(() => {
-    if (!cityInfo) cityKey = null;
+    if (!cityInfo) {
+      cityKey = null;
+      countryKey = null;
+    }
   });
 
   // Click a city: toggle its highlight, publish its stats, and zoom to it.
@@ -75,6 +89,7 @@
       return;
     }
     selected = null; // ferme le panneau match pour éviter deux popups superposés
+    countryKey = null; // a city highlight supersedes a country highlight
     cityKey = g.key;
     // Use the canonical country so historical names (e.g. E.L. Ireland /
     // Republic of Ireland) are counted as the same place.
@@ -87,6 +102,37 @@
     };
     // Don't yank the camera if the user already framed the map themselves.
     if (!userZoomed) zoomTo(g.coords, 8);
+  }
+
+  // Click a country on the map: toggle a highlight of every match played there
+  // (grouped by atlas name, so England/Scotland/Wales all belong to the UK
+  // landmass), and publish its stats. Only countries with matches react.
+  function clickCountry(atlasNm: string) {
+    const ms = filtered.filter((m) => atlasName(m.hostCountry) === atlasNm);
+    if (!ms.length) return;
+    if (countryKey === atlasNm) {
+      countryKey = null;
+      cityInfo = null;
+      resetZoom();
+      return;
+    }
+    selected = null;
+    cityKey = null;
+    countryKey = atlasNm;
+    // Country label: the most frequent canonical host country among the matches
+    // (exact for normal countries; picks the dominant nation for the UK landmass).
+    const tally = new Map<string, number>();
+    for (const m of ms) {
+      const c = canonicalCountry(m.hostCountry);
+      tally.set(c, (tally.get(c) ?? 0) + 1);
+    }
+    const country = [...tally.entries()].sort((a, b) => b[1] - a[1])[0][0];
+    cityInfo = {
+      city: '', // no specific city — the panel shows the country block only
+      country,
+      cityMatches: [],
+      countryMatches: ms
+    };
   }
 
   // ---- geometry ----------------------------------------------------------
@@ -533,6 +579,7 @@
       onclick={() => {
         selected = null;
         cityKey = null;
+        countryKey = null;
         cityInfo = null;
       }}
     />
@@ -541,10 +588,25 @@
     <g class="zoomable" transform={mapTransform}>
       <g class="map">
         {#each countries as c (c.properties.name)}
+          {@const isHost = hostSet.has(c.properties.name)}
           <path
             d={pathFn(c)}
             class="country"
-            class:host={hostSet.has(c.properties.name)}
+            class:host={isHost}
+            class:clickable={isHost}
+            class:selected={countryKey === c.properties.name}
+            role={isHost ? 'button' : undefined}
+            tabindex={isHost ? 0 : undefined}
+            aria-label={isHost ? `${c.properties.name} — surligner les matchs` : undefined}
+            onclick={isHost
+              ? (e) => {
+                  e.stopPropagation();
+                  clickCountry(c.properties.name);
+                }
+              : undefined}
+            onkeydown={isHost
+              ? (e) => e.key === 'Enter' && clickCountry(c.properties.name)
+              : undefined}
           />
         {/each}
       </g>
@@ -638,6 +700,7 @@
         selected = d.m;
         cityInfo = null;
         cityKey = null;
+        countryKey = null;
         // zoom handled by the $effect on `selected` (respects userZoomed)
       }}
       onkeydown={(e) => e.key === 'Enter' && (selected = d.m)}
@@ -711,6 +774,19 @@
   }
   .country.host {
     fill: var(--map-host); /* muted steel blue — elegant counterpoint to the warm dots */
+    transition: fill 0.12s, filter 0.12s;
+  }
+  /* host countries are clickable: hover brightens, click marks them selected */
+  .country.clickable {
+    cursor: pointer;
+  }
+  .country.host.clickable:hover {
+    filter: brightness(1.15);
+  }
+  .country.selected {
+    fill: var(--accent);
+    stroke: var(--accent);
+    stroke-width: 0.8;
   }
   .ball-outline {
     fill: none;
