@@ -925,9 +925,9 @@
     "display": "Grad Rijeka, Primorje-Gorski Kotar County, Croatia"
   },
   "Seattle": {
-    "lon": 4.5497527,
-    "lat": 51.0219494,
-    "display": "Seattle, 4A-4B, Dorp, Zellaar, Bonheiden, Mechelen, Antwerp, Flanders, 2820, Belgium"
+    "lon": -122.330062,
+    "lat": 47.6038321,
+    "display": "Seattle, King County, Washington, United States"
   },
   "Los Angeles": {
     "lon": -118.5270144,
