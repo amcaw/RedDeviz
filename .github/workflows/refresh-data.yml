@@ -1,0 +1,81 @@
+name: Refresh match data
+
+# Daily incremental refresh: pulls any newly-played Red Devils / Red Flames match
+# from the RBFA API, patches src/data/*.json, commits if anything changed, then
+# rebuilds and redeploys the site. (We build+deploy here rather than relying on the
+# separate deploy workflow, because a push made with GITHUB_TOKEN does not trigger
+# other workflows.)
+on:
+  schedule:
+    - cron: '0 4 * * *' # 04:00 UTC daily (after late-evening kick-offs have finished)
+  workflow_dispatch: # allow manual runs from the Actions tab
+
+permissions:
+  contents: write # commit refreshed data
+  pages: write # deploy
+  id-token: write # deploy
+
+concurrency:
+  group: pages # share with the deploy workflow so they never run together
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch new matches and patch data
+        run: node scripts/auto-update.mjs
+
+      - name: Commit changes if any
+        id: commit
+        run: |
+          if [ -z "$(git status --porcelain src/data scripts/data/geocode_cache.json)" ]; then
+            echo "No data changes — nothing to deploy."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data scripts/data/geocode_cache.json
+          git commit -m "Auto-update: refresh match data ($(date -u +%Y-%m-%d))"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+  build:
+    needs: refresh
+    if: needs.refresh.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main # the freshly-committed data
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Build
+        env:
+          BASE_PATH: /RedDeviz
+        run: npm run build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

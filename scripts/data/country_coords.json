@@ -1,0 +1,242 @@
+{
+  "Albania": {
+    "lon": 19.8184435,
+    "lat": 41.3281482,
+    "display": "Tirana, Albania"
+  },
+  "Andorra": {
+    "lon": 1.5032264,
+    "lat": 42.4979185,
+    "display": "Andorra la Vella, AD500, Andorra"
+  },
+  "Austria": {
+    "lon": 16.3725042,
+    "lat": 48.2083537,
+    "display": "Vienna, Austria"
+  },
+  "Azerbaijan": {
+    "lon": 49.8328009,
+    "lat": 40.3755885,
+    "display": "Baku City, Azerbaijan"
+  },
+  "Belarus": {
+    "lon": 27.5618225,
+    "lat": 53.9024716,
+    "display": "Minsk, Belarus"
+  },
+  "Belgium": {
+    "lon": 4.352493,
+    "lat": 50.8467372,
+    "display": "Brussels, Brussels-Capital, Belgium"
+  },
+  "Bosnia-Herzegovina": {
+    "lon": 18.4126147,
+    "lat": 43.8570713,
+    "display": "City of Sarajevo, Sarajevo Canton, Federation of Bosnia and Herzegovina, Bosnia and Herzegovina"
+  },
+  "Brazil": {
+    "lon": -47.8828,
+    "lat": -15.7939869,
+    "display": "Brasília, Plano Piloto, Federal District, Central-West Region, 70391-900, Brazil"
+  },
+  "Canada": {
+    "lon": -75.6901106,
+    "lat": 45.4208777,
+    "display": "Ottawa, Ontario, Canada"
+  },
+  "Croatia": {
+    "lon": 15.9772795,
+    "lat": 45.8130967,
+    "display": "City of Zagreb, Croatia"
+  },
+  "Cyprus": {
+    "lon": 33.3638783,
+    "lat": 35.1746503,
+    "display": "Nicosia, Nicosia Muncipality, Nicosia District, Cyprus, 1107, Cyprus"
+  },
+  "Czech Republic": {
+    "lon": 14.4212535,
+    "lat": 50.0874654,
+    "display": "Prague, Czechia"
+  },
+  "Denmark": {
+    "lon": 12.5700724,
+    "lat": 55.6867243,
+    "display": "Copenhagen, Copenhagen Municipality, Capital Region of Denmark, 1357, Denmark"
+  },
+  "England": {
+    "lon": -0.1277653,
+    "lat": 51.5074456,
+    "display": "Greater London, England, United Kingdom"
+  },
+  "Estonia": {
+    "lon": 24.7572693,
+    "lat": 59.437242,
+    "display": "Tallinn, Harju County, Estonia"
+  },
+  "Finland": {
+    "lon": 24.9435408,
+    "lat": 60.1666204,
+    "display": "Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, Finland"
+  },
+  "France": {
+    "lon": 2.320041,
+    "lat": 48.8588897,
+    "display": "Paris, Ile-de-France, Metropolitan France, France"
+  },
+  "GDR": {
+    "lon": 13.3951309,
+    "lat": 52.5173885,
+    "display": "Berlin, Germany"
+  },
+  "Germany": {
+    "lon": 13.3951309,
+    "lat": 52.5173885,
+    "display": "Berlin, Germany"
+  },
+  "Gibraltar": {
+    "lon": -5.3541295,
+    "lat": 36.140807,
+    "display": "Gibraltar"
+  },
+  "Greece": {
+    "lon": 23.7348324,
+    "lat": 37.9755648,
+    "display": "Athens, Municipality of Athens, Regional Unit of Central Athens, Attica, 105 57, Greece"
+  },
+  "Hungary": {
+    "lon": 19.0402383,
+    "lat": 47.4978789,
+    "display": "Budapest, Central Hungary, Hungary"
+  },
+  "Iceland": {
+    "lon": -21.9422367,
+    "lat": 64.145981,
+    "display": "Reykjavik, Capital Region, Iceland"
+  },
+  "Israel": {
+    "lon": 35.2257856,
+    "lat": 31.7788472,
+    "display": "Jerusalem, Jerusalem Subdistrict, Jerusalem District, Israel"
+  },
+  "Italy": {
+    "lon": 12.4829321,
+    "lat": 41.8933203,
+    "display": "Rome, Roma Capitale, Lazio, Italy"
+  },
+  "Kazakhstan": {
+    "lon": 71.4306682,
+    "lat": 51.1282205,
+    "display": "Astana, 010000, Kazakhstan"
+  },
+  "Kosovo": {
+    "lon": 21.1640849,
+    "lat": 42.6638771,
+    "display": "Pristina, Kosovo"
+  },
+  "Liechtenstein": {
+    "lon": 9.5227962,
+    "lat": 47.1392862,
+    "display": "Vaduz, Oberland, 9490, Liechtenstein"
+  },
+  "Luxembourg": {
+    "lon": 6.129799,
+    "lat": 49.6112768,
+    "display": "Luxembourg, Canton Luxembourg, Luxembourg"
+  },
+  "Mexico": {
+    "lon": -99.1331785,
+    "lat": 19.4326296,
+    "display": "Mexico City, Cuauhtémoc, Mexico City, Mexico"
+  },
+  "Netherlands": {
+    "lon": 4.8924534,
+    "lat": 52.3730796,
+    "display": "Amsterdam, North Holland, Netherlands"
+  },
+  "North Macedonia": {
+    "lon": 21.4318935,
+    "lat": 41.9962164,
+    "display": "Skopje, Municipality of Centar, City of Skopje, North Macedonia"
+  },
+  "Norway": {
+    "lon": 10.7389701,
+    "lat": 59.9133301,
+    "display": "Oslo, Norway"
+  },
+  "Poland": {
+    "lon": 21.0067249,
+    "lat": 52.2319581,
+    "display": "Warsaw, Masovian Voivodeship, Poland"
+  },
+  "Portugal": {
+    "lon": -9.1365919,
+    "lat": 38.7077507,
+    "display": "Lisbon, Portugal"
+  },
+  "Republic of Ireland": {
+    "lon": -6.2605593,
+    "lat": 53.3493795,
+    "display": "Dublin, County Dublin, Leinster, Ireland"
+  },
+  "Romania": {
+    "lon": 26.102684,
+    "lat": 44.4361414,
+    "display": "Bucharest, Romania"
+  },
+  "Russia": {
+    "lon": 37.6174782,
+    "lat": 55.7505412,
+    "display": "Moscow, Central Federal District, Russia"
+  },
+  "San Marino": {
+    "lon": 12.4466991,
+    "lat": 43.9363996,
+    "display": "City of San Marino, 47890, San Marino"
+  },
+  "Scotland": {
+    "lon": -3.1883749,
+    "lat": 55.9533456,
+    "display": "City of Edinburgh, Scotland, United Kingdom"
+  },
+  "Slovakia": {
+    "lon": 17.1093063,
+    "lat": 48.1516988,
+    "display": "Bratislava, Region of Bratislava, Slovakia"
+  },
+  "Spain": {
+    "lon": -3.703507,
+    "lat": 40.416782,
+    "display": "Madrid, Spain"
+  },
+  "Sweden": {
+    "lon": 18.0710935,
+    "lat": 59.3251172,
+    "display": "Stockholm, Stockholm Municipality, Stockholm County, 111 29, Sweden"
+  },
+  "Switzerland": {
+    "lon": 7.4521749,
+    "lat": 46.9484742,
+    "display": "Bern, Bern-Mittelland administrative district, Bernese Mittelland administrative region, Bern, Switzerland"
+  },
+  "USA": {
+    "lon": -77.0363849,
+    "lat": 38.8950982,
+    "display": "Washington, District of Columbia, United States"
+  },
+  "Ukraine": {
+    "lon": 30.5241361,
+    "lat": 50.4500336,
+    "display": "Kyiv, Ukraine"
+  },
+  "Wales": {
+    "lon": -3.1791934,
+    "lat": 51.4816546,
+    "display": "Cardiff, Wales, CF10 2AF, United Kingdom"
+  },
+  "Yugoslavia": {
+    "lon": 20.4568974,
+    "lat": 44.8178131,
+    "display": "Belgrade, Stari Grad Urban Municipality, City of Belgrade, Central Serbia, 11000, Serbia"
+  }
+}

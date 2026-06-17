@@ -1,0 +1,1772 @@
+{
+  "Brussel": {
+    "lon": 4.3510915,
+    "lat": 50.8551025,
+    "display": "Bruxelles - Brussel, Brussels, Brussels-Capital, Belgium"
+  },
+  "Antwerpen": {
+    "lon": 4.3997081,
+    "lat": 51.2211097,
+    "display": "Antwerp, Flanders, Belgium"
+  },
+  "Rotterdam": {
+    "lon": 4.47775,
+    "lat": 51.9244424,
+    "display": "Rotterdam, South Holland, Netherlands"
+  },
+  "Saint-Cloud": {
+    "lon": 2.219344,
+    "lat": 48.8437412,
+    "display": "Saint-Cloud, Arrondissement of Nanterre, Hauts-de-Seine, Ile-de-France, Metropolitan France, 92210, France"
+  },
+  "Haarlem": {
+    "lon": 4.6435679,
+    "lat": 52.3837281,
+    "display": "Haarlem, North Holland, Netherlands"
+  },
+  "Colombes": {
+    "lon": 2.2543631,
+    "lat": 48.9227298,
+    "display": "Colombes, Arrondissement of Nanterre, Hauts-de-Seine, Ile-de-France, Metropolitan France, 92700, France"
+  },
+  "Londen": {
+    "lon": -0.1277653,
+    "lat": 51.5074456,
+    "display": "Greater London, England, United Kingdom"
+  },
+  "Gentilly": {
+    "lon": 2.3483549,
+    "lat": 48.8153656,
+    "display": "Gentilly, L'Haÿ-les-Roses, Val-de-Marne, Ile-de-France, Metropolitan France, 94250, France"
+  },
+  "Duisburg": {
+    "lon": 6.759562,
+    "lat": 51.434999,
+    "display": "Duisburg, North Rhine-Westphalia, Germany"
+  },
+  "Dordrecht": {
+    "lon": 4.6692438,
+    "lat": 51.814429,
+    "display": "Dordrecht, South Holland, Netherlands"
+  },
+  "Liège": {
+    "lon": 5.5736112,
+    "lat": 50.6450944,
+    "display": "Liège, Wallonia, 4000, Belgium"
+  },
+  "Saint-Ouen": {
+    "lon": 2.1223737,
+    "lat": 50.03683,
+    "display": "Saint-Ouen, Amiens, Somme, Hauts-de-France, Metropolitan France, 80610, France"
+  },
+  "Swindon": {
+    "lon": -1.7854322,
+    "lat": 51.5615327,
+    "display": "Swindon, England, SN1 1JZ, United Kingdom"
+  },
+  "Zwolle": {
+    "lon": 6.0943765,
+    "lat": 52.5089759,
+    "display": "Zwolle, Overijssel, Netherlands"
+  },
+  "Turijn": {
+    "lon": 7.6824892,
+    "lat": 45.0677551,
+    "display": "Turin, Piedmont, Italy"
+  },
+  "Basel": {
+    "lon": 7.5878261,
+    "lat": 47.5581077,
+    "display": "Basel, Basel-City, Switzerland"
+  },
+  "Verviers": {
+    "lon": 5.867828,
+    "lat": 50.59324,
+    "display": "Verviers, Liège, Wallonia, 4800, Belgium"
+  },
+  "Rijsel": {
+    "lon": 3.0635282,
+    "lat": 50.6365654,
+    "display": "Lille, Nord, Hauts-de-France, Metropolitan France, France"
+  },
+  "Amsterdam": {
+    "lon": 4.8924534,
+    "lat": 52.3730796,
+    "display": "Amsterdam, North Holland, Netherlands"
+  },
+  "Parijs": {
+    "lon": 2.320041,
+    "lat": 48.8588897,
+    "display": "Paris, Ile-de-France, Metropolitan France, France"
+  },
+  "Bilbao": {
+    "lon": -2.9350039,
+    "lat": 43.2630018,
+    "display": "Bilbao, Biscay, Autonomous Community of the Basque Country, Spain"
+  },
+  "Milaan": {
+    "lon": 9.1896346,
+    "lat": 45.4641943,
+    "display": "Milan, Rodano, Milan, Lombardy, Italy"
+  },
+  "Kopenhagen": {
+    "lon": 12.5700724,
+    "lat": 55.6867243,
+    "display": "Copenhagen, Copenhagen Municipality, Capital Region of Denmark, 1357, Denmark"
+  },
+  "Birmingham": {
+    "lon": -1.8518439,
+    "lat": 52.4948994,
+    "display": "Birmingham, West Midlands, England, United Kingdom"
+  },
+  "Budapest": {
+    "lon": 19.1457723,
+    "lat": 47.4813896,
+    "display": "Budapest, Central Hungary, Hungary"
+  },
+  "Lausanne": {
+    "lon": 6.6327025,
+    "lat": 46.5218269,
+    "display": "Lausanne, District de Lausanne, Vaud, Switzerland"
+  },
+  "Wenen": {
+    "lon": 16.3725042,
+    "lat": 48.2083537,
+    "display": "Vienna, Austria"
+  },
+  "Praha": {
+    "lon": 14.4212535,
+    "lat": 50.0874654,
+    "display": "Prague, Czechia"
+  },
+  "Stockholm": {
+    "lon": 18.0710935,
+    "lat": 59.3251172,
+    "display": "Stockholm, Stockholm Municipality, Stockholm County, 111 29, Sweden"
+  },
+  "Dublin": {
+    "lon": -6.2523903,
+    "lat": 53.3311836,
+    "display": "Dublin (Leeson Street Upper), Leeson Street Upper, Rathmines East A Ward 1986, Dublin, County Dublin, Leinster, D04 VX52, Ireland"
+  },
+  "Montevideo": {
+    "lon": -56.1913095,
+    "lat": -34.9058916,
+    "display": "Montevideo, Uruguay"
+  },
+  "Montrouge": {
+    "lon": 2.3194375,
+    "lat": 48.8188544,
+    "display": "Montrouge, Antony, Hauts-de-Seine, Ile-de-France, Metropolitan France, 92120, France"
+  },
+  "Lissabon": {
+    "lon": -9.1365919,
+    "lat": 38.7077507,
+    "display": "Lisbon, Portugal"
+  },
+  "Zurich": {
+    "lon": 8.5410422,
+    "lat": 47.3744489,
+    "display": "Zurich, District Zurich, Zurich, Switzerland"
+  },
+  "Warschau": {
+    "lon": 21.0067249,
+    "lat": 52.2319581,
+    "display": "Warsaw, Masovian Voivodeship, Poland"
+  },
+  "Firenze": {
+    "lon": 11.2556404,
+    "lat": 43.7697955,
+    "display": "Florence, Tuscany, Italy"
+  },
+  "Bazel": {
+    "lon": 7.5878261,
+    "lat": 47.5581077,
+    "display": "Basel, Basel-City, Switzerland"
+  },
+  "Hanovre": {
+    "lon": 9.7385532,
+    "lat": 52.3744779,
+    "display": "Hanover, Region Hannover, Lower Saxony, Germany"
+  },
+  "Belgrado": {
+    "lon": 20.4568974,
+    "lat": 44.8178131,
+    "display": "Belgrade, Stari Grad Urban Municipality, City of Belgrade, Central Serbia, 11000, Serbia"
+  },
+  "Boekarest": {
+    "lon": 26.102684,
+    "lat": 44.4361414,
+    "display": "Bucharest, Romania"
+  },
+  "Luxemburg": {
+    "lon": 6.129799,
+    "lat": 49.6112768,
+    "display": "Luxembourg, Canton Luxembourg, Luxembourg"
+  },
+  "Lodz": {
+    "lon": 19.4569911,
+    "lat": 51.7687323,
+    "display": "Łódź, Łódź Voivodeship, Poland"
+  },
+  "Glasgow": {
+    "lon": -4.2501687,
+    "lat": 55.861155,
+    "display": "Glasgow, Glasgow City, Scotland, G2 1AR, United Kingdom"
+  },
+  "Charleroi": {
+    "lon": 4.444528,
+    "lat": 50.4116233,
+    "display": "Charleroi, Hainaut, Wallonia, Belgium"
+  },
+  "Genève": {
+    "lon": 6.1466014,
+    "lat": 46.2017559,
+    "display": "Geneva, Switzerland"
+  },
+  "Barcelona": {
+    "lon": 2.177073,
+    "lat": 41.3825802,
+    "display": "Barcelona, Barcelonès, Barcelona, Catalonia, Spain"
+  },
+  "Cardiff": {
+    "lon": -3.1791934,
+    "lat": 51.4816546,
+    "display": "Cardiff, Wales, CF10 2AF, United Kingdom"
+  },
+  "Bologna": {
+    "lon": 11.3426327,
+    "lat": 44.4938203,
+    "display": "Bologna, Emilia-Romagna, Italy"
+  },
+  "Helsinki": {
+    "lon": 24.9435408,
+    "lat": 60.1666204,
+    "display": "Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, Finland"
+  },
+  "Zagreb": {
+    "lon": 15.9772795,
+    "lat": 45.8130967,
+    "display": "City of Zagreb, Croatia"
+  },
+  "Lugano": {
+    "lon": 9.2369985,
+    "lat": 46.0200392,
+    "display": "Lugano, 26, Via Como, Loveno, Menaggio, Como, Lombardy, 22017, Italy"
+  },
+  "Bari": {
+    "lon": 16.8620293,
+    "lat": 41.1257843,
+    "display": "Bari, Apulia, Italy"
+  },
+  "Praag": {
+    "lon": 14.4212535,
+    "lat": 50.0874654,
+    "display": "Prague, Czechia"
+  },
+  "Keulen": {
+    "lon": 6.959974,
+    "lat": 50.938361,
+    "display": "Cologne, North Rhine-Westphalia, Germany"
+  },
+  "Reykjavik": {
+    "lon": -21.9422367,
+    "lat": 64.145981,
+    "display": "Reykjavik, Capital Region, Iceland"
+  },
+  "Ankara": {
+    "lon": 32.8540497,
+    "lat": 39.9207759,
+    "display": "Ankara, Çankaya, Ankara, Central Anatolia Region, 06420, Turkey"
+  },
+  "Sofia": {
+    "lon": 23.3217359,
+    "lat": 42.6977028,
+    "display": "Sofia, Sredec, Sofia City, Sofia-City, Bulgaria"
+  },
+  "Frankfurt": {
+    "lon": 8.5420871,
+    "lat": 50.1027438,
+    "display": "Frankfurt-Höchst, Adelonstraße, Höchst, West, Frankfurt, Hesse, 65929, Germany"
+  },
+  "Beograd": {
+    "lon": 20.4456588,
+    "lat": 44.8153318,
+    "display": "Belgrade, City of Belgrade, Central Serbia, Serbia"
+  },
+  "Valencia": {
+    "lon": -0.3763353,
+    "lat": 39.4697065,
+    "display": "Valencia, Comarca de València, Valencia, Valencian Community, Spain"
+  },
+  "Rio De Janeiro": {
+    "lon": -43.2093727,
+    "lat": -22.9110137,
+    "display": "Rio de Janeiro, Southeast Region, Brazil"
+  },
+  "Tel-Aviv": {
+    "lon": 34.7818064,
+    "lat": 32.0852997,
+    "display": "Tel-Aviv, Tel Aviv Subdistrict, Tel-Aviv District, Israel"
+  },
+  "Nantes": {
+    "lon": -1.5541362,
+    "lat": 47.2186371,
+    "display": "Nantes, Loire-Atlantique, Pays de la Loire, Metropolitan France, France"
+  },
+  "Moskou": {
+    "lon": 37.6063916,
+    "lat": 55.625578,
+    "display": "Moscow, Central Federal District, Russia"
+  },
+  "Waregem": {
+    "lon": 3.4323622,
+    "lat": 50.8868222,
+    "display": "Waregem, Kortrijk, West Flanders, Flanders, Belgium"
+  },
+  "Madrid": {
+    "lon": -3.703507,
+    "lat": 40.416782,
+    "display": "Madrid, Community of Madrid, Spain"
+  },
+  "Mexico City": {
+    "lon": -99.1331785,
+    "lat": 19.4326296,
+    "display": "Mexico City, Cuauhtémoc, Mexico City, Mexico"
+  },
+  "Brugge": {
+    "lon": 3.226772,
+    "lat": 51.2085526,
+    "display": "Bruges, Brugge, West Flanders, Flanders, Belgium"
+  },
+  "Aberdeen": {
+    "lon": -2.0928095,
+    "lat": 57.1482429,
+    "display": "Aberdeen City, Scotland, United Kingdom"
+  },
+  "Berlin": {
+    "lon": 13.3951309,
+    "lat": 52.5173885,
+    "display": "Berlin, Germany"
+  },
+  "Leipzig": {
+    "lon": 12.3747329,
+    "lat": 51.3406321,
+    "display": "Leipzig, Saxony, Germany"
+  },
+  "Rome": {
+    "lon": 12.4829321,
+    "lat": 41.8933203,
+    "display": "Rome, Roma Capitale, Lazio, Italy"
+  },
+  "Belfast": {
+    "lon": -5.9301829,
+    "lat": 54.596391,
+    "display": "Belfast, Belfast City, Belfast City District, County Antrim, Northern Ireland, BT1 5GS, United Kingdom"
+  },
+  "Lokeren": {
+    "lon": 3.9898689,
+    "lat": 51.1044488,
+    "display": "Lokeren, Sint-Niklaas, East Flanders, Flanders, Belgium"
+  },
+  "Vienna": {
+    "lon": 16.3725042,
+    "lat": 48.2083537,
+    "display": "Vienna, Austria"
+  },
+  "Oslo": {
+    "lon": 10.7389701,
+    "lat": 59.9133301,
+    "display": "Oslo, Norway"
+  },
+  "Nicosia": {
+    "lon": 33.3638783,
+    "lat": 35.1746503,
+    "display": "Nicosia, Nicosia Muncipality, Nicosia District, Cyprus, 1107, Cyprus"
+  },
+  "Valence": {
+    "lon": -0.3763353,
+    "lat": 39.4697065,
+    "display": "Valencia, Comarca de València, Valencia, Valencian Community, Spain"
+  },
+  "Elche": {
+    "lon": -0.6988391,
+    "lat": 38.2653307,
+    "display": "Elx / Elche, el Baix Vinalopó, Alacant / Alicante, Valencian Community, Spain"
+  },
+  "Munich": {
+    "lon": 11.5753822,
+    "lat": 48.1371079,
+    "display": "Munich, Bavaria, Germany"
+  },
+  "Bern": {
+    "lon": 7.4521749,
+    "lat": 46.9484742,
+    "display": "Bern, Bern-Mittelland administrative district, Bernese Mittelland administrative region, Bern, Switzerland"
+  },
+  "Lens": {
+    "lon": 3.9331822,
+    "lat": 50.5777614,
+    "display": "Lens, Mons, Hainaut, Wallonia, 7870, Belgium"
+  },
+  "Strasbourg": {
+    "lon": 7.7507127,
+    "lat": 48.584614,
+    "display": "Strasbourg, Bas-Rhin, European Collectivity of Alsace, Grand Est, Metropolitan France, France"
+  },
+  "Athene": {
+    "lon": 23.7348324,
+    "lat": 37.9755648,
+    "display": "Athens, Municipality of Athens, Regional Unit of Central Athens, Attica, 105 57, Greece"
+  },
+  "Tirana": {
+    "lon": 19.8184435,
+    "lat": 41.3281482,
+    "display": "Tirana, Tirana Municipality, Tirana County, Central Albania, 1001-1028, Albania"
+  },
+  "Chorzow": {
+    "lon": 18.9703798,
+    "lat": 50.2884726,
+    "display": "Chorzów, Metropolis GZM, Silesian Voivodeship, Poland"
+  },
+  "Toluca": {
+    "lon": -99.6569007,
+    "lat": 19.292545,
+    "display": "Toluca, State of Mexico, 50000, Mexico"
+  },
+  "Leon": {
+    "lon": -101.6829766,
+    "lat": 21.121965,
+    "display": "León, Guanajuato, 37004, Mexico"
+  },
+  "Puebla": {
+    "lon": -98,
+    "lat": 18.833333,
+    "display": "Puebla, Mexico"
+  },
+  "Braga": {
+    "lon": -8.4280045,
+    "lat": 41.5510583,
+    "display": "Braga, Portugal"
+  },
+  "Odense": {
+    "lon": 10.3852104,
+    "lat": 55.3997225,
+    "display": "Odense, Odense Municipality, Region of Southern Denmark, 5000, Denmark"
+  },
+  "Bratislava": {
+    "lon": 17.1093063,
+    "lat": 48.1516988,
+    "display": "Bratislava, Region of Bratislava, Slovakia"
+  },
+  "Ottawa": {
+    "lon": -75.6901106,
+    "lat": 45.4208777,
+    "display": "Ottawa, Eastern Ontario, Ontario, Canada"
+  },
+  "Verona": {
+    "lon": 10.9924122,
+    "lat": 45.4384958,
+    "display": "Verona, Veneto, 37121-37142, Italy"
+  },
+  "Szekesfehervar": {
+    "lon": 18.410811,
+    "lat": 47.1910169,
+    "display": "Székesfehérvár, Székesfehérvári járás, Fejér, Central Transdanubia, Transdanubia, Hungary"
+  },
+  "Tunis": {
+    "lon": 10.1857757,
+    "lat": 36.8002068,
+    "display": "Tunis, Tunisia"
+  },
+  "Toftir": {
+    "lon": -6.7322421,
+    "lat": 62.0909703,
+    "display": "Toftir, Nes kommuna, Eysturoy region, Faroe Islands"
+  },
+  "La Valetta": {
+    "lon": 14.5136607,
+    "lat": 35.8989979,
+    "display": "Valletta, Port Region, Malta"
+  },
+  "Orlando": {
+    "lon": -81.379045,
+    "lat": 28.5421218,
+    "display": "Orlando, Orange County, Florida, United States"
+  },
+  "Washington": {
+    "lon": -77.0363849,
+    "lat": 38.8950982,
+    "display": "Washington, District of Columbia, United States"
+  },
+  "Chicago": {
+    "lon": -87.6244212,
+    "lat": 41.8755616,
+    "display": "Chicago, South Chicago Township, Cook County, Illinois, United States"
+  },
+  "Sevilla": {
+    "lon": -5.9953403,
+    "lat": 37.3886303,
+    "display": "Seville, Sevilla, Andalusia, Spain"
+  },
+  "Skopje": {
+    "lon": 21.4318935,
+    "lat": 41.9962164,
+    "display": "Skopje, Municipality of Centar, City of Skopje, North Macedonia"
+  },
+  "Yerevan": {
+    "lon": 44.5126233,
+    "lat": 40.1777112,
+    "display": "Yerevan, Armenia"
+  },
+  "Limassol": {
+    "lon": 33.0332657,
+    "lat": 34.6852901,
+    "display": "Limassol, Limassol Municipality, Limassol District, Cyprus, 3085, Cyprus"
+  },
+  "Cremona": {
+    "lon": 10.037038,
+    "lat": 45.2208641,
+    "display": "Cremona, Lombardy, Italy"
+  },
+  "Serravalle": {
+    "lon": 12.4802946,
+    "lat": 43.9699026,
+    "display": "Serravalle, San Marino"
+  },
+  "Istanbul": {
+    "lon": 28.9758715,
+    "lat": 41.006381,
+    "display": "Istanbul, Fatih, Istanbul, Marmara Region, 34122, Turkey"
+  },
+  "Casablanca": {
+    "lon": -7.6200284,
+    "lat": 33.5945144,
+    "display": "Casablanca, Pachalik de Casablanca باشوية الدار البيضاء, Prefecture of Casablanca, Casablanca-Settat, Morocco"
+  },
+  "Bordeaux": {
+    "lon": -0.5800364,
+    "lat": 44.841225,
+    "display": "Bordeaux, Gironde, Nouvelle-Aquitaine, Metropolitan France, France"
+  },
+  "Larnaca": {
+    "lon": 33.6236184,
+    "lat": 34.9236095,
+    "display": "Larnaca, Δήμος Λάρνακας, Larnaca District, Cyprus"
+  },
+  "Kyoto": {
+    "lon": 135.7681441,
+    "lat": 35.0115754,
+    "display": "Kyoto, Kyoto Prefecture, Japan"
+  },
+  "Tokyo": {
+    "lon": 139.7638947,
+    "lat": 35.6768601,
+    "display": "Tokyo, Japan"
+  },
+  "Séoul": {
+    "lon": 126.9782914,
+    "lat": 37.5666791,
+    "display": "Seoul, South Korea"
+  },
+  "Sunderland": {
+    "lon": -1.3828727,
+    "lat": 54.9058512,
+    "display": "Sunderland, Tyne and Wear, North East, England, SR1 3HW, United Kingdom"
+  },
+  "Lecce": {
+    "lon": 18.2260628,
+    "lat": 40.1522173,
+    "display": "Lecce, Apulia, Italy"
+  },
+  "Riga": {
+    "lon": 24.1051846,
+    "lat": 56.9493977,
+    "display": "Riga, Latvia"
+  },
+  "Pragues": {
+    "lon": 14.4212535,
+    "lat": 50.0874654,
+    "display": "Prague, Czechia"
+  },
+  "Patras": {
+    "lon": 21.7350847,
+    "lat": 38.246242,
+    "display": "Patras, Municipal Unit of Patras, Municipality of Patras, Achaia Regional Unit, Western Greece, Peloponnese, Western Greece and the Ionian, 262 21, Greece"
+  },
+  "Kumamoto": {
+    "lon": 130.6341345,
+    "lat": 32.6450475,
+    "display": "Kumamoto Prefecture, Japan"
+  },
+  "Saitama": {
+    "lon": 139.4160114,
+    "lat": 35.9754168,
+    "display": "Saitama Prefecture, Japan"
+  },
+  "Oïta": {
+    "lon": 131.6096524,
+    "lat": 33.2393864,
+    "display": "Oita, Oita Prefecture, 870-8504, Japan"
+  },
+  "Shizuoka": {
+    "lon": 138.3831697,
+    "lat": 34.9751974,
+    "display": "Shizuoka, Shizuoka Prefecture, 420-8602, Japan"
+  },
+  "Kobe": {
+    "lon": 135.1943764,
+    "lat": 34.6932379,
+    "display": "Kobe, Hyogo Prefecture, Japan"
+  },
+  "Szczecin": {
+    "lon": 14.5928676,
+    "lat": 53.4298114,
+    "display": "Szczecin, West Pomeranian Voivodeship, Poland"
+  },
+  "Andorra La Vella": {
+    "lon": 1.5032264,
+    "lat": 42.4979185,
+    "display": "Andorra la Vella, AD500, Andorra"
+  },
+  "Tallinn": {
+    "lon": 24.7572693,
+    "lat": 59.437242,
+    "display": "Tallinn, Harju County, Estonia"
+  },
+  "Annaba": {
+    "lon": 7.7549272,
+    "lat": 36.8982165,
+    "display": "Annaba, Annaba District, Annaba, 23000, Algeria"
+  },
+  "Gent": {
+    "lon": 3.7250121,
+    "lat": 51.0538286,
+    "display": "Ghent, Gent, East Flanders, Flanders, Belgium"
+  },
+  "Eindhoven": {
+    "lon": 5.478633,
+    "lat": 51.4392648,
+    "display": "Eindhoven, North Brabant, Netherlands"
+  },
+  "Santander": {
+    "lon": -3.8100255,
+    "lat": 43.4618932,
+    "display": "Santander, Cantabria, Spain"
+  },
+  "Le Caire": {
+    "lon": 31.2357257,
+    "lat": 30.0443879,
+    "display": "Cairo, Egypt"
+  },
+  "Zenica": {
+    "lon": 17.9093012,
+    "lat": 44.199828,
+    "display": "Zenica, City of Zenica, Zenica-Doboj Canton, Federation of Bosnia and Herzegovina, 72000, Bosnia and Herzegovina"
+  },
+  "Vilnius": {
+    "lon": 25.2829111,
+    "lat": 54.6870458,
+    "display": "Vilnius, Vilnius city municipality, Vilnius County, Lithuania"
+  },
+  "Sittard": {
+    "lon": 5.8666627,
+    "lat": 50.9974235,
+    "display": "Sittard, Sittard-Geleen, Limburg, Netherlands"
+  },
+  "Genk": {
+    "lon": 5.5001456,
+    "lat": 50.9654864,
+    "display": "Genk, Hasselt, Limburg, Flanders, 3600, Belgium"
+  },
+  "Almaty": {
+    "lon": 76.9457275,
+    "lat": 43.2363924,
+    "display": "Almaty, Kazakhstan"
+  },
+  "Baku": {
+    "lon": 49.8328009,
+    "lat": 40.3755885,
+    "display": "Baku City, Azerbaijan"
+  },
+  "Nürnberg": {
+    "lon": 11.077298,
+    "lat": 49.453872,
+    "display": "Nuremberg, Bavaria, Germany"
+  },
+  "Chiba": {
+    "lon": 140.2647303,
+    "lat": 35.549399,
+    "display": "Chiba Prefecture, Japan"
+  },
+  "Teplice": {
+    "lon": 13.8244461,
+    "lat": 50.6406644,
+    "display": "Teplice, okres Teplice, Ústí nad Labem Region, Czechia"
+  },
+  "La Coruna": {
+    "lon": -8.4127029,
+    "lat": 43.3466447,
+    "display": "A Coruña, Galicia, Spain"
+  },
+  "Sedan": {
+    "lon": 4.9433409,
+    "lat": 49.7033759,
+    "display": "Sedan, Ardennes, Grand Est, Metropolitan France, 08200, France"
+  },
+  "Turku": {
+    "lon": 22.2669991,
+    "lat": 60.4515932,
+    "display": "Turku, Turku sub-region, Southwest Finland, Mainland Finland, Finland"
+  },
+  "Astana": {
+    "lon": 71.4306682,
+    "lat": 51.1282205,
+    "display": "Astana, 010000, Kazakhstan"
+  },
+  "Voronezh": {
+    "lon": 39.183725,
+    "lat": 51.6800081,
+    "display": "Voronezh, Voronezh Oblast, Central Federal District, Russia"
+  },
+  "Ljubljana": {
+    "lon": 14.5069289,
+    "lat": 46.0500268,
+    "display": "Ljubljana, Upravna Enota Ljubljana, 1000, Slovenia"
+  },
+  "Düsseldorf": {
+    "lon": 6.7763137,
+    "lat": 51.2254018,
+    "display": "Dusseldorf, North Rhine-Westphalia, Germany"
+  },
+  "Luik": {
+    "lon": 5.5736112,
+    "lat": 50.6450944,
+    "display": "Liège, Wallonia, 4000, Belgium"
+  },
+  "Heraklion": {
+    "lon": 25.1332843,
+    "lat": 35.33908,
+    "display": "Heraklion, Heraklion Municipal Unit, Municipality of Heraklion, Heraklion Regional Unit, Region of Crete, 712 02, Greece"
+  },
+  "Bucharest": {
+    "lon": 26.102684,
+    "lat": 44.4361414,
+    "display": "Bucharest, Romania"
+  },
+  "Cleveland": {
+    "lon": -81.6936772,
+    "lat": 41.4996574,
+    "display": "Cleveland, Cuyahoga County, Ohio, United States"
+  },
+  "Solna": {
+    "lon": 18.016667,
+    "lat": 59.366667,
+    "display": "Solna kommun, Stockholm County, Sweden"
+  },
+  "Belo Horizonte": {
+    "lon": -43.9450948,
+    "lat": -19.9227318,
+    "display": "Belo Horizonte, Minas Gerais, Southeast Region, Brazil"
+  },
+  "Sao Paulo": {
+    "lon": -46.6333824,
+    "lat": -23.5506507,
+    "display": "São Paulo, Southeast Region, Brazil"
+  },
+  "Salvador": {
+    "lon": -38.4812772,
+    "lat": -12.9822499,
+    "display": "Salvador, Bahia, Northeast Region, Brazil"
+  },
+  "Brasilia": {
+    "lon": -47.8828,
+    "lat": -15.7939869,
+    "display": "Brasília, Plano Piloto, Federal District, Central-West Region, 70391-900, Brazil"
+  },
+  "Jeruzalem": {
+    "lon": 35.2257856,
+    "lat": 31.7788472,
+    "display": "Jerusalem, Jerusalem Subdistrict, Jerusalem District, Israel"
+  },
+  "Skoplje": {
+    "lon": 21.4318935,
+    "lat": 41.9962164,
+    "display": "Skopje, Municipality of Centar, City of Skopje, North Macedonia"
+  },
+  "Magdeburg": {
+    "lon": 11.6400789,
+    "lat": 52.1314783,
+    "display": "Magdeburg, Saxony-Anhalt, Germany"
+  },
+  "Lyon": {
+    "lon": 4.2448516,
+    "lat": 50.3093628,
+    "display": "Bois Lyon, Leers-et-Fosteau, Thuin, Hainaut, Wallonia, 6530, Belgium"
+  },
+  "Nice": {
+    "lon": 15.609496,
+    "lat": 58.4046718,
+    "display": "Nice, Överstegatan, T1, Ekkällan, Linköpings domkyrkodistrikt, Linköping, Linköpings kommun, Östergötland County, 582 12, Sweden"
+  },
+  "Toulouse": {
+    "lon": 1.4442433,
+    "lat": 43.6044638,
+    "display": "Toulouse, Haute-Garonne, Occitania, Metropolitan France, France"
+  },
+  "Villeneuve-D'Ascq": {
+    "lon": 3.1314002,
+    "lat": 50.6193174,
+    "display": "Villeneuve-d'Ascq, Lille, Nord, Hauts-de-France, Metropolitan France, 59491, France"
+  },
+  "Faro": {
+    "lon": -5.3448415,
+    "lat": 36.1096508,
+    "display": "Europa Point Trinity Lighthouse, Kusuma Promenade, Gibraltar, GX11 1AA, Gibraltar"
+  },
+  "Sotsji": {
+    "lon": 39.723109,
+    "lat": 43.5854823,
+    "display": "Sochi, town district of Sochi, Krasnodar Krai, Southern Federal District, Russia"
+  },
+  "Piraeus": {
+    "lon": 23.6470593,
+    "lat": 37.9431594,
+    "display": "Piraeus, Municipality of Piraeus, Regional Unit of Piraeus, Attica, 185 35, Greece"
+  },
+  "Bihac": {
+    "lon": 15.86896,
+    "lat": 44.8146563,
+    "display": "Bihać, City of Bihać, Una-Sana Canton, Federation of Bosnia and Herzegovina, Bosnia and Herzegovina"
+  },
+  "Sochi": {
+    "lon": 39.723109,
+    "lat": 43.5854823,
+    "display": "Sochi, town district of Sochi, Krasnodar Krai, Southern Federal District, Russia"
+  },
+  "Kaliningrad": {
+    "lon": 20.4565666,
+    "lat": 54.7046485,
+    "display": "Kaliningrad, Northwestern Federal District, Russia"
+  },
+  "Rostov-On-Don": {
+    "lon": 39.7249086,
+    "lat": 47.2610441,
+    "display": "Rostov-on-Don, Rostov Oblast, Southern Federal District, Russia"
+  },
+  "Kazan": {
+    "lon": -46.4093826,
+    "lat": -23.4238238,
+    "display": "Kazan  Comercio Importacao e Exportacao Ltda, 1514, Avenida Francisco Xavier Corrêa, Inocoop, Bonsucesso, District of Jardim Presidente Dutra, Guarulhos, São Paulo, Southeast Region, 07174-530, Brazil"
+  },
+  "Sint-Petersburg": {
+    "lon": 30.3430607,
+    "lat": 59.8321247,
+    "display": "France-Piter, Московское шоссе, Srednaya Rogatka, округ Звёздное, Saint Petersburg, Northwestern Federal District, 196158, Russia"
+  },
+  "Lucerne": {
+    "lon": 8.3058123,
+    "lat": 47.052144,
+    "display": "Lucerne, Switzerland"
+  },
+  "Copenhagen": {
+    "lon": 12.5700724,
+    "lat": 55.6867243,
+    "display": "Copenhagen, Copenhagen Municipality, Capital Region of Denmark, 1357, Denmark"
+  },
+  "Leuven": {
+    "lon": 4.7011675,
+    "lat": 50.879202,
+    "display": "Leuven, Flemish Brabant, Flanders, Belgium"
+  },
+  "Talin": {
+    "lon": 24.7572693,
+    "lat": 59.437242,
+    "display": "Tallinn, Harju County, Estonia"
+  },
+  "Anderlecht": {
+    "lon": 4.3296526,
+    "lat": 50.8390983,
+    "display": "Anderlecht, Brussels-Capital, 1070, Belgium"
+  },
+  "Doha": {
+    "lon": 51.5029865,
+    "lat": 25.3226844,
+    "display": "Embassy of Belgium, Al Rabiya Street, Lejbailat, Doha, Qatar"
+  },
+  "Stuttgart": {
+    "lon": 9.1800132,
+    "lat": 48.7784485,
+    "display": "Stuttgart, Baden-Württemberg, Germany"
+  },
+  "Debrecen": {
+    "lon": 21.6259782,
+    "lat": 47.531399,
+    "display": "Debrecen, Debreceni járás, Hajdú-Bihar, North Great Plain, Great Plain and North, Hungary"
+  },
+  "Murcia": {
+    "lon": -1.1131029,
+    "lat": 37.9347521,
+    "display": "Murcia, Área Metropolitana de Murcia, Region of Murcia, Spain"
+  },
+  "Vaduz": {
+    "lon": 9.5227962,
+    "lat": 47.1392862,
+    "display": "Vaduz, Oberland, 9490, Liechtenstein"
+  },
+  "Atlanta": {
+    "lon": -84.3898151,
+    "lat": 33.7544657,
+    "display": "Atlanta, Fulton County, Georgia, United States"
+  },
+  "Rijeka": {
+    "lon": 14.442208,
+    "lat": 45.3267976,
+    "display": "Grad Rijeka, Primorje-Gorski Kotar County, Croatia"
+  },
+  "Seattle": {
+    "lon": 4.5497527,
+    "lat": 51.0219494,
+    "display": "Seattle, 4A-4B, Dorp, Zellaar, Bonheiden, Mechelen, Antwerp, Flanders, 2820, Belgium"
+  },
+  "Los Angeles": {
+    "lon": -118.5270144,
+    "lat": 34.264265,
+    "display": "Belgium Waffle Haus, Lindley Avenue, Granada Hills, Granada Hills South Neighborhood Council District, Los Angeles, Los Angeles County, California, 91325, United States"
+  },
+  "Vancouver": {
+    "lon": 170.141788,
+    "lat": -43.5850978,
+    "display": "Vancouver Mountain, Mackenzie District, Canterbury, New Zealand"
+  },
+  "Reims": {
+    "lon": 4.031926,
+    "lat": 49.2577886,
+    "display": "Reims, Marne, Grand Est, Metropolitan France, 51100, France"
+  },
+  "Grenchen": {
+    "lon": 7.3967199,
+    "lat": 47.1911495,
+    "display": "Grenchen, Bezirk Lebern, Amtei Solothurn-Lebern, Solothurn, 2540, Switzerland"
+  },
+  "Meaux": {
+    "lon": 2.8773541,
+    "lat": 48.9582708,
+    "display": "Meaux, Seine-et-Marne, Ile-de-France, Metropolitan France, 77100, France"
+  },
+  "Diest": {
+    "lon": 5.0504341,
+    "lat": 50.9844318,
+    "display": "Diest, Leuven, Flemish Brabant, Flanders, Belgium"
+  },
+  "Atri": {
+    "lon": 13.97535,
+    "lat": 42.5797836,
+    "display": "Atri, Teramo, Abruzzo, 64032, Italy"
+  },
+  "Francavilla": {
+    "lon": 14.7630486,
+    "lat": 41.207035,
+    "display": "Francavilla, Benevento, Campania, Italy"
+  },
+  "L'Aquila": {
+    "lon": 4.7635117,
+    "lat": 50.7749573,
+    "display": "Aquila Farm, Tourinnes-la-Grosse, Beauvechain, Nivelles, Walloon Brabant, Wallonia, Belgium"
+  },
+  "Southampton": {
+    "lon": -1.404189,
+    "lat": 50.9025349,
+    "display": "Southampton, England, United Kingdom"
+  },
+  "Zulte": {
+    "lon": 3.4753055,
+    "lat": 50.9400485,
+    "display": "Zulte, Gent, East Flanders, Flanders, 9870, Belgium"
+  },
+  "Oostende": {
+    "lon": 2.919496,
+    "lat": 51.2258565,
+    "display": "Ostend, West Flanders, Flanders, 8400, Belgium"
+  },
+  "Herentals": {
+    "lon": 4.8362595,
+    "lat": 51.1765426,
+    "display": "Herentals, Turnhout, Antwerp, Flanders, 2200, Belgium"
+  },
+  "Ballymena": {
+    "lon": -6.2760159,
+    "lat": 54.8662966,
+    "display": "Ballymena, Mid and East Antrim District, County Antrim, Northern Ireland, BT43 6DT, United Kingdom"
+  },
+  "Tempio": {
+    "lon": 5.3146231,
+    "lat": 50.5462224,
+    "display": "Il Tempio, 67, Chaussée Roosevelt, Amay, Huy, Liège, Wallonia, 4540, Belgium"
+  },
+  "Sennori": {
+    "lon": 8.5916589,
+    "lat": 40.7894457,
+    "display": "Sènnaru/Sennori, Tàttari/Sassari, Sardinia, 07036, Italy"
+  },
+  "Castelsardo": {
+    "lon": 4.2343355,
+    "lat": 51.1006455,
+    "display": "Castelsardo, 12, Temsesteenweg, Bornem, Mechelen, Antwerp, Flanders, 2880, Belgium"
+  },
+  "Sens": {
+    "lon": 3.282606,
+    "lat": 48.1978559,
+    "display": "Sens, Yonne, Bourgogne – Franche-Comté, Metropolitan France, 89100, France"
+  },
+  "Tarnby": {
+    "lon": 12.6006252,
+    "lat": 55.6246457,
+    "display": "Tårnby, Tårnby Municipality, Capital Region of Denmark, 2770, Denmark"
+  },
+  "Bergisch-Gladbach": {
+    "lon": 7.1277379,
+    "lat": 50.9929303,
+    "display": "Bergisch Gladbach, Rheinisch-Bergischer Kreis, North Rhine-Westphalia, Germany"
+  },
+  "Breda": {
+    "lon": 4.7760237,
+    "lat": 51.5887845,
+    "display": "Breda, North Brabant, Netherlands"
+  },
+  "Jesolo": {
+    "lon": 12.6538449,
+    "lat": 45.5347443,
+    "display": "Jesolo, Venezia, Veneto, 30016, Italy"
+  },
+  "Caorle": {
+    "lon": 12.905754,
+    "lat": 45.6377929,
+    "display": "Caorle, Venezia, Veneto, 30021, Italy"
+  },
+  "Zaventem": {
+    "lon": 4.4730008,
+    "lat": 50.8806207,
+    "display": "Zaventem, Halle-Vilvoorde, Flemish Brabant, Flanders, Belgium"
+  },
+  "Pori": {
+    "lon": 21.7972071,
+    "lat": 61.4866126,
+    "display": "Pori, Pori sub-region, Satakunta, Mainland Finland, Finland"
+  },
+  "Jonkoping": {
+    "lon": 14.165719,
+    "lat": 57.7825634,
+    "display": "Jönköping, Jönköpings kommun, Jönköping County, 551 86, Sweden"
+  },
+  "Niederbronn": {
+    "lon": 7.6421767,
+    "lat": 48.9510314,
+    "display": "Niederbronn-les-Bains, Haguenau-Wissembourg, Bas-Rhin, European Collectivity of Alsace, Grand Est, Metropolitan France, 67110, France"
+  },
+  "Knokke": {
+    "lon": 3.2876314,
+    "lat": 51.3464863,
+    "display": "Knokke, Knokke-Heist, Brugge, West Flanders, Flanders, 8300, Belgium"
+  },
+  "Oosterhout": {
+    "lon": 4.8630424,
+    "lat": 51.6322376,
+    "display": "Oosterhout, North Brabant, Netherlands"
+  },
+  "Aalst": {
+    "lon": 4.0392147,
+    "lat": 50.9383226,
+    "display": "Aalst, East Flanders, Flanders, Belgium"
+  },
+  "Machelen": {
+    "lon": 4.4467847,
+    "lat": 50.9015217,
+    "display": "Machelen, Halle-Vilvoorde, Flemish Brabant, Flanders, Belgium"
+  },
+  "Mouscron": {
+    "lon": 3.2142729,
+    "lat": 50.7436672,
+    "display": "Mouscron, Tournai-Mouscron, Hainaut, Wallonia, Belgium"
+  },
+  "Aranjuez": {
+    "lon": -3.6040097,
+    "lat": 40.0322289,
+    "display": "Aranjuez, Community of Madrid, 28300, Spain"
+  },
+  "Hodonin": {
+    "lon": 17.1234655,
+    "lat": 48.8563914,
+    "display": "Hodonín, okres Hodonín, South Moravian Region, Czechia"
+  },
+  "Loison-Sous-Lens": {
+    "lon": 2.8615374,
+    "lat": 50.4395494,
+    "display": "Loison-sous-Lens, Lens, Pas-de-Calais, Hauts-de-France, Metropolitan France, 62218, France"
+  },
+  "Tienen": {
+    "lon": 4.9371775,
+    "lat": 50.8074825,
+    "display": "Tienen, Leuven, Flemish Brabant, Flanders, 3300, Belgium"
+  },
+  "Ekeren": {
+    "lon": 4.4209857,
+    "lat": 51.2781955,
+    "display": "Ekeren, Antwerp, Flanders, 2180, Belgium"
+  },
+  "Epinal": {
+    "lon": 6.4503643,
+    "lat": 48.1747684,
+    "display": "Épinal, Vosges, Grand Est, Metropolitan France, 88000, France"
+  },
+  "Kongsvinger": {
+    "lon": 12.2160367,
+    "lat": 60.1899109,
+    "display": "Kongsvinger, Innlandet, Norway"
+  },
+  "Ieper": {
+    "lon": 2.8846047,
+    "lat": 50.8521947,
+    "display": "Ypres, Ieper, West Flanders, Flanders, Belgium"
+  },
+  "Sheffield": {
+    "lon": -1.4702278,
+    "lat": 53.3806626,
+    "display": "Sheffield, South Yorkshire, England, United Kingdom"
+  },
+  "Espoo": {
+    "lon": 24.6559808,
+    "lat": 60.2049651,
+    "display": "Espoo, Helsinki sub-region, Uusimaa, Mainland Finland, Finland"
+  },
+  "Kapellen": {
+    "lon": 4.4351684,
+    "lat": 51.3282134,
+    "display": "Kapellen, Antwerp, Flanders, 2950, Belgium"
+  },
+  "Suhr": {
+    "lon": 8.079534,
+    "lat": 47.373166,
+    "display": "Suhr, Bezirk Aarau, Aargau, 5034, Switzerland"
+  },
+  "Geel": {
+    "lon": 4.9903187,
+    "lat": 51.1610826,
+    "display": "Geel, Laakdal, Turnhout, Antwerp, Flanders, 2440, Belgium"
+  },
+  "Pfaffikon": {
+    "lon": 8.7819841,
+    "lat": 47.365582,
+    "display": "Pfäffikon, Bezirk Pfäffikon, Zurich, Switzerland"
+  },
+  "Kolbotn": {
+    "lon": 10.7999058,
+    "lat": 59.8106447,
+    "display": "Kolbotn, Nordre Follo, Akershus, 1410, Norway"
+  },
+  "Grigny": {
+    "lon": 5.4291721,
+    "lat": 49.6914106,
+    "display": "Rue de Grigny, Jamoigne, Chiny, Virton, Luxembourg, Wallonia, 6810, Belgium"
+  },
+  "Cours La Ville": {
+    "lon": 4.6944703,
+    "lat": 50.3928186,
+    "display": "Cours, Haut-Vent, Fosses-la-Ville, Namur, Wallonia, Belgium"
+  },
+  "Lommel": {
+    "lon": 5.3076895,
+    "lat": 51.2305657,
+    "display": "Lommel, Hamont-Achel, Maaseik, Limburg, Flanders, 3920, Belgium"
+  },
+  "Koksijde": {
+    "lon": 2.6349277,
+    "lat": 51.1187723,
+    "display": "Koksijde, Veurne, West Flanders, Flanders, 8670, Belgium"
+  },
+  "Budel": {
+    "lon": 5.5744905,
+    "lat": 51.2744706,
+    "display": "Budel, Cranendonck, North Brabant, Netherlands"
+  },
+  "Nottingham": {
+    "lon": -1.1496461,
+    "lat": 52.9534193,
+    "display": "Nottingham, Nottinghamshire, East Midlands, England, United Kingdom"
+  },
+  "Tortosa": {
+    "lon": 0.5209333,
+    "lat": 40.8110158,
+    "display": "Tortosa, Baix Ebre, Tarragona, Catalonia, Spain"
+  },
+  "Hasselt": {
+    "lon": 5.3378043,
+    "lat": 50.9303735,
+    "display": "Hasselt, Limburg, Flanders, Belgium"
+  },
+  "Barry Town": {
+    "lon": -3.266677,
+    "lat": 51.4067233,
+    "display": "Barry Town Hall, Holton Road, Gibbonsdown, Barry, Vale of Glamorgan, Wales, CF63 4HP, United Kingdom"
+  },
+  "Namur": {
+    "lon": 4.8661892,
+    "lat": 50.4665284,
+    "display": "Namur, Wallonia, Belgium"
+  },
+  "Michalovce": {
+    "lon": 21.9211949,
+    "lat": 48.7514383,
+    "display": "Michalovce, District of Michalovce, Region of Košice, 071 01, Slovakia"
+  },
+  "Oud-Heverlee": {
+    "lon": 4.6629253,
+    "lat": 50.8376275,
+    "display": "Oud-Heverlee, Leuven, Flemish Brabant, Flanders, Belgium"
+  },
+  "Amfissa": {
+    "lon": 22.3783845,
+    "lat": 38.5272729,
+    "display": "Amfissa, Municipal Unit of Amfissa, Delphi Municipality, Regional Unit of Phocis, Central Greece, Thessaly and Central Greece, 331 00, Greece"
+  },
+  "Zeist": {
+    "lon": 5.2276307,
+    "lat": 52.0892832,
+    "display": "Zeist, Utrecht, Netherlands"
+  },
+  "Cantanhede": {
+    "lon": -8.5940128,
+    "lat": 40.3461879,
+    "display": "Cantanhede, Coimbra, Portugal"
+  },
+  "Bastogne": {
+    "lon": 5.7173386,
+    "lat": 50.0023102,
+    "display": "Bastogne, Luxembourg, Wallonia, Belgium"
+  },
+  "Waver": {
+    "lon": 4.610416,
+    "lat": 50.7169694,
+    "display": "Wavre, Nivelles, Walloon Brabant, Wallonia, Belgium"
+  },
+  "Carmarthenshire": {
+    "lon": -4.2172827,
+    "lat": 51.8936698,
+    "display": "Carmarthenshire, Wales, United Kingdom"
+  },
+  "Zuchwil": {
+    "lon": 7.5594101,
+    "lat": 47.2037591,
+    "display": "Zuchwil, Bezirk Wasseramt, Amtei Bucheggberg-Wasseramt, Solothurn, 4528, Switzerland"
+  },
+  "Ciney": {
+    "lon": 5.1008664,
+    "lat": 50.2964911,
+    "display": "Ciney, Dinant, Namur, Wallonia, 5590, Belgium"
+  },
+  "Niederosterreich": {
+    "lon": 15.7632457,
+    "lat": 48.2817813,
+    "display": "Lower Austria, Austria"
+  },
+  "Konin": {
+    "lon": 18.2678662,
+    "lat": 52.2559021,
+    "display": "Konin, Greater Poland Voivodeship, Poland"
+  },
+  "Etten Leur": {
+    "lon": 4.6360813,
+    "lat": 51.5692065,
+    "display": "Etten-Leur, North Brabant, Netherlands"
+  },
+  "Tielen": {
+    "lon": 4.8965455,
+    "lat": 51.2422595,
+    "display": "Tielen, Kasterlee, Turnhout, Antwerp, Flanders, Belgium"
+  },
+  "Echt": {
+    "lon": 5.8719765,
+    "lat": 51.1073016,
+    "display": "Echt, Echt-Susteren, Limburg, Netherlands"
+  },
+  "Wolvertem": {
+    "lon": 4.3084259,
+    "lat": 50.9506751,
+    "display": "Wolvertem, Meise, Halle-Vilvoorde, Flemish Brabant, Flanders, 1861, Belgium"
+  },
+  "Sierre": {
+    "lon": 7.5323195,
+    "lat": 46.2922522,
+    "display": "Sierre, Valais central, Valais/Wallis, Switzerland"
+  },
+  "Kontich": {
+    "lon": 4.4454784,
+    "lat": 51.1353297,
+    "display": "Kontich, Antwerp, Flanders, 2550, Belgium"
+  },
+  "Monza": {
+    "lon": 9.2788304,
+    "lat": 45.6395418,
+    "display": "Monza and Brianza, Lombardy, Italy"
+  },
+  "Rhyl": {
+    "lon": -3.4907258,
+    "lat": 53.3207425,
+    "display": "Rhyl, Denbighshire, Wales, LL18 1RG, United Kingdom"
+  },
+  "Belsele": {
+    "lon": 4.08979,
+    "lat": 51.14633,
+    "display": "Belsele, Sint-Niklaas, East Flanders, Flanders, 9111, Belgium"
+  },
+  "La Louvière": {
+    "lon": 4.18563,
+    "lat": 50.4793576,
+    "display": "La Louvière, Hainaut, Wallonia, 7100, Belgium"
+  },
+  "Fussach": {
+    "lon": 9.6631092,
+    "lat": 47.4791446,
+    "display": "Fußach, Bezirk Bregenz, Vorarlberg, 6972, Austria"
+  },
+  "Livingston": {
+    "lon": -3.5175773,
+    "lat": 55.8829582,
+    "display": "Livingston, West Lothian, Scotland, EH54 6GS, United Kingdom"
+  },
+  "Ridderkerk": {
+    "lon": 4.5999778,
+    "lat": 51.8714812,
+    "display": "Ridderkerk, South Holland, Netherlands"
+  },
+  "Fauldhouse": {
+    "lon": -3.7192484,
+    "lat": 55.8224448,
+    "display": "Fauldhouse, Shotts Road, Braehead Farm, Fauldhouse, West Lothian, Scotland, EH47 9DL, United Kingdom"
+  },
+  "Kristiansand": {
+    "lon": 7.931858,
+    "lat": 58.0856276,
+    "display": "Kristiansand, Agder, Norway"
+  },
+  "Bouillon": {
+    "lon": 5.0672528,
+    "lat": 49.7949836,
+    "display": "Bouillon, Neufchâteau, Luxembourg, Wallonia, Belgium"
+  },
+  "Alginet": {
+    "lon": -0.4716912,
+    "lat": 39.2651129,
+    "display": "Alginet, la Ribera Alta, Valencia, Valencian Community, 46230, Spain"
+  },
+  "Strombeek": {
+    "lon": 4.3553984,
+    "lat": 50.909608,
+    "display": "Strombeek, Strombeek-Bever, Grimbergen, Halle-Vilvoorde, Flemish Brabant, Flanders, 1853, Belgium"
+  },
+  "Mons": {
+    "lon": 3.951958,
+    "lat": 50.4549568,
+    "display": "Mons, Hainaut, Wallonia, Belgium"
+  },
+  "Aalborg": {
+    "lon": 9.9215263,
+    "lat": 57.0462626,
+    "display": "Aalborg, Aalborg Municipality, North Denmark Region, 9000, Denmark"
+  },
+  "Cork": {
+    "lon": -8.4726423,
+    "lat": 51.8985136,
+    "display": "Cork, County Cork, Munster, Ireland"
+  },
+  "Arlon": {
+    "lon": 5.8167711,
+    "lat": 49.6834601,
+    "display": "Arlon, Luxembourg, Wallonia, Belgium"
+  },
+  "Ethe-Belmont": {
+    "lon": 5.5603473,
+    "lat": 49.5804375,
+    "display": "Ethe Belmont, Rue de Rabais, Ethe, Virton, Luxembourg, Wallonia, 6760, Belgium"
+  },
+  "Farum": {
+    "lon": 12.3702505,
+    "lat": 55.8101232,
+    "display": "Farum, Furesø Municipality, Capital Region of Denmark, 3520, Denmark"
+  },
+  "Ath": {
+    "lon": 3.7769485,
+    "lat": 50.6311349,
+    "display": "Ath, Hainaut, Wallonia, Belgium"
+  },
+  "Tampere": {
+    "lon": 23.7616372,
+    "lat": 61.4977929,
+    "display": "Tampere, Tampere sub-region, Pirkanmaa, Mainland Finland, Finland"
+  },
+  "Kutno": {
+    "lon": 19.3874589,
+    "lat": 52.2222131,
+    "display": "Kutno, Kutno County, Łódź Voivodeship, Poland"
+  },
+  "Cartaxo": {
+    "lon": -8.7863222,
+    "lat": 39.1619462,
+    "display": "Cartaxo, Santarém, Portugal"
+  },
+  "Boulogne-Sur-Mer": {
+    "lon": 1.6118771,
+    "lat": 50.7259985,
+    "display": "Boulogne-sur-Mer, Pas-de-Calais, Hauts-de-France, Metropolitan France, 62200, France"
+  },
+  "Bulle": {
+    "lon": 7.0581152,
+    "lat": 46.6190969,
+    "display": "Bulle, Gruyère District, Fribourg, Switzerland"
+  },
+  "Perth": {
+    "lon": -3.4303103,
+    "lat": 56.3958757,
+    "display": "Perth, Perth and Kinross, Scotland, PH1 5TZ, United Kingdom"
+  },
+  "Lubeck": {
+    "lon": 10.684738,
+    "lat": 53.866444,
+    "display": "Lübeck, Schleswig-Holstein, Germany"
+  },
+  "Dessel": {
+    "lon": 5.1128221,
+    "lat": 51.2390765,
+    "display": "Dessel, Turnhout, Antwerp, Flanders, Belgium"
+  },
+  "Barry": {
+    "lon": -3.2666925,
+    "lat": 51.4065052,
+    "display": "Barry, Vale of Glamorgan, Wales, United Kingdom"
+  },
+  "Maasmechelen": {
+    "lon": 5.6960212,
+    "lat": 50.9634179,
+    "display": "Maasmechelen, Tongeren, Limburg, Flanders, Belgium"
+  },
+  "Eupen": {
+    "lon": 6.0312717,
+    "lat": 50.6305665,
+    "display": "Eupen, Verviers, Liège, Wallonia, Belgium"
+  },
+  "Volendam": {
+    "lon": 5.0682736,
+    "lat": 52.4963759,
+    "display": "Volendam, Edam-Volendam, North Holland, Netherlands"
+  },
+  "Kessel-Lo": {
+    "lon": 4.7313734,
+    "lat": 50.8852456,
+    "display": "Kessel-Lo, Leuven, Flemish Brabant, Flanders, 3010, Belgium"
+  },
+  "Campina": {
+    "lon": 25.7348044,
+    "lat": 45.1256956,
+    "display": "Câmpina, Prahova, 105600, Romania"
+  },
+  "Haverfordwest": {
+    "lon": -4.9684249,
+    "lat": 51.8021275,
+    "display": "Haverfordwest, Pembrokeshire, Wales, United Kingdom"
+  },
+  "Gothenburg": {
+    "lon": 11.9670171,
+    "lat": 57.7072326,
+    "display": "Gothenburg, Göteborgs Stad, Västra Götaland County, 411 10, Sweden"
+  },
+  "Pisek": {
+    "lon": 14.147769,
+    "lat": 49.3089887,
+    "display": "Písek, okres Písek, South Bohemian Region, Southwest, Czechia"
+  },
+  "Loenhout": {
+    "lon": 4.6432154,
+    "lat": 51.3985762,
+    "display": "Loenhout, Wuustwezel, Antwerp, Flanders, Belgium"
+  },
+  "Tubeke": {
+    "lon": 4.204696,
+    "lat": 50.69302,
+    "display": "Tubize, Nivelles, Walloon Brabant, Wallonia, 1480, Belgium"
+  },
+  "Veldwezelt": {
+    "lon": 5.6323789,
+    "lat": 50.8656032,
+    "display": "Veldwezelt, Lanaken, Tongeren, Limburg, Flanders, Belgium"
+  },
+  "Nieuwpoort": {
+    "lon": 2.751666,
+    "lat": 51.1294306,
+    "display": "Nieuwpoort, Veurne, West Flanders, Flanders, 8620, Belgium"
+  },
+  "Calais": {
+    "lon": 1.8538446,
+    "lat": 50.9524769,
+    "display": "Calais, Pas-de-Calais, Hauts-de-France, Metropolitan France, 62100, France"
+  },
+  "Falkirk": {
+    "lon": -3.784376,
+    "lat": 55.9991959,
+    "display": "Falkirk, Scotland, United Kingdom"
+  },
+  "Lovech": {
+    "lon": 24.4910249,
+    "lat": 43.0444495,
+    "display": "Lovech, Bulgaria"
+  },
+  "Apeldoorn": {
+    "lon": 5.9300775,
+    "lat": 52.1795738,
+    "display": "Apeldoorn, Gelderland, Netherlands"
+  },
+  "Szombathely": {
+    "lon": 16.6187625,
+    "lat": 47.2291184,
+    "display": "Szombathely, Szombathelyi járás, Vas, Western Transdanubia, Transdanubia, Hungary"
+  },
+  "Beringen": {
+    "lon": 5.2266869,
+    "lat": 51.0489641,
+    "display": "Beringen, Hasselt, Limburg, Flanders, Belgium"
+  },
+  "Oostakker": {
+    "lon": 3.7644128,
+    "lat": 51.1001986,
+    "display": "Oostakker, Ghent, Gent, East Flanders, Flanders, 9041, Belgium"
+  },
+  "Livadia": {
+    "lon": 22.8790519,
+    "lat": 38.438148,
+    "display": "Livadia, Levadia Municipal Unit, Municipality of Livadia, Regional Unit of Boeotia, Central Greece, Thessaly and Central Greece, 321 00, Greece"
+  },
+  "Durres": {
+    "lon": 19.4462348,
+    "lat": 41.313255,
+    "display": "Bashkia Durrës, Durrës County, Northern Albania, Albania"
+  },
+  "Abrantes": {
+    "lon": -8.1975227,
+    "lat": 39.4630269,
+    "display": "Abrantes, Santarém, Portugal"
+  },
+  "Sosnowiec": {
+    "lon": 19.2155628,
+    "lat": 50.2712401,
+    "display": "Sosnowiec, Metropolis GZM, Silesian Voivodeship, Poland"
+  },
+  "Pinatar": {
+    "lon": -0.7641468,
+    "lat": 37.8313031,
+    "display": "Pinatar, San Pedro del Pinatar, Campo de Cartagena y Mar Menor, Region of Murcia, Spain"
+  },
+  "Paralimni": {
+    "lon": 33.9828013,
+    "lat": 35.0391526,
+    "display": "Paralimni, Paralimni - Deyneia Municipality, Famagusta District, Cyprus"
+  },
+  "Sint Truiden": {
+    "lon": 5.1858896,
+    "lat": 50.8152784,
+    "display": "Sint-Truiden, Hasselt, Limburg, Flanders, Belgium"
+  },
+  "Lagos": {
+    "lon": 3.3941795,
+    "lat": 6.4550575,
+    "display": "Lagos, Lagos Island, Lagos State, 100242, Nigeria"
+  },
+  "Stara Pazova": {
+    "lon": 20.1588763,
+    "lat": 44.9846077,
+    "display": "Stara Pazova, Stara Pazova Municipality, Srem Administrative District, Vojvodina, 22300, Serbia"
+  },
+  "Clairefontaine": {
+    "lon": 1.9224804,
+    "lat": 48.6149581,
+    "display": "Centre national de formation et d'entraînement de Clairefontaine, Chemin des Bruyères, Clairefontaine-en-Yvelines, Rambouillet, Yvelines, Ile-de-France, Metropolitan France, 78120, France"
+  },
+  "Montpellier": {
+    "lon": 3.8767337,
+    "lat": 43.6112422,
+    "display": "Montpellier, Hérault, Occitania, Metropolitan France, France"
+  },
+  "Denderleeuw": {
+    "lon": 4.061375,
+    "lat": 50.8877794,
+    "display": "Denderleeuw, Aalst, East Flanders, Flanders, Belgium"
+  },
+  "Doetinchem": {
+    "lon": 6.2814551,
+    "lat": 51.9585348,
+    "display": "Doetinchem, Gelderland, Netherlands"
+  },
+  "Tilburg": {
+    "lon": 4.9253004,
+    "lat": 51.4461532,
+    "display": "Constructiebedrijf Leo van Tilburg, Limfalaan, Baarle-Hertog, Turnhout, Antwerp, Flanders, Belgium"
+  },
+  "Penafiel": {
+    "lon": -8.2855653,
+    "lat": 41.2061892,
+    "display": "Penafiel, Porto, Portugal"
+  },
+  "Ferrara": {
+    "lon": 11.827939,
+    "lat": 44.7667642,
+    "display": "Ferrara, Emilia-Romagna, Italy"
+  },
+  "Chisinau": {
+    "lon": 28.8322923,
+    "lat": 47.0245117,
+    "display": "Chișinău, Chișinău Municipality, Moldova"
+  },
+  "Botosani": {
+    "lon": 26.759334,
+    "lat": 47.8528263,
+    "display": "Botoșani, Romania"
+  },
+  "Bienne": {
+    "lon": 7.2439029,
+    "lat": 47.1402077,
+    "display": "Biel/Bienne, Biel/Bienne administrative district, Seeland administrative region, Bern, Switzerland"
+  },
+  "Cartagena": {
+    "lon": -0.987511,
+    "lat": 37.6155018,
+    "display": "Cartagena, Campo de Cartagena y Mar Menor, Region of Murcia, Spain"
+  },
+  "Pylos": {
+    "lon": 21.6963888,
+    "lat": 36.9137968,
+    "display": "Pylos, Municipality of Pylos and Nestor, Messenia Regional Unit, Peloponnese Region, Peloponnese, Western Greece and the Ionian, 240 01, Greece"
+  },
+  "Zapresic": {
+    "lon": 15.8050436,
+    "lat": 45.8572728,
+    "display": "Town of Zaprešić, Zagreb County, Croatia"
+  },
+  "Parchal": {
+    "lon": -8.5164435,
+    "lat": 37.1358048,
+    "display": "Parchal, Estômbar e Parchal, Lagoa, Faro, Portugal"
+  },
+  "Thun": {
+    "lon": 7.628086,
+    "lat": 46.7582827,
+    "display": "Thun, Horrenbach-Buchen, Thun administrative district, Oberland administrative region, Bern, Switzerland"
+  },
+  "Marijampole": {
+    "lon": 23.3503665,
+    "lat": 54.5562536,
+    "display": "Marijampolė, Marijampolė Municipality, Marijampolė County, Lithuania"
+  },
+  "Aachen": {
+    "lon": 6.083862,
+    "lat": 50.776351,
+    "display": "Aachen, Aachen (district), North Rhine-Westphalia, Germany"
+  },
+  "Wiltz": {
+    "lon": 5.9321021,
+    "lat": 49.9666914,
+    "display": "Wiltz, Canton Wiltz, Luxembourg"
+  },
+  "Gdansk": {
+    "lon": 18.6540233,
+    "lat": 54.3482907,
+    "display": "Gdańsk, Pomeranian Voivodeship, Poland"
+  },
+  "Lier": {
+    "lon": 4.5696516,
+    "lat": 51.131069,
+    "display": "Lier, Mechelen, Antwerp, Flanders, 2500, Belgium"
+  },
+  "Manchester": {
+    "lon": -2.2324547,
+    "lat": 53.4424618,
+    "display": "Manchester, Greater Manchester, England, United Kingdom"
+  },
+  "Wigan And Leigh": {
+    "lon": -2.5171495,
+    "lat": 53.4960455,
+    "display": "Leigh, Wigan, Greater Manchester, England, United Kingdom"
+  },
+  "Barcelos": {
+    "lon": -8.6192306,
+    "lat": 41.5314496,
+    "display": "Barcelos, Braga, Portugal"
+  },
+  "Milton Keynes": {
+    "lon": -0.7594092,
+    "lat": 52.0406502,
+    "display": "Milton Keynes, City of Milton Keynes, England, United Kingdom"
+  },
+  "Bristol": {
+    "lon": -2.5972985,
+    "lat": 51.4538022,
+    "display": "Bristol, City of Bristol, West of England, England, United Kingdom"
+  },
+  "Felcsut": {
+    "lon": 18.5862386,
+    "lat": 47.4545349,
+    "display": "Felcsút, Bicskei járás, Fejér, Central Transdanubia, Transdanubia, 8086, Hungary"
+  },
+  "Viborg": {
+    "lon": 9.4059354,
+    "lat": 56.4469128,
+    "display": "Viborg, Viborg Municipality, Central Denmark Region, 8800, Denmark"
+  },
+  "Antalya": {
+    "lon": 30.7030242,
+    "lat": 36.8865728,
+    "display": "Antalya, Muratpaşa, Antalya, Mediterranean Region, 07050, Turkey"
+  },
+  "Funchal": {
+    "lon": -16.9086783,
+    "lat": 32.6496497,
+    "display": "Funchal, Madeira, Portugal"
+  },
+  "Valenciennes": {
+    "lon": 3.5234846,
+    "lat": 50.3579317,
+    "display": "Valenciennes, Nord, Hauts-de-France, Metropolitan France, 59300, France"
+  },
+  "Molenbeek": {
+    "lon": 4.338636,
+    "lat": 50.8545959,
+    "display": "Molenbeek-Saint-Jean - Sint-Jans-Molenbeek, Brussels-Capital, 1080, Belgium"
+  },
+  "Sion": {
+    "lon": 4.0496985,
+    "lat": 50.9835759,
+    "display": "Sion, Gravin de Robianostraat, Gijzegem, Aalst, East Flanders, Flanders, 9308, Belgium"
+  },
+  "Jerez": {
+    "lon": -6.1377402,
+    "lat": 36.6816936,
+    "display": "Jerez, Campiña de Jerez, Cádiz, Andalusia, Spain"
+  },
+  "Budaörs": {
+    "lon": 18.9611838,
+    "lat": 47.4611263,
+    "display": "Budaörs, Budakeszi járás, Pest, Central Hungary, 2040, Hungary"
+  },
+  "Edinburgh": {
+    "lon": -3.1883749,
+    "lat": 55.9533456,
+    "display": "City of Edinburgh, Scotland, United Kingdom"
+  },
+  "Esch-Sur-Alzette": {
+    "lon": 5.9850306,
+    "lat": 49.4959628,
+    "display": "Esch-sur-Alzette, Canton Esch-sur-Alzette, Luxembourg"
+  },
+  "Vuillermet": {
+    "lon": 5.9430696,
+    "lat": 45.5751955,
+    "display": "Vuillermet, Rue Centrale, Bolliet, Bassens, Chambéry, Savoy, Auvergne-Rhône-Alpes, Metropolitan France, 73000, France"
+  }
+}
