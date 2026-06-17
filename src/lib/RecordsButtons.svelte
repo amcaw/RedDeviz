@@ -27,7 +27,7 @@
       : '';
 
   // Belgium's score from its own perspective (gf:ga).
-  function belScore(m?: { score: string; home: string }): string {
+  function belScore(m?: { score: string; home: string } | null): string {
     if (!m) return '';
     const [h, a] = m.score.split('-');
     return m.home === 'Belgium' ? `${h}:${a}` : `${a}:${h}`;

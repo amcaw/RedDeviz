@@ -332,6 +332,9 @@
     return () => cancelAnimationFrame(raf);
   });
 
+  // The match currently hovered or selected (drives focus/dimming).
+  const activeMatch = $derived(hovered ?? selected);
+
   // A focus is active when a series/city is highlighted OR a single match is
   // hovered/selected — in all cases the off-years are greyed out.
   const yearFocus = $derived(hasHighlight || !!activeMatch);
@@ -389,8 +392,6 @@
 
   // Host countries (atlas names) present in the current filter -> highlight fill.
   const hostSet = $derived(new Set(filtered.map((m) => atlasName(m.hostCountry))));
-
-  const activeMatch = $derived(hovered ?? selected);
 
   // ---- city markers: one dot per match city, sized by match count --------
   const cityMarkers = $derived.by(() => {
@@ -486,14 +487,18 @@
         if (event.sourceEvent) userZoomed = true;
       });
 
-  onMount(async () => {
-    // resolve the theme-aware year-ring colours, and keep them in sync if the OS
-    // light/dark preference changes while the page is open.
+  // Resolve the theme-aware year-ring colours, and keep them in sync if the OS
+  // light/dark preference flips while the page is open. (A separate $effect so the
+  // cleanup can be returned synchronously — an async onMount can't return one.)
+  $effect(() => {
     refreshYearRamp();
     const mq = window.matchMedia('(prefers-color-scheme: light)');
     const onTheme = () => refreshYearRamp();
     mq.addEventListener?.('change', onTheme);
+    return () => mq.removeEventListener?.('change', onTheme);
+  });
 
+  onMount(async () => {
     const res = await fetch(`${base}/countries-50m.json`);
     const topo = await res.json();
     const feat: any = topojson.feature(topo, topo.objects.countries);
@@ -502,8 +507,6 @@
 
     zoomBehavior = zoomBehaviorFactory();
     select(svgEl).call(zoomBehavior);
-
-    return () => mq.removeEventListener?.('change', onTheme);
   });
 
   // Smoothly zoom the map so a coordinate is centred at the given scale.

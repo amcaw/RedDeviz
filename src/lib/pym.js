@@ -8,8 +8,11 @@
 // layout adds a `standalone` body class for that case so the widget fills the
 // viewport instead.
 import { onMount } from 'svelte';
+// pym.js ships no type declarations; the resolved JS file is untyped.
+// @ts-ignore
 import pym from 'pym.js';
 
+/** @type {any} */
 let pymChild = null;
 
 /** Create the pym Child on mount. Safe to call from any component's root. */

@@ -91,7 +91,7 @@
           src={detail.homeLogo}
           alt=""
           class="logo"
-          onerror={(e) => (e.currentTarget.style.display = 'none')}
+          onerror={(e) => ((e.currentTarget as HTMLImageElement).style.display = 'none')}
         />
       {/if}
       <span class="name">{fr(match.home)}</span>
@@ -118,7 +118,7 @@
           src={detail.awayLogo}
           alt=""
           class="logo"
-          onerror={(e) => (e.currentTarget.style.display = 'none')}
+          onerror={(e) => ((e.currentTarget as HTMLImageElement).style.display = 'none')}
         />
       {/if}
       <span class="name">{fr(match.away)}</span>
