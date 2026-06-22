@@ -31,7 +31,17 @@ jobs:
           node-version: 20
 
       - name: Fetch new matches and patch data
-        run: node scripts/auto-update.mjs
+        # The RBFA API (Akamai) and Nominatim sometimes block GitHub's datacenter
+        # IPs. The script is idempotent (re-running only processes what's still
+        # new), so retry a few times to ride out a transient block before failing.
+        run: |
+          for attempt in 1 2 3; do
+            if node scripts/auto-update.mjs; then exit 0; fi
+            echo "::warning::auto-update attempt $attempt failed (RBFA/Nominatim may be blocking the runner IP); retrying in 90s…"
+            sleep 90
+          done
+          echo "::error::auto-update failed after 3 attempts"
+          exit 1
 
       - name: Commit changes if any
         id: commit
