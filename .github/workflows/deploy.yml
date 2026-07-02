@@ -42,3 +42,8 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          # GitHub's Pages publish pipeline is occasionally slow to report the
+          # deployment as live; give it longer than the 10-min default before the
+          # action gives up (the build + artifact upload already succeeded).
+          timeout: 1800000
