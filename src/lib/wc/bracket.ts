@@ -93,21 +93,47 @@ function normaliseRound(events: any[], slug: string, round: RoundKey): WcMatch[]
     });
 }
 
-function resolveFeeds(m: any, prev: WcMatch[]): [number, number] {
-  const one = (c: any, real: Side | null): number => {
-    const n = placeholderNum(c);
-    if (n) return n;
-    if (real) {
-      const idx = prev.findIndex(
-        (p) =>
-          (p.home?.name === real.name && p.home?.winner) ||
-          (p.away?.name === real.name && p.away?.winner)
-      );
-      if (idx >= 0) return idx + 1;
+interface SlotRes {
+  num: number;
+  real: boolean;
+}
+
+function resolveSlot(c: any, real: Side | null, prev: WcMatch[]): SlotRes {
+  if (real) {
+    const idx = prev.findIndex(
+      (p) =>
+        (p.home?.name === real.name && p.home?.winner) ||
+        (p.away?.name === real.name && p.away?.winner)
+    );
+    if (idx >= 0) return { num: idx + 1, real: true };
+  }
+  const n = placeholderNum(c);
+  return { num: n ?? 0, real: false };
+}
+
+function assignFeeds(nexts: any[], prev: WcMatch[]) {
+  const slots = nexts.map((m) => [
+    resolveSlot(m._home, m.home, prev),
+    resolveSlot(m._away, m.away, prev)
+  ]);
+  const count = new Map<number, number>();
+  for (const pair of slots)
+    for (const s of pair) if (s.num) count.set(s.num, (count.get(s.num) ?? 0) + 1);
+  const missing: number[] = [];
+  for (let n = 1; n <= prev.length; n++) if (!count.get(n)) missing.push(n);
+  for (const pair of slots) {
+    for (const s of pair) {
+      const dup = s.num !== 0 && (count.get(s.num) ?? 0) > 1;
+      if ((s.num === 0 || (dup && !s.real)) && missing.length) {
+        if (s.num) count.set(s.num, (count.get(s.num) ?? 1) - 1);
+        s.num = missing.shift()!;
+        count.set(s.num, 1);
+      }
     }
-    return 0;
-  };
-  return [one(m._home, m.home), one(m._away, m.away)];
+  }
+  nexts.forEach((m, i) => {
+    m.feeds = [slots[i][0].num, slots[i][1].num];
+  });
 }
 
 const tbd = (round: RoundKey, num: number, feeds: [number, number], date?: string): WcMatch => ({
@@ -131,19 +157,19 @@ export async function fetchBracket(signal?: AbortSignal): Promise<Bracket> {
   const R16 = normaliseRound(events, 'round-of-16', 'R16');
   const QF = normaliseRound(events, 'quarterfinals', 'QF');
 
-  for (const m of R16 as any[]) m.feeds = resolveFeeds(m, R32);
-  for (const m of QF as any[]) m.feeds = resolveFeeds(m, R16);
+  assignFeeds(R16, R32);
+  assignFeeds(QF, R16);
 
   let SF = normaliseRound(events, 'semifinals', 'SF');
   if (SF.length === 2) {
-    for (const m of SF as any[]) m.feeds = resolveFeeds(m, QF);
+    assignFeeds(SF, QF);
   } else {
     SF = [tbd('SF', 1, [1, 2], '2026-07-14T00:00Z'), tbd('SF', 2, [3, 4], '2026-07-15T00:00Z')];
   }
 
   let F = normaliseRound(events, 'final', 'F');
   if (F.length === 1) {
-    for (const m of F as any[]) m.feeds = resolveFeeds(m, SF);
+    assignFeeds(F, SF);
   } else {
     F = [tbd('F', 1, [1, 2], '2026-07-19T00:00Z')];
   }
