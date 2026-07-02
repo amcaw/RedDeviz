@@ -24,3 +24,6 @@ vite.config.ts.timestamp-*
 
 # Promo video tooling & output (not part of the app)
 /promo
+
+# Working asset kept for later, never committed
+1782894887525.jpg

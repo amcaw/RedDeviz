@@ -250,9 +250,9 @@
     "display": "City of Zagreb, Croatia"
   },
   "Lugano": {
-    "lon": 9.2369985,
-    "lat": 46.0200392,
-    "display": "Lugano, 26, Via Como, Loveno, Menaggio, Como, Lombardy, 22017, Italy"
+    "lon": 8.9512275,
+    "lat": 46.0038007,
+    "display": "Lugano, Distretto di Lugano, Ticino, Switzerland"
   },
   "Bari": {
     "lon": 16.8620293,
@@ -800,14 +800,14 @@
     "display": "Magdeburg, Saxony-Anhalt, Germany"
   },
   "Lyon": {
-    "lon": 4.2448516,
-    "lat": 50.3093628,
-    "display": "Bois Lyon, Leers-et-Fosteau, Thuin, Hainaut, Wallonia, 6530, Belgium"
+    "lon": 4.8320114,
+    "lat": 45.7578137,
+    "display": "Lyon, Métropole de Lyon, Rhône, Auvergne-Rhône-Alpes, France"
   },
   "Nice": {
-    "lon": 15.609496,
-    "lat": 58.4046718,
-    "display": "Nice, Överstegatan, T1, Ekkällan, Linköpings domkyrkodistrikt, Linköping, Linköpings kommun, Östergötland County, 582 12, Sweden"
+    "lon": 7.2683912,
+    "lat": 43.7009358,
+    "display": "Nice, Maritime Alps, Provence-Alpes-Côte d'Azur, France"
   },
   "Toulouse": {
     "lon": 1.4442433,
@@ -820,9 +820,9 @@
     "display": "Villeneuve-d'Ascq, Lille, Nord, Hauts-de-France, Metropolitan France, 59491, France"
   },
   "Faro": {
-    "lon": -5.3448415,
-    "lat": 36.1096508,
-    "display": "Europa Point Trinity Lighthouse, Kusuma Promenade, Gibraltar, GX11 1AA, Gibraltar"
+    "lon": -7.935182,
+    "lat": 37.0162944,
+    "display": "Faro, Portugal"
   },
   "Sotsji": {
     "lon": 39.723109,
@@ -855,9 +855,9 @@
     "display": "Rostov-on-Don, Rostov Oblast, Southern Federal District, Russia"
   },
   "Kazan": {
-    "lon": -46.4093826,
-    "lat": -23.4238238,
-    "display": "Kazan  Comercio Importacao e Exportacao Ltda, 1514, Avenida Francisco Xavier Corrêa, Inocoop, Bonsucesso, District of Jardim Presidente Dutra, Guarulhos, São Paulo, Southeast Region, 07174-530, Brazil"
+    "lon": 49.1115022,
+    "lat": 55.7946485,
+    "display": "Kazan, Tatarstan, Volga Federal District, Russia"
   },
   "Sint-Petersburg": {
     "lon": 30.3430607,
@@ -930,14 +930,14 @@
     "display": "Seattle, King County, Washington, United States"
   },
   "Los Angeles": {
-    "lon": -118.5270144,
-    "lat": 34.264265,
-    "display": "Belgium Waffle Haus, Lindley Avenue, Granada Hills, Granada Hills South Neighborhood Council District, Los Angeles, Los Angeles County, California, 91325, United States"
+    "lon": -118.242766,
+    "lat": 34.0536909,
+    "display": "Los Angeles, Los Angeles County, California, United States"
   },
   "Vancouver": {
-    "lon": 170.141788,
-    "lat": -43.5850978,
-    "display": "Vancouver Mountain, Mackenzie District, Canterbury, New Zealand"
+    "lon": -123.113952,
+    "lat": 49.2608724,
+    "display": "Vancouver, Metro Vancouver Regional District, British Columbia, Canada"
   },
   "Reims": {
     "lon": 4.031926,
@@ -970,9 +970,9 @@
     "display": "Francavilla, Benevento, Campania, Italy"
   },
   "L'Aquila": {
-    "lon": 4.7635117,
-    "lat": 50.7749573,
-    "display": "Aquila Farm, Tourinnes-la-Grosse, Beauvechain, Nivelles, Walloon Brabant, Wallonia, Belgium"
+    "lon": 13.610341,
+    "lat": 42.1368853,
+    "display": "L'Aquila, Abruzzo, Italy"
   },
   "Southampton": {
     "lon": -1.404189,
@@ -1000,9 +1000,9 @@
     "display": "Ballymena, Mid and East Antrim District, County Antrim, Northern Ireland, BT43 6DT, United Kingdom"
   },
   "Tempio": {
-    "lon": 5.3146231,
-    "lat": 50.5462224,
-    "display": "Il Tempio, 67, Chaussée Roosevelt, Amay, Huy, Liège, Wallonia, 4540, Belgium"
+    "lon": 9.1035159,
+    "lat": 40.8973821,
+    "display": "Tempio Pausania, Sardinia, Italy"
   },
   "Sennori": {
     "lon": 8.5916589,
@@ -1010,9 +1010,9 @@
     "display": "Sènnaru/Sennori, Tàttari/Sassari, Sardinia, 07036, Italy"
   },
   "Castelsardo": {
-    "lon": 4.2343355,
-    "lat": 51.1006455,
-    "display": "Castelsardo, 12, Temsesteenweg, Bornem, Mechelen, Antwerp, Flanders, 2880, Belgium"
+    "lon": 8.7131417,
+    "lat": 40.9162712,
+    "display": "Castelsardo, Sassari, Sardinia, Italy"
   },
   "Sens": {
     "lon": 3.282606,
@@ -1165,9 +1165,9 @@
     "display": "Kolbotn, Nordre Follo, Akershus, 1410, Norway"
   },
   "Grigny": {
-    "lon": 5.4291721,
-    "lat": 49.6914106,
-    "display": "Rue de Grigny, Jamoigne, Chiny, Virton, Luxembourg, Wallonia, 6810, Belgium"
+    "lon": 2.3860488,
+    "lat": 48.655886,
+    "display": "Grigny, Évry, Essonne, Ile-de-France, France"
   },
   "Cours La Ville": {
     "lon": 4.6944703,
