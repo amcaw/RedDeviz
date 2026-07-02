@@ -106,8 +106,10 @@
   }
   .viz {
     width: 100%;
-    max-width: min(100%, calc(100dvh - 66px));
     margin: 0 auto;
+  }
+  :global(body.standalone) .viz {
+    max-width: min(100%, calc(100dvh - 66px));
   }
   .backdrop {
     position: fixed;
