@@ -7,7 +7,8 @@ name: Refresh match data
 # other workflows.)
 on:
   schedule:
-    - cron: '0 4 * * *' # 04:00 UTC daily (after late-evening kick-offs have finished)
+    - cron: '0 4 * * *' # 04:00 UTC — after late (North American) kick-offs finish
+    - cron: '0 12 * * *' # 12:00 UTC — catches RTBF's morning video uploads same-day
   workflow_dispatch: # allow manual runs from the Actions tab
 
 permissions:
@@ -30,18 +31,23 @@ jobs:
         with:
           node-version: 20
 
+      - name: Fetch RTBF World Cup highlight videos (YouTube RSS)
+        # Runs FIRST so video embeds still land even when the RBFA API blocks the
+        # runner. Accumulates match summaries into src/data/wc-videos.json.
+        run: node scripts/fetch-wc-videos.mjs || echo "::warning::wc-videos fetch failed; keeping existing mapping"
+
       - name: Fetch new matches and patch data
         # The RBFA API (Akamai) and Nominatim sometimes block GitHub's datacenter
         # IPs. The script is idempotent (re-running only processes what's still
-        # new), so retry a few times to ride out a transient block before failing.
+        # new), so retry a few times, then keep going — a block must not prevent
+        # committing the video updates fetched above.
         run: |
           for attempt in 1 2 3; do
             if node scripts/auto-update.mjs; then exit 0; fi
             echo "::warning::auto-update attempt $attempt failed (RBFA/Nominatim may be blocking the runner IP); retrying in 90s…"
             sleep 90
           done
-          echo "::error::auto-update failed after 3 attempts"
-          exit 1
+          echo "::error::auto-update failed after 3 attempts (video updates, if any, still get committed)"
 
       - name: Commit changes if any
         id: commit
