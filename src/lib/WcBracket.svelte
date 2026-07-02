@@ -223,6 +223,13 @@
   interface Flag { x: number; y: number; side: Side; advanced: boolean; big: boolean; delay: number; }
   interface Dot { x: number; y: number; delay: number; }
   interface Score { x: number; y: number; text: string; pens: string | null; video: WcVideoRef | null; delay: number; }
+  interface MatchDate { x: number; y: number; text: string; delay: number; }
+
+  const ddmm = (iso?: string) => {
+    if (!iso) return '';
+    const d = new Date(iso);
+    return `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}`;
+  };
 
   const geometry = $derived.by(() => {
     void isLight;
@@ -230,6 +237,7 @@
     const flags: Flag[] = [];
     const dots: Dot[] = [];
     const scores: Score[] = [];
+    const dates: MatchDate[] = [];
 
     for (const round of ROUND_ORDER) {
       const lvl = LVL[round];
@@ -294,6 +302,18 @@
             video: videos[key] ?? null,
             delay: COL_BASE[round] + 0.1 + sweep(m.angle) * 0.02
           });
+        } else if (m.state === 'pre' && m.date) {
+          const [mx, my] = pt(lvl, m.angle);
+          const bothKnown = !!(kids[0]?.side && kids[1]?.side);
+          dates.push({
+            x: mx,
+            y: my,
+            text: ddmm(m.date),
+            delay:
+              (bothKnown ? COL_BASE[prevRound ?? round] : GREY_BASE[round]) +
+              0.12 +
+              sweep(m.angle) * 0.02
+          });
         }
       }
     }
@@ -312,7 +332,7 @@
           });
       }
     }
-    return { segs, flags, dots, scores };
+    return { segs, flags, dots, scores, dates };
   });
 </script>
 
@@ -397,6 +417,12 @@
     {/each}
   </g>
 
+  <g class="dates">
+    {#each geometry.dates as d}
+      <text class="match-date" x={d.x} y={d.y} class:hidden={reveal < d.delay}>{d.text}</text>
+    {/each}
+  </g>
+
   <image href="{base}/logos/fifa26.png" x={C - 85} y={C - 85} width="170" height="170" class="fifa-logo" />
 </svg>
 
@@ -478,10 +504,23 @@
     stroke-width: 3px;
     user-select: none;
   }
+  .match-date {
+    font: 600 10.5px var(--font);
+    fill: var(--text-muted);
+    text-anchor: middle;
+    dominant-baseline: central;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.02em;
+    paint-order: stroke;
+    stroke: var(--bg);
+    stroke-width: 3.5px;
+    user-select: none;
+  }
   .merge-dot,
   .score,
   .score-plain,
-  .score-btn {
+  .score-btn,
+  .match-date {
     opacity: 1;
     transition: opacity 0.5s ease-out;
   }

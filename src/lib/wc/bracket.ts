@@ -110,14 +110,15 @@ function resolveFeeds(m: any, prev: WcMatch[]): [number, number] {
   return [one(m._home, m.home), one(m._away, m.away)];
 }
 
-const tbd = (round: RoundKey, num: number, feeds: [number, number]): WcMatch => ({
+const tbd = (round: RoundKey, num: number, feeds: [number, number], date?: string): WcMatch => ({
   round,
   num,
   state: 'pre',
   home: null,
   away: null,
   feeds,
-  angle: 0
+  angle: 0,
+  date
 });
 
 export async function fetchBracket(signal?: AbortSignal): Promise<Bracket> {
@@ -133,8 +134,19 @@ export async function fetchBracket(signal?: AbortSignal): Promise<Bracket> {
   for (const m of R16 as any[]) m.feeds = resolveFeeds(m, R32);
   for (const m of QF as any[]) m.feeds = resolveFeeds(m, R16);
 
-  const SF: WcMatch[] = [tbd('SF', 1, [1, 2]), tbd('SF', 2, [3, 4])];
-  const F: WcMatch[] = [tbd('F', 1, [1, 2])];
+  let SF = normaliseRound(events, 'semifinals', 'SF');
+  if (SF.length === 2) {
+    for (const m of SF as any[]) m.feeds = resolveFeeds(m, QF);
+  } else {
+    SF = [tbd('SF', 1, [1, 2], '2026-07-14T00:00Z'), tbd('SF', 2, [3, 4], '2026-07-15T00:00Z')];
+  }
+
+  let F = normaliseRound(events, 'final', 'F');
+  if (F.length === 1) {
+    for (const m of F as any[]) m.feeds = resolveFeeds(m, SF);
+  } else {
+    F = [tbd('F', 1, [1, 2], '2026-07-19T00:00Z')];
+  }
 
   const rounds: Record<RoundKey, WcMatch[]> = { R32, R16, QF, SF, F };
 
