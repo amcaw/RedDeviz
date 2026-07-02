@@ -225,6 +225,9 @@
   interface Score { x: number; y: number; text: string; pens: string | null; video: WcVideoRef | null; delay: number; }
   interface MatchDate { x: number; y: number; text: string; delay: number; }
 
+  const sideInMatch = (m: WcMatch, name: string): Side | null =>
+    m.home?.name === name ? m.home : m.away?.name === name ? m.away : null;
+
   const ddmm = (iso?: string) => {
     if (!iso) return '';
     const d = new Date(iso);
@@ -283,25 +286,27 @@
           }
         }
         if (kids[0]?.side && kids[1]?.side && (m.state === 'post' || m.state === 'in')) {
-          const flagR = round === 'R32' ? TEAM_R : lvl;
-          const [ax, ay] = pt(flagR, kids[0].a);
-          const [bx, by] = pt(flagR, kids[1].a);
-          const aFirst = Math.abs(ax - bx) > 12 ? ax < bx : ay < by;
-          const [s1, s2] = aFirst ? [kids[0], kids[1]] : [kids[1], kids[0]];
-          const [mx, my] = pt(lvl, m.angle);
-          const key = [kids[0].side.name, kids[1].side.name].sort().join('|');
-          const pens =
-            s1.side!.shootout != null && s2.side!.shootout != null
-              ? `${s1.side!.shootout}–${s2.side!.shootout} t.a.b.`
-              : null;
-          scores.push({
-            x: mx,
-            y: my,
-            text: `${s1.side!.score ?? ''}–${s2.side!.score ?? ''}`,
-            pens,
-            video: videos[key] ?? null,
-            delay: COL_BASE[round] + 0.1 + sweep(m.angle) * 0.02
-          });
+          const [k0, k1] = kids;
+          const horizontal =
+            Math.abs(Math.cos(k0.a) - Math.cos(k1.a)) >= Math.abs(Math.sin(k0.a) - Math.sin(k1.a));
+          const key = (k: Kid) => (horizontal ? Math.cos(k.a) : Math.sin(k.a));
+          const ordered = key(k0) <= key(k1) ? [k0, k1] : [k1, k0];
+          const s0 = sideInMatch(m, ordered[0].side!.name);
+          const s1 = sideInMatch(m, ordered[1].side!.name);
+          if (s0?.score != null && s1?.score != null) {
+            const pens =
+              s0.shootout != null && s1.shootout != null ? `${s0.shootout}-${s1.shootout}` : null;
+            const key = [kids[0].side.name, kids[1].side.name].sort().join('|');
+            const [mx, my] = pt(lvl, m.angle);
+            scores.push({
+              x: mx,
+              y: my,
+              text: `${s0.score}-${s1.score}`,
+              pens,
+              video: videos[key] ?? null,
+              delay: COL_BASE[round] + 0.1 + sweep(m.angle) * 0.02
+            });
+          }
         } else if (m.state === 'pre' && m.date) {
           const [mx, my] = pt(lvl, m.angle);
           const bothKnown = !!(kids[0]?.side && kids[1]?.side);
@@ -517,7 +522,6 @@
     user-select: none;
   }
   .merge-dot,
-  .score,
   .score-plain,
   .score-btn,
   .match-date {
