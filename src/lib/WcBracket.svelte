@@ -222,7 +222,7 @@
   interface Seg { d: string; color: string | null; delay: number; dur: number; }
   interface Flag { x: number; y: number; side: Side; advanced: boolean; big: boolean; delay: number; }
   interface Dot { x: number; y: number; delay: number; }
-  interface Score { x: number; y: number; text: string; video: WcVideoRef | null; delay: number; }
+  interface Score { x: number; y: number; text: string; pens: string | null; video: WcVideoRef | null; delay: number; }
 
   const geometry = $derived.by(() => {
     void isLight;
@@ -282,10 +282,15 @@
           const [s1, s2] = aFirst ? [kids[0], kids[1]] : [kids[1], kids[0]];
           const [mx, my] = pt(lvl, m.angle);
           const key = [kids[0].side.name, kids[1].side.name].sort().join('|');
+          const pens =
+            s1.side!.shootout != null && s2.side!.shootout != null
+              ? `${s1.side!.shootout}–${s2.side!.shootout} t.a.b.`
+              : null;
           scores.push({
             x: mx,
             y: my,
             text: `${s1.side!.score ?? ''}–${s2.side!.score ?? ''}`,
+            pens,
             video: videos[key] ?? null,
             delay: COL_BASE[round] + 0.1 + sweep(m.angle) * 0.02
           });
@@ -373,13 +378,21 @@
           onkeydown={(e) => e.key === 'Enter' && onvideo?.(s.video!)}
         >
           <text class="score" x={s.x} y={s.y}>{s.text}</text>
-          <g transform="translate({s.x} {s.y + 16})">
+          {#if s.pens}
+            <text class="pens" x={s.x} y={s.y + 14}>{s.pens}</text>
+          {/if}
+          <g transform="translate({s.x} {s.y + (s.pens ? 30 : 16)})">
             <circle r="8" class="play-badge" />
             <path d="M-2.4 -4 L4.2 0 L-2.4 4 Z" class="play-tri" />
           </g>
         </g>
       {:else}
-        <text class="score" x={s.x} y={s.y} class:hidden={reveal < s.delay}>{s.text}</text>
+        <g class:hidden={reveal < s.delay} class="score-plain">
+          <text class="score" x={s.x} y={s.y}>{s.text}</text>
+          {#if s.pens}
+            <text class="pens" x={s.x} y={s.y + 14}>{s.pens}</text>
+          {/if}
+        </g>
       {/if}
     {/each}
   </g>
@@ -454,8 +467,20 @@
     transform-box: fill-box;
     transform-origin: center;
   }
+  .pens {
+    font: 700 10px var(--font);
+    fill: var(--text-secondary);
+    text-anchor: middle;
+    dominant-baseline: central;
+    font-variant-numeric: tabular-nums;
+    paint-order: stroke;
+    stroke: var(--bg);
+    stroke-width: 3px;
+    user-select: none;
+  }
   .merge-dot,
   .score,
+  .score-plain,
   .score-btn {
     opacity: 1;
     transition: opacity 0.5s ease-out;

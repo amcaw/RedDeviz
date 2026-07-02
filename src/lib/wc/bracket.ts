@@ -22,6 +22,7 @@ export interface Side {
   logo: string;
   winner: boolean;
   score: string | null;
+  shootout: string | null;
   color: string;
   altColor: string;
 }
@@ -56,6 +57,7 @@ function side(c: any): Side | null {
     logo: c.team?.logo ?? '',
     winner: !!c.winner,
     score: c.score ?? null,
+    shootout: c.shootoutScore != null ? String(c.shootoutScore) : null,
     color: c.team?.color ?? '',
     altColor: c.team?.alternateColor ?? ''
   };
