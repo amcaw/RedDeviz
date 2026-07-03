@@ -1,0 +1,102 @@
+name: Refresh Tour de France data
+
+on:
+  schedule:
+    - cron: '30 15,16,17,18,19 * 7 *'
+    - cron: '0 6 * 7 *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Fetch Tour de France rankings from letour.fr
+        run: |
+          for attempt in 1 2 3; do
+            if node scripts/fetch-tdf.mjs; then exit 0; fi
+            echo "::warning::fetch-tdf attempt $attempt failed; retrying in 60s…"
+            sleep 60
+          done
+          echo "::error::fetch-tdf failed after 3 attempts"
+          exit 1
+
+      - name: Commit changes if any
+        id: commit
+        run: |
+          if [ -z "$(git status --porcelain src/data/tdf-live.json)" ]; then
+            echo "No data changes — nothing to deploy."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/data/tdf-live.json
+          git commit -m "Auto-update: TdF rankings ($(date -u +%Y-%m-%d\ %H:%M))"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+  build:
+    needs: refresh
+    if: needs.refresh.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Build
+        env:
+          BASE_PATH: /RedDeviz
+        run: npm run build
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.d3.outputs.page_url || steps.d2.outputs.page_url || steps.d1.outputs.page_url }}
+    steps:
+      - id: d1
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+        with:
+          timeout: 1200000
+      - if: steps.d1.outcome == 'failure'
+        run: sleep 20
+      - id: d2
+        if: steps.d1.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+        with:
+          timeout: 1200000
+      - if: steps.d1.outcome == 'failure' && steps.d2.outcome == 'failure'
+        run: sleep 45
+      - id: d3
+        if: steps.d1.outcome == 'failure' && steps.d2.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+        with:
+          timeout: 1200000

@@ -58,6 +58,13 @@
   --warn-border: rgba(245, 158, 11, 0.4);
   --warn-text: #fbbf24;
 
+  --tdf-jaune: #ffd60a;
+  --tdf-gold: #b28d08;
+  --tdf-plat: #aecdf5;
+  --tdf-acc: #7b9ce4;
+  --tdf-mont: #4d66d2;
+  --tdf-clm: #35a7ad;
+
   /* overlay / backdrop */
   --backdrop: rgba(0, 8, 16, 0.55);
 
@@ -87,6 +94,13 @@
 
     /* red/yellow unchanged; loss returns to true black on the light background */
     --result-loss: #1a1a1a;
+
+    --tdf-jaune: #a87e00;
+    --tdf-gold: #a87e00;
+    --tdf-plat: #8fb4e6;
+    --tdf-acc: #5379d1;
+    --tdf-mont: #31419f;
+    --tdf-clm: #2b8f96;
 
     --map-land: #dbe3ec;
     --map-host: #7e9bb8;
