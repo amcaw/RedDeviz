@@ -38,12 +38,25 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.d3.outputs.page_url || steps.d2.outputs.page_url || steps.d1.outputs.page_url }}
     steps:
-      - id: deployment
+      - id: d1
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+        with:
+          timeout: 1200000
+      - if: steps.d1.outcome == 'failure'
+        run: sleep 20
+      - id: d2
+        if: steps.d1.outcome == 'failure'
+        uses: actions/deploy-pages@v4
+        continue-on-error: true
+        with:
+          timeout: 1200000
+      - if: steps.d1.outcome == 'failure' && steps.d2.outcome == 'failure'
+        run: sleep 45
+      - id: d3
+        if: steps.d1.outcome == 'failure' && steps.d2.outcome == 'failure'
         uses: actions/deploy-pages@v4
         with:
-          # GitHub's Pages publish pipeline is occasionally slow to report the
-          # deployment as live; give it longer than the 10-min default before the
-          # action gives up (the build + artifact upload already succeeded).
-          timeout: 1800000
+          timeout: 1200000
