@@ -79,7 +79,7 @@ export interface Bracket {
 
 const PLACEHOLDER = /Round of \d+ \d+ Winner|Quarterfinal \d+ Winner|Semifinal \d+ Winner/i;
 
-const FR_NAME: Record<string, string> = {
+export const FR_NAME: Record<string, string> = {
   Algeria: 'Algérie',
   Argentina: 'Argentine',
   Australia: 'Australie',
@@ -130,7 +130,7 @@ const FR_NAME: Record<string, string> = {
   Uzbekistan: 'Ouzbékistan'
 };
 
-const FR_ABBR: Record<string, string> = {
+export const FR_ABBR: Record<string, string> = {
   Algeria: 'ALG',
   Argentina: 'ARG',
   Australia: 'AUS',
@@ -306,21 +306,18 @@ function assignFeeds(nexts: any[], prev: WcMatch[]) {
     resolveSlot(m._home, m.home, prev),
     resolveSlot(m._away, m.away, prev)
   ]);
-  const count = new Map<number, number>();
+  const claimed = new Set<number>();
   for (const pair of slots)
-    for (const s of pair) if (s.num) count.set(s.num, (count.get(s.num) ?? 0) + 1);
-  const missing: number[] = [];
-  for (let n = 1; n <= prev.length; n++) if (!count.get(n)) missing.push(n);
-  for (const pair of slots) {
-    for (const s of pair) {
-      const dup = s.num !== 0 && (count.get(s.num) ?? 0) > 1;
-      if ((s.num === 0 || (dup && !s.real)) && missing.length) {
-        if (s.num) count.set(s.num, (count.get(s.num) ?? 1) - 1);
-        s.num = missing.shift()!;
-        count.set(s.num, 1);
-      }
-    }
-  }
+    for (const s of pair) if (s.real && s.num) claimed.add(s.num);
+  const unclaimed: number[] = [];
+  for (let n = 1; n <= prev.length; n++) if (!claimed.has(n)) unclaimed.push(n);
+  const holes = slots
+    .flat()
+    .filter((s) => !s.real)
+    .sort((a, b) => (a.num || Number.MAX_SAFE_INTEGER) - (b.num || Number.MAX_SAFE_INTEGER));
+  holes.forEach((s, i) => {
+    s.num = unclaimed[i] ?? 0;
+  });
   nexts.forEach((m, i) => {
     m.feeds = [slots[i][0].num, slots[i][1].num];
   });
@@ -337,12 +334,18 @@ const tbd = (round: RoundKey, num: number, feeds: [number, number], date?: strin
   date
 });
 
-export async function fetchBracket(signal?: AbortSignal): Promise<Bracket> {
+export async function fetchScoreboard(signal?: AbortSignal): Promise<any> {
   const res = await fetch(ENDPOINT, { signal });
   if (!res.ok) throw new Error(`ESPN HTTP ${res.status}`);
-  const data = await res.json();
-  const events: any[] = data.events ?? [];
+  return res.json();
+}
 
+export async function fetchBracket(signal?: AbortSignal): Promise<Bracket> {
+  const data = await fetchScoreboard(signal);
+  return buildBracket(data.events ?? []);
+}
+
+export function buildBracket(events: any[]): Bracket {
   const R32 = normaliseRound(events, 'round-of-32', 'R32');
   const R16 = normaliseRound(events, 'round-of-16', 'R16');
   const QF = normaliseRound(events, 'quarterfinals', 'QF');
