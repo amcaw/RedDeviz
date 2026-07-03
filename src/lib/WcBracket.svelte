@@ -352,8 +352,71 @@
     }
     return { segs, flags, dots, scores, dates };
   });
+
+  interface Tip { side: Side; lx: number; ly: number; ox: boolean; oy: boolean; }
+  let tip = $state<Tip | null>(null);
+  const VB = SIZE + 2 * PAD;
+  let tipEl = $state<HTMLDivElement>();
+  let placed = $state(false);
+  let isMobile = $state(false);
+  const showTip = (f: { x: number; y: number; side: Side }) => {
+    placed = false;
+    tip = {
+      side: f.side,
+      lx: ((f.x + PAD) / VB) * 100,
+      ly: ((f.y + PAD) / VB) * 100,
+      ox: f.x > C,
+      oy: f.y > C
+    };
+  };
+  const hideTip = () => (tip = null);
+  $effect(() => {
+    const mq = window.matchMedia('(hover: none), (max-width: 560px)');
+    isMobile = mq.matches;
+    const on = () => (isMobile = mq.matches);
+    mq.addEventListener('change', on);
+    return () => mq.removeEventListener('change', on);
+  });
+  $effect(() => {
+    const el = tipEl;
+    if (!el || !tip) return;
+    if (isMobile) {
+      el.style.left = '';
+      el.style.top = '';
+      return;
+    }
+    const wrap = el.parentElement as HTMLElement;
+    const ww = wrap.clientWidth;
+    const wh = wrap.clientHeight;
+    const px = (tip.lx / 100) * ww;
+    const py = (tip.ly / 100) * wh;
+    const tw = el.offsetWidth;
+    const th = el.offsetHeight;
+    const gap = 12;
+    const pad = 6;
+    let left = tip.ox ? px - tw - gap : px + gap;
+    let top = tip.oy ? py - th - gap : py + gap;
+    left = Math.max(pad, Math.min(left, ww - tw - pad));
+    top = Math.max(pad, Math.min(top, wh - th - pad));
+    el.style.left = `${left}px`;
+    el.style.top = `${top}px`;
+    placed = true;
+  });
+  const FR_RES: Record<string, string> = { W: 'V', D: 'N', L: 'D' };
+  const mnum = (m: string) => parseInt(m, 10) || 0;
+  const dec = (v: string | null) => (v == null ? '' : v.replace('.', ','));
+  const dt = (iso: string | null) => {
+    if (!iso) return '';
+    const d = new Date(iso);
+    const day = d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+    const time = d.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+    return `${day}, ${time}`;
+  };
 </script>
 
+<svelte:window onkeydown={(e) => e.key === 'Escape' && hideTip()} />
+
+<div class="wrap">
 <svg
   viewBox="{-PAD} {-PAD} {SIZE + 2 * PAD} {SIZE + 2 * PAD}"
   class="bracket"
@@ -383,6 +446,33 @@
     {#each geometry.flags as f, i}
       {@const r = 21}
       <g transform="translate({f.x} {f.y})">
+        <g
+          class="flag-hit"
+          role="button"
+          tabindex="0"
+          aria-label="{f.side.name}, détails du match"
+          onmouseenter={() => {
+            if (!isMobile) showTip(f);
+          }}
+          onmouseleave={() => {
+            if (!isMobile) hideTip();
+          }}
+          onfocus={() => {
+            if (!isMobile) showTip(f);
+          }}
+          onblur={() => {
+            if (!isMobile) hideTip();
+          }}
+          onclick={() => {
+            if (isMobile) showTip(f);
+          }}
+          onkeydown={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              showTip(f);
+            }
+          }}
+        >
         <g class="flag" class:hidden={reveal < f.delay}>
           <clipPath id="fc{i}">
             <circle r={r - 1} />
@@ -398,6 +488,7 @@
             clip-path="url(#fc{i})"
           />
           <text class="flag-label" y={r + 11}>{f.side.abbr}</text>
+        </g>
         </g>
       </g>
     {/each}
@@ -444,11 +535,437 @@
   <image href="{base}/logos/fifa26.png" x={C - 85} y={C - 85} width="170" height="170" class="fifa-logo" />
 </svg>
 
+{#if tip && isMobile}
+  <button class="tip-backdrop" aria-label="Fermer" onclick={hideTip}></button>
+{/if}
+{#if tip}
+  {@const s = tip.side}
+  <div
+    bind:this={tipEl}
+    class="tip"
+    class:drawer={isMobile}
+    style:opacity={placed || isMobile ? 1 : 0}
+    role={isMobile ? 'dialog' : 'tooltip'}
+  >
+    {#if isMobile}
+      <button class="tip-close" aria-label="Fermer" onclick={hideTip}>
+        <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"
+          ><path
+            d="M6 6l12 12M18 6L6 18"
+            stroke="currentColor"
+            stroke-width="2.4"
+            stroke-linecap="round"
+            fill="none"
+          /></svg
+        >
+      </button>
+    {/if}
+    {#if s.roundLabel || s.date || s.venue || s.city || s.country}
+      <div class="tip-cap">
+        {#if s.roundLabel || s.date}
+          <div class="cap-meta">
+            {#if s.roundLabel}<span class="cap-round">{s.roundLabel}</span>{/if}{#if s.roundLabel && s.date}<span class="cap-dot">·</span>{/if}{#if s.date}{dt(s.date)}{/if}
+          </div>
+        {/if}
+        {#if s.venue}<div class="cap-venue">{s.venue}</div>{/if}
+        {#if s.city || s.country}
+          <div class="cap-sub">{[s.city, s.country].filter(Boolean).join(', ')}</div>
+        {/if}
+      </div>
+    {/if}
+    {#if s.opp}
+      {@const o = s.opp}
+      {@const A = s.homeAway === 'home' ? s : o}
+      {@const B = s.homeAway === 'home' ? o : s}
+      {@const cA = teamColor(A)}
+      {@const cB = teamColor(B)}
+      {@const goals = [
+        ...A.goals.map((g) => ({ ...g, c: cA })),
+        ...B.goals.map((g) => ({ ...g, c: cB }))
+      ].sort((x, y) => mnum(x.minute) - mnum(y.minute))}
+      {@const cards = [...A.cards, ...B.cards]
+        .filter((c) => c.scorer)
+        .sort((x, y) => mnum(x.minute) - mnum(y.minute))}
+      {@const stats = [
+        { label: 'Possession', a: A.possession, b: B.possession, pct: true },
+        { label: 'Tirs', a: A.shots, b: B.shots, pct: false },
+        { label: 'Tirs cadrés', a: A.shotsOnTarget, b: B.shotsOnTarget, pct: false },
+        { label: 'Passes déc.', a: A.assists, b: B.assists, pct: false },
+        { label: 'Corners', a: A.corners, b: B.corners, pct: false },
+        { label: 'Fautes', a: A.fouls, b: B.fouls, pct: false }
+      ].filter((x) => x.a != null && x.b != null && (x.pct || +x.a + +x.b > 0))}
+      <div class="tip-match">
+        {#each [A, B] as t}
+          <div class="tip-team" class:me={t.id === s.id}>
+            <span class="tip-flag"><img src={t.logo} alt="" /></span>
+            <span class="tip-name">{t.nameFr}</span>
+            {#if t.record}<span class="tip-rec">{t.record}</span>{/if}
+            {#if t.score != null}
+              <span class="tip-score" class:win={t.winner}
+                >{t.score}{t.shootout ? ` (${t.shootout})` : ''}</span
+              >
+            {/if}
+          </div>
+        {/each}
+      </div>
+      {#if goals.length}
+        <div class="tip-events">
+          {#each goals as g}
+            <span class="ev">
+              <span class="dot" style:background={g.c}></span><span class="min">{g.minute}</span>
+              {g.scorer}{g.note ? ` (${g.note})` : ''}
+            </span>
+          {/each}
+        </div>
+      {/if}
+      {#if stats.length}
+        <div class="tip-stats">
+          {#each stats as st}
+            {@const av = +(st.a ?? 0)}
+            {@const bv = +(st.b ?? 0)}
+            {@const la = av + bv > 0 ? (av / (av + bv)) * 100 : 50}
+            <div class="cmp">
+              <div class="cmp-top">
+                <span class="cmp-v">{dec(st.a)}{st.pct ? ' %' : ''}</span>
+                <span class="cmp-l">{st.label}</span>
+                <span class="cmp-v">{dec(st.b)}{st.pct ? ' %' : ''}</span>
+              </div>
+              <div class="cmp-bar">
+                <span class="cmp-seg" style:width="{la}%" style:background={cA}></span>
+                <span class="cmp-seg" style:width="{100 - la}%" style:background={cB}></span>
+              </div>
+            </div>
+          {/each}
+        </div>
+      {/if}
+      {#if cards.length}
+        <div class="tip-events cards">
+          {#each cards as c}
+            <span class="ev"><span class="pip" class:red={c.red}></span><span class="min"
+                >{c.minute}</span
+              >
+              {c.scorer}</span
+            >
+          {/each}
+        </div>
+      {/if}
+      {#if A.form || B.form}
+        <div class="tip-forms">
+          <span class="flbl">5 derniers matchs</span>
+          {#each [A, B] as t}
+            {#if t.form}
+              <div class="frow">
+                <span class="fabbr">{t.abbr}</span>
+                {#each t.form.split('') as ch}<span class="fpip f{ch}">{FR_RES[ch] ?? ch}</span>{/each}
+              </div>
+            {/if}
+          {/each}
+        </div>
+      {/if}
+    {:else}
+      <div class="tip-match">
+        <div class="tip-team me">
+          <span class="tip-flag"><img src={s.logo} alt="" /></span>
+          <span class="tip-name">{s.nameFr}</span>
+        </div>
+      </div>
+    {/if}
+  </div>
+{/if}
+</div>
+
 <style>
+  .wrap {
+    position: relative;
+  }
   .bracket {
     width: 100%;
     height: auto;
     display: block;
+  }
+  .flag-hit {
+    cursor: pointer;
+    outline: none;
+  }
+  .flag-hit:hover .flag-ring,
+  .flag-hit:focus-visible .flag-ring {
+    stroke: var(--accent);
+    stroke-width: 4;
+  }
+  .tip {
+    position: absolute;
+    z-index: 20;
+    width: min(280px, 82%);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 10px 12px;
+    box-shadow: 0 12px 32px var(--backdrop);
+    font: 400 12.5px/1.35 var(--font);
+    color: var(--text);
+    pointer-events: none;
+    transition: opacity 0.12s ease-out;
+  }
+  .tip-backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: 19;
+    border: 0;
+    padding: 0;
+    background: var(--backdrop);
+    cursor: pointer;
+  }
+  .tip.drawer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: auto;
+    margin: 0;
+    width: auto;
+    max-width: none;
+    max-height: 84%;
+    overflow-y: auto;
+    border-radius: 16px 16px 0 0;
+    padding: 14px 16px 16px;
+    pointer-events: auto;
+    box-shadow: 0 -8px 30px var(--backdrop);
+    animation: drawer-up 0.2s ease-out;
+  }
+  @keyframes drawer-up {
+    from {
+      transform: translateY(14px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  .tip-close {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 999px;
+    background: var(--surface-hover);
+    color: var(--text-secondary);
+    cursor: pointer;
+  }
+  .tip.drawer .tip-cap {
+    padding-right: 30px;
+  }
+  .tip-cap {
+    padding-bottom: 9px;
+    margin-bottom: 9px;
+    border-bottom: 1px solid var(--border);
+  }
+  .cap-meta {
+    color: var(--text-muted);
+    font-size: 10.5px;
+    line-height: 1.4;
+  }
+  .cap-round {
+    color: var(--text-secondary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 9.5px;
+  }
+  .cap-dot {
+    margin: 0 4px;
+  }
+  .cap-venue {
+    color: var(--text);
+    font-weight: 700;
+    font-size: 13px;
+    margin-top: 3px;
+  }
+  .cap-sub {
+    color: var(--text-muted);
+    font-size: 10.5px;
+    margin-top: 1px;
+  }
+  .tip-match {
+    display: grid;
+    gap: 2px;
+  }
+  .tip-team {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 3px 6px;
+    margin: 0 -6px;
+    border-radius: 7px;
+  }
+  .tip-team.me {
+    background: var(--surface-hover);
+  }
+  .tip-flag {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex: none;
+    display: inline-block;
+  }
+  .tip-flag img {
+    width: 180%;
+    height: 180%;
+    margin: -40%;
+    object-fit: cover;
+    display: block;
+  }
+  .tip-name {
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .tip-team.me .tip-name {
+    font-weight: 700;
+  }
+  .tip-score {
+    margin-left: auto;
+    font-weight: 600;
+    font-size: 14px;
+    font-variant-numeric: tabular-nums;
+    color: var(--text-secondary);
+  }
+  .tip-score.win {
+    color: var(--text);
+    font-weight: 800;
+  }
+  .tip-rec {
+    color: var(--text-muted);
+    font-size: 10.5px;
+    font-variant-numeric: tabular-nums;
+    margin-left: 5px;
+  }
+  .min {
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+  }
+  .tip-events {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    font-size: 11.5px;
+    color: var(--text-secondary);
+  }
+  .tip-events.cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 4px 10px;
+    margin-top: 7px;
+  }
+  .ev {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex: none;
+  }
+  .pip {
+    width: 8px;
+    height: 11px;
+    border-radius: 2px;
+    background: #f5c518;
+    flex: none;
+  }
+  .pip.red {
+    background: #e5423b;
+  }
+  .tip-stats {
+    margin-top: 9px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+    display: grid;
+    gap: 7px;
+  }
+  .cmp-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-size: 11px;
+  }
+  .cmp-v {
+    font-weight: 700;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+  }
+  .cmp-l {
+    color: var(--text-muted);
+  }
+  .cmp-bar {
+    display: flex;
+    gap: 2px;
+    height: 6px;
+    margin-top: 3px;
+  }
+  .cmp-seg {
+    height: 100%;
+    border-radius: 2px;
+  }
+  .cmp-seg:first-child {
+    border-radius: 999px 2px 2px 999px;
+  }
+  .cmp-seg:last-child {
+    border-radius: 2px 999px 999px 2px;
+  }
+  .tip-forms {
+    margin-top: 9px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+    display: grid;
+    gap: 4px;
+  }
+  .flbl {
+    color: var(--text-muted);
+    font-size: 10.5px;
+  }
+  .frow {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+  }
+  .fabbr {
+    color: var(--text-secondary);
+    font-size: 10px;
+    font-weight: 700;
+    width: 30px;
+  }
+  .fpip {
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    font-size: 9.5px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: color-mix(in srgb, var(--c) 20%, transparent);
+    color: var(--c);
+    border: 1px solid color-mix(in srgb, var(--c) 38%, transparent);
+  }
+  .fpip.fW {
+    --c: var(--result-win);
+  }
+  .fpip.fD {
+    --c: var(--result-draw);
+  }
+  .fpip.fL {
+    --c: var(--result-loss);
   }
   .links path {
     stroke: var(--divider);

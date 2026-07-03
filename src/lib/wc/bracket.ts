@@ -16,15 +16,46 @@ export interface WcVideoRef {
   title: string;
 }
 
+export interface GoalEvent {
+  minute: string;
+  scorer: string;
+  note: string | null;
+}
+
+export interface CardEvent {
+  minute: string;
+  scorer: string;
+  red: boolean;
+}
+
 export interface Side {
+  id: string;
   name: string;
+  nameFr: string;
   abbr: string;
   logo: string;
+  homeAway: 'home' | 'away';
   winner: boolean;
   score: string | null;
   shootout: string | null;
   color: string;
   altColor: string;
+  form: string | null;
+  possession: string | null;
+  shots: string | null;
+  shotsOnTarget: string | null;
+  corners: string | null;
+  fouls: string | null;
+  assists: string | null;
+  record: string | null;
+  goals: GoalEvent[];
+  cards: CardEvent[];
+  venue: string | null;
+  city: string | null;
+  country: string | null;
+  date: string | null;
+  roundLabel: string | null;
+  opp: Side | null;
 }
 
 export interface WcMatch {
@@ -48,19 +79,170 @@ export interface Bracket {
 
 const PLACEHOLDER = /Round of \d+ \d+ Winner|Quarterfinal \d+ Winner|Semifinal \d+ Winner/i;
 
+const FR_NAME: Record<string, string> = {
+  Algeria: 'Algérie',
+  Argentina: 'Argentine',
+  Australia: 'Australie',
+  Austria: 'Autriche',
+  Belgium: 'Belgique',
+  'Bosnia-Herzegovina': 'Bosnie-Herzégovine',
+  Brazil: 'Brésil',
+  Canada: 'Canada',
+  'Cape Verde': 'Cap-Vert',
+  Colombia: 'Colombie',
+  'Congo DR': 'RD Congo',
+  Croatia: 'Croatie',
+  Curaçao: 'Curaçao',
+  Czechia: 'Tchéquie',
+  Ecuador: 'Équateur',
+  Egypt: 'Égypte',
+  England: 'Angleterre',
+  France: 'France',
+  Germany: 'Allemagne',
+  Ghana: 'Ghana',
+  Haiti: 'Haïti',
+  Iran: 'Iran',
+  Iraq: 'Irak',
+  'Ivory Coast': "Côte d'Ivoire",
+  Japan: 'Japon',
+  Jordan: 'Jordanie',
+  Mexico: 'Mexique',
+  Morocco: 'Maroc',
+  Netherlands: 'Pays-Bas',
+  'New Zealand': 'Nouvelle-Zélande',
+  Norway: 'Norvège',
+  Panama: 'Panama',
+  Paraguay: 'Paraguay',
+  Portugal: 'Portugal',
+  Qatar: 'Qatar',
+  'Saudi Arabia': 'Arabie saoudite',
+  Scotland: 'Écosse',
+  Senegal: 'Sénégal',
+  'South Africa': 'Afrique du Sud',
+  'South Korea': 'Corée du Sud',
+  Spain: 'Espagne',
+  Sweden: 'Suède',
+  Switzerland: 'Suisse',
+  Tunisia: 'Tunisie',
+  Türkiye: 'Turquie',
+  'United States': 'États-Unis',
+  Uruguay: 'Uruguay',
+  Uzbekistan: 'Ouzbékistan'
+};
+
+const FR_ABBR: Record<string, string> = {
+  Algeria: 'ALG',
+  Argentina: 'ARG',
+  Australia: 'AUS',
+  Austria: 'AUT',
+  Belgium: 'BEL',
+  'Bosnia-Herzegovina': 'BIH',
+  Brazil: 'BRÉ',
+  Canada: 'CAN',
+  'Cape Verde': 'CAP',
+  Colombia: 'COL',
+  'Congo DR': 'RDC',
+  Croatia: 'CRO',
+  Curaçao: 'CUR',
+  Czechia: 'TCH',
+  Ecuador: 'ÉQU',
+  Egypt: 'ÉGY',
+  England: 'ANG',
+  France: 'FRA',
+  Germany: 'ALL',
+  Ghana: 'GHA',
+  Haiti: 'HAÏ',
+  Iran: 'IRN',
+  Iraq: 'IRK',
+  'Ivory Coast': 'CIV',
+  Japan: 'JAP',
+  Jordan: 'JOR',
+  Mexico: 'MEX',
+  Morocco: 'MAR',
+  Netherlands: 'PBS',
+  'New Zealand': 'NZL',
+  Norway: 'NOR',
+  Panama: 'PAN',
+  Paraguay: 'PAR',
+  Portugal: 'POR',
+  Qatar: 'QAT',
+  'Saudi Arabia': 'ARA',
+  Scotland: 'ÉCO',
+  Senegal: 'SÉN',
+  'South Africa': 'AFS',
+  'South Korea': 'CDS',
+  Spain: 'ESP',
+  Sweden: 'SUÈ',
+  Switzerland: 'SUI',
+  Tunisia: 'TUN',
+  Türkiye: 'TUR',
+  'United States': 'USA',
+  Uruguay: 'URU',
+  Uzbekistan: 'OUZ'
+};
+
+const stat = (c: any, name: string): string | null =>
+  c.statistics?.find((s: any) => s.name === name)?.displayValue ?? null;
+
 function side(c: any): Side | null {
   const name = c?.team?.displayName ?? '';
   if (!name || PLACEHOLDER.test(name)) return null;
   return {
+    id: c.team?.id ?? '',
     name,
-    abbr: c.team?.abbreviation ?? name.slice(0, 3).toUpperCase(),
+    nameFr: FR_NAME[name] ?? name,
+    abbr: FR_ABBR[name] ?? c.team?.abbreviation ?? name.slice(0, 3).toUpperCase(),
     logo: c.team?.logo ?? '',
+    homeAway: c.homeAway === 'away' ? 'away' : 'home',
     winner: !!c.winner,
     score: c.score ?? null,
     shootout: c.shootoutScore != null ? String(c.shootoutScore) : null,
     color: c.team?.color ?? '',
-    altColor: c.team?.alternateColor ?? ''
+    altColor: c.team?.alternateColor ?? '',
+    form: c.form ?? null,
+    possession: stat(c, 'possessionPct'),
+    shots: stat(c, 'totalShots'),
+    shotsOnTarget: stat(c, 'shotsOnTarget'),
+    corners: stat(c, 'wonCorners'),
+    fouls: stat(c, 'foulsCommitted'),
+    assists: stat(c, 'goalAssists'),
+    record: c.records?.find((r: any) => r.type === 'total')?.summary ?? c.records?.[0]?.summary ?? null,
+    goals: [],
+    cards: [],
+    venue: null,
+    city: null,
+    country: null,
+    date: null,
+    roundLabel: null,
+    opp: null
   };
+}
+
+function enrich(s: Side | null, comp: any, roundLabel: string) {
+  if (!s) return;
+  s.venue = comp.venue?.fullName ?? null;
+  s.city = comp.venue?.address?.city ?? null;
+  s.country = comp.venue?.address?.country ?? null;
+  s.date = comp.date ?? comp.startDate ?? null;
+  s.roundLabel = roundLabel;
+  for (const d of comp.details ?? []) {
+    if (d.team?.id !== s.id) continue;
+    const minute = d.clock?.displayValue ?? '';
+    const a0 = d.athletesInvolved?.[0];
+    const who = a0?.shortName ?? a0?.displayName ?? '';
+    if (d.scoringPlay && !d.shootout) {
+      const note = d.penaltyKick
+        ? 'pen'
+        : d.ownGoal
+          ? 'csc'
+          : /header/i.test(d.type?.text ?? '')
+            ? 'tête'
+            : null;
+      s.goals.push({ minute, scorer: who, note });
+    } else if (d.redCard || d.yellowCard) {
+      s.cards.push({ minute, scorer: who, red: !!d.redCard });
+    }
+  }
 }
 
 function placeholderNum(c: any): number | null {
@@ -76,6 +258,14 @@ function normaliseRound(events: any[], slug: string, round: RoundKey): WcMatch[]
       const cs = comp.competitors;
       const homeC = cs.find((c: any) => c.homeAway === 'home') ?? cs[0];
       const awayC = cs.find((c: any) => c.homeAway === 'away') ?? cs[1];
+      const home = side(homeC);
+      const away = side(awayC);
+      enrich(home, comp, ROUND_LABEL[round]);
+      enrich(away, comp, ROUND_LABEL[round]);
+      if (home && away) {
+        home.opp = away;
+        away.opp = home;
+      }
       return {
         round,
         num: i + 1,
@@ -83,8 +273,8 @@ function normaliseRound(events: any[], slug: string, round: RoundKey): WcMatch[]
         date: e.date,
         state: e.status?.type?.state ?? 'pre',
         detail: e.status?.type?.shortDetail ?? '',
-        home: side(homeC),
-        away: side(awayC),
+        home,
+        away,
         _home: homeC,
         _away: awayC,
         feeds: null,
