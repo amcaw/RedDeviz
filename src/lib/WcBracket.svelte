@@ -161,6 +161,10 @@
     Egypt: 'c09300'
   };
 
+  const FLAG_FORCE: Record<string, string> = {
+    Spain: 'ffc400'
+  };
+
   const colorAssign = $derived.by(() => {
     const ok = (c: number[]) => (isLight ? lum(c) <= 0.62 : lum(c) >= 0.22);
     const target = isLight ? [0, 0, 0] : [255, 255, 255];
@@ -173,6 +177,13 @@
     const cands = new Map<string, number[][]>();
     const ensure = (side: Side | null) => {
       if (!side || map.has(side.name)) return;
+      const forced = FLAG_FORCE[side.name] ? hexRgb(FLAG_FORCE[side.name]) : null;
+      if (forced) {
+        const f = fix(forced);
+        map.set(side.name, f);
+        cands.set(side.name, [f]);
+        return;
+      }
       const cs = [side.color, FLAG_CANDS[side.name], side.altColor]
         .map((h) => (h ? hexRgb(h) : null))
         .filter(Boolean) as number[][];
