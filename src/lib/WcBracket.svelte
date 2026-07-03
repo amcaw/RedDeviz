@@ -306,7 +306,9 @@
           const s1 = sideInMatch(m, ordered[1].side!.name);
           if (s0?.score != null && s1?.score != null) {
             const pens =
-              s0.shootout != null && s1.shootout != null ? `${s0.shootout}-${s1.shootout}` : null;
+              s0.shootout != null && s1.shootout != null
+                ? `${s0.shootout}–${s1.shootout} t.a.b.`
+                : null;
             const key = [kids[0].side.name, kids[1].side.name].sort().join('|');
             const [mx, my] = pt(lvl, m.angle);
             scores.push({
