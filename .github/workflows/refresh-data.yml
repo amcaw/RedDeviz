@@ -29,7 +29,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Fetch RTBF World Cup highlight videos (YouTube RSS)
         # Runs FIRST so video embeds still land even when the RBFA API blocks the
@@ -74,7 +74,7 @@ jobs:
           ref: main # the freshly-committed data
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
       - name: Install deps (retry)
         run: |
