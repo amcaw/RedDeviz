@@ -23,7 +23,9 @@ jobs:
         with:
           node-version: 20
           cache: npm
-      - run: npm ci
+      - name: Install deps (retry)
+        run: |
+          for i in 1 2 3; do npm ci && exit 0; echo "npm ci attempt $i failed; retrying in 20s"; sleep 20; done; exit 1
       - name: Build
         env:
           BASE_PATH: /RedDeviz
