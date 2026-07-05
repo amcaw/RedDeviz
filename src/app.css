@@ -58,12 +58,16 @@
   --warn-border: rgba(245, 158, 11, 0.4);
   --warn-text: #fbbf24;
 
-  --tdf-jaune: #ffd60a;
+  --tdf-jaune: #ffd800;
   --tdf-gold: #b28d08;
-  --tdf-plat: #aecdf5;
-  --tdf-acc: #7b9ce4;
-  --tdf-mont: #4d66d2;
-  --tdf-clm: #35a7ad;
+  --tdf-fill: #d9b52a;
+  --tdf-plat: #f7dd6e;
+  --tdf-acc: #d9b32e;
+  --tdf-mont: #a67f0a;
+  --tdf-clm: #dfe3e8;
+  --tdf-c2: #f0f2f5;
+  --tdf-c3: #aab5c2;
+  --tdf-c4: #6e7a88;
 
   /* overlay / backdrop */
   --backdrop: rgba(0, 8, 16, 0.55);
@@ -97,10 +101,14 @@
 
     --tdf-jaune: #a87e00;
     --tdf-gold: #a87e00;
-    --tdf-plat: #8fb4e6;
-    --tdf-acc: #5379d1;
-    --tdf-mont: #31419f;
-    --tdf-clm: #2b8f96;
+    --tdf-fill: #ffd800;
+    --tdf-plat: #d4a417;
+    --tdf-acc: #b28d14;
+    --tdf-mont: #7d6210;
+    --tdf-clm: #2e3238;
+    --tdf-c2: #2e3238;
+    --tdf-c3: #6b7684;
+    --tdf-c4: #a3adb8;
 
     --map-land: #dbe3ec;
     --map-host: #7e9bb8;

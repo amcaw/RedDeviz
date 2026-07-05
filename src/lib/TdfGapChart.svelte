@@ -9,7 +9,7 @@
   const PH = H - M.top - M.bottom;
   const N_LINES = 8;
   const N_COLORED = 4;
-  const COLORS = ['var(--tdf-gold)', 'var(--tdf-mont)', 'var(--tdf-clm)', 'var(--tdf-acc)'];
+  const COLORS = ['var(--tdf-gold)', 'var(--tdf-c2)', 'var(--tdf-c3)', 'var(--tdf-c4)'];
 
   const doneNs = $derived(
     STAGES.map((s) => s.n).filter((n) => LIVE.stages[String(n)]?.gc?.length)
@@ -68,7 +68,10 @@
     return parts.length > 1 ? `${parts[0][0]}. ${parts.slice(1).join(' ')}` : parts[0];
   };
 
-  const todayN = $derived(STAGES.find((s) => s.date === parisToday())?.n ?? null);
+  const todayN = $derived.by(() => {
+    const n = STAGES.find((s) => s.date === parisToday())?.n ?? null;
+    return n != null && !doneNs.includes(n) ? n : null;
+  });
 
   let hoverN = $state<number | null>(null);
   let svgEl = $state<SVGSVGElement>();
@@ -115,14 +118,22 @@
       ontouchstart={(e) => onMove(e.touches[0])}
       ontouchmove={(e) => onMove(e.touches[0])}
     >
+      {#each STAGES as s}
+        {#if s.type === 'montagne'}
+          <rect x={x(s.n) - 4} y={M.top} width="8" height={H - M.bottom - M.top} class="mtn-band" />
+        {/if}
+      {/each}
       {#each yTicks as t}
         <line x1={M.left} x2={W - M.right} y1={y(t)} y2={y(t)} class="grid" />
         <text x={M.left - 7} y={y(t)} class="ytick">{t === 0 ? 'tête' : '+' + fmtTick(t)}</text>
       {/each}
       {#each STAGES as s}
         <text x={x(s.n)} y={H - M.bottom + 16} class="xtick" class:done={LIVE.stages[String(s.n)]}>{s.n}</text>
+        {#if s.type === 'montagne'}
+          <text x={x(s.n)} y={H - M.bottom + 25} class="mtn-mark">▲</text>
+        {/if}
       {/each}
-      <text x={M.left + PW / 2} y={H - 3} class="xlabel">étapes</text>
+      <text x={M.left + PW / 2} y={H - 3} class="xlabel">étapes · <tspan class="mtn-i">▲</tspan> montagne</text>
 
       {#if todayN != null}
         <line x1={x(todayN)} x2={x(todayN)} y1={M.top - 4} y2={H - M.bottom} class="today-line" />
@@ -211,6 +222,18 @@
   .xtick.done {
     opacity: 1;
     font-weight: 600;
+  }
+  .mtn-band {
+    fill: var(--tdf-mont);
+    opacity: 0.08;
+  }
+  .mtn-mark {
+    fill: var(--tdf-mont);
+    font-size: 8px;
+    text-anchor: middle;
+  }
+  .mtn-i {
+    fill: var(--tdf-mont);
   }
   .xlabel {
     fill: var(--text-muted);

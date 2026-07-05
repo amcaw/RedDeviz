@@ -12,7 +12,10 @@
    "alt": false,
    "profile": "https://img.aso.fr/core_app/img-cycling-tdf-jpg/tdf26-profils-web-fr-e-tape-1/71083/0:0,1004:602-960-0-90/f71aa",
    "dplus": 220,
-   "altmax": 111
+   "altmax": 111,
+   "climbs": [],
+   "sprint": null,
+   "nCat": {}
   },
   {
    "n": 2,
@@ -25,7 +28,45 @@
    "alt": false,
    "profile": "https://img.aso.fr/core_app/img-cycling-tdf-jpg/2-tdf26-profils-web-fr/70964/0:0,1004:602-960-0-90/cf268",
    "dplus": 2384,
-   "altmax": 434
+   "altmax": 434,
+   "climbs": [
+    {
+     "cat": "2",
+     "name": "Côte de Begues",
+     "alt": 399,
+     "kmToGo": 74.3,
+     "desgrange": false
+    },
+    {
+     "cat": "3",
+     "name": "Côte du Château de Montjuïc",
+     "alt": null,
+     "kmToGo": 26.9,
+     "desgrange": null
+    },
+    {
+     "cat": "3",
+     "name": "Côte du Château de Montjuïc",
+     "alt": null,
+     "kmToGo": 14.7,
+     "desgrange": null
+    },
+    {
+     "cat": "3",
+     "name": "Côte du Château de Montjuïc",
+     "alt": null,
+     "kmToGo": 2.5,
+     "desgrange": null
+    }
+   ],
+   "sprint": {
+    "name": "C-245 Viladecans",
+    "kmDone": 85.6
+   },
+   "nCat": {
+    "2": 1,
+    "3": 3
+   }
   },
   {
    "n": 3,
@@ -38,7 +79,38 @@
    "alt": false,
    "profile": "https://img.aso.fr/core_app/img-cycling-tdf-jpg/3-tdf26-profils-web-fr/70962/0:0,1004:602-960-0-90/55d8b",
    "dplus": 3906,
-   "altmax": 1799
+   "altmax": 1799,
+   "climbs": [
+    {
+     "cat": "3",
+     "name": "Côte de Saint Feliu de Codines",
+     "alt": null,
+     "kmToGo": 178.7,
+     "desgrange": null
+    },
+    {
+     "cat": "1",
+     "name": "Col de Toses (VC-GI-400)",
+     "alt": 1778,
+     "kmToGo": 68.2,
+     "desgrange": false
+    },
+    {
+     "cat": "3",
+     "name": "Col du Calvaire",
+     "alt": null,
+     "kmToGo": 23.6,
+     "desgrange": null
+    }
+   ],
+   "sprint": {
+    "name": "Campdevànol",
+    "kmDone": 98.4
+   },
+   "nCat": {
+    "3": 2,
+    "1": 1
+   }
   },
   {
    "n": 4,
@@ -51,7 +123,46 @@
    "alt": false,
    "profile": "https://img.aso.fr/core_app/img-cycling-tdf-jpg/4-tdf26-profils-web-fr/70960/0:0,1004:602-960-0-90/6aaac",
    "dplus": 4806,
-   "altmax": 1066
+   "altmax": 1066,
+   "climbs": [
+    {
+     "cat": "4",
+     "name": "Col de Bedos",
+     "alt": null,
+     "kmToGo": 133.7,
+     "desgrange": null
+    },
+    {
+     "cat": "3",
+     "name": "Col du Paradis",
+     "alt": null,
+     "kmToGo": 117.0,
+     "desgrange": null
+    },
+    {
+     "cat": "2",
+     "name": "Col de Coudons",
+     "alt": 883,
+     "kmToGo": 77.0,
+     "desgrange": false
+    },
+    {
+     "cat": "2",
+     "name": "Col de Montségur",
+     "alt": 1059,
+     "kmToGo": 35.2,
+     "desgrange": false
+    }
+   ],
+   "sprint": {
+    "name": "Quillan",
+    "kmDone": 93.4
+   },
+   "nCat": {
+    "4": 1,
+    "3": 1,
+    "2": 2
+   }
   },
   {
    "n": 5,
@@ -64,7 +175,23 @@
    "alt": false,
    "profile": "https://img.aso.fr/core_app/img-cycling-tdf-jpg/5-tdf26-profils-web-fr/70961/0:0,1004:602-960-0-90/9c154",
    "dplus": 1472,
-   "altmax": 578
+   "altmax": 578,
+   "climbs": [
+    {
+     "cat": "3",
+     "name": "Côte de Baleix",
+     "alt": null,
+     "kmToGo": 25.6,
+     "desgrange": null
+    }
+   ],
+   "sprint": {
+    "name": "Vic-En-Bigorre",
+    "kmDone": 113.5
+   },
+   "nCat": {
+    "3": 1
+   }
   },
   {
    "n": 6,
@@ -77,7 +204,47 @@
    "alt": true,
    "profile": "https://img.aso.fr/core_app/img-cycling-tdf-jpg/6-tdf26-profils-web-fr/70968/0:0,1004:602-960-0-90/c69fa",
    "dplus": 4158,
-   "altmax": 2108
+   "altmax": 2115,
+   "climbs": [
+    {
+     "cat": "4",
+     "name": "Côte de Loucrup",
+     "alt": null,
+     "kmToGo": 135.3,
+     "desgrange": null
+    },
+    {
+     "cat": "3",
+     "name": "Côte de Mauvezin",
+     "alt": null,
+     "kmToGo": 108.9,
+     "desgrange": null
+    },
+    {
+     "cat": "1",
+     "name": "Col d'Aspin",
+     "alt": 1489,
+     "kmToGo": 68.1,
+     "desgrange": false
+    },
+    {
+     "cat": "HC",
+     "name": "Col du Tourmalet",
+     "alt": 2115,
+     "kmToGo": 38.4,
+     "desgrange": false
+    }
+   ],
+   "sprint": {
+    "name": "Pouzac",
+    "kmDone": 59.1
+   },
+   "nCat": {
+    "4": 1,
+    "3": 1,
+    "1": 1,
+    "HC": 1
+   }
   },
   {
    "n": 7,
@@ -90,7 +257,23 @@
    "alt": false,
    "profile": "https://img.aso.fr/core_app/img-cycling-tdf-jpg/7-tdf26-profils-web-fr/70963/0:0,1004:602-960-0-90/5d682",
    "dplus": 1171,
-   "altmax": 123
+   "altmax": 123,
+   "climbs": [
+    {
+     "cat": "4",
+     "name": "Côte de Béguey",
+     "alt": null,
+     "kmToGo": 37.8,
+     "desgrange": null
+    }
+   ],
+   "sprint": {
+    "name": "Landiras",
+    "kmDone": 120.3
+   },
+   "nCat": {
+    "4": 1
+   }
   },
   {
    "n": 8,
@@ -103,7 +286,30 @@
    "alt": false,
    "profile": "https://img.aso.fr/core_app/img-cycling-tdf-jpg/8-tdf26-profils-web-fr/70970/0:0,1004:602-960-0-90/11298",
    "dplus": 1322,
-   "altmax": 269
+   "altmax": 269,
+   "climbs": [
+    {
+     "cat": "4",
+     "name": "Côte de Domme",
+     "alt": null,
+     "kmToGo": 77.8,
+     "desgrange": null
+    },
+    {
+     "cat": "4",
+     "name": "Côte du Buisson-de-Cadouin",
+     "alt": null,
+     "kmToGo": 40.0,
+     "desgrange": null
+    }
+   ],
+   "sprint": {
+    "name": "Saint-Cyprien",
+    "kmDone": 122.8
+   },
+   "nCat": {
+    "4": 2
+   }
   },
   {
    "n": 9,
@@ -116,7 +322,46 @@
    "alt": false,
    "profile": "https://img.aso.fr/core_app/img-cycling-tdf-jpg/9-tdf26-profils-web-fr/70966/0:0,1004:602-960-0-90/96078",
    "dplus": 3412,
-   "altmax": 973
+   "altmax": 973,
+   "climbs": [
+    {
+     "cat": "3",
+     "name": "Côte de Naves",
+     "alt": null,
+     "kmToGo": 108.5,
+     "desgrange": null
+    },
+    {
+     "cat": "2",
+     "name": "Suc au May",
+     "alt": 903,
+     "kmToGo": 80.5,
+     "desgrange": false
+    },
+    {
+     "cat": "3",
+     "name": "Côte de la Croix du Pey",
+     "alt": null,
+     "kmToGo": 56.1,
+     "desgrange": null
+    },
+    {
+     "cat": "4",
+     "name": "Mont Bessou",
+     "alt": null,
+     "kmToGo": 24.5,
+     "desgrange": null
+    }
+   ],
+   "sprint": {
+    "name": "Beynat",
+    "kmDone": 44.9
+   },
+   "nCat": {
+    "3": 2,
+    "2": 1,
+    "4": 1
+   }
   },
   {
    "n": 10,
@@ -129,7 +374,67 @@
    "alt": false,
    "profile": "https://img.aso.fr/core_app/img-cycling-tdf-jpg/10-tdf26-profils-web-fr/70969/0:0,1004:602-960-0-90/afe2a",
    "dplus": 3789,
-   "altmax": 1578
+   "altmax": 1589,
+   "climbs": [
+    {
+     "cat": "3",
+     "name": "Côte de Pailherols",
+     "alt": 1043,
+     "kmToGo": 98.6,
+     "desgrange": false
+    },
+    {
+     "cat": "2",
+     "name": "Col de la Griffoul",
+     "alt": 1336,
+     "kmToGo": 69.3,
+     "desgrange": false
+    },
+    {
+     "cat": "3",
+     "name": "Col de Prat de Bouc",
+     "alt": null,
+     "kmToGo": 62.8,
+     "desgrange": null
+    },
+    {
+     "cat": "3",
+     "name": "Côte de Murat",
+     "alt": null,
+     "kmToGo": 47.8,
+     "desgrange": null
+    },
+    {
+     "cat": "1",
+     "name": "Puy Mary - Pas de Peyrol (D680-D17)",
+     "alt": 1589,
+     "kmToGo": 30.9,
+     "desgrange": false
+    },
+    {
+     "cat": "1",
+     "name": "Col de Pertus",
+     "alt": 1309,
+     "kmToGo": 14.5,
+     "desgrange": false
+    },
+    {
+     "cat": "3",
+     "name": "Col de Font de Cère",
+     "alt": null,
+     "kmToGo": 2.7,
+     "desgrange": null
+    }
+   ],
+   "sprint": {
+    "name": "Lacapelle-Del-Fraisse",
+    "kmDone": 25.5
+   },
+   "nCat": {
+    "3": 4,
+    "2": 1,
+    "1": 2
+   }
   },
   {
    "n": 11,
@@ -142,7 +447,30 @@
    "alt": false,
    "profile": "https://img.aso.fr/core_app/img-cycling-tdf-jpg/11-tdf26-profils-web-fr/70965/0:0,1004:602-960-0-90/76dd7",
    "dplus": 1270,
-   "altmax": 369
+   "altmax": 369,
+   "climbs": [
+    {
+     "cat": "4",
+     "name": "Côte de Billonnière",
+     "alt": null,
+     "kmToGo": 128.4,
+     "desgrange": null
+    },
+    {
+     "cat": "4",
+     "name": "Côte de Billy-Chevannes",
+     "alt": null,
+     "kmToGo": 37.9,
+     "desgrange": null
+    }
+   ],
+   "sprint": {
+    "name": "Saint-Pourçain-Sur-Sioule",
+    "kmDone": 27.8
+   },
+   "nCat": {
+    "4": 2
+   }
   },
   {
    "n": 12,
@@ -155,7 +483,37 @@
    "alt": false,
    "profile": "https://img.aso.fr/core_app/img-cycling-tdf-jpg/12-tdf26-profils-web-fr/70971/0:0,1004:602-960-0-90/413dc",
    "dplus": 1397,
-   "altmax": 445
+   "altmax": 445,
+   "climbs": [
+    {
+     "cat": "4",
+     "name": "Côte de Lanty",
+     "alt": null,
+     "kmToGo": 102.6,
+     "desgrange": null
+    },
+    {
+     "cat": "4",
+     "name": "Côte de Cuzy",
+     "alt": null,
+     "kmToGo": 81.3,
+     "desgrange": null
+    },
+    {
+     "cat": "4",
+     "name": "Côte de Montagny-lès-Buxy",
+     "alt": null,
+     "kmToGo": 19.7,
+     "desgrange": null
+    }
+   ],
+   "sprint": {
+    "name": "Decize",
+    "kmDone": 45.8
+   },
+   "nCat": {
+    "4": 3
+   }
   },
   {
    "n": 13,
@@ -168,7 +526,31 @@
    "alt": false,
    "profile": "https://img.aso.fr/core_app/img-cycling-tdf-jpg/13-tdf26-profils-web-fr/70973/0:0,1004:602-960-0-90/bf2e6",
    "dplus": 2611,
-   "altmax": 1169
+   "altmax": 1173,
+   "climbs": [
+    {
+     "cat": "3",
+     "name": "Col des Croix",
+     "alt": null,
+     "kmToGo": 48.4,
+     "desgrange": null
+    },
+    {
+     "cat": "1",
+     "name": "Ballon d'Alsace",
+     "alt": 1173,
+     "kmToGo": 29.9,
+     "desgrange": false
+    }
+   ],
+   "sprint": {
+    "name": "Mélisey",
+    "kmDone": 137.8
+   },
+   "nCat": {
+    "3": 1,
+    "1": 1
+   }
   },
   {
    "n": 14,
@@ -181,7 +563,45 @@
    "alt": false,
    "profile": "https://img.aso.fr/core_app/img-cycling-tdf-jpg/14-tdf26-profils-web-fr/70972/0:0,1004:602-960-0-90/2c309",
    "dplus": 3941,
-   "altmax": 1333
+   "altmax": 1336,
+   "climbs": [
+    {
+     "cat": "1",
+     "name": "Grand Ballon",
+     "alt": 1336,
+     "kmToGo": 118.7,
+     "desgrange": false
+    },
+    {
+     "cat": "2",
+     "name": "Col du Page",
+     "alt": 959,
+     "kmToGo": 84.0,
+     "desgrange": false
+    },
+    {
+     "cat": "1",
+     "name": "Ballon d'Alsace",
+     "alt": 1173,
+     "kmToGo": 60.9,
+     "desgrange": false
+    },
+    {
+     "cat": "1",
+     "name": "Col du Haag (VC-D431)",
+     "alt": 1233,
+     "kmToGo": 5.9,
+     "desgrange": false
+    }
+   ],
+   "sprint": {
+    "name": "Wattwiller",
+    "kmDone": 12.6
+   },
+   "nCat": {
+    "1": 3,
+    "2": 1
+   }
   },
   {
    "n": 15,
@@ -194,7 +614,38 @@
    "alt": true,
    "profile": "https://img.aso.fr/core_app/img-cycling-tdf-jpg/15-tdf26-profils-web-fr/70976/0:0,1004:602-960-0-90/7345e",
    "dplus": 4701,
-   "altmax": 1501
+   "altmax": 1501,
+   "climbs": [
+    {
+     "cat": "3",
+     "name": "Côte des Rousses",
+     "alt": null,
+     "kmToGo": 147.1,
+     "desgrange": null
+    },
+    {
+     "cat": "1",
+     "name": "Le Salève - Col de la Croisette",
+     "alt": 1175,
+     "kmToGo": 47.9,
+     "desgrange": false
+    },
+    {
+     "cat": "3",
+     "name": "Côte du Mont",
+     "alt": null,
+     "kmToGo": 37.9,
+     "desgrange": null
+    }
+   ],
+   "sprint": {
+    "name": "Saint-Laurent-En-Grandvaux",
+    "kmDone": 17.3
+   },
+   "nCat": {
+    "3": 2,
+    "1": 1
+   }
   },
   {
    "n": 16,
@@ -207,7 +658,10 @@
    "alt": false,
    "profile": "https://img.aso.fr/core_app/img-cycling-tdf-jpg/16-tdf26-profils-web-fr/70974/0:0,1004:602-960-0-90/e8ad8",
    "dplus": 465,
-   "altmax": 807
+   "altmax": 807,
+   "climbs": [],
+   "sprint": null,
+   "nCat": {}
   },
   {
    "n": 17,
@@ -220,7 +674,45 @@
    "alt": false,
    "profile": "https://img.aso.fr/core_app/img-cycling-tdf-jpg/17-tdf26-profils-web-fr/70979/0:0,1004:602-960-0-90/e7e70",
    "dplus": 2361,
-   "altmax": 1134
+   "altmax": 1134,
+   "climbs": [
+    {
+     "cat": "4",
+     "name": "Côte de Bassa",
+     "alt": null,
+     "kmToGo": 155.5,
+     "desgrange": null
+    },
+    {
+     "cat": "4",
+     "name": "Côte de Rossillon",
+     "alt": null,
+     "kmToGo": 139.2,
+     "desgrange": null
+    },
+    {
+     "cat": "3",
+     "name": "Col des Près",
+     "alt": null,
+     "kmToGo": 125.1,
+     "desgrange": null
+    },
+    {
+     "cat": "4",
+     "name": "Côte de Saint-Jean d'Arvey",
+     "alt": null,
+     "kmToGo": 115.2,
+     "desgrange": null
+    }
+   ],
+   "sprint": {
+    "name": "Colombe",
+    "kmDone": 147.5
+   },
+   "nCat": {
+    "4": 3,
+    "3": 1
+   }
   },
   {
    "n": 18,
@@ -233,7 +725,46 @@
    "alt": true,
    "profile": "https://img.aso.fr/core_app/img-cycling-tdf-jpg/18-tdf26-profils-web-fr/70977/0:0,1004:602-960-0-90/970be",
    "dplus": 3950,
-   "altmax": 1820
+   "altmax": 1820,
+   "climbs": [
+    {
+     "cat": "1",
+     "name": "Côte d'Engins",
+     "alt": 854,
+     "kmToGo": 148.5,
+     "desgrange": false
+    },
+    {
+     "cat": "2",
+     "name": "Côte de Monteynard",
+     "alt": null,
+     "kmToGo": 93.0,
+     "desgrange": null
+    },
+    {
+     "cat": "3",
+     "name": "Côte des Terrasses",
+     "alt": null,
+     "kmToGo": 72.4,
+     "desgrange": null
+    },
+    {
+     "cat": "3",
+     "name": "Côte de Saint-Léger-les-Mélèzes",
+     "alt": null,
+     "kmToGo": 19.0,
+     "desgrange": null
+    }
+   ],
+   "sprint": {
+    "name": "Corps",
+    "kmDone": 129.1
+   },
+   "nCat": {
+    "1": 1,
+    "2": 1,
+    "3": 2
+   }
   },
   {
    "n": 19,
@@ -246,7 +777,38 @@
    "alt": true,
    "profile": "https://img.aso.fr/core_app/img-cycling-tdf-jpg/19-tdf26-profils-web-fr/70975/0:0,1004:602-960-0-90/5575d",
    "dplus": 3605,
-   "altmax": 1840
+   "altmax": 1840,
+   "climbs": [
+    {
+     "cat": "2",
+     "name": "Col Bayard",
+     "alt": 1246,
+     "kmToGo": 123.1,
+     "desgrange": false
+    },
+    {
+     "cat": "1",
+     "name": "Col du Noyer",
+     "alt": 1664,
+     "kmToGo": 102.7,
+     "desgrange": false
+    },
+    {
+     "cat": "2",
+     "name": "Col d'Ornon",
+     "alt": null,
+     "kmToGo": 28.7,
+     "desgrange": null
+    }
+   ],
+   "sprint": {
+    "name": "Le Périer",
+    "kmDone": 89.4
+   },
+   "nCat": {
+    "2": 2,
+    "1": 1
+   }
   },
   {
    "n": 20,
@@ -259,7 +821,45 @@
    "alt": true,
    "profile": "https://img.aso.fr/core_app/img-cycling-tdf-jpg/20-tdf26-profils-web-fr/70978/0:0,1004:602-960-0-90/a780c",
    "dplus": 5597,
-   "altmax": 2632
+   "altmax": 2642,
+   "climbs": [
+    {
+     "cat": "HC",
+     "name": "Col de la Croix de Fer",
+     "alt": 2067,
+     "kmToGo": 137.2,
+     "desgrange": false
+    },
+    {
+     "cat": "1",
+     "name": "Col du Télégraphe",
+     "alt": 1566,
+     "kmToGo": 83.3,
+     "desgrange": false
+    },
+    {
+     "cat": "HC",
+     "name": "Col du Galibier",
+     "alt": 2642,
+     "kmToGo": 60.4,
+     "desgrange": true
+    },
+    {
+     "cat": "HC",
+     "name": "Col de Sarenne",
+     "alt": 1999,
+     "kmToGo": 14.4,
+     "desgrange": false
+    }
+   ],
+   "sprint": {
+    "name": "Saint-Julien-Mont-Denis",
+    "kmDone": 66.5
+   },
+   "nCat": {
+    "HC": 3,
+    "1": 1
+   }
   },
   {
    "n": 21,
@@ -272,7 +872,44 @@
    "alt": false,
    "profile": "https://img.aso.fr/core_app/img-cycling-tdf-jpg/tdf26-profils-web-fr-e-tape-21/71082/0:0,1004:602-960-0-90/f1fe2",
    "dplus": 1403,
-   "altmax": 176
+   "altmax": 176,
+   "climbs": [
+    {
+     "cat": "4",
+     "name": "Côte du Pavé des Gardes",
+     "alt": null,
+     "kmToGo": 89.9,
+     "desgrange": null
+    },
+    {
+     "cat": "4",
+     "name": "Côte de la Butte Montmartre",
+     "alt": null,
+     "kmToGo": 42.2,
+     "desgrange": null
+    },
+    {
+     "cat": "4",
+     "name": "Côte de la Butte Montmartre",
+     "alt": null,
+     "kmToGo": 26.3,
+     "desgrange": null
+    },
+    {
+     "cat": "4",
+     "name": "Côte de la Butte Montmartre",
+     "alt": null,
+     "kmToGo": 10.3,
+     "desgrange": null
+    }
+   ],
+   "sprint": {
+    "name": "Paris - Haut Des Champs-Elysées (3E Passage)",
+    "kmDone": 72.2
+   },
+   "nCat": {
+    "4": 4
+   }
   }
  ],
  "rests": [

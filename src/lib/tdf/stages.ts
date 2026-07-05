@@ -1,6 +1,20 @@
 import raw from '../../data/tdf-stages.json';
 
 export type StageType = 'plat' | 'accidentee' | 'montagne' | 'clm';
+export type ClimbCat = 'HC' | '1' | '2' | '3' | '4';
+
+export interface Climb {
+  cat: ClimbCat;
+  name: string;
+  alt: number | null;
+  kmToGo: number;
+  desgrange: boolean;
+}
+
+export interface Sprint {
+  name: string;
+  kmDone: number;
+}
 
 export interface Stage {
   n: number;
@@ -12,7 +26,21 @@ export interface Stage {
   clmLabel: string | null;
   alt: boolean;
   profile: string;
+  dplus: number;
+  altmax: number;
+  climbs: Climb[];
+  sprint: Sprint | null;
+  nCat: Partial<Record<ClimbCat, number>>;
 }
+
+export const CAT_ORDER: ClimbCat[] = ['HC', '1', '2', '3', '4'];
+export const CAT_LABEL: Record<ClimbCat, string> = {
+  HC: 'Hors catégorie',
+  '1': '1re catégorie',
+  '2': '2e catégorie',
+  '3': '3e catégorie',
+  '4': '4e catégorie'
+};
 
 export interface RestDay {
   date: string;
@@ -41,6 +69,8 @@ export const stageByDate = (iso: string): Stage | undefined => STAGES.find((s) =
 
 export const fmtKm = (km: number): string =>
   km.toLocaleString('fr-FR', { minimumFractionDigits: 0, maximumFractionDigits: 1 });
+
+export const fmtInt = (n: number): string => Math.round(n).toLocaleString('fr-FR');
 
 export const fmtDate = (iso: string): string =>
   new Date(iso + 'T12:00:00').toLocaleDateString('fr-FR', {

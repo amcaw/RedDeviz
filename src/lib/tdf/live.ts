@@ -171,3 +171,48 @@ export const lastResult = (): { stage: Stage; result: StageResult } | null => {
   }
   return null;
 };
+
+export const fmtUpdated = (): string => {
+  if (!LIVE.updated) return '';
+  const d = new Date(LIVE.updated);
+  const day = d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short', timeZone: 'Europe/Paris' });
+  const time = d
+    .toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Paris' })
+    .replace(':', ' h ');
+  return `${day} à ${time}`;
+};
+
+const JERSEY_LABELS: [keyof StageResult['jerseys'], string][] = [
+  ['jaune', 'maillot jaune'],
+  ['vert', 'maillot vert'],
+  ['pois', 'maillot à pois'],
+  ['blanc', 'maillot blanc du meilleur jeune']
+];
+
+export const stageFacts = (n: number): string[] => {
+  const cur = LIVE.stages[String(n)];
+  if (!cur) return [];
+  let prev: StageResult | null = null;
+  for (let k = n - 1; k >= 1; k--) {
+    if (LIVE.stages[String(k)]) {
+      prev = LIVE.stages[String(k)];
+      break;
+    }
+  }
+  const facts: string[] = [];
+  if (prev) {
+    for (const [key, label] of JERSEY_LABELS) {
+      const now = cur.jerseys[key];
+      const before = prev.jerseys[key];
+      if (now != null && before != null && now !== before) {
+        facts.push(`${riderName(now)} s'empare du ${label}, repris à ${riderName(before)}`);
+      }
+    }
+    const g2now = cur.gc[1]?.[1];
+    const g2prev = prev.gc[1]?.[1];
+    if (g2now != null && g2prev != null && g2now - g2prev >= 25) {
+      facts.push(`L'écart au général se creuse : + ${fmtGap(g2now).replace('+ ', '')} désormais sur le 2ᵉ`);
+    }
+  }
+  return facts;
+};

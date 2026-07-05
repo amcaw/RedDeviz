@@ -1,8 +1,12 @@
 <script lang="ts">
-  import { STAGES, TOTAL_KM, TYPE_LABEL, TYPE_COLOR, fmtKm, type StageType } from './tdf/stages';
-  import { LIVE, riderName, riderTeam, riderFlag, fmtGap, kmDone, lastResult, properName } from './tdf/live';
+  import { STAGES, TOTAL_KM, TYPE_LABEL, TYPE_COLOR, fmtKm, fmtInt, type StageType } from './tdf/stages';
+  import { LIVE, riderName, riderTeam, riderFlag, fmtGap, kmDone, lastResult, properName, fmtUpdated } from './tdf/live';
 
   const dec1 = (n: number) => n.toLocaleString('fr-FR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+
+  let view = $state<'cards' | 'table'>('cards');
+  const rn = (bib: number) => `${riderName(bib)} · ${riderTeam(bib)}`;
+  const gapCell = (g: number) => (g === 0 ? 'leader' : fmtGap(g));
 
   const st = $derived(LIVE.standings);
   const latest = $derived(lastResult());
@@ -15,7 +19,8 @@
 
   const longest = [...STAGES].sort((a, b) => b.km - a.km).slice(0, 5);
   const maxLong = longest[0].km;
-  const altFinishes = STAGES.filter((s) => s.alt);
+  const steepest = [...STAGES].sort((a, b) => b.dplus - a.dplus).slice(0, 5);
+  const maxSteep = steepest[0].dplus;
   const typeCounts = (Object.keys(TYPE_LABEL) as StageType[]).map((t) => ({
     type: t,
     count: STAGES.filter((s) => s.type === t).length
@@ -87,19 +92,44 @@
   </div>
 {/snippet}
 
+{#snippet dtable(title: string, cols: string[], rows: (string | number)[][])}
+  <div class="tbl-wrap">
+    <table class="dtable">
+      <caption>{title}</caption>
+      <thead>
+        <tr>{#each cols as c}<th scope="col">{c}</th>{/each}</tr>
+      </thead>
+      <tbody>
+        {#each rows as r}
+          <tr>{#each r as cell, ci}<td class:num={ci === 0}>{cell}</td>{/each}</tr>
+        {/each}
+      </tbody>
+    </table>
+  </div>
+{/snippet}
+
 <section class="stats">
   {#if st && latest}
-    <p class="scap">Après l'étape {latest.stage.n} · mis à jour depuis les classements officiels</p>
+    <div class="stats-head">
+      <p class="scap">
+        Après l'étape {latest.stage.n} · classements officiels{#if fmtUpdated()}
+          · <span class="fresh">mis à jour le {fmtUpdated()}</span>{/if}
+      </p>
+      <div class="viewtoggle" role="group" aria-label="Mode d'affichage">
+        <button class:on={view === 'cards'} aria-pressed={view === 'cards'} onclick={() => (view = 'cards')}>Cartes</button>
+        <button class:on={view === 'table'} aria-pressed={view === 'table'} onclick={() => (view = 'table')}>Tableau</button>
+      </div>
+    </div>
     <div class="kpi-strip">
-      <span class="kpi"><b>{latest.stage.n} / 21</b> étapes courues</span>
-      <span class="kpi"><b>{fmtKm(km)}</b> km parcourus sur {fmtKm(TOTAL_KM)}</span>
-      <span class="kpi"><b>{LIVE.ridersInRace}</b> coureurs en course{nStarters - LIVE.ridersInRace > 0 ? ` · ${nStarters - LIVE.ridersInRace} abandons` : ''}</span>
+      <div class="kpi"><b>{latest.stage.n} / 21</b><span>étapes courues</span></div>
+      <div class="kpi"><b>{fmtKm(km)}</b><span>km parcourus sur {fmtKm(TOTAL_KM)}</span></div>
+      <div class="kpi"><b>{LIVE.ridersInRace}</b><span>coureurs en course{nStarters - LIVE.ridersInRace > 0 ? ` · ${nStarters - LIVE.ridersInRace} abandon${nStarters - LIVE.ridersInRace > 1 ? 's' : ''}` : ''}</span></div>
       {#if avgSpeed > 0}
-        <span class="kpi"><b>{dec1(avgSpeed)}</b> km/h de moyenne en jaune</span>
+        <div class="kpi"><b>{dec1(avgSpeed)}</b><span>km/h de moyenne en jaune</span></div>
       {/if}
     </div>
 
-    <div class="grid">
+    <div class="grid" class:hidden={view === 'table'}>
       <div class="card">
         <div class="card-head">
           <h3 class="stitle"><span class="jchip jaune"></span>Classement général</h3>
@@ -113,31 +143,35 @@
         {@render chevron()}
       </div>
 
-      <div class="card">
-        <div class="card-head">
-          <h3 class="stitle"><span class="jchip vert"></span>Classement par points</h3>
-          <p class="ssub">Sprints et arrivées — maillot vert</p>
+      {#if st.points.some(([, v]) => v > 0)}
+        <div class="card">
+          <div class="card-head">
+            <h3 class="stitle"><span class="jchip vert"></span>Classement par points</h3>
+            <p class="ssub">Sprints et arrivées — maillot vert</p>
+          </div>
+          <ol class="card-body board" use:scrollHint>
+            {#each st.points.slice(0, 5) as [bib, pts], i}
+              {@render row({ i: i + 1, top: i === 0, name: riderName(bib), sub: `${riderFlag(bib)} ${riderTeam(bib)}`.trim(), pct: (pts / ptsMax) * 100, val: `${pts} pts`, fill: '#2e9e63' })}
+            {/each}
+          </ol>
+          {@render chevron()}
         </div>
-        <ol class="card-body board" use:scrollHint>
-          {#each st.points.slice(0, 5) as [bib, pts], i}
-            {@render row({ i: i + 1, top: i === 0, name: riderName(bib), sub: `${riderFlag(bib)} ${riderTeam(bib)}`.trim(), pct: (pts / ptsMax) * 100, val: `${pts} pts`, fill: '#2e9e63' })}
-          {/each}
-        </ol>
-        {@render chevron()}
-      </div>
+      {/if}
 
-      <div class="card">
-        <div class="card-head">
-          <h3 class="stitle"><span class="jchip pois"></span>Meilleur grimpeur</h3>
-          <p class="ssub">Points au sommet des cols — maillot à pois</p>
+      {#if st.kom.some(([, v]) => v > 0)}
+        <div class="card">
+          <div class="card-head">
+            <h3 class="stitle"><span class="jchip pois"></span>Meilleur grimpeur</h3>
+            <p class="ssub">Points au sommet des cols — maillot à pois</p>
+          </div>
+          <ol class="card-body board" use:scrollHint>
+            {#each st.kom.slice(0, 5) as [bib, pts], i}
+              {@render row({ i: i + 1, top: i === 0, name: riderName(bib), sub: `${riderFlag(bib)} ${riderTeam(bib)}`.trim(), pct: (pts / komMax) * 100, val: `${pts} pts`, fill: 'var(--accent)' })}
+            {/each}
+          </ol>
+          {@render chevron()}
         </div>
-        <ol class="card-body board" use:scrollHint>
-          {#each st.kom.slice(0, 5) as [bib, pts], i}
-            {@render row({ i: i + 1, top: i === 0, name: riderName(bib), sub: `${riderFlag(bib)} ${riderTeam(bib)}`.trim(), pct: (pts / komMax) * 100, val: `${pts} pts`, fill: 'var(--accent)' })}
-          {/each}
-        </ol>
-        {@render chevron()}
-      </div>
+      {/if}
 
       <div class="card">
         <div class="card-head">
@@ -178,13 +212,24 @@
         {@render chevron()}
       </div>
     </div>
+
+    {#if view === 'table'}
+      <div class="tables">
+        {@render dtable('Classement général', ['#', 'Coureur', 'Écart'], st.gc.map(([b, g], i) => [i + 1, rn(b), gapCell(g)]))}
+        {@render dtable('Classement par points', ['#', 'Coureur', 'Points'], st.points.map(([b, p], i) => [i + 1, rn(b), `${p} pts`]))}
+        {@render dtable('Meilleur grimpeur', ['#', 'Coureur', 'Points'], st.kom.map(([b, p], i) => [i + 1, rn(b), `${p} pts`]))}
+        {@render dtable('Meilleur jeune', ['#', 'Coureur', 'Écart'], st.youth.map(([b, g], i) => [i + 1, rn(b), gapCell(g)]))}
+        {@render dtable('Classement par équipes', ['#', 'Équipe', 'Écart'], st.teams.map(([n, g], i) => [i + 1, String(n), gapCell(g)]))}
+        {@render dtable('Vainqueurs d’étapes', ['Ét.', 'Vainqueur', 'Parcours'], winners.map((w) => [w.s.n, w.name, `${w.s.start} → ${w.s.end}`]))}
+      </div>
+    {/if}
   {:else}
     <p class="scap">Avant le Grand Départ · ce que dit le parcours</p>
     <div class="kpi-strip">
-      <span class="kpi"><b>{fmtKm(TOTAL_KM)}</b> km au total</span>
-      <span class="kpi"><b>21</b> étapes, 2 journées de repos</span>
-      <span class="kpi"><b>54 450</b> m de dénivelé positif</span>
-      <span class="kpi"><b>{nStarters}</b> coureurs au départ</span>
+      <div class="kpi"><b>{fmtKm(TOTAL_KM)}</b><span>km au total</span></div>
+      <div class="kpi"><b>21</b><span>étapes, 2 journées de repos</span></div>
+      <div class="kpi"><b>54 450</b><span>m de dénivelé positif</span></div>
+      <div class="kpi"><b>{nStarters}</b><span>coureurs au départ</span></div>
     </div>
 
     <div class="grid">
@@ -194,8 +239,8 @@
           <p class="ssub">Distance en kilomètres</p>
         </div>
         <ol class="card-body board" use:scrollHint>
-          {#each longest as s, i}
-            {@render row({ i: s.n, top: i === 0, name: `${s.start} → ${s.end}`, sub: TYPE_LABEL[s.type], pct: (s.km / maxLong) * 100, val: `${fmtKm(s.km)} km`, fill: TYPE_COLOR[s.type] })}
+          {#each longest as s}
+            {@render row({ i: s.n, name: `${s.start} → ${s.end}`, sub: TYPE_LABEL[s.type], pct: (s.km / maxLong) * 100, val: `${fmtKm(s.km)} km`, fill: TYPE_COLOR[s.type] })}
           {/each}
         </ol>
         {@render chevron()}
@@ -203,12 +248,12 @@
 
       <div class="card">
         <div class="card-head">
-          <h3 class="stitle">Les arrivées en altitude</h3>
-          <p class="ssub">Étapes qui se concluent en montée</p>
+          <h3 class="stitle">Les plus gros dénivelés</h3>
+          <p class="ssub">Mètres de montée cumulés (D+) sur l'étape</p>
         </div>
         <ol class="card-body board" use:scrollHint>
-          {#each altFinishes as s}
-            {@render row({ i: s.n, name: s.end, sub: fmtKm(s.km) + ' km · depuis ' + s.start, pct: null, val: '', fill: '' })}
+          {#each steepest as s}
+            {@render row({ i: s.n, name: `${s.start} → ${s.end}`, sub: s.alt ? 'arrivée en altitude' : TYPE_LABEL[s.type], pct: (s.dplus / maxSteep) * 100, val: `${fmtInt(s.dplus)} m`, fill: TYPE_COLOR[s.type] })}
           {/each}
         </ol>
         {@render chevron()}
@@ -236,31 +281,118 @@
     color: var(--text);
   }
   .scap {
-    margin: 0 0 10px;
+    margin: 0;
     color: var(--text-muted);
     font-size: 11px;
   }
-  .kpi-strip {
+  .fresh {
+    color: var(--text-secondary);
+  }
+  .stats-head {
     display: flex;
     flex-wrap: wrap;
-    align-items: baseline;
-    gap: 8px 28px;
-    padding: 12px 16px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .viewtoggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+  .viewtoggle button {
+    appearance: none;
+    border: 0;
+    background: none;
+    color: var(--text-muted);
+    font: 600 11px var(--font);
+    padding: 4px 12px;
+    cursor: pointer;
+  }
+  .viewtoggle button.on {
+    background: var(--surface-hover);
+    color: var(--text);
+  }
+  .grid.hidden {
+    display: none;
+  }
+  .tables {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  @media (min-width: 720px) {
+    .tables {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .tbl-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+  }
+  .dtable {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  .dtable caption {
+    text-align: left;
+    font-weight: 700;
+    padding: 10px 12px 6px;
+    color: var(--text);
+  }
+  .dtable th {
+    text-align: left;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    padding: 4px 12px;
+    border-bottom: 1px solid var(--border);
+  }
+  .dtable td {
+    padding: 5px 12px;
+    border-bottom: 1px solid var(--divider);
+    color: var(--text-secondary);
+  }
+  .dtable td.num {
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+    width: 34px;
+  }
+  .dtable tbody tr:last-child td {
+    border-bottom: none;
+  }
+  .kpi-strip {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
     margin-bottom: 14px;
+  }
+  @media (min-width: 720px) {
+    .kpi-strip {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  .kpi {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 12px 14px;
     border: 1px solid var(--border);
     border-radius: 12px;
     background: var(--surface);
-  }
-  .kpi {
     color: var(--text-muted);
-    font-size: 12.5px;
-    white-space: nowrap;
+    font-size: 11.5px;
+    line-height: 1.3;
   }
   .kpi b {
     color: var(--text);
     font-weight: 800;
-    font-size: 18px;
-    margin-right: 5px;
+    font-size: 20px;
     font-variant-numeric: tabular-nums;
   }
   .grid {
@@ -316,7 +448,7 @@
     border: 1px solid rgba(0, 0, 0, 0.25);
   }
   .jchip.jaune {
-    background: #ffd60a;
+    background: var(--tdf-jaune, #ffd800);
   }
   .jchip.vert {
     background: #26a04a;
@@ -381,14 +513,14 @@
   }
   .board li {
     display: grid;
-    grid-template-columns: 20px minmax(0, 1fr) minmax(30px, 22%) auto;
+    grid-template-columns: 18px minmax(0, 1fr) 66px 58px;
     align-items: center;
     gap: 8px;
     padding: 4px 5px;
     border-radius: 7px;
   }
   .board li.nobar {
-    grid-template-columns: 20px minmax(0, 1fr) auto;
+    grid-template-columns: 18px minmax(0, 1fr) auto;
   }
   .board li:nth-child(odd) {
     background: var(--surface);

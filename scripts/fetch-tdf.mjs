@@ -88,7 +88,12 @@ function gateOk(pageHtml, stage) {
 }
 
 async function parseStage(n, stage) {
-  const page = await fetchText(`/fr/classements/etape-${n}`);
+  let page;
+  try {
+    page = await fetchText(`/fr/classements/etape-${n}`);
+  } catch {
+    return null;
+  }
   if (!gateOk(page, stage)) return null;
   const urls = rankingUrls(page);
   const teamStage = stage.clmLabel === 'CLM par équipes';
@@ -111,6 +116,7 @@ async function parseStage(n, stage) {
   }));
 
   const gcRows = tables.itg?.rows ?? [];
+  if (!top.length || !gcRows.length) return null;
   const gc = gcRows.slice(0, 40).map((r) => [toBib(r.dossard), toSec(r.ecart)]);
   const leader = (t) => toBib(t?.rows?.[0]?.dossard) ?? null;
 
@@ -147,6 +153,12 @@ async function parseStartlist() {
 const existing = existsSync(OUT)
   ? JSON.parse(readFileSync(OUT, 'utf8'))
   : { stages: {}, standings: null, ridersInRace: 0 };
+
+for (const k of Object.keys(existing.stages)) {
+  if (!existing.stages[k].top?.length || !existing.stages[k].gc?.length) {
+    delete existing.stages[k];
+  }
+}
 
 const done = Object.keys(existing.stages).map(Number);
 const startN = done.length ? Math.max(...done) : 1;
