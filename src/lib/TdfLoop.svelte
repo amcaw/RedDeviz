@@ -71,7 +71,7 @@
 
   const defaultSeg =
     todaySeg ?? geometry.segs.find((g) => g.state === 'future') ?? geometry.segs[geometry.segs.length - 1];
-  let pinned = $state<Seg | null>(defaultSeg);
+  let pinned = $state<Seg | null>(null);
   let hoverSeg = $state<Seg | null>(null);
   const sel = $derived(hoverSeg ?? pinned ?? defaultSeg);
 
@@ -243,6 +243,7 @@
 
   let mapEl = $state<HTMLDivElement>();
   let map: maplibregl.Map | null = null;
+  let firstFit = true;
   let mapReady = $state(false);
   let zoomHint = $state<string | null>(null);
   let hintTimer = 0;
@@ -525,9 +526,10 @@
       );
     }
     const ro = new ResizeObserver(() => {
-      if (!map) return;
+      if (!map || !mapEl || mapEl.clientWidth === 0) return;
       map.resize();
-      const pad = Math.max(16, Math.round((mapEl?.clientWidth ?? 420) * (pinned ? 0.2 : 0.145)));
+      map.stop();
+      const pad = Math.max(16, Math.round(mapEl.clientWidth * (pinned ? 0.2 : 0.145)));
       map.fitBounds(viewBounds(), { padding: pad, duration: 0 });
     });
     ro.observe(mapEl);
@@ -556,9 +558,11 @@
 
   $effect(() => {
     void pinned;
-    if (!map || !mapReady || !mapEl) return;
+    if (!map || !mapReady || !mapEl || mapEl.clientWidth === 0) return;
     const pad = Math.max(16, Math.round(mapEl.clientWidth * (pinned ? 0.2 : 0.145)));
-    map.fitBounds(viewBounds(), { padding: pad, duration: reduceMotion ? 0 : 650 });
+    map.stop();
+    map.fitBounds(viewBounds(), { padding: pad, duration: firstFit || reduceMotion ? 0 : 650 });
+    firstFit = false;
 
     for (const m of epMarkers) m.remove();
     epMarkers = [];
