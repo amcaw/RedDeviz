@@ -87,7 +87,8 @@
     ODbL, relief
     <a href="https://registry.opendata.aws/terrain-tiles/" target="_blank" rel="noreferrer"
       >Terrain Tiles</a
-    > Mapzen/AWS)
+    > Mapzen/AWS) — pictos
+    <a href="https://lucide.dev" target="_blank" rel="noreferrer">Lucide</a>
   </p>
 </main>
 

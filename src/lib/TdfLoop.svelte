@@ -71,9 +71,9 @@
 
   const defaultSeg =
     todaySeg ?? geometry.segs.find((g) => g.state === 'future') ?? geometry.segs[geometry.segs.length - 1];
-  let pinned = $state<Seg | null>(null);
+  let pinned = $state<Seg | null>(defaultSeg);
   let hoverSeg = $state<Seg | null>(null);
-  const sel = $derived(pinned ?? hoverSeg ?? defaultSeg);
+  const sel = $derived(hoverSeg ?? pinned ?? defaultSeg);
 
   const routeOf = (n: number) => (geo.routes as Record<string, { path: number[][]; prof: number[] }>)[String(n)];
 
@@ -152,7 +152,10 @@
     for (let v = base; v <= base + span; v += yStep) yTicks.push({ v, y: y(v) });
     const xStep = s.km > 120 ? 50 : s.km > 60 ? 25 : 10;
     const xTicks: { v: number; x: number }[] = [];
-    for (let v = 0; v <= s.km; v += xStep) xTicks.push({ v, x: xKm(v) });
+    const xlim = PW - PM.right - 26;
+    for (let v = 0; v <= s.km; v += xStep) {
+      if (xKm(v) <= xlim) xTicks.push({ v, x: xKm(v) });
+    }
     const ai = prof.indexOf(amax);
     const cols = s.climbs.map((c) => {
       const km = s.km - c.kmToGo;
@@ -345,7 +348,7 @@
       properties: {},
       geometry: {
         type: 'Polygon',
-        coordinates: [WORLD_RING, ...outerRings(geo.france as never), ...outerRings(geo.catalogne as never)]
+        coordinates: [WORLD_RING, ...outerRings(geo.land as never)]
       }
     };
     const MAP_BOUNDS: [[number, number], [number, number]] = [
@@ -379,6 +382,7 @@
             attribution: 'Terrain Tiles — Mapzen/AWS'
           },
           mask: { type: 'geojson', data: mask as never },
+          landu: { type: 'geojson', data: { type: 'Feature', properties: {}, geometry: geo.land } as never },
           france: { type: 'geojson', data: { type: 'Feature', properties: {}, geometry: geo.france } as never },
           catalogne: { type: 'geojson', data: { type: 'Feature', properties: {}, geometry: geo.catalogne } as never },
           traces: { type: 'geojson', data: traceFC as never },
@@ -387,8 +391,7 @@
         },
         layers: [
           { id: 'bgfill', type: 'background', paint: { 'background-color': c.bg } },
-          { id: 'land', type: 'fill', source: 'france', paint: { 'fill-color': c.landFill } },
-          { id: 'land2', type: 'fill', source: 'catalogne', paint: { 'fill-color': c.landFill } },
+          { id: 'land', type: 'fill', source: 'landu', paint: { 'fill-color': c.landFill } },
           {
             id: 'relief',
             type: 'hillshade',
@@ -421,7 +424,7 @@
             paint: {
               'line-color': c.ink,
               'line-width': ['case', ['get', 'done'], 2.2, 1.5] as never,
-              'line-opacity': ['case', ['get', 'done'], 0.95, 0.55] as never
+              'line-opacity': ['case', ['get', 'done'], 0.2, 0.13] as never
             }
           },
           {
@@ -524,7 +527,8 @@
     const ro = new ResizeObserver(() => {
       if (!map) return;
       map.resize();
-      map.fitBounds(viewBounds(), { padding: circlePad(), duration: 0 });
+      const pad = Math.max(16, Math.round((mapEl?.clientWidth ?? 420) * (pinned ? 0.2 : 0.145)));
+      map.fitBounds(viewBounds(), { padding: pad, duration: 0 });
     });
     ro.observe(mapEl);
     return () => {
@@ -563,26 +567,80 @@
       const p = routeOf(pinned.s.n).path;
       const c0 = p[0];
       const c1 = p[p.length - 1];
-      const [[mnLng, mnLat], [mxLng, mxLat]] = bbox(p);
-      const ctrLng = (mnLng + mxLng) / 2;
-      const ctrLat = (mnLat + mxLat) / 2;
-      const halfLng = (mxLng - mnLng) / 2 || 1;
-      const halfLat = (mxLat - mnLat) / 2 || 1;
-      const dirTowardCenter = (coord: number[]): Dir4 => {
-        const nx = (coord[0] - ctrLng) / halfLng;
-        const ny = (coord[1] - ctrLat) / halfLat;
-        return Math.abs(nx) >= Math.abs(ny) ? (nx > 0 ? 'left' : 'right') : ny > 0 ? 'down' : 'up';
+      const size = mapEl.clientWidth;
+      const cam = map.cameraForBounds(viewBounds(), { padding: pad });
+      const zoom = cam?.zoom ?? map.getZoom();
+      const ctr = maplibregl.LngLat.convert((cam?.center ?? map.getCenter()) as maplibregl.LngLatLike);
+      const ws = 512 * Math.pow(2, zoom);
+      const mx = (lng: number) => (lng + 180) / 360;
+      const my = (lat: number) => {
+        const s = Math.sin((lat * Math.PI) / 180);
+        return 0.5 - Math.log((1 + s) / (1 - s)) / (4 * Math.PI);
       };
-      let d0 = dirTowardCenter(c0);
-      let d1 = dirTowardCenter(c1);
-      const close = Math.hypot((c0[0] - c1[0]) / halfLng, (c0[1] - c1[1]) / halfLat) < 0.55;
-      const opp: Record<Dir4, Dir4> = { up: 'down', down: 'up', left: 'right', right: 'left' };
-      if (close) {
-        d0 = c0[1] >= c1[1] ? 'up' : 'down';
-        d1 = opp[d0];
-      } else if (d0 === d1) {
-        d1 = opp[d1];
+      const toPx = (c: number[]): [number, number] => [
+        (mx(c[0]) - mx(ctr.lng)) * ws + size / 2,
+        (my(c[1]) - my(ctr.lat)) * ws + size / 2
+      ];
+      const step = Math.max(1, Math.floor(p.length / 220));
+      const rpts = p.filter((_, i) => i % step === 0).map(toPx);
+      const estimate = (name: string) => {
+        const w = name.length * 6.4 + 14;
+        return w > 100 ? { w: 100, h: 34 } : { w, h: 20 };
+      };
+      interface Rect {
+        x: number;
+        y: number;
+        w: number;
+        h: number;
       }
+      const rectFor = (pt: [number, number], dir: Dir4, ew: number, eh: number): Rect => {
+        if (dir === 'up') return { x: pt[0] - ew / 2, y: pt[1] - 15 - eh, w: ew, h: eh };
+        if (dir === 'down') return { x: pt[0] - ew / 2, y: pt[1] + 15, w: ew, h: eh };
+        if (dir === 'left') return { x: pt[0] - 15 - ew, y: pt[1] - eh / 2, w: ew, h: eh };
+        return { x: pt[0] + 15, y: pt[1] - eh / 2, w: ew, h: eh };
+      };
+      const score = (r: Rect, obstacles: Rect[]) => {
+        let s = 0;
+        for (const q of rpts) {
+          if (q[0] > r.x - 5 && q[0] < r.x + r.w + 5 && q[1] > r.y - 5 && q[1] < r.y + r.h + 5) s += 3;
+        }
+        const lim = size / 2 - 8;
+        for (const [cx, cy] of [
+          [r.x, r.y],
+          [r.x + r.w, r.y],
+          [r.x, r.y + r.h],
+          [r.x + r.w, r.y + r.h]
+        ]) {
+          const d = Math.hypot(cx - size / 2, cy - size / 2);
+          if (d > lim) s += (d - lim) * 2;
+        }
+        for (const o of obstacles) {
+          const ox = Math.max(0, Math.min(r.x + r.w, o.x + o.w) - Math.max(r.x, o.x));
+          const oy = Math.max(0, Math.min(r.y + r.h, o.y + o.h) - Math.max(r.y, o.y));
+          s += ox * oy * 0.5;
+        }
+        return s;
+      };
+      const DIRS: Dir4[] = ['up', 'down', 'right', 'left'];
+      const pick = (pt: [number, number], ew: number, eh: number, obstacles: Rect[]): Dir4 => {
+        let bd: Dir4 = 'up';
+        let bs = Infinity;
+        for (const dir of DIRS) {
+          const sc = score(rectFor(pt, dir, ew, eh), obstacles);
+          if (sc < bs - 0.001) {
+            bs = sc;
+            bd = dir;
+          }
+        }
+        return bd;
+      };
+      const p0 = toPx(c0);
+      const p1 = toPx(c1);
+      const e0 = estimate(pinned.s.start);
+      const e1 = estimate(pinned.s.end);
+      const d0 = pick(p0, e0.w, e0.h, [{ x: p1[0] - 7, y: p1[1] - 7, w: 14, h: 14 }]);
+      const r0 = rectFor(p0, d0, e0.w, e0.h);
+      const d1 = pick(p1, e1.w, e1.h, [r0, { x: p0[0] - 7, y: p0[1] - 7, w: 14, h: 14 }]);
       for (const [name, coord, dir] of [
         [pinned.s.start, c0, d0],
         [pinned.s.end, c1, d1]
@@ -607,10 +665,10 @@
     map.setPaintProperty('trace', 'line-opacity', [
       'case',
       ['in', ['get', 'stype'], ['literal', h]],
-      0.05,
+      0.03,
       ['==', ['get', 'n'], n],
       0,
-      ['case', ['get', 'done'], 0.55, 0.32]
+      ['case', ['get', 'done'], 0.2, 0.13]
     ] as never);
   });
 
@@ -641,6 +699,14 @@
 
   let scrollEl = $state<HTMLDivElement>();
   let hasMore = $state(false);
+  let moreOpen = $state(false);
+  $effect(() => {
+    moreOpen = !sel.result?.top.length;
+  });
+  const refreshMore = () => {
+    const el = scrollEl;
+    if (el) hasMore = el.scrollHeight - el.scrollTop - el.clientHeight > 2;
+  };
   $effect(() => {
     void sel;
     const el = scrollEl;
@@ -706,6 +772,21 @@
   }}
 />
 
+{#snippet typeGlyph(t: StageType)}
+  <g class="tg" transform="translate(-12 -12)">
+    {#if t === 'montagne'}
+      <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
+    {:else if t === 'accidentee'}
+      <path d="M2 15a5 5 0 0 1 10 0" />
+      <path d="M12 15a5 5 0 0 1 10 0" />
+    {:else if t === 'clm'}
+      <line x1="10" x2="14" y1="2" y2="2" />
+      <line x1="12" x2="15" y1="14" y2="11" />
+      <circle cx="12" cy="14" r="8" />
+    {/if}
+  </g>
+{/snippet}
+
 <div class="tdf" bind:this={tdfEl}>
   <div class="layout">
   <div class="wheel-col">
@@ -740,7 +821,10 @@
           onclick={() => toggleType(key as StageType)}
           title="Afficher / masquer les étapes de ce type"
         >
-          <span class="lg-swatch" style:background={TYPE_COLOR[key as keyof typeof TYPE_COLOR]}></span>{label}
+          <svg class="lg-swatch" viewBox="-10 -7 20 14" aria-hidden="true">
+            <rect x="-10" y="-7" width="20" height="14" rx="4" style:fill={TYPE_COLOR[key as keyof typeof TYPE_COLOR]} />
+            <g transform="scale(0.44)">{@render typeGlyph(key as StageType)}</g>
+          </svg>{label}
         </button>
       {/each}
     </div>
@@ -790,6 +874,9 @@
                 stroke-width={W}
               />
               <text x={P(g.mid, R - W / 2 - 15)[0]} y={P(g.mid, R - W / 2 - 15)[1]} class="num" class:today={g.state === 'today'}>{g.s.n}</text>
+              {#if g.s.type !== 'plat'}
+                <g class="tglyph" transform="translate({P(g.mid, R)[0].toFixed(1)} {P(g.mid, R)[1].toFixed(1)}) scale(0.5)">{@render typeGlyph(g.s.type)}</g>
+              {/if}
               <path d={arc(g.a0, g.a1, R)} class="hit" stroke-width={W + 16} />
             </g>
           {/each}
@@ -840,15 +927,6 @@
       {/if}
       <div class="mapc" class:in={mapReady} bind:this={mapEl}></div>
 
-      <div class="shortcuts" class:in={mapReady} aria-hidden="true">
-        {#if isTouch}
-          <span>Pincez à deux doigts pour zoomer</span>
-        {:else}
-          <span><b>Esc</b> pour réinitialiser</span>
-          <span><b>{isMac ? '⌘' : 'Ctrl'}</b> + molette pour zoomer</span>
-        {/if}
-      </div>
-
       {#if zoomHint}
         <div class="zoom-hint">{zoomHint}</div>
       {/if}
@@ -866,6 +944,16 @@
       <button aria-label="Zoom avant" onclick={() => map?.zoomIn()}>+</button>
       <button aria-label="Zoom arrière" onclick={() => map?.zoomOut()}>−</button>
       <button class="reset" aria-label="Réinitialiser la vue" onclick={resetView}>⟲</button>
+    </div>
+    <div class="shortcuts" class:in={mapReady} aria-hidden="true">
+      {#if isTouch}
+        <span>Touchez une étape pour zoomer sur son tracé</span>
+        <span>Pincez à deux doigts pour zoomer</span>
+      {:else}
+        <span>Cliquez une étape pour zoomer sur son tracé</span>
+        <span><b>Esc</b> pour réinitialiser</span>
+        <span><b>{isMac ? '⌘' : 'Ctrl'}</b> + molette pour zoomer</span>
+      {/if}
     </div>
     </div>
   </div>
@@ -960,62 +1048,7 @@
           <span>{s.start}</span>
           <span>{s.end}</span>
         </div>
-      </div>
-
-      {#if climbList.length}
-        <div class="p-section">
-          <h4 class="p-stitle">Les cols &amp; difficultés</h4>
-          <ul class="p-cols">
-            {#each climbList as c}
-              <li>
-                <span class="cat-chip cat-{c.cat === 'HC' ? 'hc' : c.cat}">{c.cat}</span>
-                <span class="col-name"
-                  >{c.name}{#if c.laps > 1}<span class="col-laps"> ×{c.laps}</span>{/if}{#if c.desgrange}<span class="desgrange" title="Souvenir Henri Desgrange — toit du Tour"> ★</span>{/if}</span
-                >
-                <span class="col-meta">{#if c.alt}{fmtInt(c.alt)} m · {/if}à {fmtKm(c.kmToGo)} km</span>
-              </li>
-            {/each}
-          </ul>
-        </div>
-      {/if}
-
-      <div class="p-section">
-        <h4 class="p-stitle">Le parcours en chiffres</h4>
-        <dl class="p-facts-grid">
-          <div class="pf">
-            <dt>Dénivelé positif</dt>
-            <dd>{fmtInt(s.dplus)} m</dd>
-          </div>
-          <div class="pf">
-            <dt>Point culminant</dt>
-            <dd>{fmtInt(s.altmax)} m{#if desgrangeCol} ★{/if}</dd>
-          </div>
-          {#if colSummary}
-            <div class="pf">
-              <dt>Cols répertoriés</dt>
-              <dd>{colSummary}</dd>
-            </div>
-          {/if}
-          {#if s.sprint}
-            <div class="pf wide">
-              <dt>Sprint intermédiaire</dt>
-              <dd>{s.sprint.name} · à {fmtKm(s.km - s.sprint.kmDone)} km</dd>
-            </div>
-          {/if}
-          <div class="pf">
-            <dt>Les {fmtKm(facts.finalKm)} derniers km</dt>
-            <dd>{finalLabel}</dd>
-          </div>
-          {#if winnerSpeed > 0}
-            <div class="pf">
-              <dt>Vitesse moyenne du vainqueur</dt>
-              <dd>{dec1(winnerSpeed)} km/h</dd>
-            </div>
-          {/if}
-        </dl>
-        {#if desgrangeCol}
-          <p class="desgrange-note">★ {desgrangeCol.name} — point culminant du Tour 2026, Souvenir Henri Desgrange.</p>
-        {/if}
+        <p class="p-src">D'après le tracé GPS officiel — altitudes lissées, pentes indicatives</p>
       </div>
 
       {#if sel.result?.top.length}
@@ -1057,6 +1090,71 @@
       {:else if sel.state === 'future'}
         <p class="p-wait">Départ {fmtDate(s.date)} — résultats ici le soir même.</p>
       {/if}
+
+      <details class="p-more" bind:open={moreOpen} ontoggle={() => requestAnimationFrame(refreshMore)}>
+        <summary class="p-morehead">
+          <span>Le parcours en détail</span>
+          <svg class="m-chev" viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"
+            ><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" /></svg
+          >
+        </summary>
+
+        {#if climbList.length}
+          <div class="p-section">
+            <h4 class="p-stitle">Les cols &amp; difficultés</h4>
+            <ul class="p-cols">
+              {#each climbList as c}
+                <li>
+                  <span class="cat-chip cat-{c.cat === 'HC' ? 'hc' : c.cat}">{c.cat}</span>
+                  <span class="col-name"
+                    >{c.name}{#if c.laps > 1}<span class="col-laps"> ×{c.laps}</span>{/if}{#if c.desgrange}<span class="desgrange" title="Souvenir Henri Desgrange — toit du Tour"> ★</span>{/if}</span
+                  >
+                  <span class="col-meta">{#if c.alt}{fmtInt(c.alt)} m · {/if}à {fmtKm(c.kmToGo)} km</span>
+                </li>
+              {/each}
+            </ul>
+          </div>
+        {/if}
+
+        <div class="p-section">
+          <h4 class="p-stitle">Le parcours en chiffres</h4>
+          <dl class="p-facts-grid">
+            <div class="pf">
+              <dt>Dénivelé positif</dt>
+              <dd>{fmtInt(s.dplus)} m</dd>
+            </div>
+            <div class="pf">
+              <dt>Point culminant</dt>
+              <dd>{fmtInt(s.altmax)} m{#if desgrangeCol} ★{/if}</dd>
+            </div>
+            {#if colSummary}
+              <div class="pf">
+                <dt>Cols répertoriés</dt>
+                <dd>{colSummary}</dd>
+              </div>
+            {/if}
+            {#if s.sprint}
+              <div class="pf wide">
+                <dt>Sprint intermédiaire</dt>
+                <dd>{s.sprint.name} · à {fmtKm(s.km - s.sprint.kmDone)} km</dd>
+              </div>
+            {/if}
+            <div class="pf">
+              <dt>Les {fmtKm(facts.finalKm)} derniers km</dt>
+              <dd>{finalLabel}</dd>
+            </div>
+            {#if winnerSpeed > 0}
+              <div class="pf">
+                <dt>Vitesse moyenne du vainqueur</dt>
+                <dd>{dec1(winnerSpeed)} km/h</dd>
+              </div>
+            {/if}
+          </dl>
+          {#if desgrangeCol}
+            <p class="desgrange-note">★ {desgrangeCol.name} — point culminant du Tour 2026, Souvenir Henri Desgrange.</p>
+          {/if}
+        </div>
+      </details>
     </div>
 
     <div class="p-fade" class:on={hasMore} aria-hidden="true">
@@ -1177,8 +1275,8 @@
   }
   .sel-ring {
     fill: none;
-    stroke: var(--text);
-    stroke-opacity: 0.45;
+    stroke: #fff;
+    stroke-opacity: 0.85;
   }
   .sel-ring.is-pin {
     stroke: var(--tdf-jaune);
@@ -1202,6 +1300,16 @@
   .num.today {
     fill: var(--text);
     font-weight: 800;
+  }
+  .tglyph {
+    pointer-events: none;
+  }
+  .tg {
+    fill: none;
+    stroke: #000;
+    stroke-width: 2.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
   .halo {
     fill: none;
@@ -1405,9 +1513,10 @@
   }
   .shortcuts {
     position: absolute;
-    bottom: 2%;
-    right: 4%;
+    bottom: 0;
+    right: 0;
     z-index: 6;
+    max-width: 170px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -1467,14 +1576,17 @@
     flex: none;
   }
   .mapc :global(.city-pill) {
-    font: 700 10px var(--font);
+    font: 700 10px/1.3 var(--font);
     color: #000;
     background: rgba(255, 255, 255, 0.92);
     padding: 2px 6px;
     border-radius: 5px;
     letter-spacing: 0.02em;
     text-transform: uppercase;
-    white-space: nowrap;
+    white-space: normal;
+    max-width: 100px;
+    width: max-content;
+    text-align: center;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
   }
 
@@ -2042,6 +2154,43 @@
     color: var(--text-muted);
     font-size: 11.5px;
   }
+  .p-src {
+    margin: 4px 4px 1px;
+    font-size: 9.5px;
+    color: var(--text-muted);
+  }
+  .p-more {
+    margin-top: 12px;
+    border-top: 1px solid var(--divider);
+  }
+  .p-morehead {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 10px 2px 0;
+    cursor: pointer;
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text-secondary);
+  }
+  .p-morehead::-webkit-details-marker {
+    display: none;
+  }
+  .p-morehead:hover {
+    color: var(--text);
+  }
+  .m-chev {
+    color: var(--text-muted);
+    flex: none;
+    transition: transform 0.15s ease;
+  }
+  .p-more[open] .m-chev {
+    transform: rotate(180deg);
+  }
 
   .legend {
     display: flex;
@@ -2077,10 +2226,10 @@
     filter: grayscale(1);
   }
   .lg-swatch {
-    width: 14px;
-    height: 9px;
-    border-radius: 3px;
-    display: inline-block;
+    width: 20px;
+    height: 14px;
+    display: block;
+    flex: none;
   }
   .seg.dimmed {
     opacity: 0.12;
@@ -2098,6 +2247,7 @@
     .zoom-buttons,
     .stage,
     .trace,
+    .m-chev,
     .lg-item {
       transition: none !important;
     }

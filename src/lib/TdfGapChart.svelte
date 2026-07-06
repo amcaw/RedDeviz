@@ -130,10 +130,15 @@
       {#each STAGES as s}
         <text x={x(s.n)} y={H - M.bottom + 16} class="xtick" class:done={LIVE.stages[String(s.n)]}>{s.n}</text>
         {#if s.type === 'montagne'}
-          <text x={x(s.n)} y={H - M.bottom + 25} class="mtn-mark">▲</text>
+          <g class="mtn-mark" transform="translate({x(s.n)} {H - M.bottom + 22}) scale(0.36)">
+            <path d="m8 3 4 8 5-5 5 15H2L8 3z" transform="translate(-12 -12)" />
+          </g>
         {/if}
       {/each}
-      <text x={M.left + PW / 2} y={H - 3} class="xlabel">étapes · <tspan class="mtn-i">▲</tspan> montagne</text>
+      <g class="mtn-mark" transform="translate({W - 114} {H - 6.5}) scale(0.36)">
+        <path d="m8 3 4 8 5-5 5 15H2L8 3z" transform="translate(-12 -12)" />
+      </g>
+      <text x={W - 107} y={H - 3} class="xlabel">étape de montagne</text>
 
       {#if todayN != null}
         <line x1={x(todayN)} x2={x(todayN)} y1={M.top - 4} y2={H - M.bottom} class="today-line" />
@@ -228,17 +233,16 @@
     opacity: 0.08;
   }
   .mtn-mark {
-    fill: var(--tdf-mont);
-    font-size: 8px;
-    text-anchor: middle;
-  }
-  .mtn-i {
-    fill: var(--tdf-mont);
+    fill: none;
+    stroke: var(--tdf-mont);
+    stroke-width: 2.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
   .xlabel {
     fill: var(--text-muted);
     font-size: 10px;
-    text-anchor: middle;
+    text-anchor: start;
   }
   .line {
     fill: none;
