@@ -29,14 +29,14 @@
 </script>
 
 <svelte:head>
-  <title>Tour de France 2026 — La Grande Boucle, jour après jour</title>
+  <title>Tour de France 2026 · La Grande Boucle, jour après jour</title>
 </svelte:head>
 
 <main class="tdf-noir">
   <h1 class="title">La Grande Boucle, jour après jour</h1>
 
   {#if demo}
-    <p class="demo-pill">Mode démo — données simulées après 9 étapes, pour prévisualiser la course</p>
+    <p class="demo-pill">Mode démo · données simulées après 9 étapes, pour prévisualiser la course</p>
   {/if}
 
   {#if ready}
@@ -76,9 +76,9 @@
     <a href="https://www.linkedin.com/in/ambroise-c-623703229/" target="_blank" rel="noreferrer"
       >Ambroise Carton</a
     >
-    — parcours, tracés GPX et classements officiels
+    · parcours, tracés GPX et classements officiels
     <a href="https://www.letour.fr" target="_blank" rel="noreferrer">letour.fr</a>
-    — carte
+    · carte
     <a href="https://maplibre.org" target="_blank" rel="noreferrer">MapLibre GL JS</a>
     (contours
     <a href="https://github.com/gregoiredavid/france-geojson" target="_blank" rel="noreferrer"
@@ -87,7 +87,7 @@
     ODbL, relief
     <a href="https://registry.opendata.aws/terrain-tiles/" target="_blank" rel="noreferrer"
       >Terrain Tiles</a
-    > Mapzen/AWS) — pictos
+    > Mapzen/AWS) · pictos
     <a href="https://lucide.dev" target="_blank" rel="noreferrer">Lucide</a>
   </p>
 </main>

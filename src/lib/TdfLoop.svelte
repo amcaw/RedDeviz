@@ -3,7 +3,7 @@
   import maplibregl from 'maplibre-gl';
   import 'maplibre-gl/dist/maplibre-gl.css';
   import geo from '../data/tdf-geo.json';
-  import { STAGES, REST_DAYS, TOTAL_KM, TYPE_LABEL, TYPE_COLOR, CAT_ORDER, CAT_LABEL, fmtKm, fmtInt, fmtDate, type Stage, type StageType, type ClimbCat } from './tdf/stages';
+  import { STAGES, REST_DAYS, TOTAL_KM, TYPE_LABEL, TYPE_COLOR, CAT_ORDER, CAT_LABEL, fmtKm, fmtInt, fmtDate, fmtHm, type Stage, type StageType, type ClimbCat } from './tdf/stages';
   import { LIVE, stageState, riderName, riderFlag, fmtGap, fmtTime, properName, lastResult, stageFacts, type StageResult, type StageState } from './tdf/live';
   import { analyzeProfile } from './tdf/prof';
 
@@ -379,7 +379,7 @@
             encoding: 'terrarium',
             tileSize: 256,
             maxzoom: 12,
-            attribution: 'Terrain Tiles — Mapzen/AWS'
+            attribution: 'Terrain Tiles · Mapzen/AWS'
           },
           mask: { type: 'geojson', data: mask as never },
           landu: { type: 'geojson', data: { type: 'Feature', properties: {}, geometry: geo.land } as never },
@@ -985,8 +985,12 @@
         <p class="p-facts">
           {fmtKm(s.km)} km · D+ {fmtInt(s.dplus)} m{s.alt ? ' · arrivée en altitude' : ''}
         </p>
+        <p class="p-times">
+          <span class="pt-item"><span class="pt-dot dep"></span>{s.departLabel} {fmtHm(s.departTime)}</span>
+          <span class="pt-item"><span class="pt-dot arr"></span>{s.arriveeLabel} {fmtHm(s.arriveeTime)}</span>
+        </p>
         {#if sel.state === 'today' && !sel.result}
-          <p class="p-live"><span class="live-dot"></span>En course aujourd'hui — résultats en soirée</p>
+          <p class="p-live"><span class="live-dot"></span>En course aujourd'hui · résultats en soirée</p>
         {/if}
       </div>
 
@@ -1048,7 +1052,7 @@
           <span>{s.start}</span>
           <span>{s.end}</span>
         </div>
-        <p class="p-src">D'après le tracé GPS officiel — altitudes lissées, pentes indicatives</p>
+        <p class="p-src">D'après le tracé GPS officiel · altitudes lissées, pentes indicatives</p>
       </div>
 
       {#if sel.result?.top.length}
@@ -1088,7 +1092,7 @@
           </div>
         {/if}
       {:else if sel.state === 'future'}
-        <p class="p-wait">Départ {fmtDate(s.date)} — résultats ici le soir même.</p>
+        <p class="p-wait">Départ {fmtDate(s.date)} · résultats ici le soir même.</p>
       {/if}
 
       <details class="p-more" bind:open={moreOpen} ontoggle={() => requestAnimationFrame(refreshMore)}>
@@ -1107,7 +1111,7 @@
                 <li>
                   <span class="cat-chip cat-{c.cat === 'HC' ? 'hc' : c.cat}">{c.cat}</span>
                   <span class="col-name"
-                    >{c.name}{#if c.laps > 1}<span class="col-laps"> ×{c.laps}</span>{/if}{#if c.desgrange}<span class="desgrange" title="Souvenir Henri Desgrange — toit du Tour"> ★</span>{/if}</span
+                    >{c.name}{#if c.laps > 1}<span class="col-laps"> ×{c.laps}</span>{/if}{#if c.desgrange}<span class="desgrange" title="Souvenir Henri Desgrange, toit du Tour"> ★</span>{/if}</span
                   >
                   <span class="col-meta">{#if c.alt}{fmtInt(c.alt)} m · {/if}à {fmtKm(c.kmToGo)} km</span>
                 </li>
@@ -1151,7 +1155,7 @@
             {/if}
           </dl>
           {#if desgrangeCol}
-            <p class="desgrange-note">★ {desgrangeCol.name} — point culminant du Tour 2026, Souvenir Henri Desgrange.</p>
+            <p class="desgrange-note">★ {desgrangeCol.name} · point culminant du Tour 2026, Souvenir Henri Desgrange.</p>
           {/if}
         </div>
       </details>
@@ -1859,6 +1863,34 @@
     margin: 2px 0 0;
     color: var(--text-muted);
     font-size: 11.5px;
+  }
+  .p-times {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    margin: 6px 0 0;
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-variant-numeric: tabular-nums;
+  }
+  .pt-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+  }
+  .pt-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex: none;
+  }
+  .pt-dot.dep {
+    background: var(--tdf-jaune);
+  }
+  .pt-dot.arr {
+    background: none;
+    border: 1.5px solid var(--text-muted);
   }
   .p-live {
     display: inline-flex;

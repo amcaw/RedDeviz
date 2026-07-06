@@ -31,6 +31,10 @@ export interface Stage {
   climbs: Climb[];
   sprint: Sprint | null;
   nCat: Partial<Record<ClimbCat, number>>;
+  departLabel: string;
+  departTime: string;
+  arriveeLabel: string;
+  arriveeTime: string;
 }
 
 export const CAT_ORDER: ClimbCat[] = ['HC', '1', '2', '3', '4'];
@@ -71,6 +75,8 @@ export const fmtKm = (km: number): string =>
   km.toLocaleString('fr-FR', { minimumFractionDigits: 0, maximumFractionDigits: 1 });
 
 export const fmtInt = (n: number): string => Math.round(n).toLocaleString('fr-FR');
+
+export const fmtHm = (t: string): string => t.replace(':', 'h');
 
 export const fmtDate = (iso: string): string =>
   new Date(iso + 'T12:00:00').toLocaleDateString('fr-FR', {

@@ -133,7 +133,7 @@
       <div class="card">
         <div class="card-head">
           <h3 class="stitle"><span class="jchip jaune"></span>Classement général</h3>
-          <p class="ssub">Temps cumulé — écart au maillot jaune</p>
+          <p class="ssub">Temps cumulé · écart au maillot jaune</p>
         </div>
         <ol class="card-body board" use:scrollHint>
           {#each st.gc.slice(0, 5) as [bib, gap], i}
@@ -147,7 +147,7 @@
         <div class="card">
           <div class="card-head">
             <h3 class="stitle"><span class="jchip vert"></span>Classement par points</h3>
-            <p class="ssub">Sprints et arrivées — maillot vert</p>
+            <p class="ssub">Sprints et arrivées · maillot vert</p>
           </div>
           <ol class="card-body board" use:scrollHint>
             {#each st.points.slice(0, 5) as [bib, pts], i}
@@ -162,7 +162,7 @@
         <div class="card">
           <div class="card-head">
             <h3 class="stitle"><span class="jchip pois"></span>Meilleur grimpeur</h3>
-            <p class="ssub">Points au sommet des cols — maillot à pois</p>
+            <p class="ssub">Points au sommet des cols · maillot à pois</p>
           </div>
           <ol class="card-body board" use:scrollHint>
             {#each st.kom.slice(0, 5) as [bib, pts], i}
@@ -176,7 +176,7 @@
       <div class="card">
         <div class="card-head">
           <h3 class="stitle"><span class="jchip blanc"></span>Meilleur jeune</h3>
-          <p class="ssub">Général des coureurs nés après 2000 — maillot blanc</p>
+          <p class="ssub">Général des coureurs nés après 2000 · maillot blanc</p>
         </div>
         <ol class="card-body board" use:scrollHint>
           {#each st.youth.slice(0, 5) as [bib, gap], i}
