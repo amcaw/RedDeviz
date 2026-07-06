@@ -217,6 +217,8 @@
   let mounted = $state(false);
   let yProg = $state(0);
   let tdfEl = $state<HTMLDivElement>();
+  let wheelFitEl = $state<HTMLDivElement>();
+  let wrapEl = $state<HTMLDivElement>();
   const reduceMotion =
     typeof window !== 'undefined' && !!window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
 
@@ -238,6 +240,31 @@
     return () => {
       window.removeEventListener('resize', fit);
       mq.removeEventListener('change', fit);
+    };
+  });
+
+  $effect(() => {
+    const fit = wheelFitEl;
+    const wrap = wrapEl;
+    if (!fit || !wrap || typeof window === 'undefined') return;
+    const mq = window.matchMedia('(min-width: 880px)');
+    const square = () => {
+      if (mq.matches) {
+        const s = Math.floor(Math.min(fit.clientWidth, fit.clientHeight));
+        wrap.style.width = `${s}px`;
+        wrap.style.height = `${s}px`;
+      } else {
+        wrap.style.width = '';
+        wrap.style.height = '';
+      }
+    };
+    square();
+    const ro = new ResizeObserver(square);
+    ro.observe(fit);
+    mq.addEventListener('change', square);
+    return () => {
+      ro.disconnect();
+      mq.removeEventListener('change', square);
     };
   });
 
@@ -834,8 +861,8 @@
     </div>
     </div>
 
-    <div class="wheel-fit">
-    <div class="wrap">
+    <div class="wheel-fit" bind:this={wheelFitEl}>
+    <div class="wrap" bind:this={wrapEl}>
       <svg viewBox="-360 -360 720 720" class="loop" role="img" aria-label="La Grande Boucle 2026, les 21 étapes du Tour de France">
         <circle cx="0" cy="0" r={R} class="base" />
 
@@ -1223,14 +1250,11 @@
       flex: 1;
       min-height: 0;
       display: flex;
-      align-items: stretch;
+      align-items: center;
       justify-content: center;
     }
     .wrap {
-      height: 100%;
       aspect-ratio: 1 / 1;
-      width: auto;
-      max-width: 100%;
     }
     .loop {
       width: 100%;
