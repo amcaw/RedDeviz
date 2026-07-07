@@ -1,5 +1,5 @@
-const ENDPOINT =
-  'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260611-20260719';
+const SCOREBOARD = 'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=';
+const RANGES = ['20260611-20260701', '20260701-20260719'];
 
 export type RoundKey = 'R32' | 'R16' | 'QF' | 'SF' | 'F';
 export const ROUND_ORDER: RoundKey[] = ['R32', 'R16', 'QF', 'SF', 'F'];
@@ -335,9 +335,22 @@ const tbd = (round: RoundKey, num: number, feeds: [number, number], date?: strin
 });
 
 export async function fetchScoreboard(signal?: AbortSignal): Promise<any> {
-  const res = await fetch(ENDPOINT, { signal });
-  if (!res.ok) throw new Error(`ESPN HTTP ${res.status}`);
-  return res.json();
+  const pages = await Promise.all(
+    RANGES.map(async (range) => {
+      const res = await fetch(SCOREBOARD + range, { signal });
+      if (!res.ok) throw new Error(`ESPN HTTP ${res.status}`);
+      return res.json();
+    })
+  );
+  const seen = new Set<string>();
+  const events: any[] = [];
+  for (const page of pages)
+    for (const ev of page.events ?? [])
+      if (!seen.has(ev.id)) {
+        seen.add(ev.id);
+        events.push(ev);
+      }
+  return { events };
 }
 
 export async function fetchBracket(signal?: AbortSignal): Promise<Bracket> {
@@ -357,14 +370,14 @@ export function buildBracket(events: any[]): Bracket {
   if (SF.length === 2) {
     assignFeeds(SF, QF);
   } else {
-    SF = [tbd('SF', 1, [1, 2], '2026-07-14T00:00Z'), tbd('SF', 2, [3, 4], '2026-07-15T00:00Z')];
+    SF = [tbd('SF', 1, [1, 2], '2026-07-14T19:00Z'), tbd('SF', 2, [3, 4], '2026-07-15T19:00Z')];
   }
 
   let F = normaliseRound(events, 'final', 'F');
   if (F.length === 1) {
     assignFeeds(F, SF);
   } else {
-    F = [tbd('F', 1, [1, 2], '2026-07-19T00:00Z')];
+    F = [tbd('F', 1, [1, 2], '2026-07-19T19:00Z')];
   }
 
   const rounds: Record<RoundKey, WcMatch[]> = { R32, R16, QF, SF, F };

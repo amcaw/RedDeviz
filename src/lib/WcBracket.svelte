@@ -234,7 +234,7 @@
   interface Flag { x: number; y: number; side: Side; advanced: boolean; big: boolean; delay: number; }
   interface Dot { x: number; y: number; delay: number; }
   interface Score { x: number; y: number; text: string; pens: string | null; video: WcVideoRef | null; delay: number; }
-  interface MatchDate { x: number; y: number; text: string; delay: number; }
+  interface MatchDate { x: number; y: number; text: string; time?: string; delay: number; }
 
   const sideInMatch = (m: WcMatch, name: string): Side | null =>
     m.home?.name === name ? m.home : m.away?.name === name ? m.away : null;
@@ -243,6 +243,11 @@
     if (!iso) return '';
     const d = new Date(iso);
     return `${String(d.getDate()).padStart(2, '0')}/${String(d.getMonth() + 1).padStart(2, '0')}`;
+  };
+
+  const hhmm = (iso?: string) => {
+    if (!iso) return '';
+    return new Date(iso).toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }).replace(':', 'h');
   };
 
   const geometry = $derived.by(() => {
@@ -327,6 +332,7 @@
             x: mx,
             y: my,
             text: ddmm(m.date),
+            time: hhmm(m.date),
             delay:
               (bothKnown ? COL_BASE[prevRound ?? round] : GREY_BASE[round]) +
               0.12 +
@@ -528,7 +534,9 @@
 
   <g class="dates">
     {#each geometry.dates as d}
-      <text class="match-date" x={d.x} y={d.y} class:hidden={reveal < d.delay}>{d.text}</text>
+      <text class="match-date" x={d.x} y={d.y} class:hidden={reveal < d.delay}
+        >{#if d.time}<tspan x={d.x} dy="-0.32em">{d.text}</tspan><tspan class="match-time" x={d.x} dy="1.18em">{d.time}</tspan>{:else}{d.text}{/if}</text
+      >
     {/each}
   </g>
 
@@ -1050,6 +1058,10 @@
     stroke: var(--bg);
     stroke-width: 3.5px;
     user-select: none;
+  }
+  .match-time {
+    fill: var(--text-secondary);
+    font-weight: 700;
   }
   .merge-dot,
   .score-plain,
