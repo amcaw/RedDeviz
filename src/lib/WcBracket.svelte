@@ -614,7 +614,9 @@
       <text class="medal-title" x={C} y={C + cr + 38}>{championTitle(champ.champion.name)} 2026</text>
       {#if champ.runnerUp}
         <text class="medal-score" x={C} y={C + cr + 53}
-          >{champ.score} c. {FR_NAME[champ.runnerUp.name] ?? champ.runnerUp.name}</text
+          >{FR_NAME[champ.champion.name] ?? champ.champion.name}
+          {champ.score}
+          {FR_NAME[champ.runnerUp.name] ?? champ.runnerUp.name}{champ.pens ? ` · ${champ.pens}` : ''}</text
         >
       {/if}
       {#if finalVideo}
