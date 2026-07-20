@@ -315,7 +315,12 @@
             else dots.push({ x, y, delay: greyBase + 0.1 + jitter });
           }
         }
-        if (kids[0]?.side && kids[1]?.side && (m.state === 'post' || m.state === 'in')) {
+        if (
+          kids[0]?.side &&
+          kids[1]?.side &&
+          (m.state === 'post' || m.state === 'in') &&
+          !(champ && round === 'F')
+        ) {
           const [k0, k1] = kids;
           const spanX = Math.abs(Math.cos(k0.a) - Math.cos(k1.a));
           const spanY = Math.abs(Math.sin(k0.a) - Math.sin(k1.a));
