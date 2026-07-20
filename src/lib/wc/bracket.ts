@@ -181,6 +181,61 @@ export const FR_ABBR: Record<string, string> = {
   Uzbekistan: 'OUZ'
 };
 
+const FR_FEM = new Set([
+  'Algeria',
+  'Argentina',
+  'Australia',
+  'Austria',
+  'Belgium',
+  'Bosnia-Herzegovina',
+  'Colombia',
+  'Congo DR',
+  'Croatia',
+  'Czechia',
+  'Egypt',
+  'England',
+  'France',
+  'Germany',
+  'Ivory Coast',
+  'Jordan',
+  'New Zealand',
+  'Norway',
+  'Saudi Arabia',
+  'Scotland',
+  'South Africa',
+  'South Korea',
+  'Spain',
+  'Sweden',
+  'Switzerland',
+  'Tunisia',
+  'Türkiye'
+]);
+
+export const championTitle = (name: string): string =>
+  FR_FEM.has(name) ? 'Championne du monde' : 'Champion du monde';
+
+export interface ChampionInfo {
+  champion: Side;
+  runnerUp: Side | null;
+  score: string;
+  pens: string | null;
+}
+
+export function championOf(b: Bracket): ChampionInfo | null {
+  const f = b.rounds.F[0];
+  if (!f || f.state !== 'post') return null;
+  const champion = f.home?.winner ? f.home : f.away?.winner ? f.away : null;
+  if (!champion) return null;
+  const runnerUp = f.home?.winner ? f.away : f.home;
+  const score =
+    champion.score != null && runnerUp?.score != null ? `${champion.score}-${runnerUp.score}` : '';
+  const pens =
+    champion.shootout != null && runnerUp?.shootout != null
+      ? `${champion.shootout}–${runnerUp.shootout} t.a.b.`
+      : null;
+  return { champion, runnerUp: runnerUp ?? null, score, pens };
+}
+
 const stat = (c: any, name: string): string | null =>
   c.statistics?.find((s: any) => s.name === name)?.displayValue ?? null;
 

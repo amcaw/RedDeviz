@@ -3,6 +3,9 @@
   import { base } from '$app/paths';
   import {
     ROUND_ORDER,
+    FR_NAME,
+    championOf,
+    championTitle,
     type Bracket,
     type RoundKey,
     type WcMatch,
@@ -230,8 +233,11 @@
     return colorAssign.get(side.name) ?? 'var(--accent)';
   }
 
-  interface Seg { d: string; color: string | null; delay: number; dur: number; }
-  interface Flag { x: number; y: number; side: Side; advanced: boolean; big: boolean; delay: number; }
+  const champ = $derived(championOf(bracket));
+  const GOLD = '#d4a017';
+
+  interface Seg { d: string; color: string | null; delay: number; dur: number; champ?: boolean; runner?: boolean; }
+  interface Flag { x: number; y: number; side: Side; advanced: boolean; big: boolean; delay: number; champ?: boolean; }
   interface Dot { x: number; y: number; delay: number; }
   interface Score { x: number; y: number; text: string; pens: string | null; video: WcVideoRef | null; delay: number; }
   interface MatchDate { x: number; y: number; text: string; time?: string; delay: number; }
@@ -268,23 +274,30 @@
         for (const kid of kids) {
           const col = kid.side ? teamColor(kid.side) : null;
           const jitter = sweep(kid.a) * 0.02;
+          const isChamp = !!champ && kid.advanced && kid.side?.name === champ.champion.name;
+          const isRunner =
+            !!champ && kid.advanced && !!champ.runnerUp && kid.side?.name === champ.runnerUp.name;
           const inColor = round === 'R32' ? (kid.advanced ? col : null) : kid.side ? col : null;
           const inDelay = inColor
             ? (round === 'R32' ? COL_BASE.R32 : COL_BASE[prevRound!] + 0.05) + jitter
             : greyBase + jitter;
           segs.push({
             d: radial(kid.a, inFrom, lvl),
-            color: inColor,
+            color: isChamp ? GOLD : inColor,
             delay: inDelay,
-            dur: 0.05
+            dur: 0.05,
+            champ: isChamp,
+            runner: isRunner
           });
           if (round !== 'F') {
             const arcColor = kid.advanced ? col : null;
             segs.push({
               d: arc(lvl, kid.a, m.angle),
-              color: arcColor,
+              color: isChamp ? GOLD : arcColor,
               delay: arcColor ? COL_BASE[round] + 0.04 + jitter : greyBase + 0.04 + jitter,
-              dur: 0.05
+              dur: 0.05,
+              champ: isChamp,
+              runner: isRunner
             });
           }
           if (round !== 'R32') {
@@ -296,15 +309,17 @@
                 side: kid.side,
                 advanced: kid.advanced,
                 big: false,
-                delay: COL_BASE[prevRound!] + 0.11 + jitter
+                delay: COL_BASE[prevRound!] + 0.11 + jitter,
+                champ: isChamp
               });
             else dots.push({ x, y, delay: greyBase + 0.1 + jitter });
           }
         }
         if (kids[0]?.side && kids[1]?.side && (m.state === 'post' || m.state === 'in')) {
           const [k0, k1] = kids;
-          const horizontal =
-            Math.abs(Math.cos(k0.a) - Math.cos(k1.a)) >= Math.abs(Math.sin(k0.a) - Math.sin(k1.a));
+          const spanX = Math.abs(Math.cos(k0.a) - Math.cos(k1.a));
+          const spanY = Math.abs(Math.sin(k0.a) - Math.sin(k1.a));
+          const horizontal = spanX >= spanY * 0.7;
           const key = (k: Kid) => (horizontal ? Math.cos(k.a) : Math.sin(k.a));
           const ordered = key(k0) <= key(k1) ? [k0, k1] : [k1, k0];
           const s0 = sideInMatch(m, ordered[0].side!.name);
@@ -352,10 +367,12 @@
             side: kid.side,
             advanced: kid.advanced,
             big: true,
-            delay: 0.02 + sweep(kid.a) * 0.4
+            delay: 0.02 + sweep(kid.a) * 0.4,
+            champ: !!champ && kid.side.name === champ.champion.name
           });
       }
     }
+
     return { segs, flags, dots, scores, dates };
   });
 
@@ -434,6 +451,8 @@
       <path
         d={s.d}
         class:advanced={!!s.color}
+        class:champ-path={s.champ}
+        class:runner-path={s.runner}
         style:stroke={s.color ?? undefined}
         pathLength="1"
         stroke-dasharray="1"
@@ -483,8 +502,8 @@
           <clipPath id="fc{i}">
             <circle r={r - 1} />
           </clipPath>
-          <circle {r} class="flag-ring" class:won={f.advanced}
-            style:stroke={f.advanced ? teamColor(f.side) : undefined} />
+          <circle {r} class="flag-ring" class:won={f.advanced} class:champ-ring={f.champ}
+            style:stroke={f.champ ? GOLD : f.advanced ? teamColor(f.side) : undefined} />
           <image
             href={f.side.logo}
             x={-1.8 * r}
@@ -540,7 +559,83 @@
     {/each}
   </g>
 
-  <image href="{base}/logos/fifa26.png" x={C - 85} y={C - 85} width="170" height="170" class="fifa-logo" />
+  {#if champ}
+    {@const cr = 42}
+    {@const finalVideo = champ.runnerUp
+      ? (videos[[champ.champion.name, champ.runnerUp.name].sort().join('|')] ?? null)
+      : null}
+    <g class="medal" class:hidden={reveal < 0.96}>
+      <circle cx={C} cy={C} r="80" class="medal-halo" />
+      <image
+        href="{base}/logos/fifa26.png"
+        x={C - 36}
+        y={C - cr - 76}
+        width="72"
+        height="72"
+        class="medal-mark"
+      />
+      <g
+        class="medal-hit"
+        role="button"
+        tabindex="0"
+        aria-label="{champ.champion.name}, statistiques de la finale"
+        onmouseenter={() => {
+          if (!isMobile) showTip({ x: C, y: C, side: champ.champion });
+        }}
+        onmouseleave={() => {
+          if (!isMobile) hideTip();
+        }}
+        onfocus={() => {
+          if (!isMobile) showTip({ x: C, y: C, side: champ.champion });
+        }}
+        onblur={() => {
+          if (!isMobile) hideTip();
+        }}
+        onclick={() => showTip({ x: C, y: C, side: champ.champion })}
+        onkeydown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            showTip({ x: C, y: C, side: champ.champion });
+          }
+        }}
+      >
+        <clipPath id="champClip"><circle cx={C} cy={C} r={cr - 1} /></clipPath>
+        <circle cx={C} cy={C} r={cr} class="medal-ring" />
+        <image
+          href={champ.champion.logo}
+          x={C - 1.8 * cr}
+          y={C - 1.8 * cr}
+          width={3.6 * cr}
+          height={3.6 * cr}
+          clip-path="url(#champClip)"
+        />
+      </g>
+      <text class="medal-name" x={C} y={C + cr + 23}>{FR_NAME[champ.champion.name] ?? champ.champion.name}</text>
+      <text class="medal-title" x={C} y={C + cr + 38}>{championTitle(champ.champion.name)} 2026</text>
+      {#if champ.runnerUp}
+        <text class="medal-score" x={C} y={C + cr + 53}
+          >{champ.score} c. {FR_NAME[champ.runnerUp.name] ?? champ.runnerUp.name}</text
+        >
+      {/if}
+      {#if finalVideo}
+        <g
+          class="medal-play"
+          role="button"
+          tabindex="0"
+          aria-label="Voir le résumé de la finale"
+          onclick={() => onvideo?.(finalVideo)}
+          onkeydown={(e) => e.key === 'Enter' && onvideo?.(finalVideo)}
+        >
+          <g transform="translate({C} {C + cr + 68})">
+            <circle r="9" class="play-badge" />
+            <path d="M-2.7 -4.5 L4.7 0 L-2.7 4.5 Z" class="play-tri" />
+          </g>
+        </g>
+      {/if}
+    </g>
+  {:else}
+    <image href="{base}/logos/fifa26.png" x={C - 85} y={C - 85} width="170" height="170" class="fifa-logo" />
+  {/if}
 </svg>
 
 {#if tip && isMobile}
@@ -983,6 +1078,85 @@
     stroke-width: 3;
     stroke-linecap: round;
   }
+  .links path.runner-path {
+    stroke-width: 3.6;
+    filter: drop-shadow(0 0 3px rgba(148, 155, 168, 0.75));
+  }
+  .links path.champ-path {
+    stroke-width: 5;
+    stroke-linecap: round;
+    filter: drop-shadow(0 0 4px rgba(212, 160, 23, 0.55));
+  }
+  .medal-halo {
+    fill: rgba(212, 160, 23, 0.1);
+    stroke: rgba(212, 160, 23, 0.35);
+    stroke-width: 1;
+  }
+  .medal-ring {
+    fill: var(--surface);
+    stroke: #d4a017;
+    stroke-width: 4.5;
+    filter: drop-shadow(0 0 8px rgba(212, 160, 23, 0.5));
+  }
+  .champ-ring {
+    stroke-width: 4.5;
+  }
+  .medal-hit {
+    cursor: pointer;
+    outline: none;
+  }
+  .medal-hit:hover .medal-ring,
+  .medal-hit:focus-visible .medal-ring {
+    stroke-width: 6;
+  }
+  .medal-mark {
+    pointer-events: none;
+  }
+  .medal-play {
+    cursor: pointer;
+    outline: none;
+  }
+  .medal-play:hover .play-badge,
+  .medal-play:focus-visible .play-badge {
+    r: 11;
+  }
+  .medal-name {
+    font: 800 21px var(--font);
+    fill: var(--text);
+    text-anchor: middle;
+    letter-spacing: 0.04em;
+    paint-order: stroke;
+    stroke: var(--bg);
+    stroke-width: 4px;
+    user-select: none;
+  }
+  .medal-title {
+    font: 700 12px var(--font);
+    fill: #b8860b;
+    text-anchor: middle;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    paint-order: stroke;
+    stroke: var(--bg);
+    stroke-width: 3.5px;
+    user-select: none;
+  }
+  .medal-score {
+    font: 600 12px var(--font);
+    fill: var(--text-secondary);
+    text-anchor: middle;
+    font-variant-numeric: tabular-nums;
+    paint-order: stroke;
+    stroke: var(--bg);
+    stroke-width: 3.5px;
+    user-select: none;
+  }
+  .medal {
+    transition: opacity 0.5s ease-out;
+  }
+  .medal.hidden {
+    opacity: 0;
+  }
   .merge-dot {
     fill: var(--border-strong);
   }
@@ -1016,7 +1190,8 @@
     user-select: none;
   }
   @media (prefers-color-scheme: dark) {
-    .fifa-logo {
+    .fifa-logo,
+    .medal-mark {
       filter: invert(1) hue-rotate(180deg);
     }
   }
