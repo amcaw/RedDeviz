@@ -25,6 +25,8 @@ Le module a été rendu et contrôlé avec Chromium en desktop et mobile. Le bui
 - [x] Sélecteur Hommes/Femmes et navigation quotidienne alignés sur toute la largeur de la visualisation.
 - [x] Accordéon « Comment lire cette visualisation ? » sous l'entonnoir avec le format complet E/F, G/H, résultat conservé, demi-finales et classements.
 - [x] Parcours E/F et G/H expliqué uniquement dans l'accordéon ; les deux cadres récapitulatifs sous l'anneau ont été retirés pour alléger la visualisation.
+- [x] Demi-finales représentées par quatre cercles, soit deux équipes par match : 1er E–2e F et 1er F–2e E.
+- [x] Chaque demi-finale montre ses deux équipes, puis un cercle de vainqueur aligné vers la finale ; les drapeaux apparaîtront automatiquement une fois les finalistes connus.
 - [x] Note sous le calendrier indiquant que les matchs joués sont cliquables/tactiles pour afficher leur détail.
 - [x] Note équivalente dans le drawer équipe, juste au-dessus des matchs déroulables.
 - [x] Chiffres de match ajoutés dans les drawers match et équipe : score par quart-temps, types de buts, cartons et statistiques avancées FIH uniquement lorsqu'elles sont renseignées et cohérentes.

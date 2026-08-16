@@ -26,7 +26,7 @@
   const S = 760;
   const C = S / 2;
   const NR = 19;
-  const R = { poolLabel: 361, pool: 278, arc: 326, chord: 308, superLabel: 178, super: 178, semi: 100, center: 74 };
+  const R = { poolLabel: 361, pool: 278, arc: 326, chord: 308, superLabel: 178, super: 178, semi: 132, finalist: 96, center: 74 };
 
   const rad = (deg: number) => (deg * Math.PI) / 180;
   const px = (r: number, deg: number) => C + r * Math.cos(rad(deg));
@@ -113,6 +113,10 @@
   );
 
   const final = $derived(isFinal(gender));
+  const finalists = $derived([
+    { code: final?.home ?? '', label: 'V. DF1', angle: 270 },
+    { code: final?.away ?? '', label: 'V. DF2', angle: 90 }
+  ]);
   const champion = $derived.by(() => {
     const f = final;
     if (!f || !f.played || f.hg == null || f.ag == null) return null;
@@ -212,10 +216,30 @@
       {/each}
     {/each}
 
-    <text x={C} y={py(R.semi, 270) - 20} class="phase-lbl anim" style:animation-delay="600ms">demi-finales</text>
-    <circle cx={C} cy={py(R.semi, 270)} r="14" class="reserved anim" style:animation-delay="600ms" />
-    <circle cx={C} cy={py(R.semi, 90)} r="14" class="reserved anim" style:animation-delay="600ms" />
-    <text x={C} y={py(R.semi, 90) + 22} class="phase-lbl anim" style:animation-delay="600ms">demi-finales</text>
+    <text x={C} y={py(R.semi, 270) - 22} class="phase-lbl anim" style:animation-delay="600ms">demi-finale</text>
+    <circle cx={C - 18} cy={py(R.semi, 270)} r="14" class="reserved anim" style:animation-delay="600ms" />
+    <circle cx={C + 18} cy={py(R.semi, 270)} r="14" class="reserved anim" style:animation-delay="630ms" />
+    <text x={C - 18} y={py(R.semi, 270) + 1} class="semi-seed anim" style:animation-delay="600ms">1er E</text>
+    <text x={C + 18} y={py(R.semi, 270) + 1} class="semi-seed anim" style:animation-delay="630ms">2e F</text>
+
+    <circle cx={C - 18} cy={py(R.semi, 90)} r="14" class="reserved anim" style:animation-delay="600ms" />
+    <circle cx={C + 18} cy={py(R.semi, 90)} r="14" class="reserved anim" style:animation-delay="630ms" />
+    <text x={C - 18} y={py(R.semi, 90) + 1} class="semi-seed anim" style:animation-delay="600ms">1er F</text>
+    <text x={C + 18} y={py(R.semi, 90) + 1} class="semi-seed anim" style:animation-delay="630ms">2e E</text>
+    <text x={C} y={py(R.semi, 90) + 23} class="phase-lbl anim" style:animation-delay="600ms">demi-finale</text>
+
+    {#each finalists as finalist, i}
+      {@const x = px(R.finalist, finalist.angle)}
+      {@const y = py(R.finalist, finalist.angle)}
+      {#if finalist.code}
+        <clipPath id="finalist-{i}"><circle cx={x} cy={y} r="13" /></clipPath>
+        <circle cx={x} cy={y} r="14" class="flag-ring anim" style:animation-delay="650ms" />
+        <image href={flagUrl(finalist.code)} x={x - 14} y={y - 14} width="28" height="28" clip-path="url(#finalist-{i})" preserveAspectRatio="xMidYMid slice" />
+      {:else}
+        <circle cx={x} cy={y} r="14" class="reserved anim" style:animation-delay="650ms" />
+        <text {x} y={y + 1} class="semi-seed anim" style:animation-delay="650ms">{finalist.label}</text>
+      {/if}
+    {/each}
 
     <g class="center-grp pop" style:animation-delay="680ms">
       <circle cx={C} cy={C} r={R.center} class="center-bg" class:crowned={!!champion} />
@@ -382,6 +406,13 @@
   }
   .phase-lbl.anim {
     animation-name: fade-phase;
+  }
+  .semi-seed {
+    fill: var(--text-muted);
+    font-size: 6.5px;
+    font-weight: 700;
+    text-anchor: middle;
+    dominant-baseline: middle;
   }
   @keyframes fade-phase {
     to {

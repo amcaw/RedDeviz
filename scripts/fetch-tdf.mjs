@@ -117,7 +117,7 @@ async function parseStage(n, stage) {
 
   const gcRows = tables.itg?.rows ?? [];
   if (!top.length || !gcRows.length) return null;
-  const gc = gcRows.slice(0, 40).map((r) => [toBib(r.dossard), toSec(r.ecart)]);
+  const gc = gcRows.slice(0, 200).map((r) => [toBib(r.dossard), toSec(r.ecart)]);
   const leader = (t) => toBib(t?.rows?.[0]?.dossard) ?? null;
 
   return {
