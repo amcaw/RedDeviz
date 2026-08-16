@@ -94,5 +94,21 @@
     "kind": "highlights",
     "source": "FIH",
     "published": "2026-08-16"
+  },
+  "ARG|JPN": {
+    "id": "UN9LsNnrW8k",
+    "title": "FIH Hockey Men's World Cup 2026, Game 8: Argentina vs Japan | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-16"
+  },
+  "BEL|NZL": {
+    "id": "sURYHk55N2Q",
+    "title": "FIH Hockey Women's World Cup 2026, Game 7: Belgium vs New Zealand | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-16"
   }
 }
