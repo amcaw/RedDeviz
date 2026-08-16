@@ -203,7 +203,9 @@ async function fetchComp(comp) {
     if (!det) continue;
     mt.venue = det.venue;
     mt.status = det.status;
-    if (!mt.utc && det.date) mt.utc = `${det.date} ${det.time}:00`;
+    if (!mt.utc && det.date && det.time) {
+      mt.utc = new Date(`${det.date}T${det.time}:00+02:00`).toISOString().slice(0, 19).replace('T', ' ');
+    }
     mt.scorers = det.scorers;
     mt.cards = det.cards;
     if (det.stats) mt.stats = det.stats;
