@@ -62,5 +62,21 @@
     "kind": "highlights",
     "source": "FIH",
     "published": "2026-08-15"
+  },
+  "ENG|RSA": {
+    "id": "vE0SSKjKbWQ",
+    "title": "FIH Hockey Women's World Cup 2026, Game 5: England vs South Africa | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-16"
+  },
+  "AUS|IRL": {
+    "id": "JQl0f_ZZRDw",
+    "title": "FIH Hockey Men's World Cup 2026, Game 5: Australia vs Ireland | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-16"
   }
 }
