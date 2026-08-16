@@ -19,9 +19,11 @@
 
   let {
     gender,
+    previousGender = null,
+    crossfading = false,
     onteam,
     onmatch
-  }: { gender: Gender; onteam?: (code: string) => void; onmatch?: (m: Match) => void } = $props();
+  }: { gender: Gender; previousGender?: Gender | null; crossfading?: boolean; onteam?: (code: string) => void; onmatch?: (m: Match) => void } = $props();
 
   const S = 760;
   const C = S / 2;
@@ -44,17 +46,31 @@
   const curDay = $derived(selectedDay ?? (days.includes(today) ? today : days[0]) ?? null);
   const dayIdx = $derived(curDay ? days.indexOf(curDay) : -1);
   const isToday = $derived(curDay === today);
+  let previousDay = $state<string | null>(null);
+  let dayCrossfading = $state(false);
   const step = (d: number) => {
     const i = dayIdx + d;
-    if (i >= 0 && i < days.length) selectedDay = days[i];
+    if (i < 0 || i >= days.length || dayCrossfading) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      selectedDay = days[i];
+      return;
+    }
+    previousDay = curDay;
+    selectedDay = days[i];
+    dayCrossfading = true;
+    window.setTimeout(() => {
+      dayCrossfading = false;
+      previousDay = null;
+    }, 240);
   };
 
-  const poolData = $derived(
+  const poolDataFor = (forGender: Gender) =>
     FIRST_POOLS.map((letter) => {
-      const p = poolOf(gender, letter);
+      const p = poolOf(forGender, letter);
       return { letter, angle: POOL_ANGLE[letter], teams: (p?.teams ?? []).slice(0, 4) };
-    })
-  );
+    });
+  const poolData = $derived(poolDataFor(gender));
+  const previousPoolData = $derived(previousGender ? poolDataFor(previousGender) : []);
 
   const nodePos = $derived.by(() => {
     const m: Record<string, { x: number; y: number }> = {};
@@ -69,8 +85,8 @@
     return m;
   });
 
-  const dayChords = $derived.by(() => {
-    const list = cp.matches.filter((mt) => dayKey(mt.utc) === curDay && nodePos[mt.home] && nodePos[mt.away]);
+  const chordsForDay = (day: string | null) => {
+    const list = cp.matches.filter((mt) => dayKey(mt.utc) === day && nodePos[mt.home] && nodePos[mt.away]);
     const seen: Record<string, number> = {};
     return list.map((mt) => {
       const key = mt.phase ?? '?';
@@ -78,7 +94,9 @@
       seen[key] = idx + 1;
       return { mt, a: nodePos[mt.home], b: nodePos[mt.away], rr: R.chord + idx * 11 };
     });
-  });
+  };
+  const dayChords = $derived(chordsForDay(curDay));
+  const previousDayChords = $derived(previousDay ? chordsForDay(previousDay) : []);
   const dayTeams = $derived(new Set(dayChords.flatMap((c) => [c.mt.home, c.mt.away])));
   const dayMatchCount = $derived(cp.matches.filter((mt) => dayKey(mt.utc) === curDay).length);
 
@@ -93,10 +111,10 @@
     return s;
   });
 
-  const superData = $derived(
+  const superDataFor = (forGender: Gender) =>
     SUPER_POOLS.map((letter) => {
       const SA = SUPER_ANGLE[letter];
-      const p = poolOf(gender, letter);
+      const p = poolOf(forGender, letter);
       const real = (p?.teams ?? []).filter((t) => t.code).slice(0, 4);
       if (real.length) {
         return { letter, angle: SA, slots: real.map((t, i) => ({ code: t.code, label: t.code ?? '', real: true, off: TEAM_OFFSETS[i] })) };
@@ -109,8 +127,34 @@
         slots.push({ code: null, label: `2e ${src}`, real: false, off: s * 48 });
       }
       return { letter, angle: SA, slots };
-    })
-  );
+    });
+  const superData = $derived(superDataFor(gender));
+  const previousSuperData = $derived(previousGender ? superDataFor(previousGender) : []);
+
+  const matchWinner = (match: Match | null): string | null => {
+    if (!match?.played || match.hg == null || match.ag == null) return null;
+    if (match.hg === match.ag && match.so) return match.so[0] > match.so[1] ? match.home : match.away;
+    return match.hg > match.ag ? match.home : match.away;
+  };
+  const phaseFinished = (forGender: Gender, phase: string) => {
+    const matches = comp(forGender).matches.filter((match) => match.phase === phase);
+    return matches.length > 0 && matches.every((match) => match.played);
+  };
+  const outOfTitle = (forGender: Gender, code: string | null) => {
+    if (!code) return false;
+    const competition = comp(forGender);
+    const titlePools = [...FIRST_POOLS, ...SUPER_POOLS];
+    for (const letter of titlePools) {
+      const team = competition.pools[letter]?.teams.find((entry) => entry.code === code);
+      if (team && phaseFinished(forGender, letter) && team.rank > 2) return true;
+    }
+    for (const match of competition.matches.filter((entry) => ['SF', '1/2', 'Final', 'F1'].includes(entry.phase ?? ''))) {
+      if (match.played && (match.home === code || match.away === code) && matchWinner(match) !== code) return true;
+    }
+    return false;
+  };
+
+  const semifinals = $derived(cp.matches.filter((match) => match.phase === 'SF').sort((a, b) => a.id - b.id).slice(0, 2));
 
   const final = $derived(isFinal(gender));
   const finalists = $derived([
@@ -118,10 +162,7 @@
     { code: final?.away ?? '', label: 'V. DF2', angle: 90 }
   ]);
   const champion = $derived.by(() => {
-    const f = final;
-    if (!f || !f.played || f.hg == null || f.ag == null) return null;
-    if (f.hg === f.ag && f.so) return f.so[0] > f.so[1] ? f.home : f.away;
-    return f.hg > f.ag ? f.home : f.away;
+    return matchWinner(final);
   });
 
   const arcPath = (r: number, a0: number, a1: number) =>
@@ -171,33 +212,74 @@
       <text x={px(R.poolLabel, pool.angle)} y={py(R.poolLabel, pool.angle)} class="pool-lbl anim" style:animation-delay="180ms">Poule {pool.letter}</text>
     {/each}
 
-    {#each dayChords as c (c.mt.id)}
-      {@const strong = hoverCode != null && (c.mt.home === hoverCode || c.mt.away === hoverCode)}
-      {@const path = chordPath(c.a, c.b, c.rr)}
-      <path d={path} class="chord-hit" role="button" tabindex="0" aria-label="{teamName(gender, c.mt.home)} contre {teamName(gender, c.mt.away)}" onclick={() => onmatch?.(c.mt)} onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && onmatch?.(c.mt)} />
-      <path d={path} class="chord" class:live={isToday} class:strong aria-hidden="true" />
-    {/each}
-
-    {#each poolData as pool, pi}
-      {#each pool.teams as t, i}
-        {@const ta = pool.angle + TEAM_OFFSETS[i]}
-        {@const x = px(R.pool, ta)}
-        {@const y = py(R.pool, ta)}
-        {@const dir = y > C ? -1 : 1}
-        {@const lead = t.rank <= 2 && t.gp > 0}
-        {@const plays = !!t.code && dayTeams.has(t.code)}
-        {@const hi = !!t.code && (hoverCode === t.code || linkedCodes.has(t.code))}
-        <g class="team pop" class:hi style:animation-delay="{200 + (pi * 4 + i) * 32}ms" role="button" tabindex="0" aria-label={teamName(gender, t.code ?? '')} onmouseenter={() => (hoverCode = t.code ?? null)} onmouseleave={() => (hoverCode = null)} onclick={() => t.code && onteam?.(t.code)} onkeydown={(e) => e.key === 'Enter' && t.code && onteam?.(t.code)}>
-          <clipPath id="clip-{pool.letter}-{i}"><circle cx={x} cy={y} r={NR - 1} /></clipPath>
-          <circle cx={x} cy={y} r={NR} class="flag-ring" class:lead class:plays />
-          <image href={flagUrl(t.code)} x={x - NR} y={y - NR} width={NR * 2} height={NR * 2} clip-path="url(#clip-{pool.letter}-{i})" preserveAspectRatio="xMidYMid slice" />
-          <text {x} y={y + dir * (NR + 12)} class="code">{abbr(t.code)}</text>
-          {#if t.gp > 0}
-            <text {x} y={y + dir * (NR + 23)} class="pts">{t.pts} pt{t.pts > 1 ? 's' : ''}</text>
-          {/if}
-        </g>
+    <g class="line-layer" class:incoming={dayCrossfading}>
+      {#each dayChords as c (c.mt.id)}
+        {@const strong = hoverCode != null && (c.mt.home === hoverCode || c.mt.away === hoverCode)}
+        {@const path = chordPath(c.a, c.b, c.rr)}
+        <path d={path} class="chord-hit" role="button" tabindex="0" aria-label="{teamName(gender, c.mt.home)} contre {teamName(gender, c.mt.away)}" onclick={() => onmatch?.(c.mt)} onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && onmatch?.(c.mt)} />
+        <path d={path} class="chord" class:live={isToday} class:strong aria-hidden="true" />
       {/each}
-    {/each}
+    </g>
+
+    {#if dayCrossfading && previousDay}
+      <g class="line-layer outgoing" aria-hidden="true">
+        {#each previousDayChords as c (c.mt.id)}
+          {@const path = chordPath(c.a, c.b, c.rr)}
+          <path d={path} class="chord" class:live={previousDay === today} />
+        {/each}
+      </g>
+    {/if}
+
+    <g class="nation-layer" class:incoming={crossfading}>
+      {#each poolData as pool, pi}
+        {#each pool.teams as t, i}
+          {@const ta = pool.angle + TEAM_OFFSETS[i]}
+          {@const x = px(R.pool, ta)}
+          {@const y = py(R.pool, ta)}
+          {@const dir = y > C ? -1 : 1}
+          {@const lead = t.rank <= 2 && t.gp > 0}
+          {@const plays = !!t.code && dayTeams.has(t.code)}
+          {@const hi = !!t.code && (hoverCode === t.code || linkedCodes.has(t.code))}
+          {@const noTitle = outOfTitle(gender, t.code)}
+          <g class="team pop" class:hi style:animation-delay="{200 + (pi * 4 + i) * 32}ms" role="button" tabindex="0" aria-label="{teamName(gender, t.code ?? '')}{noTitle ? ', hors de la course au titre' : ''}" onmouseenter={() => (hoverCode = t.code ?? null)} onmouseleave={() => (hoverCode = null)} onclick={() => t.code && onteam?.(t.code)} onkeydown={(e) => e.key === 'Enter' && t.code && onteam?.(t.code)}>
+            <g class="team-visual" class:out-title={noTitle}>
+              <clipPath id="clip-{pool.letter}-{i}"><circle cx={x} cy={y} r={NR - 1} /></clipPath>
+              <circle cx={x} cy={y} r={NR} class="flag-ring" class:lead class:plays />
+              <image href={flagUrl(t.code)} x={x - NR} y={y - NR} width={NR * 2} height={NR * 2} clip-path="url(#clip-{pool.letter}-{i})" preserveAspectRatio="xMidYMid slice" />
+              <text {x} y={y + dir * (NR + 12)} class="code">{abbr(t.code)}</text>
+              {#if t.gp > 0}
+                <text {x} y={y + dir * (NR + 23)} class="pts">{t.pts} pt{t.pts > 1 ? 's' : ''}</text>
+              {/if}
+            </g>
+          </g>
+        {/each}
+      {/each}
+    </g>
+
+    {#if crossfading && previousGender}
+      <g class="nation-layer outgoing" aria-hidden="true">
+        {#each previousPoolData as pool}
+          {#each pool.teams as t, i}
+            {@const ta = pool.angle + TEAM_OFFSETS[i]}
+            {@const x = px(R.pool, ta)}
+            {@const y = py(R.pool, ta)}
+            {@const dir = y > C ? -1 : 1}
+            {@const lead = t.rank <= 2 && t.gp > 0}
+            <g class="team">
+              <g class="team-visual" class:out-title={outOfTitle(previousGender, t.code)}>
+                <clipPath id="old-clip-{pool.letter}-{i}"><circle cx={x} cy={y} r={NR - 1} /></clipPath>
+                <circle cx={x} cy={y} r={NR} class="flag-ring" class:lead />
+                <image href={flagUrl(t.code)} x={x - NR} y={y - NR} width={NR * 2} height={NR * 2} clip-path="url(#old-clip-{pool.letter}-{i})" preserveAspectRatio="xMidYMid slice" />
+                <text {x} y={y + dir * (NR + 12)} class="code">{abbr(t.code)}</text>
+                {#if t.gp > 0}
+                  <text {x} y={y + dir * (NR + 23)} class="pts">{t.pts} pt{t.pts > 1 ? 's' : ''}</text>
+                {/if}
+              </g>
+            </g>
+          {/each}
+        {/each}
+      </g>
+    {/if}
 
     {#each superData as sp}
       <text x={px(R.superLabel, sp.angle)} y={py(R.superLabel, sp.angle)} class="super-lbl anim" style:animation-delay="520ms">Poule {sp.letter}</text>
@@ -206,9 +288,11 @@
         {@const x = px(R.super, sa)}
         {@const y = py(R.super, sa)}
         {#if slot.real && slot.code}
-          <clipPath id="sclip-{sp.letter}-{i}"><circle cx={x} cy={y} r="14" /></clipPath>
-          <circle cx={x} cy={y} r="15" class="flag-ring anim" style:animation-delay="540ms" />
-          <image href={flagUrl(slot.code)} x={x - 15} y={y - 15} width="30" height="30" clip-path="url(#sclip-{sp.letter}-{i})" preserveAspectRatio="xMidYMid slice" />
+          <g class="nation-slot" class:incoming={crossfading} class:out-title={outOfTitle(gender, slot.code)}>
+            <clipPath id="sclip-{sp.letter}-{i}"><circle cx={x} cy={y} r="14" /></clipPath>
+            <circle cx={x} cy={y} r="15" class="flag-ring anim" style:animation-delay="540ms" />
+            <image href={flagUrl(slot.code)} x={x - 15} y={y - 15} width="30" height="30" clip-path="url(#sclip-{sp.letter}-{i})" preserveAspectRatio="xMidYMid slice" />
+          </g>
         {:else}
           <circle cx={x} cy={y} r="15" class="reserved anim" style:animation-delay="{540 + i * 30}ms" />
           <text {x} y={y + 1} class="reserved-lbl anim" style:animation-delay="{540 + i * 30}ms">{slot.label}</text>
@@ -216,25 +300,56 @@
       {/each}
     {/each}
 
-    <text x={C} y={py(R.semi, 270) - 22} class="phase-lbl anim" style:animation-delay="600ms">demi-finale</text>
-    <circle cx={C - 18} cy={py(R.semi, 270)} r="14" class="reserved anim" style:animation-delay="600ms" />
-    <circle cx={C + 18} cy={py(R.semi, 270)} r="14" class="reserved anim" style:animation-delay="630ms" />
-    <text x={C - 18} y={py(R.semi, 270) + 1} class="semi-seed anim" style:animation-delay="600ms">1er E</text>
-    <text x={C + 18} y={py(R.semi, 270) + 1} class="semi-seed anim" style:animation-delay="630ms">2e F</text>
+    {#if crossfading && previousGender}
+      <g class="nation-layer outgoing" aria-hidden="true">
+        {#each previousSuperData as sp}
+          {#each sp.slots as slot, i}
+            {@const sa = sp.angle + slot.off}
+            {@const x = px(R.super, sa)}
+            {@const y = py(R.super, sa)}
+            {#if slot.real && slot.code}
+              <g class="nation-slot" class:out-title={outOfTitle(previousGender, slot.code)}>
+                <clipPath id="old-sclip-{sp.letter}-{i}"><circle cx={x} cy={y} r="14" /></clipPath>
+                <circle cx={x} cy={y} r="15" class="flag-ring" />
+                <image href={flagUrl(slot.code)} x={x - 15} y={y - 15} width="30" height="30" clip-path="url(#old-sclip-{sp.letter}-{i})" preserveAspectRatio="xMidYMid slice" />
+              </g>
+            {/if}
+          {/each}
+        {/each}
+      </g>
+    {/if}
 
-    <circle cx={C - 18} cy={py(R.semi, 90)} r="14" class="reserved anim" style:animation-delay="600ms" />
-    <circle cx={C + 18} cy={py(R.semi, 90)} r="14" class="reserved anim" style:animation-delay="630ms" />
-    <text x={C - 18} y={py(R.semi, 90) + 1} class="semi-seed anim" style:animation-delay="600ms">1er F</text>
-    <text x={C + 18} y={py(R.semi, 90) + 1} class="semi-seed anim" style:animation-delay="630ms">2e E</text>
-    <text x={C} y={py(R.semi, 90) + 23} class="phase-lbl anim" style:animation-delay="600ms">demi-finale</text>
+    {#each [
+      { match: semifinals[0] ?? null, angle: 270, labels: ['1er E', '2e F'], labelY: py(R.semi, 270) - 22 },
+      { match: semifinals[1] ?? null, angle: 90, labels: ['1er F', '2e E'], labelY: py(R.semi, 90) + 23 }
+    ] as semi, si}
+      {@const y = py(R.semi, semi.angle)}
+      <text x={C} y={semi.labelY} class="phase-lbl anim" style:animation-delay="600ms">demi-finale</text>
+      {#each [semi.match?.home ?? '', semi.match?.away ?? ''] as code, ti}
+        {@const x = C + (ti === 0 ? -18 : 18)}
+        {@const noTitle = outOfTitle(gender, code)}
+        {#if code}
+          <g class="stage-team" class:out-title={noTitle} role="button" tabindex="0" aria-label="{teamName(gender, code)}{noTitle ? ', hors de la course au titre' : ''}" onclick={() => onteam?.(code)} onkeydown={(event) => event.key === 'Enter' && onteam?.(code)}>
+            <clipPath id="semi-{si}-{ti}"><circle cx={x} cy={y} r="13" /></clipPath>
+            <circle cx={x} cy={y} r="14" class="flag-ring anim" style:animation-delay="{600 + ti * 30}ms" />
+            <image href={flagUrl(code)} x={x - 14} y={y - 14} width="28" height="28" clip-path="url(#semi-{si}-{ti})" preserveAspectRatio="xMidYMid slice" />
+          </g>
+        {:else}
+          <circle cx={x} cy={y} r="14" class="reserved anim" style:animation-delay="{600 + ti * 30}ms" />
+          <text {x} y={y + 1} class="semi-seed anim" style:animation-delay="{600 + ti * 30}ms">{semi.labels[ti]}</text>
+        {/if}
+      {/each}
+    {/each}
 
     {#each finalists as finalist, i}
       {@const x = px(R.finalist, finalist.angle)}
       {@const y = py(R.finalist, finalist.angle)}
       {#if finalist.code}
-        <clipPath id="finalist-{i}"><circle cx={x} cy={y} r="13" /></clipPath>
-        <circle cx={x} cy={y} r="14" class="flag-ring anim" style:animation-delay="650ms" />
-        <image href={flagUrl(finalist.code)} x={x - 14} y={y - 14} width="28" height="28" clip-path="url(#finalist-{i})" preserveAspectRatio="xMidYMid slice" />
+        <g class="nation-slot" class:incoming={crossfading} class:out-title={outOfTitle(gender, finalist.code)}>
+          <clipPath id="finalist-{i}"><circle cx={x} cy={y} r="13" /></clipPath>
+          <circle cx={x} cy={y} r="14" class="flag-ring anim" style:animation-delay="650ms" />
+          <image href={flagUrl(finalist.code)} x={x - 14} y={y - 14} width="28" height="28" clip-path="url(#finalist-{i})" preserveAspectRatio="xMidYMid slice" />
+        </g>
       {:else}
         <circle cx={x} cy={y} r="14" class="reserved anim" style:animation-delay="650ms" />
         <text {x} y={y + 1} class="semi-seed anim" style:animation-delay="650ms">{finalist.label}</text>
@@ -331,6 +446,26 @@
     transform-origin: center;
     animation: pop 0.5s cubic-bezier(0.2, 0.75, 0.25, 1) forwards;
   }
+  .nation-layer,
+  .nation-slot {
+    opacity: 1;
+  }
+  .nation-layer.incoming,
+  .nation-slot.incoming {
+    animation: nations-in 0.24s ease both;
+  }
+  .nation-layer.outgoing {
+    pointer-events: none;
+    animation: nations-out 0.24s ease both;
+  }
+  @keyframes nations-in {
+    from { opacity: 0; }
+    to { opacity: var(--nation-opacity, 1); }
+  }
+  @keyframes nations-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
   @keyframes fade {
     to {
       opacity: 1;
@@ -350,6 +485,11 @@
     .anim,
     .pop {
       opacity: 1;
+      animation: none;
+    }
+    .nation-layer,
+    .nation-slot,
+    .line-layer {
       animation: none;
     }
   }
@@ -429,6 +569,21 @@
     pointer-events: none;
     transition: opacity 0.14s, stroke-width 0.14s;
   }
+  .line-layer.incoming {
+    animation: lines-in 0.24s ease both;
+  }
+  .line-layer.outgoing {
+    pointer-events: none;
+    animation: lines-out 0.24s ease both;
+  }
+  @keyframes lines-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes lines-out {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
   .chord-hit {
     fill: none;
     stroke: transparent;
@@ -447,6 +602,27 @@
     stroke-width: 3.6;
   }
   .team {
+    cursor: pointer;
+  }
+  .team-visual,
+  .nation-slot,
+  .stage-team {
+    transition: opacity 0.2s ease, filter 0.2s ease;
+  }
+  .team-visual.out-title,
+  .nation-slot.out-title,
+  .stage-team.out-title {
+    --nation-opacity: 0.38;
+    opacity: var(--nation-opacity);
+    filter: saturate(0.15);
+  }
+  .team:hover .team-visual.out-title,
+  .team:focus-visible .team-visual.out-title,
+  .stage-team.out-title:hover,
+  .stage-team.out-title:focus-visible {
+    --nation-opacity: 0.62;
+  }
+  .stage-team {
     cursor: pointer;
   }
   .flag-ring {

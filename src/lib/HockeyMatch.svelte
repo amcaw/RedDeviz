@@ -21,7 +21,7 @@
 
 </script>
 
-<div class="card" role="dialog" aria-modal="true" aria-label="Détail du match">
+<div class="card">
   <button class="close" onclick={onclose} aria-label="Fermer">✕</button>
 
   <div class="scoreline">

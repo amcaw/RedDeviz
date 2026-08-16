@@ -1,13 +1,74 @@
-# Hockey WC 2026 (`/hockey2026`) — état du module
+# Hockey WC 2026 (`/hockey2026`) — handoff Codex
 
-Tout est en local, **rien n'est commité**. `npx svelte-check --threshold error --tsconfig ./tsconfig.json` = 0 erreur.
+Dernière actualisation du handoff : **16 août 2026**.
+
+Le socle hockey est déjà dans `main` (`62053b5`, puis ajustements dans `3869995`), mais les derniers travaux décrits ci-dessous sont **locaux et non committés**. Ne pas les écraser et ne faire ni commit ni push sans instruction explicite.
+
+État Git local au moment du handoff :
+
+- `M HANDOFF-HOCKEY.md`
+- `M src/lib/HockeyFunnel.svelte`
+- `M src/lib/HockeyMatch.svelte`
+- `M src/routes/hockey2026/+page.svelte`
+
 Fichiers du module : `scripts/fetch-hockey.mjs`, `src/data/hockey.json`, `src/lib/hockey/data.ts`,
 `src/lib/HockeyFunnel.svelte`, `HockeyMatch.svelte`, `HockeyTeam.svelte`,
 `HockeyVideo.svelte`, `scripts/fetch-hockey-videos.mjs`, `src/data/hockey-videos.json`,
 `src/routes/hockey2026/+page.svelte`, `static/hockey-logo.png`, `.github/workflows/refresh-hockey.yml`.
 
-Le module a été rendu et contrôlé avec Chromium en desktop et mobile. Le build statique avec
-`BASE_PATH=/RedDeviz` passe. Les changements TDF présents dans le dépôt sont indépendants et n'ont pas été touchés.
+Dernières vérifications :
+
+- `npx svelte-check --threshold error --tsconfig ./tsconfig.json` : **0 erreur**, 3 warnings préexistants et sans rapport dans `CartoChronologie.svelte`.
+- `npm run build` : **OK** avec l'adapter statique.
+- `git diff --check` : **OK**.
+- Contrôles Chromium : desktop, mobile 390 px et 320 px, changements de genre/jour, drawer, focus clavier et simulation des futures éliminations.
+- Aucun serveur de développement n'est laissé actif.
+
+Les changements TDF présents dans le dépôt sont indépendants et n'ont pas été touchés pendant cette reprise.
+
+---
+
+## Reprise rapide : fonctionnement des derniers changements
+
+### Crossfade Hommes/Femmes
+
+- `+page.svelte` conserve temporairement `previousGender`, passe immédiatement sur le nouveau genre et garde les deux jeux de nations pendant **240 ms**.
+- `HockeyFunnel.svelte` superpose les anciens et nouveaux calques de nations ; le SVG, les anneaux, les arcs décoratifs et les libellés ne sont pas remontés.
+- Le calendrier superpose de la même façon les anciens et nouveaux blocs équipes/drapeaux/scores. L'ancien match est apparié au nouveau par **jour + index dans la journée** ; vérifier ce point si la FIH publie un jour un nombre ou un ordre de matchs différent entre les deux tournois.
+- `prefers-reduced-motion` contourne le crossfade et applique le changement immédiatement.
+
+### Crossfade des liaisons au changement de jour
+
+- `HockeyFunnel.svelte` garde `previousDay` et superpose deux groupes `.line-layer` pendant **240 ms**.
+- Les anciennes cordes ne sont plus interactives pendant leur disparition ; les nouvelles le sont immédiatement.
+- Les pays, les anneaux et les arcs de poule restent fixes. Le même élément `<svg>` reste connecté.
+- Une nouvelle navigation est ignorée pendant les 240 ms de transition pour éviter d'empiler plusieurs anciens états.
+
+### Drawer adaptatif
+
+- Desktop : panneau latéral droit historique, largeur `min(430px, 92vw)`.
+- Mobile (`≤ 560px`) : bottom sheet pleine largeur, hauteur stable `min(84dvh, 760px)` avec un plafond à `90dvh`, coins supérieurs arrondis et arrivée depuis le bas.
+- La hauteur stable empêche le bord supérieur de sauter quand un match est déplié dans le drawer équipe.
+- Poignée et bouton de fermeture restent fixes ; seul le contenu interne défile.
+- Le scroll de la page arrière est verrouillé, le focus est piégé dans le dialogue puis restauré sur le match ou le pays qui l'a ouvert.
+- Le rôle `dialog` est porté par le conteneur de `+page.svelte`. Le rôle redondant a été retiré de la racine de `HockeyMatch.svelte`.
+
+### Nations sorties de la course au titre
+
+- Ne jamais employer visuellement « éliminée du tournoi » : les équipes poursuivent des matchs de classement.
+- `outOfTitle()` ne s'appuie pas sur la date. Il attend qu'une phase soit réellement terminée (`phaseFinished()`), puis atténue automatiquement les équipes classées 3es/4es des poules A–F, les perdants des demi-finales et le finaliste battu.
+- Une nation hors course au titre reste présente et cliquable : opacité `0.38`, saturation `0.15`, remontée à `0.62` au survol/focus.
+- Les quatre graines des demi-finales sont remplacées automatiquement par les drapeaux dès que les matchs `SF` contiennent de vrais codes équipes. Après une demi-finale jouée, seul le perdant est atténué.
+- La finale accepte les phases `1/2`, `Final` et `F1`. Le champion apparaît au centre ; le finaliste battu reste visible mais atténué.
+- L'accordéon explique explicitement qu'une nation atténuée poursuit son tournoi dans les matchs de classement.
+- Avec les données actuelles, aucune poule n'est encore terminée : aucun pays n'est donc atténué en production. Le rendu futur a été testé en mutant uniquement la copie en mémoire dans Chromium : France/Malaisie sorties de la poule B et Inde battue en demi-finale ; les fichiers de données n'ont pas été modifiés.
+
+### Calendrier mobile et appel vers le calendrier
+
+- Sous 560 px, le calendrier passe sur une colonne et autorise le retour à la ligne des noms, graines et phases : aucun texte n'est tronqué à 320/390 px.
+- Le bouton « Voir le calendrier » est fixe en bas du viewport en mode standalone, disparaît en descendant et revient en remontant.
+- Dans un iframe, le bouton reste dans le flux avec une zone réservée sous la visualisation afin de ne pas provoquer de hauteur Pym démesurée ni de recouvrement.
+- Cette zone ne doit pas réduire la visualisation : `.stage` conserve `width: 100%` et la réserve fait 58 px.
 
 ---
 
@@ -31,6 +92,12 @@ Le module a été rendu et contrôlé avec Chromium en desktop et mobile. Le bui
 - [x] Note équivalente dans le drawer équipe, juste au-dessus des matchs déroulables.
 - [x] Chiffres de match ajoutés dans les drawers match et équipe : score par quart-temps, types de buts, cartons et statistiques avancées FIH uniquement lorsqu'elles sont renseignées et cohérentes.
 - [x] Noms de pays francisés dans toute l'interface, y compris les cartons et les titres de vidéos.
+- [x] Bouton flottant « Voir le calendrier » en bas du viewport, masqué en descendant, réaffiché en remontant et avec une zone réservée entre la visualisation et les matchs pour éviter tout recouvrement.
+- [x] Calendrier mobile repensé sur une colonne : noms d'équipes, graines et phases peuvent revenir sur plusieurs lignes sans troncature.
+- [x] Crossfade Hommes/Femmes limité aux groupes drapeau, nation et score/points dans l'anneau et le calendrier : l'ancien contenu disparaît pendant que le nouveau apparaît. La structure, les arcs et les libellés restent visibles et les composants ne sont pas remontés.
+- [x] Crossfade des liaisons au changement de jour : les traits de l'ancienne date disparaissent pendant que ceux de la nouvelle date apparaissent, sans redessiner l'anneau ni les pays.
+- [x] États futurs de qualification prévus : une nation sortie de la course au titre reste visible mais est automatiquement désaturée et atténuée après la fin de sa poule, de sa demi-finale ou de la finale. Les quatre drapeaux réels remplaceront automatiquement les graines dans les demi-finales.
+- [x] Drawer adaptatif : panneau latéral sur desktop, bottom sheet pleine largeur et de hauteur stable sur mobile avec poignée, fermeture fixe, défilement interne, verrouillage de l'arrière-plan et gestion du focus. La feuille ne saute pas lorsqu'un détail de match est déplié.
 - [x] Scraper FIH étendu de 24 à **50 matchs par tournoi**, phases après poules incluses.
 - [x] Adversaires encore inconnus traduits (`1er de la poule A`, `Vainqueur du match 47`, etc.).
 - [x] Dates et heures de Bruxelles affichées sur chaque match joué ou à venir.
@@ -61,14 +128,14 @@ Les quatre arcs décoratifs rouges des poules sont présents à `R.arc = 326`.
 Les cordes de matchs utilisent de nouveau le tracé extérieur historique à `R.chord = 308`, avec départ au bord extérieur des nœuds et `stroke-linejoin: round`.
 Cette version remplace la tentative de déplacement des cordes vers l'intérieur de l'anneau.
 
-## 3. Highlight au survol (à vérifier)
-Au survol d'un cercle relié par une corde → la corde + les deux nœuds connectés doivent passer **en gras/accent** (state `hoverCode` + `linkedCodes` dans `HockeyFunnel.svelte`, classes `.chord.strong` et `.team.hi`). Vérifier que ça marche visuellement.
+## 3. Highlight au survol — test de régression
+Au survol d'un cercle relié par une corde → la corde + les deux nœuds connectés passent **en gras/accent** (state `hoverCode` + `linkedCodes` dans `HockeyFunnel.svelte`, classes `.chord.strong` et `.team.hi`). À recontrôler après toute refonte des groupes SVG ou des `.line-layer`.
 
-## 4. Logo carton dans les dropdowns (à vérifier)
+## 4. Cartons dans les dropdowns — test de régression
 La valeur data des cartons est `"G"/"Y"/"R"` (pas "green") → désormais mappée par `cardClass()` dans `data.ts`.
 Tester une équipe avec carton : men **GER 5-1 MAS**, **ENG 4-1 PAK**, **BEL 3-2 FRA** (ouvrir le drawer équipe → déplier le match → le carré coloré du carton doit s'afficher).
 
-## 5. Abréviations FR + répartition de la deuxième phase (à vérifier)
+## 5. Abréviations FR + répartition de la deuxième phase
 - Nœuds de l'entonnoir en **abréviations FR** (ALL, P-B, ANG, AFS, ECO, GAL, JAP, MAL…) via `abbr()`.
 - Cercles réservés des poules E/F mieux **répartis sur l'arc** (offsets élargis `s*16` / `s*48`).
 
@@ -92,11 +159,24 @@ Le flux public FIH fournit aussi possession, tirs, entrées dans le cercle et pe
 - Rafraîchir : `node scripts/fetch-hockey.mjs`. Type-check : `npx svelte-check --threshold error --tsconfig ./tsconfig.json`.
 
 ## Contraintes à respecter
-- **Un seul niveau d'interaction** : pas de tooltip-popup, pas de drawer imbriqué. Drawer coulissant droite ; drawer équipe = dropdowns à chevron dépliables inline.
+- **Un seul niveau d'interaction** : pas de tooltip-popup, pas de drawer imbriqué. Drawer latéral sur desktop, bottom sheet sur mobile ; drawer équipe = dropdowns à chevron dépliables inline.
+- Sur mobile, le drawer est une bottom sheet stable ; ne pas revenir à un panneau latéral laissant une bande étroite de page visible.
 - Noms de pays **en français partout** ; abréviations FR sur les nœuds.
+- Employer partout l'expression exacte **`penalty-corner`**.
+- Vidéos : utiliser uniquement la chaîne officielle **FIH Hockey** (`https://www.youtube.com/@fihockey/videos`) comme source de confiance.
 - Cordes **solides continues** (jamais de pointillé animé).
-- Calendrier **2×2**, drapeaux ronds, **bordure fine** pour aujourd'hui (pas de gros border-left = "IA slop").
-- Animation d'apparition au load (façon cdm2026) + `prefers-reduced-motion`.
+- Calendrier **2×2 sur desktop, une colonne sur mobile**, drapeaux ronds, **bordure fine** pour aujourd'hui (pas de gros border-left = "IA slop").
+- Animation d'apparition au load (façon cdm2026), crossfades ciblés + `prefers-reduced-motion`. Ne pas faire disparaître ou remonter tout le SVG au changement de genre/jour.
 - Accent rouge `--hk-accent: #e2231a`. Sélecteur « Hommes » / « Femmes » seulement.
 - **Aucun commentaire dans le code.** Svelte 5 runes, SvelteKit static SPA, base path `/RedDeviz`.
 - Commit : **uniquement sur instruction**, email `42608053+amcaw@users.noreply.github.com`, **pas** de co-author Claude, **pas** de CLI `gh`.
+
+## Checklist pour la prochaine reprise
+
+1. Commencer par `git status --short` et préserver les quatre fichiers modifiés listés en tête.
+2. Après un refresh FIH, vérifier que les nouvelles poules E/F apparaissent dans `src/data/hockey.json` avec `rank`, `gp` et les codes équipes réels.
+3. Dès les premières qualifications, contrôler visuellement que les 3es/4es de A–D s'atténuent sans disparaître et que les qualifiés se placent dans E/F.
+4. Dès que les affiches `SF` sont résolues, vérifier les quatre drapeaux de demi-finale, puis le gagnant/perdant après le score officiel.
+5. Vérifier le crossfade calendrier si hommes et femmes n'ont plus exactement le même nombre de matchs dans une journée ; l'appariement actuel utilise l'index du match dans le jour.
+6. Relancer `npx svelte-check --threshold error --tsconfig ./tsconfig.json`, `npm run build` et `git diff --check`.
+7. Ne commit/push que sur ordre explicite de l'utilisateur.
