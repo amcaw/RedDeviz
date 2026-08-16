@@ -1,0 +1,266 @@
+import raw from '../../data/hockey.json';
+import videosRaw from '../../data/hockey-videos.json';
+
+export interface Team {
+  code: string;
+  name: string;
+  teamId: number | null;
+}
+
+export interface PoolTeam {
+  teamId: number | null;
+  code: string | null;
+  name: string;
+  rank: number;
+  gp: number;
+  w: number;
+  d: number;
+  l: number;
+  gd: number;
+  pts: number;
+}
+
+export interface Pool {
+  letter: string;
+  poolId: number;
+  teams: PoolTeam[];
+}
+
+export interface Scorer {
+  team: string;
+  minute: number;
+  player: string;
+  type: string | null;
+  action: string;
+  score: string | null;
+}
+
+export interface Card {
+  team: string;
+  minute: number;
+  player: string;
+  card: string;
+}
+
+export interface MatchStats {
+  quarters: [number, number][];
+  shots?: [number, number];
+  circleEntries?: [number, number];
+  penaltyCorners?: [number, number];
+  possession?: [number, number];
+}
+
+export interface Match {
+  id: number;
+  home: string;
+  away: string;
+  homeLabel?: string;
+  awayLabel?: string;
+  hg: number | null;
+  ag: number | null;
+  so: [number, number] | null;
+  played: boolean;
+  utc: string | null;
+  phase: string | null;
+  venue?: string;
+  status?: string | null;
+  scorers?: Scorer[];
+  cards?: Card[];
+  stats?: MatchStats;
+}
+
+export interface Comp {
+  gender: 'M' | 'W';
+  competitionId: number;
+  pools: Record<string, Pool>;
+  matches: Match[];
+  teams: Record<string, Team>;
+}
+
+export interface Hockey {
+  updated: string;
+  men: Comp;
+  women: Comp;
+}
+
+export interface HockeyVideoRef {
+  id: string;
+  title: string;
+  gender: 'M' | 'W';
+  kind?: 'highlights' | 'replay';
+  source?: 'FIH';
+  published?: string;
+}
+
+export const HOCKEY = raw as unknown as Hockey;
+
+export type Gender = 'men' | 'women';
+
+export const FIRST_POOLS = ['A', 'B', 'C', 'D'];
+export const SUPER_POOLS = ['E', 'F'];
+export const CLASS_POOLS = ['G', 'H'];
+
+export const SUPER_FEED: Record<string, string[]> = { E: ['A', 'D'], F: ['B', 'C'] };
+
+const ISO2: Record<string, string> = {
+  ARG: 'ar', AUS: 'au', BEL: 'be', CHI: 'cl', CHN: 'cn', ESP: 'es', FRA: 'fr',
+  GER: 'de', IND: 'in', IRL: 'ie', JPN: 'jp', MAS: 'my', NED: 'nl', NZL: 'nz',
+  PAK: 'pk', RSA: 'za', USA: 'us'
+};
+
+const SPECIAL_FLAG: Record<string, string> = {
+  ENG: '🏴\u{E0067}\u{E0062}\u{E0065}\u{E006E}\u{E0067}\u{E007F}',
+  SCO: '🏴\u{E0067}\u{E0062}\u{E0073}\u{E0063}\u{E0074}\u{E007F}',
+  WAL: '🏴\u{E0067}\u{E0062}\u{E0077}\u{E006C}\u{E0073}\u{E007F}'
+};
+
+export const flagUrl = (code: string | null): string =>
+  code ? `https://hockey-cdn.altius.live/resources/flags/round/${code}.png` : '';
+
+export const flag = (code: string | null): string => {
+  if (!code) return '';
+  if (SPECIAL_FLAG[code]) return SPECIAL_FLAG[code];
+  const iso = ISO2[code];
+  if (!iso) return '';
+  return [...iso.toUpperCase()].map((c) => String.fromCodePoint(0x1f1a5 + c.charCodeAt(0))).join('');
+};
+
+export const comp = (g: Gender): Comp => HOCKEY[g];
+
+const VIDEOS = videosRaw as Record<string, HockeyVideoRef>;
+
+export const videoOf = (g: Gender, match: Match): HockeyVideoRef | null => {
+  const pair = [match.home, match.away].sort().join('|');
+  const gender = g === 'men' ? 'M' : 'W';
+  const video = VIDEOS[`${gender}:${pair}`] ?? VIDEOS[pair];
+  if (video?.gender !== gender) return null;
+  const prefix = video.kind === 'replay' ? 'Match complet' : 'Résumé';
+  return { ...video, title: `${prefix} : ${matchSideName(g, match, 'home')} – ${matchSideName(g, match, 'away')}` };
+};
+
+const FR_NAME: Record<string, string> = {
+  ARG: 'Argentine', AUS: 'Australie', BEL: 'Belgique', CHI: 'Chili', CHN: 'Chine',
+  ENG: 'Angleterre', ESP: 'Espagne', FRA: 'France', GER: 'Allemagne', IND: 'Inde',
+  IRL: 'Irlande', JPN: 'Japon', MAS: 'Malaisie', NED: 'Pays-Bas', NZL: 'Nouvelle-Zélande',
+  PAK: 'Pakistan', RSA: 'Afrique du Sud', SCO: 'Écosse', USA: 'États-Unis', WAL: 'Pays de Galles'
+};
+
+export const teamName = (g: Gender, code: string): string =>
+  FR_NAME[code] ?? HOCKEY[g].teams[code]?.name ?? code;
+
+const seedName = (label: string): string => {
+  const pool = label.match(/^(\d)(?:st|nd|rd|th|h) Pool ([A-H])$/i);
+  if (pool) return `${pool[1] === '1' ? '1er' : `${pool[1]}e`} de la poule ${pool[2].toUpperCase()}`;
+  const winner = label.match(/^Winner (\d+)$/i);
+  if (winner) return `Vainqueur du match ${winner[1]}`;
+  const loser = label.match(/^Loser (\d+)$/i);
+  if (loser) return `Perdant du match ${loser[1]}`;
+  return label || 'À déterminer';
+};
+
+export const matchSideName = (g: Gender, match: Match, side: 'home' | 'away'): string => {
+  const code = match[side];
+  return code ? teamName(g, code) : seedName(side === 'home' ? match.homeLabel ?? '' : match.awayLabel ?? '');
+};
+
+export const phaseLabel = (phase: string | null): string => {
+  if (!phase) return '';
+  if (FIRST_POOLS.includes(phase)) return `Poule ${phase}`;
+  if (SUPER_POOLS.includes(phase)) return `2e phase · poule ${phase}`;
+  if (CLASS_POOLS.includes(phase)) return `2e phase · classement ${phase}`;
+  if (phase === 'SF') return 'Demi-finale';
+  if (phase === '1/2') return 'Finale';
+  if (phase === '3/4') return 'Petite finale';
+  const places = phase.match(/^(\d+)\/(\d+)$/);
+  return places ? `Match pour les ${places[1]}e et ${places[2]}e places` : phase;
+};
+
+export const enName = (g: Gender, code: string): string => HOCKEY[g].teams[code]?.name ?? code;
+
+export const eventTeamCode = (g: Gender, match: Match, name: string): string => {
+  const key = name.trim().toLocaleLowerCase('fr');
+  for (const code of [match.home, match.away]) {
+    if (!code) continue;
+    if ([code, enName(g, code), teamName(g, code)].some((value) => value.toLocaleLowerCase('fr') === key)) return code;
+  }
+  return '';
+};
+
+export const eventTeamName = (g: Gender, match: Match, name: string): string => {
+  const code = eventTeamCode(g, match, name);
+  return code ? teamName(g, code) : name;
+};
+
+const FR_ABBR: Record<string, string> = {
+  ARG: 'ARG', AUS: 'AUS', BEL: 'BEL', CHI: 'CHI', CHN: 'CHN', ENG: 'ANG', ESP: 'ESP',
+  FRA: 'FRA', GER: 'ALL', IND: 'IND', IRL: 'IRL', JPN: 'JAP', MAS: 'MAL', NED: 'P-B',
+  NZL: 'NZL', PAK: 'PAK', RSA: 'AFS', SCO: 'ECO', USA: 'USA', WAL: 'GAL'
+};
+
+export const abbr = (code: string | null): string => (code ? FR_ABBR[code] ?? code : '');
+
+export const cardClass = (card: string): 'green' | 'yellow' | 'red' => {
+  const k = (card ?? '').toLowerCase();
+  if (k.startsWith('r')) return 'red';
+  if (k.startsWith('y')) return 'yellow';
+  return 'green';
+};
+
+export const todayKey = (): string =>
+  new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Brussels' }).format(new Date());
+
+export const poolOf = (g: Gender, letter: string): Pool | null => HOCKEY[g].pools[letter] ?? null;
+
+export const matchesOfPool = (g: Gender, letter: string): Match[] =>
+  HOCKEY[g].matches.filter((m) => m.phase === letter);
+
+export const hasStarted = (g: Gender): boolean =>
+  HOCKEY[g].matches.some((m) => m.played);
+
+const DT = new Intl.DateTimeFormat('fr-BE', {
+  weekday: 'short',
+  day: 'numeric',
+  month: 'short',
+  hour: '2-digit',
+  minute: '2-digit',
+  timeZone: 'Europe/Brussels'
+});
+
+const TIME = new Intl.DateTimeFormat('fr-BE', {
+  hour: '2-digit',
+  minute: '2-digit',
+  timeZone: 'Europe/Brussels'
+});
+
+const DAY = new Intl.DateTimeFormat('fr-BE', {
+  weekday: 'long',
+  day: 'numeric',
+  month: 'long',
+  timeZone: 'Europe/Brussels'
+});
+
+const toDate = (utc: string | null): Date | null => {
+  if (!utc) return null;
+  const d = new Date(utc.replace(' ', 'T') + 'Z');
+  return Number.isNaN(d.getTime()) ? null : d;
+};
+
+export const fmtDateTime = (utc: string | null): string => {
+  const d = toDate(utc);
+  return d ? DT.format(d).replace(/:/g, 'h') : '';
+};
+
+export const fmtTime = (utc: string | null): string => {
+  const d = toDate(utc);
+  return d ? TIME.format(d).replace(/:/g, 'h') : '';
+};
+
+export const fmtDay = (utc: string | null): string => {
+  const d = toDate(utc);
+  return d ? DAY.format(d) : '';
+};
+
+export const dayKey = (utc: string | null): string => (utc ? utc.slice(0, 10) : '');
+
+export const isFinal = (g: Gender): Match | null =>
+  HOCKEY[g].matches.find((m) => m.phase === 'Final' || m.phase === 'F1' || m.phase === '1/2') ?? null;
