@@ -87,13 +87,22 @@
 
   const chordsForDay = (day: string | null) => {
     const list = cp.matches.filter((mt) => dayKey(mt.utc) === day && nodePos[mt.home] && nodePos[mt.away]);
-    const seen: Record<string, number> = {};
-    return list.map((mt) => {
-      const key = mt.phase ?? '?';
-      const idx = seen[key] ?? 0;
-      seen[key] = idx + 1;
-      return { mt, a: nodePos[mt.home], b: nodePos[mt.away], rr: R.chord + idx * 11 };
+    const items = list.map((mt) => {
+      const a = nodePos[mt.home];
+      const b = nodePos[mt.away];
+      const degA = (Math.atan2(a.y - C, a.x - C) * 180) / Math.PI;
+      const degB = (Math.atan2(b.y - C, b.x - C) * 180) / Math.PI;
+      return { mt, a, b, lo: Math.min(degA, degB), hi: Math.max(degA, degB), rr: R.chord };
     });
+    items.sort((x, y) => x.lo - y.lo);
+    const levelHi: number[] = [];
+    for (const c of items) {
+      let lvl = 0;
+      while (lvl < levelHi.length && levelHi[lvl] > c.lo) lvl++;
+      levelHi[lvl] = c.hi;
+      c.rr = R.chord + lvl * 11;
+    }
+    return items;
   };
   const dayChords = $derived(chordsForDay(curDay));
   const previousDayChords = $derived(previousDay ? chordsForDay(previousDay) : []);

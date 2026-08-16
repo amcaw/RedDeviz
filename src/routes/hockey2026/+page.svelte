@@ -18,8 +18,8 @@
   let video = $state<HockeyVideoRef | null>(null);
   let previousGender = $state<Gender | null>(null);
   let genderCrossfading = $state(false);
-  let showCalendarCue = $state(true);
-  let lastScrollY = $state(0);
+  let calendarVisible = $state(false);
+  const showCalendarCue = $derived(!calendarVisible);
   let calendarEl = $state<HTMLElement>();
   let drawerEl = $state<HTMLElement>();
   let drawerTrigger: HTMLElement | SVGElement | null = null;
@@ -81,16 +81,18 @@
       previousGender = null;
     }, 240);
   };
-  const updateCalendarCue = () => {
-    const y = Math.max(0, window.scrollY);
-    if (y <= 12 || y < lastScrollY - 4) showCalendarCue = true;
-    else if (y > lastScrollY + 4) showCalendarCue = false;
-    lastScrollY = y;
-  };
   const goToCalendar = () => {
-    showCalendarCue = false;
     calendarEl?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
+  $effect(() => {
+    const el = calendarEl;
+    if (!el) return;
+    const io = new IntersectionObserver(([entry]) => (calendarVisible = entry.isIntersecting), {
+      rootMargin: '0px 0px -25% 0px'
+    });
+    io.observe(el);
+    return () => io.disconnect();
+  });
 
   const groupDays = (forGender: Gender) => {
     const ms = [...comp(forGender).matches].filter((m) => m.utc || m.played);
@@ -140,7 +142,7 @@
   <title>Coupe du Monde de Hockey 2026 · Belgique–Pays-Bas</title>
 </svelte:head>
 
-<svelte:window onkeydown={(e) => e.key === 'Escape' && (video ? (video = null) : closeDrawer())} onscroll={updateCalendarCue} />
+<svelte:window onkeydown={(e) => e.key === 'Escape' && (video ? (video = null) : closeDrawer())} />
 
 <main class="hockey">
   <p class="kicker">Coupe du Monde de Hockey · Belgique–Pays-Bas 2026</p>
