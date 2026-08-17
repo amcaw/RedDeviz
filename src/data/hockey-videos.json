@@ -126,5 +126,21 @@
     "kind": "highlights",
     "source": "FIH",
     "published": "2026-08-17"
+  },
+  "CHI|JPN": {
+    "id": "qi6DEI_kCHs",
+    "title": "FIH Hockey Women's World Cup 2026, Game 9: Chile vs Japan | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-17"
+  },
+  "SCO|USA": {
+    "id": "woezakXBxno",
+    "title": "FIH Hockey Women's World Cup 2026, Game 10: USA vs Scotland | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-17"
   }
 }
