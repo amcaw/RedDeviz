@@ -142,5 +142,37 @@
     "kind": "highlights",
     "source": "FIH",
     "published": "2026-08-17"
+  },
+  "ARG|GER": {
+    "id": "zfj-fWSYZIc",
+    "title": "FIH Hockey Women's World Cup 2026, Game 11: Germany vs Argentina | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-17"
+  },
+  "FRA|MAS": {
+    "id": "9Mxy8C4Th1g",
+    "title": "FIH Hockey Men's World Cup 2026, Game 10: France vs Malaysia | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-17"
+  },
+  "PAK|WAL": {
+    "id": "VwT4cl_vo-E",
+    "title": "FIH Hockey Men's World Cup 2026, Game 9: Pakistan vs Wales | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-17"
+  },
+  "M:ENG|IND": {
+    "id": "TQaELDq_gtQ",
+    "title": "FIH Hockey Men's World Cup 2026, Game 11: India vs England | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-17"
   }
 }
