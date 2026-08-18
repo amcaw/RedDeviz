@@ -19,10 +19,12 @@ export function startLive(workerUrl: string, idsFn: () => number[], intervalMs =
   let stopped = false;
   let timer: ReturnType<typeof setTimeout> | null = null;
 
+  const hidden = () => typeof document !== 'undefined' && document.visibilityState === 'hidden';
+
   const tick = async () => {
     if (stopped) return;
     const ids = idsFn();
-    if (ids.length) {
+    if (ids.length && !hidden()) {
       try {
         const res = await fetch(`${workerUrl}?ids=${ids.join(',')}`, { cache: 'no-store' });
         if (res.ok) {
@@ -40,9 +42,18 @@ export function startLive(workerUrl: string, idsFn: () => number[], intervalMs =
     if (!stopped) timer = setTimeout(tick, intervalMs);
   };
 
+  const onVisible = () => {
+    if (!stopped && !hidden()) {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(tick, 200);
+    }
+  };
+  if (typeof document !== 'undefined') document.addEventListener('visibilitychange', onVisible);
+
   timer = setTimeout(tick, 400);
   return () => {
     stopped = true;
     if (timer) clearTimeout(timer);
+    if (typeof document !== 'undefined') document.removeEventListener('visibilitychange', onVisible);
   };
 }
