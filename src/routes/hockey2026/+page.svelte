@@ -7,6 +7,9 @@
   import HockeyVideo from '$lib/HockeyVideo.svelte';
   import { comp, flagUrl, matchSideName, phaseLabel, fmtDateTime, fmtDay, dayKey, todayKey, videoOf, type Gender, type HockeyVideoRef, type Match } from '$lib/hockey/data';
   import { initPym, sendHeight } from '$lib/pym.js';
+  import { startLive, liveScore, isLiveStatus } from '$lib/hockey/live.svelte';
+
+  const LIVE_WORKER = 'https://hockey.ambc.workers.dev';
 
   initPym();
 
@@ -26,8 +29,30 @@
 
   const today = todayKey();
 
+  const liveOf = (m: Match): Match => {
+    const ls = liveScore(m.id);
+    if (!ls) return m;
+    const live = isLiveStatus(ls.status);
+    const done = ls.status === 'Official';
+    if (!live && !done) return m;
+    const so: [number, number] | null =
+      ls.hps != null && ls.aps != null && (ls.hps || ls.aps) ? [ls.hps, ls.aps] : m.so;
+    return { ...m, hg: ls.hg, ag: ls.ag, status: ls.status, played: true, so };
+  };
+
   onMount(() => {
     ready = true;
+  });
+
+  $effect(() => {
+    if (!LIVE_WORKER) return;
+    return startLive(LIVE_WORKER, () =>
+      comp(gender)
+        .matches.filter(
+          (m) => dayKey(m.utc) === today && (liveScore(m.id)?.status ?? m.status ?? '') !== 'Official'
+        )
+        .map((m) => m.id)
+    );
   });
 
   const rememberDrawerTrigger = () => {
@@ -198,7 +223,9 @@
             {#if day.key === today}<span class="today-badge">aujourd'hui</span>{/if}
           </p>
           <ul>
-            {#each day.matches as m, mi}
+            {#each day.matches as m0, mi}
+              {@const m = liveOf(m0)}
+              {@const live = isLiveStatus(m.status) && m.status !== 'Official'}
               {@const win = m.played && m.hg != null && m.ag != null ? (m.hg > m.ag || (m.hg === m.ag && m.so && m.so[0] > m.so[1]) ? 'h' : 'a') : null}
               {@const clip = videoOf(gender, m)}
               {@const oldMatch = previousDays.find((oldDay) => oldDay.key === day.key)?.matches[mi]}
@@ -235,7 +262,9 @@
                   </span>
                   <span class="meta">
                     <span class="t">{fmtDateTime(m.utc)}</span>
-                    <span class="p">{m.played ? (m.status && m.status !== 'Official' ? 'En direct' : 'Terminé') : phaseLabel(m.phase)}</span>
+                    <span class="p" class:islive={live}>
+                      {#if live}<span class="live-dot" aria-hidden="true"></span>{liveScore(m0.id)?.period ?? 'En direct'}{:else}{m.played ? 'Terminé' : phaseLabel(m.phase)}{/if}
+                    </span>
                     {#if m.played}<span class="p">{phaseLabel(m.phase)}</span>{/if}
                   </span>
                 </button>
@@ -277,7 +306,7 @@
       </div>
       <div class="drawer-content">
         {#if drawer.kind === 'match'}
-          <HockeyMatch match={drawer.match} {gender} onclose={closeDrawer} onvideo={(clip) => (video = clip)} />
+          <HockeyMatch match={liveOf(drawer.match)} {gender} onclose={closeDrawer} onvideo={(clip) => (video = clip)} />
         {:else}
           <HockeyTeam {gender} code={drawer.code} onclose={closeDrawer} onvideo={(clip) => (video = clip)} />
         {/if}
@@ -689,6 +718,32 @@
     text-transform: uppercase;
     letter-spacing: 0.03em;
     white-space: nowrap;
+  }
+  .meta .p.islive {
+    color: var(--hk-accent);
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .live-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--hk-accent);
+    animation: live-pulse 1.4s ease-in-out infinite;
+  }
+  @keyframes live-pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.25;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .live-dot {
+      animation: none;
+    }
   }
   .backdrop {
     position: fixed;
