@@ -230,5 +230,21 @@
     "kind": "highlights",
     "source": "FIH",
     "published": "2026-08-18"
+  },
+  "ARG|NED": {
+    "id": "oFONlDmsqM8",
+    "title": "FIH Hockey Men's World Cup 2026, Game 16: Netherlands vs Argentina | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-18"
+  },
+  "AUS|ESP": {
+    "id": "GVvwUXgDA1M",
+    "title": "FIH Hockey Men's World Cup 2026, Game 14: Spain vs Australia | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-18"
   }
 }
