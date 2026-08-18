@@ -190,5 +190,21 @@
     "kind": "highlights",
     "source": "FIH",
     "published": "2026-08-18"
+  },
+  "CHN|ENG": {
+    "id": "zA7MkUf30FY",
+    "title": "FIH Hockey Women's World Cup 2026, Game 14: England vs China | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-18"
+  },
+  "JPN|NZL": {
+    "id": "V4faTfAvuDY",
+    "title": "FIH Hockey Men's World Cup 2026, Game 13: New Zealand vs Japan | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-18"
   }
 }
