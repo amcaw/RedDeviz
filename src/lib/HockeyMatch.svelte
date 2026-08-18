@@ -45,8 +45,15 @@
 
   <p class="meta">
     {#if match.phase}<span class="chip">{phaseLabel(match.phase)}</span>{/if}
-    {fmtDateTime(match.utc)}{match.venue ? ` · ${match.venue}` : ''}
+    {fmtDateTime(match.utc)}
   </p>
+
+  {#if match.venue}
+    <p class="venue">
+      <svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M8 1.6a4.4 4.4 0 0 0-4.4 4.4c0 3.1 4.4 8 4.4 8s4.4-4.9 4.4-8A4.4 4.4 0 0 0 8 1.6Z" /><circle cx="8" cy="6" r="1.7" /></svg>
+      {match.venue}
+    </p>
+  {/if}
 
   {#if video}
     <button class="video-btn" onclick={() => onvideo?.(video)}>
@@ -178,7 +185,21 @@
     text-align: center;
     font-size: 11.5px;
     color: var(--text-muted);
+    margin: 0 0 8px;
+  }
+  .venue {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--text-secondary);
     margin: 0 0 14px;
+  }
+  .venue svg {
+    flex: none;
+    fill: var(--hk-accent, var(--accent));
   }
   .chip {
     display: inline-block;

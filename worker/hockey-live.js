@@ -1,17 +1,22 @@
-const ALLOWED = new Set([
-  'https://amcaw.github.io',
-  'http://localhost:5173',
-  'http://localhost:5174',
-  'http://localhost:5183',
-  'http://localhost:5184'
-]);
+const ALLOWED = new Set(['https://amcaw.github.io']);
 
 const TMS = 'https://tms.fih.ch/rt/matches/';
+
+function isAllowedOrigin(origin) {
+  if (!origin) return false;
+  if (ALLOWED.has(origin)) return true;
+  try {
+    const { hostname } = new URL(origin);
+    return hostname === 'localhost' || hostname === '127.0.0.1';
+  } catch {
+    return false;
+  }
+}
 
 export default {
   async fetch(request) {
     const origin = request.headers.get('Origin') || '';
-    const allowed = ALLOWED.has(origin);
+    const allowed = isAllowedOrigin(origin);
     const cors = {
       'Access-Control-Allow-Origin': allowed ? origin : 'null',
       'Access-Control-Allow-Methods': 'GET, OPTIONS',

@@ -16,14 +16,21 @@
     type Gender,
     type Match
   } from './hockey/data';
+  import { liveScore, isLiveStatus } from './hockey/live.svelte';
+
+  const isLiveMatch = (id: number): boolean => {
+    const ls = liveScore(id);
+    return !!ls && isLiveStatus(ls.status) && ls.status !== 'Official';
+  };
 
   let {
     gender,
     previousGender = null,
     crossfading = false,
+    selectedDay = $bindable(null),
     onteam,
     onmatch
-  }: { gender: Gender; previousGender?: Gender | null; crossfading?: boolean; onteam?: (code: string) => void; onmatch?: (m: Match) => void } = $props();
+  }: { gender: Gender; previousGender?: Gender | null; crossfading?: boolean; selectedDay?: string | null; onteam?: (code: string) => void; onmatch?: (m: Match) => void } = $props();
 
   const S = 760;
   const C = S / 2;
@@ -42,7 +49,6 @@
   const today = todayKey();
 
   const days = $derived([...new Set(cp.matches.map((m) => dayKey(m.utc)).filter(Boolean))].sort());
-  let selectedDay = $state<string | null>(null);
   const curDay = $derived(selectedDay ?? (days.includes(today) ? today : days[0]) ?? null);
   const dayIdx = $derived(curDay ? days.indexOf(curDay) : -1);
   const isToday = $derived(curDay === today);
@@ -107,6 +113,9 @@
   const dayChords = $derived(chordsForDay(curDay));
   const previousDayChords = $derived(previousDay ? chordsForDay(previousDay) : []);
   const dayTeams = $derived(new Set(dayChords.flatMap((c) => [c.mt.home, c.mt.away])));
+  const liveTeams = $derived(
+    new Set(dayChords.filter((c) => isLiveMatch(c.mt.id)).flatMap((c) => [c.mt.home, c.mt.away]))
+  );
   const dayMatchCount = $derived(cp.matches.filter((mt) => dayKey(mt.utc) === curDay).length);
 
   let hoverCode = $state<string | null>(null);
@@ -224,9 +233,10 @@
     <g class="line-layer" class:incoming={dayCrossfading}>
       {#each dayChords as c (c.mt.id)}
         {@const strong = hoverCode != null && (c.mt.home === hoverCode || c.mt.away === hoverCode)}
+        {@const islive = isLiveMatch(c.mt.id)}
         {@const path = chordPath(c.a, c.b, c.rr)}
         <path d={path} class="chord-hit" role="button" tabindex="0" aria-label="{teamName(gender, c.mt.home)} contre {teamName(gender, c.mt.away)}" onclick={() => onmatch?.(c.mt)} onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && onmatch?.(c.mt)} />
-        <path d={path} class="chord" class:live={isToday} class:strong aria-hidden="true" />
+        <path d={path} class="chord" class:live={isToday} class:islive class:strong aria-hidden="true" />
       {/each}
     </g>
 
@@ -248,12 +258,14 @@
           {@const dir = y > C ? -1 : 1}
           {@const lead = t.rank <= 2 && t.gp > 0}
           {@const plays = !!t.code && dayTeams.has(t.code)}
+          {@const islive = !!t.code && liveTeams.has(t.code)}
           {@const hi = !!t.code && (hoverCode === t.code || linkedCodes.has(t.code))}
           {@const noTitle = outOfTitle(gender, t.code)}
           <g class="team pop" class:hi style:animation-delay="{200 + (pi * 4 + i) * 32}ms" role="button" tabindex="0" aria-label="{teamName(gender, t.code ?? '')}{noTitle ? ', hors de la course au titre' : ''}" onmouseenter={() => (hoverCode = t.code ?? null)} onmouseleave={() => (hoverCode = null)} onclick={() => t.code && onteam?.(t.code)} onkeydown={(e) => e.key === 'Enter' && t.code && onteam?.(t.code)}>
             <g class="team-visual" class:out-title={noTitle}>
               <clipPath id="clip-{pool.letter}-{i}"><circle cx={x} cy={y} r={NR - 1} /></clipPath>
-              <circle cx={x} cy={y} r={NR} class="flag-ring" class:lead class:plays />
+              {#if islive}<circle cx={x} cy={y} r={NR} class="live-halo" aria-hidden="true" />{/if}
+              <circle cx={x} cy={y} r={NR} class="flag-ring" class:lead class:plays class:islive />
               <image href={flagUrl(t.code)} x={x - NR} y={y - NR} width={NR * 2} height={NR * 2} clip-path="url(#clip-{pool.letter}-{i})" preserveAspectRatio="xMidYMid slice" />
               <text {x} y={y + dir * (NR + 12)} class="code">{abbr(t.code)}</text>
               {#if t.gp > 0}
@@ -609,6 +621,26 @@
   .chord-hit:focus-visible + .chord {
     opacity: 1;
     stroke-width: 3.6;
+  }
+  .chord.islive {
+    opacity: 1;
+    stroke-width: 3.4;
+    animation: chord-live 1.5s ease-in-out infinite;
+  }
+  @keyframes chord-live {
+    0%, 100% { opacity: 1; stroke-width: 3.4; }
+    50% { opacity: 0.55; stroke-width: 2.4; }
+  }
+  .live-halo {
+    fill: none;
+    stroke: var(--hk-accent);
+    stroke-width: 2;
+    opacity: 0.6;
+    animation: halo-live 1.5s ease-out infinite;
+  }
+  @keyframes halo-live {
+    0% { stroke-width: 1.5; opacity: 0.5; }
+    70%, 100% { stroke-width: 7; opacity: 0; }
   }
   .team {
     cursor: pointer;

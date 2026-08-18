@@ -160,7 +160,14 @@ async function fetchDetail(id) {
     return null;
   }
   const field = (k) => html.match(new RegExp(`&quot;${k}&quot;:&quot;([^&]*)&quot;`))?.[1] ?? null;
-  const venue = field('venue');
+  let venue = field('venue');
+  if (!venue) {
+    const cell = html.match(/<td>([^<]*\bPitch\b[^<]*)<\/td>/i)?.[1];
+    if (cell) {
+      const parts = cell.split(/\s+-\s+/);
+      venue = parts[parts.length - 1].trim();
+    }
+  }
   const date = field('date');
   const time = (field('time') ?? '').slice(0, 5);
   const status = field('status');
@@ -198,17 +205,18 @@ async function fetchComp(comp) {
   }
 
   for (const mt of matches) {
-    if (!mt.played) continue;
     const det = await fetchDetail(mt.id);
     if (!det) continue;
-    mt.venue = det.venue;
-    mt.status = det.status;
+    if (det.venue) mt.venue = det.venue;
+    if (det.status) mt.status = det.status;
     if (!mt.utc && det.date && det.time) {
       mt.utc = new Date(`${det.date}T${det.time}:00+02:00`).toISOString().slice(0, 19).replace('T', ' ');
     }
-    mt.scorers = det.scorers;
-    mt.cards = det.cards;
-    if (det.stats) mt.stats = det.stats;
+    if (mt.played) {
+      mt.scorers = det.scorers;
+      mt.cards = det.cards;
+      if (det.stats) mt.stats = det.stats;
+    }
   }
 
   return {

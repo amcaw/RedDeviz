@@ -11,8 +11,13 @@ let scores = $state<Record<number, LiveScore>>({});
 
 export const liveScore = (id: number): LiveScore | undefined => scores[id];
 
+export const isFinishedStatus = (status: string | null | undefined): boolean =>
+  !!status && /official|complete|finish|full[\s-]?time|ended|result/i.test(status);
+
 export const isLiveStatus = (status: string | null | undefined): boolean =>
-  !!status && !/official|not started|scheduled|upcoming|cancelled|forfeit|postponed/i.test(status);
+  !!status &&
+  !isFinishedStatus(status) &&
+  !/not started|scheduled|upcoming|cancelled|forfeit|postponed/i.test(status);
 
 export function startLive(workerUrl: string, idsFn: () => number[], intervalMs = 20000): () => void {
   if (!workerUrl) return () => {};

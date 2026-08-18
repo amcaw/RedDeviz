@@ -5,9 +5,9 @@
   import HockeyMatch from '$lib/HockeyMatch.svelte';
   import HockeyTeam from '$lib/HockeyTeam.svelte';
   import HockeyVideo from '$lib/HockeyVideo.svelte';
-  import { comp, flagUrl, matchSideName, phaseLabel, frPeriod, fmtDateTime, fmtDay, dayKey, todayKey, videoOf, type Gender, type HockeyVideoRef, type Match } from '$lib/hockey/data';
+  import { comp, flagUrl, matchSideName, phaseLabel, frPeriod, fmtDateTime, fmtTime, fmtDay, dayKey, todayKey, videoOf, type Gender, type HockeyVideoRef, type Match } from '$lib/hockey/data';
   import { initPym, sendHeight } from '$lib/pym.js';
-  import { startLive, liveScore, isLiveStatus } from '$lib/hockey/live.svelte';
+  import { startLive, liveScore, isLiveStatus, isFinishedStatus } from '$lib/hockey/live.svelte';
 
   const LIVE_WORKER = 'https://hockey.ambc.workers.dev';
 
@@ -29,11 +29,30 @@
 
   const today = todayKey();
 
+  let now = $state(Date.now());
+
+  const matchState = (m: Match): 'live' | 'done' | 'upcoming' => {
+    const s = m.status ?? '';
+    if (isLiveStatus(s) && s !== 'Official') return 'live';
+    if (m.played) return 'done';
+    return 'upcoming';
+  };
+
+  const countdown = (utc: string | null): string => {
+    if (!utc) return '';
+    const start = new Date(utc.replace(' ', 'T') + 'Z').getTime();
+    const diff = start - now;
+    if (diff <= 0) return 'imminent';
+    const h = Math.floor(diff / 3600000);
+    const mn = Math.floor((diff % 3600000) / 60000);
+    return h > 0 ? `dans ${h} h ${String(mn).padStart(2, '0')}` : `dans ${mn} min`;
+  };
+
   const liveOf = (m: Match): Match => {
     const ls = liveScore(m.id);
     if (!ls) return m;
     const live = isLiveStatus(ls.status);
-    const done = ls.status === 'Official';
+    const done = isFinishedStatus(ls.status);
     if (!live && !done) return m;
     const so: [number, number] | null =
       ls.hps != null && ls.aps != null && (ls.hps || ls.aps) ? [ls.hps, ls.aps] : m.so;
@@ -42,17 +61,23 @@
 
   onMount(() => {
     ready = true;
+    const t = setInterval(() => (now = Date.now()), 30000);
+    return () => clearInterval(t);
   });
 
   $effect(() => {
     if (!LIVE_WORKER) return;
-    return startLive(LIVE_WORKER, () =>
-      comp(gender)
-        .matches.filter(
-          (m) => dayKey(m.utc) === today && (liveScore(m.id)?.status ?? m.status ?? '') !== 'Official'
-        )
-        .map((m) => m.id)
-    );
+    return startLive(LIVE_WORKER, () => {
+      const ids: number[] = [];
+      for (const g of ['men', 'women'] as Gender[]) {
+        for (const m of comp(g).matches) {
+          if (dayKey(m.utc) === today && !isFinishedStatus(liveScore(m.id)?.status ?? m.status ?? '')) {
+            ids.push(m.id);
+          }
+        }
+      }
+      return ids;
+    });
   });
 
   const rememberDrawerTrigger = () => {
@@ -137,6 +162,57 @@
   const days = $derived(groupDays(gender));
   const previousDays = $derived(previousGender ? groupDays(previousGender) : []);
 
+  const bandMatches = $derived.by(() => {
+    const list = (days.find((d) => d.key === today)?.matches ?? [])
+      .map(liveOf)
+      .filter((m) => matchState(m) !== 'done');
+    return [...list].sort(
+      (a, b) =>
+        (matchState(a) === 'live' ? 0 : 1) - (matchState(b) === 'live' ? 0 : 1) ||
+        (a.utc ?? '').localeCompare(b.utc ?? '')
+    );
+  });
+  const liveCount = $derived(bandMatches.filter((m) => matchState(m) === 'live').length);
+
+  let funnelDay = $state<string | null>(null);
+  const activeDay = $derived(
+    funnelDay ?? (days.some((d) => d.key === today) ? today : days[0]?.key) ?? null
+  );
+  const selectDay = (key: string) => {
+    funnelDay = key;
+  };
+  let dayNavReady = false;
+  $effect(() => {
+    const key = activeDay;
+    if (!dayNavReady) {
+      dayNavReady = true;
+      return;
+    }
+    if (!key) return;
+    calendarEl?.querySelector(`[data-day="${key}"]`)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+
+  let calScrollTop = $state(0);
+  const onCalScroll = () => {
+    if (calendarEl) calScrollTop = calendarEl.scrollTop;
+  };
+  const scrollCalTop = () => calendarEl?.scrollTo({ top: 0, behavior: 'smooth' });
+  let calInit = false;
+  $effect(() => {
+    const el = calendarEl;
+    const list = days;
+    if (!el || calInit || !list.length) return;
+    calInit = true;
+    if (!window.matchMedia('(min-width: 940px)').matches) return;
+    requestAnimationFrame(() => {
+      const todayEl = el.querySelector(`[data-day="${today}"]`);
+      if (todayEl instanceof HTMLElement) {
+        el.scrollTop = Math.max(0, todayEl.offsetTop - 44);
+        calScrollTop = el.scrollTop;
+      }
+    });
+  });
+
   $effect(() => {
     void gender;
     void drawer;
@@ -179,12 +255,57 @@
 
   {#if ready}
     <div class="gender-view">
+      {#if bandMatches.length}
+        <section class="livebar" class:hasLive={liveCount > 0} aria-label="Matchs du jour">
+          <div class="livebar-head">
+            <span class="livebar-title">
+              {#if liveCount}<span class="live-dot" aria-hidden="true"></span>En direct{:else}Matchs en cours ou à venir aujourd'hui{/if}
+            </span>
+            <span class="livebar-date">{fmtDay(`${today} 12:00:00`)}</span>
+          </div>
+          <div class="livebar-track">
+            {#each bandMatches as m (m.id)}
+              {@const st = matchState(m)}
+              <button
+                class="livecard"
+                class:islive={st === 'live'}
+                class:done={st === 'done'}
+                onclick={() => openMatch(m)}
+                aria-label="{matchSideName(gender, m, 'home')} contre {matchSideName(gender, m, 'away')}"
+              >
+                <span class="lc-state">
+                  {#if st === 'live'}<span class="live-dot" aria-hidden="true"></span>{frPeriod(liveScore(m.id)?.period)}
+                  {:else if st === 'upcoming'}<span class="lc-time">{fmtTime(m.utc)}</span> · {countdown(m.utc)}
+                  {:else}Terminé{/if}
+                </span>
+                <span class="lc-row" class:lose={st !== 'upcoming' && m.hg != null && m.ag != null && m.hg < m.ag}>
+                  {#if m.home}<img src={flagUrl(m.home)} alt="" />{:else}<span class="lc-seed" aria-hidden="true">?</span>{/if}
+                  <span class="lc-nm">{matchSideName(gender, m, 'home')}</span>
+                  {#if st !== 'upcoming'}<span class="lc-sc">{m.hg}</span>{/if}
+                </span>
+                <span class="lc-row" class:lose={st !== 'upcoming' && m.hg != null && m.ag != null && m.ag < m.hg}>
+                  {#if m.away}<img src={flagUrl(m.away)} alt="" />{:else}<span class="lc-seed" aria-hidden="true">?</span>{/if}
+                  <span class="lc-nm">{matchSideName(gender, m, 'away')}</span>
+                  {#if st !== 'upcoming'}<span class="lc-sc">{m.ag}</span>{/if}
+                </span>
+                {#if m.venue}
+                  <span class="lc-venue">
+                    <svg viewBox="0 0 16 16" width="11" height="11" aria-hidden="true"><path d="M8 1.6a4.4 4.4 0 0 0-4.4 4.4c0 3.1 4.4 8 4.4 8s4.4-4.9 4.4-8A4.4 4.4 0 0 0 8 1.6Z" /><circle cx="8" cy="6" r="1.7" /></svg>
+                    <span class="lc-venue-txt">{m.venue}</span>
+                  </span>
+                {/if}
+              </button>
+            {/each}
+          </div>
+        </section>
+      {/if}
       <div class="visual-shell">
       <div class="stage">
         <HockeyFunnel
           {gender}
           {previousGender}
           crossfading={genderCrossfading}
+          bind:selectedDay={funnelDay}
           onteam={openTeam}
           onmatch={openMatch}
         />
@@ -214,14 +335,18 @@
       </div>
       </div>
 
-      <section class="matches" bind:this={calendarEl}>
+      <section class="matches" bind:this={calendarEl} onscroll={onCalScroll}>
       <h2>Le calendrier</h2>
+      <button class="cal-up" class:show={calScrollTop > 8} onclick={scrollCalTop} tabindex={calScrollTop > 8 ? 0 : -1} aria-hidden={calScrollTop <= 8}>
+        <svg viewBox="0 0 20 20" width="14" height="14" aria-hidden="true"><path d="m5 12 5-5 5 5" /></svg>
+        Jours précédents
+      </button>
       {#each days as day}
-        <div class="day" class:istoday={day.key === today}>
-          <p class="day-lbl">
-            {day.label}
+        <div class="day" class:istoday={day.key === today} class:isactive={day.key === activeDay} data-day={day.key}>
+          <button class="day-lbl" onclick={() => selectDay(day.key)} aria-pressed={day.key === activeDay}>
+            <span class="day-lbl-txt">{day.label}</span>
             {#if day.key === today}<span class="today-badge">aujourd'hui</span>{/if}
-          </p>
+          </button>
           <ul>
             {#each day.matches as m0, mi}
               {@const m = liveOf(m0)}
@@ -375,6 +500,162 @@
     border-color: var(--hk-accent);
     color: #fff;
   }
+  .livebar {
+    position: sticky;
+    top: 0;
+    z-index: 25;
+    margin: 0 0 16px;
+    padding: 9px 0 11px;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+  }
+  .livebar-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 0 2px 8px;
+  }
+  .livebar-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+  }
+  .livebar.hasLive .livebar-title {
+    color: var(--hk-accent);
+  }
+  .livebar-date {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: capitalize;
+  }
+  .livebar-track {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+    padding: 2px 2px 4px;
+    margin: 0 -2px;
+    scrollbar-width: none;
+  }
+  .livebar-track::-webkit-scrollbar {
+    display: none;
+  }
+  .livecard {
+    flex: 1 0 clamp(150px, 40%, 190px);
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    appearance: none;
+    text-align: left;
+    cursor: pointer;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 9px 11px;
+    transition: border-color 0.14s, transform 0.14s;
+  }
+  .livecard:hover {
+    border-color: var(--hk-accent);
+    transform: translateY(-1px);
+  }
+  .livecard.islive {
+    border-color: color-mix(in srgb, var(--hk-accent) 55%, var(--border));
+    background: color-mix(in srgb, var(--hk-accent-soft) 70%, var(--surface));
+  }
+  .lc-state {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 9.5px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .livecard.islive .lc-state {
+    color: var(--hk-accent);
+  }
+  .lc-state .lc-time {
+    color: var(--text-secondary);
+  }
+  .lc-row {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    min-width: 0;
+  }
+  .lc-row img {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex: none;
+  }
+  .lc-seed {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px dashed var(--border-strong);
+    display: grid;
+    place-items: center;
+    color: var(--text-muted);
+    font-size: 9px;
+    font-weight: 700;
+    flex: none;
+  }
+  .lc-nm {
+    flex: 1;
+    min-width: 0;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .lc-sc {
+    font-variant-numeric: tabular-nums;
+    font-weight: 800;
+    font-size: 14px;
+    color: var(--text);
+  }
+  .lc-row.lose .lc-nm,
+  .lc-row.lose .lc-sc {
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+  .lc-venue {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    min-width: 0;
+    margin-top: 2px;
+    padding-top: 6px;
+    border-top: 1px solid var(--divider);
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+  .lc-venue-txt {
+    min-width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .lc-venue svg {
+    flex: none;
+    fill: currentColor;
+    opacity: 0.75;
+  }
   .stage {
     width: 100%;
     max-width: 600px;
@@ -464,6 +745,47 @@
     font-weight: 800;
     margin: 0 0 14px;
   }
+  .cal-up {
+    display: none;
+    position: sticky;
+    top: 0;
+    z-index: 6;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    margin: -4px 0 8px;
+    padding: 7px 10px;
+    appearance: none;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--surface) 88%, transparent);
+    backdrop-filter: blur(8px);
+    color: var(--text-secondary);
+    font: 700 10.5px var(--font);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    transform: translateY(-4px);
+    pointer-events: none;
+    transition: opacity 0.16s ease, transform 0.16s ease, color 0.14s;
+  }
+  .cal-up.show {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+  .cal-up:hover {
+    color: var(--hk-accent);
+    border-color: var(--hk-accent);
+  }
+  .cal-up svg {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
   .match-hint {
     display: flex;
     align-items: center;
@@ -542,18 +864,34 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 11px;
-    font-weight: 700;
+    width: 100%;
+    appearance: none;
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--divider);
+    font: 700 11px var(--font);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--text-muted);
     margin: 0 0 7px;
-    padding-bottom: 4px;
-    border-bottom: 1px solid var(--divider);
+    padding: 0 0 4px;
+    cursor: pointer;
+    text-align: left;
+    transition: color 0.14s, border-color 0.14s;
+  }
+  .day-lbl:hover {
+    color: var(--text-secondary);
   }
   .day.istoday .day-lbl {
     color: var(--hk-accent);
     border-bottom-color: var(--hk-accent);
+  }
+  .day.isactive .day-lbl {
+    color: var(--hk-accent);
+    border-bottom-color: var(--hk-accent);
+  }
+  .day.isactive {
+    scroll-margin-top: 14px;
   }
   .today-badge {
     background: var(--hk-accent);
@@ -803,6 +1141,60 @@
   }
   .source a:hover {
     color: var(--hk-accent);
+  }
+  @media (min-width: 940px) {
+    main {
+      max-width: 1280px;
+    }
+    .gender-view {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      grid-template-areas:
+        'band band'
+        'viz cal';
+      column-gap: 34px;
+      align-items: start;
+    }
+    .livebar {
+      grid-area: band;
+      position: static;
+      backdrop-filter: none;
+      background: transparent;
+      border-bottom: none;
+      padding: 0 0 4px;
+    }
+    .visual-shell {
+      grid-area: viz;
+      position: sticky;
+      top: 12px;
+    }
+    :global(body.standalone) .visual-shell {
+      min-height: 0;
+    }
+    .stage {
+      max-width: none;
+    }
+    .calendar-cue-reserve {
+      display: none;
+    }
+    .matches {
+      grid-area: cal;
+      margin-top: 4px;
+      position: sticky;
+      top: 16px;
+      max-height: calc(100dvh - 32px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      scroll-padding-top: 46px;
+      padding-right: 8px;
+      scrollbar-width: thin;
+    }
+    .matches h2 {
+      text-align: left;
+    }
+    .cal-up {
+      display: inline-flex;
+    }
   }
   @media (max-width: 560px) {
     .drawer {
