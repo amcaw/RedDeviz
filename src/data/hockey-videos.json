@@ -206,5 +206,29 @@
     "kind": "highlights",
     "source": "FIH",
     "published": "2026-08-18"
+  },
+  "IRL|RSA": {
+    "id": "js6fis8x-v8",
+    "title": "FIH Hockey Men's World Cup 2026, Game 15: Ireland vs South Africa | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-18"
+  },
+  "IND|RSA": {
+    "id": "Qu96Csebphw",
+    "title": "FIH Hockey Women's World Cup 2026, Game 15: India vs South Africa | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-18"
+  },
+  "IRL|NZL": {
+    "id": "7UoC08_Tp3w",
+    "title": "FIH Hockey Women's World Cup 2026, Game 13: New Zealand vs Ireland | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-18"
   }
 }
