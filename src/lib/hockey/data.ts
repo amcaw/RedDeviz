@@ -206,6 +206,21 @@ export const cardClass = (card: string): 'green' | 'yellow' | 'red' => {
   return 'green';
 };
 
+export const frPeriod = (p: string | null | undefined): string => {
+  const s = (p ?? '').trim();
+  if (!s) return 'En direct';
+  const k = s.toLowerCase();
+  if (/warm|(^|[^a-z])wu([^a-z]|$)/.test(k)) return 'Échauffement';
+  if (/upcoming|not started|scheduled|(^|[^a-z])up([^a-z]|$)/.test(k)) return 'À venir';
+  if (/shoot|penalt|(^|[^a-z])so([^a-z]|$)/.test(k)) return 'Tirs au but';
+  if (/half|(^|[^a-z])ht([^a-z]|$)/.test(k)) return 'Mi-temps';
+  if (/official|complet|full time|(^|[^a-z])(of|co|ft)([^a-z]|$)/.test(k)) return 'Terminé';
+  const q = k.match(/([1-4])\s*(?:st|nd|rd|th)?\s*(?:quarter|interval|period|q)|q\s*([1-4])/);
+  const n = q?.[1] ?? q?.[2];
+  if (n) return `Q${n}`;
+  return 'En direct';
+};
+
 export const todayKey = (): string =>
   new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Brussels' }).format(new Date());
 

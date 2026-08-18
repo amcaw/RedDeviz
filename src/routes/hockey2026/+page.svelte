@@ -5,7 +5,7 @@
   import HockeyMatch from '$lib/HockeyMatch.svelte';
   import HockeyTeam from '$lib/HockeyTeam.svelte';
   import HockeyVideo from '$lib/HockeyVideo.svelte';
-  import { comp, flagUrl, matchSideName, phaseLabel, fmtDateTime, fmtDay, dayKey, todayKey, videoOf, type Gender, type HockeyVideoRef, type Match } from '$lib/hockey/data';
+  import { comp, flagUrl, matchSideName, phaseLabel, frPeriod, fmtDateTime, fmtDay, dayKey, todayKey, videoOf, type Gender, type HockeyVideoRef, type Match } from '$lib/hockey/data';
   import { initPym, sendHeight } from '$lib/pym.js';
   import { startLive, liveScore, isLiveStatus } from '$lib/hockey/live.svelte';
 
@@ -263,7 +263,7 @@
                   <span class="meta">
                     <span class="t">{fmtDateTime(m.utc)}</span>
                     <span class="p" class:islive={live}>
-                      {#if live}<span class="live-dot" aria-hidden="true"></span>{liveScore(m0.id)?.period ?? 'En direct'}{:else}{m.played ? 'Terminé' : phaseLabel(m.phase)}{/if}
+                      {#if live}<span class="live-dot" aria-hidden="true"></span>{frPeriod(liveScore(m0.id)?.period)}{:else}{m.played ? 'Terminé' : phaseLabel(m.phase)}{/if}
                     </span>
                     {#if m.played}<span class="p">{phaseLabel(m.phase)}</span>{/if}
                   </span>
