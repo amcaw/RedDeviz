@@ -45,7 +45,7 @@
     if (diff <= 0) return 'imminent';
     const h = Math.floor(diff / 3600000);
     const mn = Math.floor((diff % 3600000) / 60000);
-    return h > 0 ? `dans ${h} h ${String(mn).padStart(2, '0')}` : `dans ${mn} min`;
+    return h > 0 ? `dans ${h}h${String(mn).padStart(2, '0')}` : `dans ${mn} min`;
   };
 
   const liveOf = (m: Match): Match => {
@@ -95,7 +95,7 @@
     const trigger = drawerTrigger;
     drawer = null;
     drawerTrigger = null;
-    window.requestAnimationFrame(() => trigger?.focus());
+    window.requestAnimationFrame(() => trigger?.focus({ preventScroll: true }));
   };
   const drawerFly = (node: Element) => {
     const mobile = window.matchMedia('(max-width: 560px)').matches;
@@ -189,6 +189,7 @@
       return;
     }
     if (!key) return;
+    if (!window.matchMedia('(min-width: 940px)').matches) return;
     calendarEl?.querySelector(`[data-day="${key}"]`)?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   });
 
@@ -234,7 +235,7 @@
     if (!drawer || !drawerEl) return;
     window.requestAnimationFrame(() => {
       const close = [...(drawerEl?.querySelectorAll<HTMLElement>('.drawer-mobile-close, .close') ?? [])].find((item) => item.offsetParent !== null);
-      close?.focus();
+      close?.focus({ preventScroll: true });
     });
   });
 </script>
@@ -481,7 +482,12 @@
     width: 100%;
     max-width: 600px;
     gap: 8px;
-    margin: 0 auto 14px;
+    margin: 0 auto 8px;
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    padding: 8px 0;
+    background: var(--bg);
   }
   .tabs button {
     flex: 1;
@@ -502,7 +508,7 @@
   }
   .livebar {
     position: sticky;
-    top: 0;
+    top: 50px;
     z-index: 25;
     margin: 0 0 16px;
     padding: 9px 0 11px;
@@ -548,7 +554,7 @@
     display: none;
   }
   .livecard {
-    flex: 1 0 clamp(150px, 40%, 190px);
+    flex: 0 0 220px;
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
@@ -1145,6 +1151,11 @@
   @media (min-width: 940px) {
     main {
       max-width: 1280px;
+    }
+    .tabs {
+      position: static;
+      padding: 0;
+      margin: 0 auto 14px;
     }
     .gender-view {
       display: grid;

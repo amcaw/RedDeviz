@@ -1,9 +1,36 @@
-import { writeFileSync } from 'node:fs';
+import { writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT = resolve(__dirname, '../src/data/hockey.json');
+
+const PREV_STATS = {};
+try {
+  if (existsSync(OUT)) {
+    const prev = JSON.parse(readFileSync(OUT, 'utf8'));
+    for (const g of ['men', 'women']) {
+      for (const m of prev[g]?.matches ?? []) {
+        if (m.stats) PREV_STATS[m.id] = m.stats;
+      }
+    }
+  }
+} catch {
+  /* first run, no previous data */
+}
+
+const nonEmptyStat = (v) =>
+  Array.isArray(v) && v.length > 0 && v.some((x) => (Array.isArray(x) ? x.some(Boolean) : x));
+
+function mergeStats(oldS, newS) {
+  if (!oldS) return newS ?? null;
+  if (!newS) return oldS;
+  const out = { ...oldS, ...newS };
+  for (const k of ['possession', 'shots', 'circleEntries', 'penaltyCorners', 'quarters']) {
+    out[k] = nonEmptyStat(newS[k]) ? newS[k] : nonEmptyStat(oldS[k]) ? oldS[k] : (newS[k] ?? oldS[k]);
+  }
+  return out;
+}
 
 const BASE = 'https://tms.fih.ch';
 const UA = { headers: { 'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)' } };
