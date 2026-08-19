@@ -278,5 +278,28 @@
     "kind": "highlights",
     "source": "FIH",
     "published": "2026-08-19"
+  },
+  "IND|PAK": {
+    "id": "VCoHo6vMIy0",
+    "title": "FIH Hockey Men's World Cup 2026, Game 18: Pakistan vs India | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-19"
+  },
+  "ENG|WAL": {
+    "id": "5qtTRl6vHfI",
+    "title": "FIH Hockey Men's World Cup 2026, Game 17: England vs Wales | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-19"
+  },
+  "FRA|GER": {
+    "id": "abQQNKBM39Q",
+    "title": "FIH Hockey Men's World Cup 2026, Game 19: France vs Germany | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH"
   }
 }
