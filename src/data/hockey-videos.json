@@ -254,5 +254,21 @@
     "kind": "highlights",
     "source": "FIH",
     "published": "2026-08-19"
+  },
+  "AUS|CHI": {
+    "id": "99EVmh6s8EI",
+    "title": "FIH Hockey Women's World Cup 2026, Game 17: Chile vs Australia | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-19"
+  },
+  "ARG|SCO": {
+    "id": "ws8nC8_UV44",
+    "title": "FIH Hockey Women's World Cup 2026, Game 17: Argentina vs Scotland | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-19"
   }
 }
