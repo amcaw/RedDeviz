@@ -301,5 +301,13 @@
     "gender": "M",
     "kind": "highlights",
     "source": "FIH"
+  },
+  "W:JPN|NED": {
+    "id": "ApS8eF3NCes",
+    "title": "FIH Hockey Women's World Cup 2026, Game 20: Netherlands vs Japan | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-20"
   }
 }
