@@ -139,6 +139,87 @@ function parseMatches(html) {
   return out;
 }
 
+const LOC_URL = 'https://hockeyworldcup2026.be/programme/';
+
+function parseLoc(html) {
+  const dates = [...html.matchAll(/(\d{1,2})\s+August/g)].map((m) => ({ pos: m.index, day: Number(m[1]) }));
+  const nearestDay = (pos) => {
+    let day = null;
+    for (const x of dates) {
+      if (x.pos <= pos) day = x.day;
+      else break;
+    }
+    return day;
+  };
+  const marks = [...html.matchAll(/<div class="match">/g)].map((m) => m.index);
+  const rows = [];
+  for (let i = 0; i < marks.length; i++) {
+    const seg = html.slice(marks[i], marks[i + 1] ?? marks[i] + 800);
+    const hour = seg.match(/class="hour">([^<]+)</)?.[1]?.trim();
+    const cat = seg.match(/class="category">([^<]+)</)?.[1]?.trim();
+    const a = seg.match(/class="country_a">([\s\S]*?)<\/span>/)?.[1];
+    const b = seg.match(/class="country_b">([\s\S]*?)<\/span>/)?.[1];
+    if (!hour || !a || !b || !/^\d{1,2}:\d{2}$/.test(hour)) continue;
+    const day = nearestDay(marks[i]);
+    if (!day) continue;
+    rows.push({ day, gender: /women/i.test(cat ?? '') ? 'W' : 'M', hour, a: strip(a), b: strip(b) });
+  }
+  return rows;
+}
+
+async function fetchLoc() {
+  try {
+    return parseLoc(await fetchText(LOC_URL));
+  } catch (e) {
+    console.warn(`LOC schedule: ${e.message}`);
+    return [];
+  }
+}
+
+function applyLocTimes(gender, pools, matches, teams, locRows) {
+  const rows = locRows.filter((r) => r.gender === gender);
+  if (!rows.length) return 0;
+  const nameToCode = {};
+  for (const t of Object.values(teams)) nameToCode[t.name.toLowerCase()] = t.code;
+  const SPECIAL = { 'red lions': 'BEL', 'red panthers': 'BEL' };
+  const poolDecided = (letter) => {
+    const ms = matches.filter((m) => m.phase === letter);
+    return ms.length > 0 && ms.every((m) => m.played);
+  };
+  const seedCode = (rank, letter) =>
+    poolDecided(letter) ? (pools[letter]?.teams.find((t) => t.rank === rank)?.code ?? null) : null;
+  const canonLabel = (s) => {
+    const ph = (s ?? '').match(/(\d)(?:st|nd|rd|th|h)\s+pool\s+([a-h])/i);
+    if (!ph) return null;
+    const rank = Number(ph[1]);
+    const letter = ph[2].toUpperCase();
+    return seedCode(rank, letter) ?? `${rank}${letter}`;
+  };
+  const canon = (s) => {
+    const t = (s ?? '').toLowerCase().trim();
+    return canonLabel(s) ?? SPECIAL[t] ?? nameToCode[t] ?? `?${t}`;
+  };
+  const fihSide = (m, side) => m[side] || canonLabel(side === 'home' ? m.homeLabel : m.awayLabel) || '?';
+  const key = (x, y) => [x, y].sort().join('|');
+  const byKey = new Map();
+  for (const m of matches) {
+    const k = key(fihSide(m, 'home'), fihSide(m, 'away'));
+    byKey.set(k, [...(byKey.get(k) ?? []), m]);
+  }
+  let changed = 0;
+  for (const r of rows) {
+    const list = byKey.get(key(canon(r.a), canon(r.b)));
+    if (!list || list.length !== 1) continue;
+    const utc = new Date(`2026-08-${String(r.day).padStart(2, '0')}T${r.hour}:00+02:00`)
+      .toISOString()
+      .slice(0, 19)
+      .replace('T', ' ');
+    if (list[0].utc !== utc) changed += 1;
+    list[0].utc = utc;
+  }
+  return changed;
+}
+
 function parseEventTable(html, paneId) {
   const i = html.indexOf(`id="${paneId}"`);
   if (i < 0) return [];
@@ -219,7 +300,7 @@ async function fetchDetail(id) {
   return { venue, date, time, status, scorers, cards, stats };
 }
 
-async function fetchComp(comp) {
+async function fetchComp(comp, locRows) {
   const main = await fetchText(`/competitions/${comp.id}`);
   const matchesHtml = await fetchText(`/competitions/${comp.id}/matches`);
   const pools = parsePools(main);
@@ -246,6 +327,9 @@ async function fetchComp(comp) {
     }
   }
 
+  const retimed = applyLocTimes(comp.gender, pools, matches, teams, locRows);
+  if (retimed) console.log(`${comp.gender}: ${retimed} horaire(s) ajusté(s) depuis le LOC`);
+
   return {
     gender: comp.gender,
     competitionId: comp.id,
@@ -256,9 +340,11 @@ async function fetchComp(comp) {
 }
 
 const data = { updated: new Date().toISOString(), men: null, women: null };
+const locRows = await fetchLoc();
+console.log(`LOC: ${locRows.length} matchs au programme`);
 for (const comp of COMPS) {
   try {
-    const res = await fetchComp(comp);
+    const res = await fetchComp(comp, locRows);
     data[comp.gender === 'M' ? 'men' : 'women'] = res;
     const played = res.matches.filter((m) => m.played).length;
     console.log(`${comp.gender} (comp ${comp.id}): ${Object.keys(res.pools).length} poules, ${res.matches.length} matchs (${played} joués), ${Object.keys(res.teams).length} équipes`);

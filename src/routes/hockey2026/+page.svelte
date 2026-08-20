@@ -454,6 +454,8 @@
   <p class="source">
     Données officielles
     <a href="https://tms.fih.ch" target="_blank" rel="noreferrer">FIH TMS</a>
+    · horaires
+    <a href="https://hockeyworldcup2026.be/programme/" target="_blank" rel="noreferrer">World Cup 2026</a>
     · visualisation
     <a href="https://www.linkedin.com/in/ambroise-c-623703229/" target="_blank" rel="noreferrer">Ambroise Carton</a>
   </p>
