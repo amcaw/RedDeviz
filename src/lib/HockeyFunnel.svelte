@@ -5,6 +5,7 @@
     flagUrl,
     teamName,
     matchSideCode,
+    rankClinched,
     abbr,
     poolOf,
     dayKey,
@@ -149,10 +150,8 @@
       for (const src of SUPER_FEED[letter]) {
         const rel = ((POOL_ANGLE[src] - SA + 540) % 360) - 180;
         const s = rel >= 0 ? 1 : -1;
-        const teams = phaseFinished(forGender, src) ? (poolOf(forGender, src)?.teams ?? []) : [];
-        const at = (rank: number) => teams.find((t) => t.rank === rank)?.code ?? null;
-        const c1 = at(1);
-        const c2 = at(2);
+        const c1 = rankClinched(forGender, src, 1);
+        const c2 = rankClinched(forGender, src, 2);
         slots.push({ code: c1, label: c1 ?? `1er ${src}`, real: !!c1, off: s * 16 });
         slots.push({ code: c2, label: c2 ?? `2e ${src}`, real: !!c2, off: s * 48 });
       }

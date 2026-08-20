@@ -158,15 +158,106 @@ const seedName = (label: string): string => {
   return label || 'À déterminer';
 };
 
+interface StandRow {
+  code: string;
+  pts: number;
+  gd: number;
+  gf: number;
+  rem: number;
+}
+
+const FINAL_STATUS = /official|complete|finish|full[\s-]?time|ended|result/i;
+
+const matchDecided = (m: Match): boolean => {
+  if (!m.played || m.hg == null || m.ag == null) return false;
+  const s = (m.status ?? '').trim();
+  return s === '' ? true : FINAL_STATUS.test(s);
+};
+
+const poolStandings = (g: Gender, letter: string): StandRow[] => {
+  const rows = new Map<string, StandRow>();
+  const ensure = (code: string): StandRow => {
+    let row = rows.get(code);
+    if (!row) {
+      row = { code, pts: 0, gd: 0, gf: 0, rem: 0 };
+      rows.set(code, row);
+    }
+    return row;
+  };
+  for (const t of HOCKEY[g].pools[letter]?.teams ?? []) if (t.code) ensure(t.code);
+  for (const m of HOCKEY[g].matches.filter((x) => x.phase === letter)) {
+    if (!m.home || !m.away) continue;
+    const h = ensure(m.home);
+    const a = ensure(m.away);
+    if (matchDecided(m)) {
+      const hg = m.hg as number;
+      const ag = m.ag as number;
+      h.gf += hg;
+      a.gf += ag;
+      h.gd += hg - ag;
+      a.gd += ag - hg;
+      if (hg > ag) h.pts += 3;
+      else if (hg < ag) a.pts += 3;
+      else {
+        h.pts += 1;
+        a.pts += 1;
+      }
+    } else {
+      h.rem += 1;
+      a.rem += 1;
+    }
+  }
+  return [...rows.values()];
+};
+
+export const rankClinched = (g: Gender, letter: string, target: number): string | null => {
+  const base = poolStandings(g, letter);
+  if (base.length < target) return null;
+  const remMatches = HOCKEY[g].matches
+    .filter((m) => m.phase === letter && m.home && m.away && !matchDecided(m))
+    .map((m) => [m.home, m.away] as [string, string]);
+  const remCount = new Map(base.map((r) => [r.code, r.rem]));
+  const n = remMatches.length;
+  if (n > 12) return null;
+  const total = 3 ** n;
+  let winner: string | null = null;
+  for (let s = 0; s < total; s++) {
+    const pts = new Map(base.map((r) => [r.code, r.pts]));
+    let k = s;
+    for (const [h, a] of remMatches) {
+      const outcome = k % 3;
+      k = Math.floor(k / 3);
+      if (outcome === 0) pts.set(h, (pts.get(h) ?? 0) + 3);
+      else if (outcome === 1) pts.set(a, (pts.get(a) ?? 0) + 3);
+      else {
+        pts.set(h, (pts.get(h) ?? 0) + 1);
+        pts.set(a, (pts.get(a) ?? 0) + 1);
+      }
+    }
+    const order = [...base].sort(
+      (x, y) =>
+        (pts.get(y.code) ?? 0) - (pts.get(x.code) ?? 0) ||
+        y.gd - x.gd ||
+        y.gf - x.gf ||
+        (x.code < y.code ? -1 : 1)
+    );
+    const at = order[target - 1];
+    const tieUnsafe = (other: StandRow | undefined): boolean =>
+      !!other &&
+      pts.get(other.code) === pts.get(at.code) &&
+      ((remCount.get(at.code) ?? 0) > 0 || (remCount.get(other.code) ?? 0) > 0);
+    if (tieUnsafe(order[target - 2]) || tieUnsafe(order[target])) return null;
+    if (winner === null) winner = at.code;
+    else if (winner !== at.code) return null;
+  }
+  return winner;
+};
+
 const resolveSeed = (g: Gender, label: string | null | undefined): string | null => {
   if (!label) return null;
   const m = label.match(/^(\d)(?:st|nd|rd|th|h) Pool ([A-H])$/i);
   if (!m) return null;
-  const rank = Number(m[1]);
-  const pool = m[2].toUpperCase();
-  const matches = HOCKEY[g].matches.filter((x) => x.phase === pool);
-  if (!matches.length || !matches.every((x) => x.played)) return null;
-  return HOCKEY[g].pools[pool]?.teams.find((t) => t.rank === rank)?.code ?? null;
+  return rankClinched(g, m[2].toUpperCase(), Number(m[1]));
 };
 
 export const matchSideCode = (g: Gender, match: Match, side: 'home' | 'away'): string | null => {
