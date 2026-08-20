@@ -4,6 +4,7 @@
     comp,
     flagUrl,
     teamName,
+    matchSideCode,
     abbr,
     poolOf,
     dayKey,
@@ -92,13 +93,20 @@
   });
 
   const chordsForDay = (day: string | null) => {
-    const list = cp.matches.filter((mt) => dayKey(mt.utc) === day && nodePos[mt.home] && nodePos[mt.away]);
-    const items = list.map((mt) => {
-      const a = nodePos[mt.home];
-      const b = nodePos[mt.away];
+    const list = cp.matches
+      .filter((mt) => dayKey(mt.utc) === day)
+      .map((mt) => {
+        const hc = matchSideCode(gender, mt, 'home');
+        const ac = matchSideCode(gender, mt, 'away');
+        return hc && ac && nodePos[hc] && nodePos[ac] ? { mt, hc, ac } : null;
+      })
+      .filter((x): x is { mt: Match; hc: string; ac: string } => x !== null);
+    const items = list.map(({ mt, hc, ac }) => {
+      const a = nodePos[hc];
+      const b = nodePos[ac];
       const degA = (Math.atan2(a.y - C, a.x - C) * 180) / Math.PI;
       const degB = (Math.atan2(b.y - C, b.x - C) * 180) / Math.PI;
-      return { mt, a, b, lo: Math.min(degA, degB), hi: Math.max(degA, degB), rr: R.chord };
+      return { mt, hc, ac, a, b, lo: Math.min(degA, degB), hi: Math.max(degA, degB), rr: R.chord };
     });
     items.sort((x, y) => x.lo - y.lo);
     const levelHi: number[] = [];
@@ -112,9 +120,9 @@
   };
   const dayChords = $derived(chordsForDay(curDay));
   const previousDayChords = $derived(previousDay ? chordsForDay(previousDay) : []);
-  const dayTeams = $derived(new Set(dayChords.flatMap((c) => [c.mt.home, c.mt.away])));
+  const dayTeams = $derived(new Set(dayChords.flatMap((c) => [c.hc, c.ac])));
   const liveTeams = $derived(
-    new Set(dayChords.filter((c) => isLiveMatch(c.mt.id)).flatMap((c) => [c.mt.home, c.mt.away]))
+    new Set(dayChords.filter((c) => isLiveMatch(c.mt.id)).flatMap((c) => [c.hc, c.ac]))
   );
   const dayMatchCount = $derived(cp.matches.filter((mt) => dayKey(mt.utc) === curDay).length);
 
@@ -123,8 +131,8 @@
     const s = new Set<string>();
     if (!hoverCode) return s;
     for (const c of dayChords) {
-      if (c.mt.home === hoverCode) s.add(c.mt.away);
-      else if (c.mt.away === hoverCode) s.add(c.mt.home);
+      if (c.hc === hoverCode) s.add(c.ac);
+      else if (c.ac === hoverCode) s.add(c.hc);
     }
     return s;
   });
@@ -236,10 +244,10 @@
 
     <g class="line-layer" class:incoming={dayCrossfading}>
       {#each dayChords as c (c.mt.id)}
-        {@const strong = hoverCode != null && (c.mt.home === hoverCode || c.mt.away === hoverCode)}
+        {@const strong = hoverCode != null && (c.hc === hoverCode || c.ac === hoverCode)}
         {@const islive = isLiveMatch(c.mt.id)}
         {@const path = chordPath(c.a, c.b, c.rr)}
-        <path d={path} class="chord-hit" role="button" tabindex="0" aria-label="{teamName(gender, c.mt.home)} contre {teamName(gender, c.mt.away)}" onclick={() => onmatch?.(c.mt)} onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && onmatch?.(c.mt)} />
+        <path d={path} class="chord-hit" role="button" tabindex="0" aria-label="{teamName(gender, c.hc)} contre {teamName(gender, c.ac)}" onclick={() => onmatch?.(c.mt)} onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && onmatch?.(c.mt)} />
         <path d={path} class="chord" class:live={isToday} class:islive class:strong aria-hidden="true" />
       {/each}
     </g>
