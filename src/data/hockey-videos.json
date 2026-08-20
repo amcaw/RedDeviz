@@ -317,5 +317,20 @@
     "kind": "highlights",
     "source": "FIH",
     "published": "2026-08-20"
+  },
+  "AUS|RSA": {
+    "id": "I5NWKO4UrEM",
+    "title": "FIH Hockey Men's World Cup 2026, Game 21: Australia vs South Africa | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-20"
+  },
+  "ARG|NZL": {
+    "id": "24bc11d5yP8",
+    "title": "FIH Hockey Men's World Cup 2026, Game 22: New Zealand vs Argentina | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH"
   }
 }
