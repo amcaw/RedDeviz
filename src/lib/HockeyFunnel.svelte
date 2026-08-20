@@ -327,8 +327,6 @@
             role="button"
             tabindex="0"
             aria-label={teamName(gender, slot.code ?? '')}
-            onmouseenter={() => (hoverCode = slot.code)}
-            onmouseleave={() => (hoverCode = null)}
             onclick={() => slot.code && onteam?.(slot.code)}
             onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && slot.code && onteam?.(slot.code)}
           >
