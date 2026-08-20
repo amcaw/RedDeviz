@@ -141,8 +141,12 @@
       for (const src of SUPER_FEED[letter]) {
         const rel = ((POOL_ANGLE[src] - SA + 540) % 360) - 180;
         const s = rel >= 0 ? 1 : -1;
-        slots.push({ code: null, label: `1er ${src}`, real: false, off: s * 16 });
-        slots.push({ code: null, label: `2e ${src}`, real: false, off: s * 48 });
+        const teams = phaseFinished(forGender, src) ? (poolOf(forGender, src)?.teams ?? []) : [];
+        const at = (rank: number) => teams.find((t) => t.rank === rank)?.code ?? null;
+        const c1 = at(1);
+        const c2 = at(2);
+        slots.push({ code: c1, label: c1 ?? `1er ${src}`, real: !!c1, off: s * 16 });
+        slots.push({ code: c2, label: c2 ?? `2e ${src}`, real: !!c2, off: s * 48 });
       }
       return { letter, angle: SA, slots };
     });
@@ -309,7 +313,18 @@
         {@const x = px(R.super, sa)}
         {@const y = py(R.super, sa)}
         {#if slot.real && slot.code}
-          <g class="nation-slot" class:incoming={crossfading} class:out-title={outOfTitle(gender, slot.code)}>
+          <g
+            class="nation-slot clickable"
+            class:incoming={crossfading}
+            class:out-title={outOfTitle(gender, slot.code)}
+            role="button"
+            tabindex="0"
+            aria-label={teamName(gender, slot.code ?? '')}
+            onmouseenter={() => (hoverCode = slot.code)}
+            onmouseleave={() => (hoverCode = null)}
+            onclick={() => slot.code && onteam?.(slot.code)}
+            onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && slot.code && onteam?.(slot.code)}
+          >
             <clipPath id="sclip-{sp.letter}-{i}"><circle cx={x} cy={y} r="14" /></clipPath>
             <circle cx={x} cy={y} r="15" class="flag-ring anim" style:animation-delay="540ms" />
             <image href={flagUrl(slot.code)} x={x - 15} y={y - 15} width="30" height="30" clip-path="url(#sclip-{sp.letter}-{i})" preserveAspectRatio="xMidYMid slice" />
@@ -366,7 +381,16 @@
       {@const x = px(R.finalist, finalist.angle)}
       {@const y = py(R.finalist, finalist.angle)}
       {#if finalist.code}
-        <g class="nation-slot" class:incoming={crossfading} class:out-title={outOfTitle(gender, finalist.code)}>
+        <g
+          class="nation-slot clickable"
+          class:incoming={crossfading}
+          class:out-title={outOfTitle(gender, finalist.code)}
+          role="button"
+          tabindex="0"
+          aria-label={teamName(gender, finalist.code)}
+          onclick={() => finalist.code && onteam?.(finalist.code)}
+          onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && finalist.code && onteam?.(finalist.code)}
+        >
           <clipPath id="finalist-{i}"><circle cx={x} cy={y} r="13" /></clipPath>
           <circle cx={x} cy={y} r="14" class="flag-ring anim" style:animation-delay="650ms" />
           <image href={flagUrl(finalist.code)} x={x - 14} y={y - 14} width="28" height="28" clip-path="url(#finalist-{i})" preserveAspectRatio="xMidYMid slice" />
@@ -470,6 +494,13 @@
   .nation-layer,
   .nation-slot {
     opacity: 1;
+  }
+  .nation-slot.clickable {
+    cursor: pointer;
+  }
+  .nation-slot.clickable:hover .flag-ring,
+  .nation-slot.clickable:focus-visible .flag-ring {
+    stroke: var(--hk-accent);
   }
   .nation-layer.incoming,
   .nation-slot.incoming {

@@ -1,6 +1,6 @@
 <script lang="ts">
   import HockeyStats from './HockeyStats.svelte';
-  import { flagUrl, matchSideName, phaseLabel, eventTeamCode, eventTeamName, cardClass, fmtDateTime, videoOf, type Gender, type HockeyVideoRef, type Match } from './hockey/data';
+  import { flagUrl, matchSideName, matchSideCode, phaseLabel, eventTeamCode, eventTeamName, cardClass, fmtDateTime, videoOf, type Gender, type HockeyVideoRef, type Match } from './hockey/data';
 
   let { match, gender, onclose, onvideo }: { match: Match; gender: Gender; onclose: () => void; onvideo?: (video: HockeyVideoRef) => void } = $props();
 
@@ -26,7 +26,7 @@
 
   <div class="scoreline">
     <div class="side" class:win={winner === 'home'}>
-      {#if match.home}<img class="fl" src={flagUrl(match.home)} alt="" />{:else}<span class="seed">?</span>{/if}
+      {#if matchSideCode(gender, match, 'home')}<img class="fl" src={flagUrl(matchSideCode(gender, match, 'home'))} alt="" />{:else}<span class="seed">?</span>{/if}
       <span class="nm">{matchSideName(gender, match, 'home')}</span>
     </div>
     <div class="score">
@@ -38,7 +38,7 @@
       {/if}
     </div>
     <div class="side" class:win={winner === 'away'}>
-      {#if match.away}<img class="fl" src={flagUrl(match.away)} alt="" />{:else}<span class="seed">?</span>{/if}
+      {#if matchSideCode(gender, match, 'away')}<img class="fl" src={flagUrl(matchSideCode(gender, match, 'away'))} alt="" />{:else}<span class="seed">?</span>{/if}
       <span class="nm">{matchSideName(gender, match, 'away')}</span>
     </div>
   </div>

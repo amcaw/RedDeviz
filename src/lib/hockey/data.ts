@@ -158,9 +158,27 @@ const seedName = (label: string): string => {
   return label || 'À déterminer';
 };
 
-export const matchSideName = (g: Gender, match: Match, side: 'home' | 'away'): string => {
+const resolveSeed = (g: Gender, label: string | null | undefined): string | null => {
+  if (!label) return null;
+  const m = label.match(/^(\d)(?:st|nd|rd|th|h) Pool ([A-H])$/i);
+  if (!m) return null;
+  const rank = Number(m[1]);
+  const pool = m[2].toUpperCase();
+  const matches = HOCKEY[g].matches.filter((x) => x.phase === pool);
+  if (!matches.length || !matches.every((x) => x.played)) return null;
+  return HOCKEY[g].pools[pool]?.teams.find((t) => t.rank === rank)?.code ?? null;
+};
+
+export const matchSideCode = (g: Gender, match: Match, side: 'home' | 'away'): string | null => {
   const code = match[side];
-  return code ? teamName(g, code) : seedName(side === 'home' ? match.homeLabel ?? '' : match.awayLabel ?? '');
+  if (code) return code;
+  return resolveSeed(g, side === 'home' ? match.homeLabel : match.awayLabel);
+};
+
+export const matchSideName = (g: Gender, match: Match, side: 'home' | 'away'): string => {
+  const code = matchSideCode(g, match, side);
+  if (code) return teamName(g, code);
+  return seedName(side === 'home' ? match.homeLabel ?? '' : match.awayLabel ?? '');
 };
 
 export const phaseLabel = (phase: string | null): string => {

@@ -5,7 +5,7 @@
   import HockeyMatch from '$lib/HockeyMatch.svelte';
   import HockeyTeam from '$lib/HockeyTeam.svelte';
   import HockeyVideo from '$lib/HockeyVideo.svelte';
-  import { comp, flagUrl, matchSideName, phaseLabel, frPeriod, fmtDateTime, fmtTime, fmtDay, dayKey, todayKey, videoOf, type Gender, type HockeyVideoRef, type Match } from '$lib/hockey/data';
+  import { comp, flagUrl, matchSideName, matchSideCode, phaseLabel, frPeriod, fmtDateTime, fmtTime, fmtDay, dayKey, todayKey, videoOf, type Gender, type HockeyVideoRef, type Match } from '$lib/hockey/data';
   import { initPym, sendHeight } from '$lib/pym.js';
   import { startLive, liveScore, isLiveStatus, isFinishedStatus } from '$lib/hockey/live.svelte';
 
@@ -267,6 +267,8 @@
           <div class="livebar-track">
             {#each bandMatches as m (m.id)}
               {@const st = matchState(m)}
+              {@const hc = matchSideCode(gender, m, 'home')}
+              {@const ac = matchSideCode(gender, m, 'away')}
               <button
                 class="livecard"
                 class:islive={st === 'live'}
@@ -280,12 +282,12 @@
                   {:else}Terminé{/if}
                 </span>
                 <span class="lc-row" class:lose={st !== 'upcoming' && m.hg != null && m.ag != null && m.hg < m.ag}>
-                  {#if m.home}<img src={flagUrl(m.home)} alt="" />{:else}<span class="lc-seed" aria-hidden="true">?</span>{/if}
+                  {#if hc}<img src={flagUrl(hc)} alt="" />{:else}<span class="lc-seed" aria-hidden="true">?</span>{/if}
                   <span class="lc-nm">{matchSideName(gender, m, 'home')}</span>
                   {#if st !== 'upcoming'}<span class="lc-sc">{m.hg}</span>{/if}
                 </span>
                 <span class="lc-row" class:lose={st !== 'upcoming' && m.hg != null && m.ag != null && m.ag < m.hg}>
-                  {#if m.away}<img src={flagUrl(m.away)} alt="" />{:else}<span class="lc-seed" aria-hidden="true">?</span>{/if}
+                  {#if ac}<img src={flagUrl(ac)} alt="" />{:else}<span class="lc-seed" aria-hidden="true">?</span>{/if}
                   <span class="lc-nm">{matchSideName(gender, m, 'away')}</span>
                   {#if st !== 'upcoming'}<span class="lc-sc">{m.ag}</span>{/if}
                 </span>
@@ -354,18 +356,20 @@
               {@const live = isLiveStatus(m.status) && m.status !== 'Official'}
               {@const win = m.played && m.hg != null && m.ag != null ? (m.hg > m.ag || (m.hg === m.ag && m.so && m.so[0] > m.so[1]) ? 'h' : 'a') : null}
               {@const clip = videoOf(gender, m)}
+              {@const hc = matchSideCode(gender, m, 'home')}
+              {@const ac = matchSideCode(gender, m, 'away')}
               {@const oldMatch = previousDays.find((oldDay) => oldDay.key === day.key)?.matches[mi]}
               <li class="match-wrap">
                 <button class="match" class:has-video={!!clip} class:istoday={day.key === today} onclick={() => openMatch(m)}>
                   <span class="teams-stack">
                     <span class="teams" class:incoming={genderCrossfading}>
                       <span class="trow" class:lose={win === 'a'}>
-                        {#if m.home}<img src={flagUrl(m.home)} alt="" />{:else}<span class="seed" aria-hidden="true">?</span>{/if}
+                        {#if hc}<img src={flagUrl(hc)} alt="" />{:else}<span class="seed" aria-hidden="true">?</span>{/if}
                         <span class="nm">{matchSideName(gender, m, 'home')}</span>
                         {#if m.played}<span class="sc">{m.hg}</span>{/if}
                       </span>
                       <span class="trow" class:lose={win === 'h'}>
-                        {#if m.away}<img src={flagUrl(m.away)} alt="" />{:else}<span class="seed" aria-hidden="true">?</span>{/if}
+                        {#if ac}<img src={flagUrl(ac)} alt="" />{:else}<span class="seed" aria-hidden="true">?</span>{/if}
                         <span class="nm">{matchSideName(gender, m, 'away')}</span>
                         {#if m.played}<span class="sc">{m.ag}</span>{/if}
                       </span>
