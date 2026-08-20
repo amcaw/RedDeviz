@@ -332,5 +332,37 @@
     "gender": "M",
     "kind": "highlights",
     "source": "FIH"
+  },
+  "M:ESP|IRL": {
+    "id": "-26wETKxit8",
+    "title": "FIH Hockey Men's World Cup 2026, Game 23: Ireland vs Spain | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-20"
+  },
+  "ESP|NZL": {
+    "id": "xQoJE43T2lQ",
+    "title": "FIH Hockey Women's World Cup 2026, Game 22: New Zealand vs Spain | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-20"
+  },
+  "W:ENG|IND": {
+    "id": "2uskVVWPs3o",
+    "title": "FIH Hockey Women's World Cup 2026, Game 23: India vs England | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-20"
+  },
+  "CHN|RSA": {
+    "id": "ryfVVv0Tx5c",
+    "title": "FIH Hockey Women's World Cup 2026, Game 21: China vs South Africa | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-20"
   }
 }
