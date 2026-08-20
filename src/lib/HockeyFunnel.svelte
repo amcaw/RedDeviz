@@ -94,37 +94,57 @@
   });
 
   const chordsForDay = (day: string | null) => {
-    const list = cp.matches
+    const raw = cp.matches
       .filter((mt) => dayKey(mt.utc) === day)
       .map((mt) => {
         const hc = matchSideCode(gender, mt, 'home');
         const ac = matchSideCode(gender, mt, 'away');
-        return hc && ac && nodePos[hc] && nodePos[ac] ? { mt, hc, ac } : null;
+        if (!hc || !ac) return null;
+        const superRing = SUPER_POOLS.includes(mt.phase ?? '');
+        const pos = superRing ? superPos : nodePos;
+        if (!pos[hc] || !pos[ac]) return null;
+        const a = pos[hc];
+        const b = pos[ac];
+        const degA = (Math.atan2(a.y - C, a.x - C) * 180) / Math.PI;
+        const degB = (Math.atan2(b.y - C, b.x - C) * 180) / Math.PI;
+        return {
+          mt,
+          hc,
+          ac,
+          a,
+          b,
+          ring: superRing ? ('super' as const) : ('outer' as const),
+          nodeR: superRing ? 15 : NR,
+          lo: Math.min(degA, degB),
+          hi: Math.max(degA, degB),
+          rr: R.chord
+        };
       })
-      .filter((x): x is { mt: Match; hc: string; ac: string } => x !== null);
-    const items = list.map(({ mt, hc, ac }) => {
-      const a = nodePos[hc];
-      const b = nodePos[ac];
-      const degA = (Math.atan2(a.y - C, a.x - C) * 180) / Math.PI;
-      const degB = (Math.atan2(b.y - C, b.x - C) * 180) / Math.PI;
-      return { mt, hc, ac, a, b, lo: Math.min(degA, degB), hi: Math.max(degA, degB), rr: R.chord };
-    });
-    items.sort((x, y) => x.lo - y.lo);
-    const levelHi: number[] = [];
-    for (const c of items) {
-      let lvl = 0;
-      while (lvl < levelHi.length && levelHi[lvl] > c.lo) lvl++;
-      levelHi[lvl] = c.hi;
-      c.rr = R.chord + lvl * 11;
+      .filter((x): x is NonNullable<typeof x> => x !== null);
+    for (const ring of ['outer', 'super'] as const) {
+      const group = raw.filter((c) => c.ring === ring).sort((x, y) => x.lo - y.lo);
+      const levelHi: number[] = [];
+      for (const c of group) {
+        let lvl = 0;
+        while (lvl < levelHi.length && levelHi[lvl] > c.lo) lvl++;
+        levelHi[lvl] = c.hi;
+        c.rr = ring === 'outer' ? R.chord + lvl * 11 : R.super + 22 + lvl * 10;
+      }
     }
-    return items;
+    return raw;
   };
   const dayChords = $derived(chordsForDay(curDay));
   const previousDayChords = $derived(previousDay ? chordsForDay(previousDay) : []);
-  const dayTeams = $derived(new Set(dayChords.flatMap((c) => [c.hc, c.ac])));
-  const liveTeams = $derived(
-    new Set(dayChords.filter((c) => isLiveMatch(c.mt.id)).flatMap((c) => [c.hc, c.ac]))
-  );
+  const playsOn = (ring: 'outer' | 'super', live: boolean) =>
+    new Set(
+      dayChords
+        .filter((c) => c.ring === ring && (!live || isLiveMatch(c.mt.id)))
+        .flatMap((c) => [c.hc, c.ac])
+    );
+  const outerTeams = $derived(playsOn('outer', false));
+  const outerLive = $derived(playsOn('outer', true));
+  const superTeams = $derived(playsOn('super', false));
+  const superLive = $derived(playsOn('super', true));
   const dayMatchCount = $derived(cp.matches.filter((mt) => dayKey(mt.utc) === curDay).length);
 
   let hoverCode = $state<string | null>(null);
@@ -159,28 +179,23 @@
     });
   const superData = $derived(superDataFor(gender));
   const previousSuperData = $derived(previousGender ? superDataFor(previousGender) : []);
+  const superPos = $derived.by(() => {
+    const m: Record<string, { x: number; y: number }> = {};
+    for (const sp of superData) {
+      for (const slot of sp.slots) {
+        if (slot.real && slot.code) {
+          const sa = sp.angle + slot.off;
+          m[slot.code] = { x: px(R.super, sa), y: py(R.super, sa) };
+        }
+      }
+    }
+    return m;
+  });
 
   const matchWinner = (match: Match | null): string | null => {
     if (!match?.played || match.hg == null || match.ag == null) return null;
     if (match.hg === match.ag && match.so) return match.so[0] > match.so[1] ? match.home : match.away;
     return match.hg > match.ag ? match.home : match.away;
-  };
-  const phaseFinished = (forGender: Gender, phase: string) => {
-    const matches = comp(forGender).matches.filter((match) => match.phase === phase);
-    return matches.length > 0 && matches.every((match) => match.played);
-  };
-  const outOfTitle = (forGender: Gender, code: string | null) => {
-    if (!code) return false;
-    const competition = comp(forGender);
-    const titlePools = [...FIRST_POOLS, ...SUPER_POOLS];
-    for (const letter of titlePools) {
-      const team = competition.pools[letter]?.teams.find((entry) => entry.code === code);
-      if (team && phaseFinished(forGender, letter) && team.rank > 2) return true;
-    }
-    for (const match of competition.matches.filter((entry) => ['SF', '1/2', 'Final', 'F1'].includes(entry.phase ?? ''))) {
-      if (match.played && (match.home === code || match.away === code) && matchWinner(match) !== code) return true;
-    }
-    return false;
   };
 
   const semifinals = $derived(cp.matches.filter((match) => match.phase === 'SF').sort((a, b) => a.id - b.id).slice(0, 2));
@@ -204,11 +219,11 @@
     return { x: C + (dx / d) * (d + out), y: C + (dy / d) * (d + out) };
   };
 
-  const chordPath = (a: { x: number; y: number }, b: { x: number; y: number }, rr: number) => {
+  const chordPath = (a: { x: number; y: number }, b: { x: number; y: number }, rr: number, nodeR = NR, dir = 1) => {
     const degA = (Math.atan2(a.y - C, a.x - C) * 180) / Math.PI;
     const degB = (Math.atan2(b.y - C, b.x - C) * 180) / Math.PI;
-    const sA = onRing(a, NR + 2);
-    const sB = onRing(b, NR + 2);
+    const sA = onRing(a, dir * (nodeR + 2));
+    const sB = onRing(b, dir * (nodeR + 2));
     const d = ((degB - degA + 540) % 360) - 180;
     const sweep = d > 0 ? 1 : 0;
     return `M ${sA.x.toFixed(1)} ${sA.y.toFixed(1)} L ${px(rr, degA).toFixed(1)} ${py(rr, degA).toFixed(1)} A ${rr} ${rr} 0 0 ${sweep} ${px(rr, degB).toFixed(1)} ${py(rr, degB).toFixed(1)} L ${sB.x.toFixed(1)} ${sB.y.toFixed(1)}`;
@@ -245,7 +260,7 @@
       {#each dayChords as c (c.mt.id)}
         {@const strong = hoverCode != null && (c.hc === hoverCode || c.ac === hoverCode)}
         {@const islive = isLiveMatch(c.mt.id)}
-        {@const path = chordPath(c.a, c.b, c.rr)}
+        {@const path = chordPath(c.a, c.b, c.rr, c.nodeR)}
         <path d={path} class="chord-hit" role="button" tabindex="0" aria-label="{teamName(gender, c.hc)} contre {teamName(gender, c.ac)}" onclick={() => onmatch?.(c.mt)} onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && onmatch?.(c.mt)} />
         <path d={path} class="chord" class:live={isToday} class:islive class:strong aria-hidden="true" />
       {/each}
@@ -254,7 +269,7 @@
     {#if dayCrossfading && previousDay}
       <g class="line-layer outgoing" aria-hidden="true">
         {#each previousDayChords as c (c.mt.id)}
-          {@const path = chordPath(c.a, c.b, c.rr)}
+          {@const path = chordPath(c.a, c.b, c.rr, c.nodeR)}
           <path d={path} class="chord" class:live={previousDay === today} />
         {/each}
       </g>
@@ -268,12 +283,11 @@
           {@const y = py(R.pool, ta)}
           {@const dir = y > C ? -1 : 1}
           {@const lead = t.rank <= 2 && t.gp > 0}
-          {@const plays = !!t.code && dayTeams.has(t.code)}
-          {@const islive = !!t.code && liveTeams.has(t.code)}
+          {@const plays = !!t.code && outerTeams.has(t.code)}
+          {@const islive = !!t.code && outerLive.has(t.code)}
           {@const hi = !!t.code && (hoverCode === t.code || linkedCodes.has(t.code))}
-          {@const noTitle = outOfTitle(gender, t.code)}
-          <g class="team pop" class:hi style:animation-delay="{200 + (pi * 4 + i) * 32}ms" role="button" tabindex="0" aria-label="{teamName(gender, t.code ?? '')}{noTitle ? ', hors de la course au titre' : ''}" onmouseenter={() => (hoverCode = t.code ?? null)} onmouseleave={() => (hoverCode = null)} onclick={() => t.code && onteam?.(t.code)} onkeydown={(e) => e.key === 'Enter' && t.code && onteam?.(t.code)}>
-            <g class="team-visual" class:out-title={noTitle}>
+          <g class="team pop" class:hi style:animation-delay="{200 + (pi * 4 + i) * 32}ms" role="button" tabindex="0" aria-label={teamName(gender, t.code ?? '')} onmouseenter={() => (hoverCode = t.code ?? null)} onmouseleave={() => (hoverCode = null)} onclick={() => t.code && onteam?.(t.code)} onkeydown={(e) => e.key === 'Enter' && t.code && onteam?.(t.code)}>
+            <g class="team-visual">
               <clipPath id="clip-{pool.letter}-{i}"><circle cx={x} cy={y} r={NR - 1} /></clipPath>
               {#if islive}<circle cx={x} cy={y} r={NR} class="live-halo" aria-hidden="true" />{/if}
               <circle cx={x} cy={y} r={NR} class="flag-ring" class:lead class:plays class:islive />
@@ -298,7 +312,7 @@
             {@const dir = y > C ? -1 : 1}
             {@const lead = t.rank <= 2 && t.gp > 0}
             <g class="team">
-              <g class="team-visual" class:out-title={outOfTitle(previousGender, t.code)}>
+              <g class="team-visual">
                 <clipPath id="old-clip-{pool.letter}-{i}"><circle cx={x} cy={y} r={NR - 1} /></clipPath>
                 <circle cx={x} cy={y} r={NR} class="flag-ring" class:lead />
                 <image href={flagUrl(t.code)} x={x - NR} y={y - NR} width={NR * 2} height={NR * 2} clip-path="url(#old-clip-{pool.letter}-{i})" preserveAspectRatio="xMidYMid slice" />
@@ -323,7 +337,6 @@
           <g
             class="nation-slot clickable"
             class:incoming={crossfading}
-            class:out-title={outOfTitle(gender, slot.code)}
             role="button"
             tabindex="0"
             aria-label={teamName(gender, slot.code ?? '')}
@@ -331,7 +344,8 @@
             onkeydown={(e) => (e.key === 'Enter' || e.key === ' ') && slot.code && onteam?.(slot.code)}
           >
             <clipPath id="sclip-{sp.letter}-{i}"><circle cx={x} cy={y} r="14" /></clipPath>
-            <circle cx={x} cy={y} r="15" class="flag-ring anim" style:animation-delay="540ms" />
+            {#if superLive.has(slot.code)}<circle cx={x} cy={y} r="15" class="live-halo" aria-hidden="true" />{/if}
+            <circle cx={x} cy={y} r="15" class="flag-ring anim" class:plays={superTeams.has(slot.code)} class:islive={superLive.has(slot.code)} style:animation-delay="540ms" />
             <image href={flagUrl(slot.code)} x={x - 15} y={y - 15} width="30" height="30" clip-path="url(#sclip-{sp.letter}-{i})" preserveAspectRatio="xMidYMid slice" />
           </g>
         {:else}
@@ -349,7 +363,7 @@
             {@const x = px(R.super, sa)}
             {@const y = py(R.super, sa)}
             {#if slot.real && slot.code}
-              <g class="nation-slot" class:out-title={outOfTitle(previousGender, slot.code)}>
+              <g class="nation-slot">
                 <clipPath id="old-sclip-{sp.letter}-{i}"><circle cx={x} cy={y} r="14" /></clipPath>
                 <circle cx={x} cy={y} r="15" class="flag-ring" />
                 <image href={flagUrl(slot.code)} x={x - 15} y={y - 15} width="30" height="30" clip-path="url(#old-sclip-{sp.letter}-{i})" preserveAspectRatio="xMidYMid slice" />
@@ -368,9 +382,8 @@
       <text x={C} y={semi.labelY} class="phase-lbl anim" style:animation-delay="600ms">demi-finale</text>
       {#each [semi.match?.home ?? '', semi.match?.away ?? ''] as code, ti}
         {@const x = C + (ti === 0 ? -18 : 18)}
-        {@const noTitle = outOfTitle(gender, code)}
         {#if code}
-          <g class="stage-team" class:out-title={noTitle} role="button" tabindex="0" aria-label="{teamName(gender, code)}{noTitle ? ', hors de la course au titre' : ''}" onclick={() => onteam?.(code)} onkeydown={(event) => event.key === 'Enter' && onteam?.(code)}>
+          <g class="stage-team" role="button" tabindex="0" aria-label={teamName(gender, code)} onclick={() => onteam?.(code)} onkeydown={(event) => event.key === 'Enter' && onteam?.(code)}>
             <clipPath id="semi-{si}-{ti}"><circle cx={x} cy={y} r="13" /></clipPath>
             <circle cx={x} cy={y} r="14" class="flag-ring anim" style:animation-delay="{600 + ti * 30}ms" />
             <image href={flagUrl(code)} x={x - 14} y={y - 14} width="28" height="28" clip-path="url(#semi-{si}-{ti})" preserveAspectRatio="xMidYMid slice" />
@@ -389,7 +402,6 @@
         <g
           class="nation-slot clickable"
           class:incoming={crossfading}
-          class:out-title={outOfTitle(gender, finalist.code)}
           role="button"
           tabindex="0"
           aria-label={teamName(gender, finalist.code)}
@@ -685,19 +697,6 @@
   .nation-slot,
   .stage-team {
     transition: opacity 0.2s ease, filter 0.2s ease;
-  }
-  .team-visual.out-title,
-  .nation-slot.out-title,
-  .stage-team.out-title {
-    --nation-opacity: 0.38;
-    opacity: var(--nation-opacity);
-    filter: saturate(0.15);
-  }
-  .team:hover .team-visual.out-title,
-  .team:focus-visible .team-visual.out-title,
-  .stage-team.out-title:hover,
-  .stage-team.out-title:focus-visible {
-    --nation-opacity: 0.62;
   }
   .stage-team {
     cursor: pointer;
