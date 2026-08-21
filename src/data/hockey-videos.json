@@ -379,5 +379,45 @@
     "gender": "W",
     "kind": "highlights",
     "source": "FIH"
+  },
+  "W:IND|NED": {
+    "id": "f0Epz3ZMkis",
+    "title": "FIH Hockey Women's World Cup 2026, Game 28: Netherlands vs India | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-21"
+  },
+  "AUS|CHN": {
+    "id": "yN-i-6tPT3s",
+    "title": "FIH Hockey Women's World Cup 2026, Game 27: China vs Australia | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-21"
+  },
+  "JPN|RSA": {
+    "id": "kGk-jIT-CKM",
+    "title": "FIH Hockey Women's World Cup 2026, Game 25: Japan vs South Africa | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-21"
+  },
+  "CHI|ENG": {
+    "id": "RmdYuVPE1Ho",
+    "title": "FIH Hockey Women's World Cup 2026, Game 26: England vs Chile | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-21"
+  },
+  "FRA|RSA": {
+    "id": "QvSdCRxh4R8",
+    "title": "FIH Hockey Men's World Cup 2026, Game 25: France vs South Africa | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-21"
   }
 }
