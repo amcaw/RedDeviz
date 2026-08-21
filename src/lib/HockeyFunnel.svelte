@@ -51,7 +51,11 @@
   const today = todayKey();
 
   const days = $derived([...new Set(cp.matches.map((m) => dayKey(m.utc)).filter(Boolean))].sort());
-  const curDay = $derived(selectedDay ?? (days.includes(today) ? today : days[0]) ?? null);
+  const curDay = $derived(
+    (selectedDay && days.includes(selectedDay) ? selectedDay : null) ??
+      (days.includes(today) ? today : days[0]) ??
+      null
+  );
   const dayIdx = $derived(curDay ? days.indexOf(curDay) : -1);
   const isToday = $derived(curDay === today);
   let previousDay = $state<string | null>(null);

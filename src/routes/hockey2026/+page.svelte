@@ -176,7 +176,9 @@
 
   let funnelDay = $state<string | null>(null);
   const activeDay = $derived(
-    funnelDay ?? (days.some((d) => d.key === today) ? today : days[0]?.key) ?? null
+    (funnelDay && days.some((d) => d.key === funnelDay) ? funnelDay : null) ??
+      (days.some((d) => d.key === today) ? today : days[0]?.key) ??
+      null
   );
   const selectDay = (key: string) => {
     funnelDay = key;
