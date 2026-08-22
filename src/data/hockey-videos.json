@@ -443,5 +443,50 @@
     "kind": "highlights",
     "source": "FIH",
     "published": "2026-08-22"
+  },
+  "M:IND|NED": {
+    "id": "bBeQj6LmJ-k",
+    "title": "FIH Hockey Men's World Cup 2026, Game 31: Netherlands vs India | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-22"
+  },
+  "NZL|WAL": {
+    "id": "vG4hTSEvYgk",
+    "title": "FIH Hockey Men's World Cup 2026, Game 29: New Zealand vs Wales | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-22"
+  },
+  "JPN|PAK": {
+    "id": "DBW3dd-kOcI",
+    "title": "FIH Hockey Men's World Cup 2026, Game 30: Pakistan vs Japan | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-22"
+  },
+  "W:BEL|GER": {
+    "id": "-BbAzvN_Ml4",
+    "title": "FIH Hockey Women's World Cup 2026, Game 31: Germany vs Belgium | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH"
+  },
+  "NZL|USA": {
+    "id": "BRlpo9_D4QM",
+    "title": "FIH Hockey Women's World Cup 2026, Game 30: USA vs New Zealand | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH"
+  },
+  "IRL|SCO": {
+    "id": "yRSfUje52JA",
+    "title": "FIH Hockey Women's World Cup 2026, Game 29: Ireland vs Scotland | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH"
   }
 }
