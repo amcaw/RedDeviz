@@ -504,5 +504,45 @@
     "kind": "highlights",
     "source": "FIH",
     "published": "2026-08-23"
+  },
+  "CHN|NED": {
+    "id": "5hwzHFoZ77s",
+    "title": "FIH Hockey Women's World Cup 2026, Game 35: Netherlands vs China | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-23"
+  },
+  "FRA|IRL": {
+    "id": "5WI7z7gtuxE",
+    "title": "FIH Hockey Men's World Cup 2026, Game 34: France vs Ireland | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-23"
+  },
+  "ENG|JPN": {
+    "id": "M4aIn6Ga9-c",
+    "title": "FIH Hockey Women's World Cup 2026, Game 34: Japan vs England | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-23"
+  },
+  "CHI|RSA": {
+    "id": "3XHGY8yIk7g",
+    "title": "FIH Hockey Women's World Cup 2026, Game 33: Chile vs South Africa | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-23"
+  },
+  "MAS|RSA": {
+    "id": "gggNfgIO_pM",
+    "title": "FIH Hockey Men's World Cup 2026, Game 33: Malaysia vs South Africa | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-23"
   }
 }
