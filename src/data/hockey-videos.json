@@ -568,5 +568,61 @@
     "kind": "highlights",
     "source": "FIH",
     "published": "2026-08-24"
+  },
+  "ENG|NED": {
+    "id": "stDmmTN8YTI",
+    "title": "FIH Hockey Men's World Cup 2026, Game 40: Netherlands vs England | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-24"
+  },
+  "W:ESP|GER": {
+    "id": "NhKbNhE74VA",
+    "title": "FIH Hockey Women's World Cup 2026, Game 39: Spain vs Germany  | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-24"
+  },
+  "NZL|SCO": {
+    "id": "OO6Xtvc8ywo",
+    "title": "FIH Hockey Women's World Cup 2026, Game 37: New Zealand vs Scotland | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-24"
+  },
+  "ARG|IND": {
+    "id": "elOO7HoWZWA",
+    "title": "FIH Hockey Men's World Cup 2026, Game 39: Argentina vs India  | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-24"
+  },
+  "IRL|USA": {
+    "id": "CgG3QPTc6Rk",
+    "title": "FIH Hockey Women's World Cup 2026, Game 38: Ireland vs USA | #HWC2026",
+    "gender": "W",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-24"
+  },
+  "NZL|PAK": {
+    "id": "d7kQ4ELy0Xs",
+    "title": "FIH Hockey Men's World Cup 2026, Game 38: New Zealand vs Pakistan  | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-24"
+  },
+  "JPN|WAL": {
+    "id": "rU1tQQcOz2o",
+    "title": "FIH Hockey Men's World Cup 2026, Game 37: Japan vs Wales  | #HWC2026",
+    "gender": "M",
+    "kind": "highlights",
+    "source": "FIH",
+    "published": "2026-08-24"
   }
 }
