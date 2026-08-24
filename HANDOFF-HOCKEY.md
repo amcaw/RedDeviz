@@ -2,19 +2,19 @@
 
 Dernière actualisation du handoff : **16 août 2026**.
 
-Le socle hockey est déjà dans `main` (`62053b5`, puis ajustements dans `3869995`), mais les derniers travaux décrits ci-dessous sont **locaux et non committés**. Ne pas les écraser et ne faire ni commit ni push sans instruction explicite.
+Le socle hockey et toutes les améliorations interactives sont dans `main` (`62053b5`, `3869995`, puis `6d32e5e`). Seule la création de la vidéo sociale décrite ci-dessous est encore **locale et non committée**. Ne pas l'écraser et ne faire ni commit ni push sans instruction explicite.
 
 État Git local au moment du handoff :
 
 - `M HANDOFF-HOCKEY.md`
-- `M src/lib/HockeyFunnel.svelte`
-- `M src/lib/HockeyMatch.svelte`
-- `M src/routes/hockey2026/+page.svelte`
+- `?? scripts/capture-hockey-social.mjs`
+- `?? exports/`
 
 Fichiers du module : `scripts/fetch-hockey.mjs`, `src/data/hockey.json`, `src/lib/hockey/data.ts`,
 `src/lib/HockeyFunnel.svelte`, `HockeyMatch.svelte`, `HockeyTeam.svelte`,
 `HockeyVideo.svelte`, `scripts/fetch-hockey-videos.mjs`, `src/data/hockey-videos.json`,
-`src/routes/hockey2026/+page.svelte`, `static/hockey-logo.png`, `.github/workflows/refresh-hockey.yml`.
+`src/routes/hockey2026/+page.svelte`, `static/hockey-logo.png`, `.github/workflows/refresh-hockey.yml`,
+`scripts/capture-hockey-social.mjs` et les exports sociaux dans `exports/`.
 
 Dernières vérifications :
 
@@ -103,7 +103,9 @@ Les changements TDF présents dans le dépôt sont indépendants et n'ont pas é
 - [x] Dates et heures de Bruxelles affichées sur chaque match joué ou à venir.
 - [x] Libellés de phase : poule, super-poule, classement, demi-finale, petite finale et finale.
 - [x] Workflow automatique étendu aux données et vidéos hockey.
-- [ ] Commit hockey, uniquement sur instruction explicite.
+- [x] Vidéo sociale carrée 1080×1080 de 50,76 s avec légendes intégrées, démonstrations desktop/mobile et piste AAC silencieuse pour l'autoplay : `exports/hockey2026-social-square.mp4`. Source WebM et couverture JPG fournies ; capture reproductible via `node scripts/capture-hockey-social.mjs` avec le serveur Vite actif.
+- [x] Améliorations de l'interface hockey committées et poussées dans `6d32e5e`.
+- [ ] Vidéo sociale, couverture, source WebM, script de capture et présent handoff encore non committés.
 
 ---
 
@@ -173,7 +175,7 @@ Le flux public FIH fournit aussi possession, tirs, entrées dans le cercle et pe
 
 ## Checklist pour la prochaine reprise
 
-1. Commencer par `git status --short` et préserver les quatre fichiers modifiés listés en tête.
+1. Commencer par `git status --short` et préserver les fichiers sociaux non committés listés en tête.
 2. Après un refresh FIH, vérifier que les nouvelles poules E/F apparaissent dans `src/data/hockey.json` avec `rank`, `gp` et les codes équipes réels.
 3. Dès les premières qualifications, contrôler visuellement que les 3es/4es de A–D s'atténuent sans disparaître et que les qualifiés se placent dans E/F.
 4. Dès que les affiches `SF` sont résolues, vérifier les quatre drapeaux de demi-finale, puis le gagnant/perdant après le score officiel.

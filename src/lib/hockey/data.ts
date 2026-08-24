@@ -257,7 +257,12 @@ const resolveSeed = (g: Gender, label: string | null | undefined): string | null
   if (!label) return null;
   const m = label.match(/^(\d)(?:st|nd|rd|th|h) Pool ([A-H])$/i);
   if (!m) return null;
-  return rankClinched(g, m[2].toUpperCase(), Number(m[1]));
+  const rank = Number(m[1]);
+  const letter = m[2].toUpperCase();
+  if (FIRST_POOLS.includes(letter)) return rankClinched(g, letter, rank);
+  const matches = HOCKEY[g].matches.filter((x) => x.phase === letter);
+  if (!matches.length || !matches.every(matchDecided)) return null;
+  return HOCKEY[g].pools[letter]?.teams.find((t) => t.rank === rank)?.code ?? null;
 };
 
 export const matchSideCode = (g: Gender, match: Match, side: 'home' | 'away'): string | null => {

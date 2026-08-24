@@ -384,7 +384,7 @@
     ] as semi, si}
       {@const y = py(R.semi, semi.angle)}
       <text x={C} y={semi.labelY} class="phase-lbl anim" style:animation-delay="600ms">demi-finale</text>
-      {#each [semi.match?.home ?? '', semi.match?.away ?? ''] as code, ti}
+      {#each [semi.match ? matchSideCode(gender, semi.match, 'home') : '', semi.match ? matchSideCode(gender, semi.match, 'away') : ''] as code, ti}
         {@const x = C + (ti === 0 ? -18 : 18)}
         {#if code}
           <g class="stage-team" role="button" tabindex="0" aria-label={teamName(gender, code)} onclick={() => onteam?.(code)} onkeydown={(event) => event.key === 'Enter' && onteam?.(code)}>
