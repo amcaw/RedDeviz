@@ -130,9 +130,8 @@ export const comp = (g: Gender): Comp => HOCKEY[g];
 const VIDEOS = videosRaw as Record<string, HockeyVideoRef>;
 
 export const videoOf = (g: Gender, match: Match): HockeyVideoRef | null => {
-  const pair = [match.home, match.away].sort().join('|');
   const gender = g === 'men' ? 'M' : 'W';
-  const video = VIDEOS[`${gender}:${pair}`] ?? VIDEOS[pair];
+  const video = VIDEOS[String(match.id)];
   if (video?.gender !== gender) return null;
   const prefix = video.kind === 'replay' ? 'Match complet' : 'Résumé';
   return { ...video, title: `${prefix} : ${matchSideName(g, match, 'home')} – ${matchSideName(g, match, 'away')}` };

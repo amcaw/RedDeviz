@@ -8,6 +8,8 @@ const HOCKEY = resolve(__dirname, '../src/data/hockey.json');
 const CHANNEL_ID = 'UCsRwclNMmdK1Kiy2O3eL6hg';
 const RSS = `https://www.youtube.com/feeds/videos.xml?channel_id=${CHANNEL_ID}`;
 const VIDEOS_PAGE = 'https://www.youtube.com/@fihockey/videos?hl=en&gl=GB';
+const SEARCH_PAGE = (q) => `https://www.youtube.com/@fihockey/search?query=${encodeURIComponent(q)}&hl=en&gl=GB`;
+const SEARCH_QUERIES = ['place play-off', 'semi-final', 'gold medal match', 'bronze medal game'];
 const UA = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122 Safari/537.36';
 
 const norm = (s) =>
@@ -88,26 +90,47 @@ names.set('usa', 'USA');
 names.set('united states of america', 'USA');
 names.set('great britain', 'ENG');
 
-const pairGenders = new Map();
-for (const [group, gender] of [['men', 'M'], ['women', 'W']]) {
-  for (const match of hockey[group].matches) {
-    const pair = [match.home, match.away].sort().join('|');
-    if (!pairGenders.has(pair)) pairGenders.set(pair, new Set());
-    pairGenders.get(pair).add(gender);
-  }
-}
+const MATCHES = { M: hockey.men.matches, W: hockey.women.matches };
+const pairOf = (match) => [match.home, match.away].sort().join('|');
+const isKnockout = (phase) => phase === 'SF' || /^\d+\/\d+$/.test(phase ?? '');
+
+const PHASE_HINTS = [
+  [/(\d+)(?:st|nd|rd|th)\s+place\s+play-?off\s*:/i, (m) => `${m[1]}/${Number(m[1]) + 1}`],
+  [/(?:semi[-\s]?finals?|semis)\s*:/i, () => 'SF'],
+  [/bronze\s+medal\s+(?:match|game)\s*:/i, () => '3/4'],
+  [/(?:gold\s+medal\s+(?:match|game)|\bfinal\b)\s*:/i, () => '1/2'],
+  [/game\s+\d+\s*:/i, () => 'pool']
+];
 
 function parseVideo(title) {
   const tournament = title.match(/FIH\s+(?:Hockey\s+)?(Men's|Women's)\s+(?:Hockey\s+)?World Cup 2026/i);
-  if (!tournament || !/Game\s+\d+\s*:/i.test(title)) return null;
+  if (!tournament) return null;
   const gender = /^men/i.test(tournament[1]) ? 'M' : 'W';
-  if (!gender) return null;
-  const matchup = title.split(/Game\s+\d+\s*:/i)[1]?.split('|')[0]?.trim() ?? '';
+  let hint = null;
+  for (const [re, toPhase] of PHASE_HINTS) {
+    const found = title.match(re);
+    if (found) {
+      hint = { at: found.index + found[0].length, phase: toPhase(found) };
+      break;
+    }
+  }
+  if (!hint) return null;
+  const matchup = title.slice(hint.at).split('|')[0].trim();
   const parts = matchup.split(/\s+v(?:s\.?)?\s+/i);
   if (parts.length !== 2) return null;
   const codes = parts.map((x) => names.get(norm(x)));
   if (!codes[0] || !codes[1] || codes[0] === codes[1]) return null;
-  return { gender, pair: codes.sort().join('|'), kind: 'highlights' };
+  return { gender, pair: codes.sort().join('|'), phase: hint.phase, kind: 'highlights' };
+}
+
+function resolveMatch(video) {
+  const candidates = MATCHES[video.gender].filter((m) => pairOf(m) === video.pair);
+  if (candidates.length === 1) return candidates[0];
+  const narrowed =
+    video.phase === 'pool'
+      ? candidates.filter((m) => !isKnockout(m.phase))
+      : candidates.filter((m) => m.phase === video.phase);
+  return narrowed.length === 1 ? narrowed[0] : null;
 }
 
 const xml = await fetchText(RSS, { 'User-Agent': UA });
@@ -124,11 +147,27 @@ if (!xml && !html) {
 
 const rss = xml ? parseRss(xml) : new Map();
 const chan = html ? parseChannel(html) : new Map();
-console.log(`RSS: ${rss.size} entrées · page chaîne: ${chan.size} vidéos`);
 
 const candidates = new Map();
 for (const [id, video] of rss) candidates.set(id, video);
 for (const [id, title] of chan) if (!candidates.has(id)) candidates.set(id, { title });
+
+let found = 0;
+for (const query of SEARCH_QUERIES) {
+  const page = await fetchText(SEARCH_PAGE(query), {
+    'User-Agent': UA,
+    'Accept-Language': 'en-GB,en;q=0.9',
+    Cookie: 'SOCS=CAI; CONSENT=YES+'
+  });
+  if (!page) continue;
+  for (const [id, title] of parseChannel(page)) {
+    if (!candidates.has(id)) {
+      candidates.set(id, { title });
+      found++;
+    }
+  }
+}
+console.log(`RSS: ${rss.size} entrées · page chaîne: ${chan.size} vidéos · recherche: ${found} de plus`);
 
 const previous = existsSync(OUT) ? JSON.parse(readFileSync(OUT, 'utf8')) : {};
 const data = Object.fromEntries(Object.entries(previous).filter(([, video]) => video.source === 'FIH'));
@@ -137,16 +176,15 @@ let added = 0;
 
 for (const [id, { title, published }] of candidates) {
   if (known.has(id)) continue;
-  const match = parseVideo(title);
+  const parsed = parseVideo(title);
+  const match = parsed ? resolveMatch(parsed) : null;
   if (!match) {
-    if (/fih/i.test(title) && /world cup 2026/i.test(title) && /game\s+\d+/i.test(title))
-      console.warn(`  match non résolu: "${title}"`);
+    if (parsed) console.warn(`  match non résolu: "${title}"`);
     continue;
   }
-  const genders = pairGenders.get(match.pair);
-  const key = genders?.size > 1 ? `${match.gender}:${match.pair}` : match.pair;
+  const key = String(match.id);
   if (!data[key]) {
-    data[key] = { id, title, gender: match.gender, kind: match.kind, source: 'FIH', ...(published ? { published } : {}) };
+    data[key] = { id, title, gender: parsed.gender, kind: parsed.kind, source: 'FIH', ...(published ? { published } : {}) };
     known.add(id);
     added++;
     console.log(`  + ${key} -> ${id} (${title})`);
