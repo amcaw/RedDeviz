@@ -112,15 +112,17 @@ function parseMatches(html) {
     phaseById.set(Number(m[1]), m[2]);
   }
   const panels = html.split(/<div class="panel panel-default[^>]*>/).slice(1);
-  for (const panel of panels) {
+  for (const raw of panels) {
+    const panel = raw.match(/<div class="panel-body"[\s\S]*?<\/div>\s*<\/div>/)?.[0] ?? raw;
     const anchor = panel.match(/<a href="[^"]*matches\/(\d+)"><b>([\s\S]*?)<\/a>/);
     if (!anchor) continue;
     const id = Number(anchor[1]);
     const matchup = strip(anchor[2]);
     const codes = [...panel.matchAll(/flags\/round\/([A-Z0-9]{2,3})\.png/g)].map((m) => m[1]);
     const labels = matchup.split(/\s+-\s+/);
-    const score = panel.match(/<b>\s*(\d{1,2})\s*-\s*(\d{1,2})\s*<\/b>/);
-    const so = panel.match(/\(\s*(\d)\s*-\s*(\d)\s*(?:SO|s\.?o\.?)\s*\)/i);
+    const score = panel.match(
+      /<b>\s*(\d{1,2})\s*-\s*(\d{1,2})\s*(?:\(\s*(\d{1,2})\s*-\s*(\d{1,2})\s*(?:SO|s\.?o\.?)\s*\))?\s*<\/b>/i
+    );
     const phase = panel.match(/<BR>\s*([A-H]|SF|\d+\/\d+)\s*<BR>/)?.[1] ?? phaseById.get(id) ?? null;
     const utc = panel.match(/UTC:\s*([\d-]+\s[\d:]+)/)?.[1] ?? null;
     out.push({
@@ -130,7 +132,7 @@ function parseMatches(html) {
       ...(codes.length < 2 ? { homeLabel: labels[0] ?? '', awayLabel: labels[1] ?? '' } : {}),
       hg: score ? Number(score[1]) : null,
       ag: score ? Number(score[2]) : null,
-      so: so ? [Number(so[1]), Number(so[2])] : null,
+      so: score?.[3] != null ? [Number(score[3]), Number(score[4])] : null,
       played: !!score,
       utc,
       phase
